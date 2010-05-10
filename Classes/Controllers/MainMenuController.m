@@ -101,6 +101,7 @@
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
+    NSLog(@"current tag: %d", tag);
     switch (tag) 
     {
         case 11:

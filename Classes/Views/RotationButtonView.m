@@ -8,6 +8,13 @@
 
 #import "RotationButtonView.h"
 
+@interface RotationButtonView ()
+
+- (void)changeOrientation;
+
+@end
+
+
 @implementation RotationButtonView
 
 @dynamic orientation;
@@ -34,30 +41,39 @@
     if (newOrientation != self.orientation)
     {
         _orientation = newOrientation;
-        
-        CGAffineTransform transform = CGAffineTransformIdentity;
-        switch (self.orientation) 
-        {
-            case UIInterfaceOrientationPortrait:
-                break;
-                
-            case UIInterfaceOrientationPortraitUpsideDown:
-                transform = CGAffineTransformMakeRotation(M_PI);
-                break;
-                
-            case UIInterfaceOrientationLandscapeLeft:
-                transform = CGAffineTransformMakeRotation(M_PI / 2.0);
-                break;
-                
-            case UIInterfaceOrientationLandscapeRight:
-                transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
-                break;
-                
-            default:
-                break;
-        }
-        self.foregroundImageView.transform = transform;
+        [self performSelector:@selector(changeOrientation) withObject:nil afterDelay:1.0];
     }
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)changeOrientation
+{
+    [UIView beginAnimations:nil context:NULL];
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    switch (self.orientation) 
+    {
+        case UIInterfaceOrientationPortrait:
+            break;
+            
+        case UIInterfaceOrientationPortraitUpsideDown:
+            transform = CGAffineTransformMakeRotation(M_PI);
+            break;
+            
+        case UIInterfaceOrientationLandscapeLeft:
+            transform = CGAffineTransformMakeRotation(M_PI / 2.0);
+            break;
+            
+        case UIInterfaceOrientationLandscapeRight:
+            transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
+            break;
+            
+        default:
+            break;
+    }
+    self.foregroundImageView.transform = transform;
+    [UIView commitAnimations];
 }
 
 @end

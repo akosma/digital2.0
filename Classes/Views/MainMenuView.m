@@ -119,25 +119,43 @@
 {
     if (self.isMinimized)
     {
-        CGPoint point = [recognizer locationInView:self.dockView];
-        NSLog(@"point: %@", NSStringFromCGPoint(point));
-        if (point.x > 0 && point.y > 0)
+        switch (recognizer.state) 
         {
-            ButtonView *buttonView = (ButtonView *)[self hitTest:point withEvent:nil];
-            if (buttonView != nil)
+            case UIGestureRecognizerStateChanged:
             {
-                if ([buttonView isKindOfClass:[ButtonView class]])
+                CGPoint point = [recognizer locationInView:self.dockView];
+                if (point.x > 0 && point.y > 0)
                 {
-                    self.selectedButton = buttonView;
-                    [self highlightCurrentButtonInDock];
+                    ButtonView *buttonView = (ButtonView *)[self hitTest:point withEvent:nil];
+                    if (buttonView != nil)
+                    {
+                        if ([buttonView isKindOfClass:[ButtonView class]])
+                        {
+                            self.selectedButton = buttonView;
+                            [self highlightCurrentButtonInDock];
+                        }
+                        else if ([buttonView isKindOfClass:[NSClassFromString(@"EAGLView") class]])
+                        {
+                            buttonView = (ButtonView *)buttonView.superview;
+                            self.selectedButton = buttonView;
+                            [self highlightCurrentButtonInDock];
+                        }
+                    }
                 }
-                else if ([buttonView isKindOfClass:[NSClassFromString(@"EAGLView") class]])
-                {
-                    buttonView = (ButtonView *)buttonView.superview;
-                    self.selectedButton = buttonView;
-                    [self highlightCurrentButtonInDock];
-                }
+                break;
             }
+                
+            case UIGestureRecognizerStateEnded:
+            {
+                if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
+                {
+                    [self.delegate mainMenu:self didSelectButtonWithTag:self.selectedButton.tag];
+                }
+                break;
+            }
+
+            default:
+                break;
         }
     }
 }
