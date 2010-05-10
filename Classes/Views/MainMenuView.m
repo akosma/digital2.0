@@ -41,12 +41,14 @@
 @synthesize originalSize = _originalSize;
 @synthesize dockView = _dockView;
 @synthesize selectedButton = _selectedButton;
+@synthesize delegate = _delegate;
 
 @dynamic minimized;
 @dynamic orientation;
 
 - (void)dealloc 
 {
+    self.delegate = nil;
     self.selectedButton = nil;
     self.normalFrames = nil;
     self.buttons = nil;
@@ -116,6 +118,11 @@
     self.selectedButton = button;
     self.minimized = YES;
     [self highlightCurrentButtonInDock];
+    
+    if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
+    {
+        [self.delegate mainMenu:self didSelectButtonWithTag:button.tag];
+    }
 }
 
 #pragma mark -

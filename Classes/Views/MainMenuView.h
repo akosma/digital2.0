@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ButtonViewDelegate.h"
+#import "MainMenuViewDelegate.h"
 
 @class ButtonView;
 @class CompassButtonView;
@@ -38,6 +39,8 @@
     UIView *_dockView;
     
     BOOL _minimized;
+    
+    id<MainMenuViewDelegate> _delegate;
 }
 
 @property (nonatomic, retain) IBOutlet RotationButtonView *button11;
@@ -53,6 +56,7 @@
 @property (nonatomic) UIInterfaceOrientation orientation;
 @property (nonatomic, getter=isMinimized) BOOL minimized;
 @property (nonatomic, retain) IBOutlet UIView *dockView;
+@property (nonatomic, assign) IBOutlet id<MainMenuViewDelegate> delegate;
 
 - (void)animate;
 - (void)resetAllButtons;

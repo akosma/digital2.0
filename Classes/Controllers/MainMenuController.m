@@ -58,4 +58,11 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark -
+#pragma mark MainMenuViewDelegate methods
+
+- (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
+{
+}
+
 @end

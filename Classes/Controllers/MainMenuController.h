@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "MainMenuViewDelegate.h"
 
 @class MainMenuView;
 
-@interface MainMenuController : UIViewController
+@interface MainMenuController : UIViewController <MainMenuViewDelegate>
 {
 @private
     MainMenuView *_mainMenuView;
