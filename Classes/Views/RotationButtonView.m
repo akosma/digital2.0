@@ -56,9 +56,7 @@
             default:
                 break;
         }
-        [UIView beginAnimations:nil context:NULL];
         self.foregroundImageView.transform = transform;
-        [UIView commitAnimations];
     }
 }
 
