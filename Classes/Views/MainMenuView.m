@@ -110,6 +110,23 @@
     self.minimized = !self.isMinimized;
 }
 
+- (void)panRecognized:(UIPanGestureRecognizer *)recognizer
+{
+    if (self.isMinimized)
+    {
+        CGPoint point = [recognizer locationInView:self.dockView];
+        if (point.x > 0 && point.y > 0)
+        {
+            ButtonView *buttonView = (ButtonView *)[self hitTest:point withEvent:nil];
+            if (buttonView != nil && [buttonView isKindOfClass:[ButtonView class]])
+            {
+                self.selectedButton = buttonView;
+                [self highlightCurrentButtonInDock];
+            }
+        }
+    }
+}
+
 #pragma mark -
 #pragma mark ButtonViewDelegate methods
 

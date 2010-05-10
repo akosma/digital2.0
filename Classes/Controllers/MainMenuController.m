@@ -40,6 +40,11 @@
     UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
                                                                                      action:@selector(toggleMinimized)] autorelease];
     [self.view addGestureRecognizer:tapRecognizer];
+
+    UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self 
+                                                                                     action:@selector(panRecognized:)] autorelease];
+    panRecognizer.maximumNumberOfTouches = 1;
+    [self.view addGestureRecognizer:panRecognizer];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -56,6 +61,14 @@
 - (void)didReceiveMemoryWarning 
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark -
+#pragma mark Gesture recognizers
+
+- (void)panRecognized:(UIPanGestureRecognizer *)recognizer
+{
+    [self.mainMenuView panRecognized:recognizer];
 }
 
 #pragma mark -
