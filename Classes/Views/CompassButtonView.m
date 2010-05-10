@@ -80,9 +80,7 @@ CGFloat degreesToRadians(double radians)
         default:
             break;
     }
-    [UIView beginAnimations:nil context:NULL];
     self.compassNeedleImageView.transform = CGAffineTransformMakeRotation(angle);
-    [UIView commitAnimations];
 }
 
 - (BOOL)locationManagerShouldDisplayHeadingCalibration:(CLLocationManager *)manager

@@ -12,9 +12,10 @@
 @interface ClockButtonView : ButtonView 
 {
 @private
-    UIImageView *_secondsHand;
     UIImageView *_minutesHand;
     UIImageView *_hoursHand;
+    CGFloat _hourAngle;
+    CGFloat _minuteAngle;
 }
 
 @end

@@ -11,25 +11,23 @@
 
 @interface ClockButtonView ()
 
-@property (nonatomic, retain) UIImageView *secondsHand;
 @property (nonatomic, retain) UIImageView *minutesHand;
 @property (nonatomic, retain) UIImageView *hoursHand;
+@property (nonatomic) CGFloat hourAngle;
+@property (nonatomic) CGFloat minuteAngle;
 
 @end
 
 
 @implementation ClockButtonView
 
-@synthesize secondsHand = _secondsHand;
 @synthesize minutesHand = _minutesHand;
 @synthesize hoursHand = _hoursHand;
+@synthesize minuteAngle = _minuteAngle;
+@synthesize hourAngle = _hourAngle;
 
 - (void)subclassSetup
 {
-    self.secondsHand = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_22_seconds.png"]] autorelease];
-    self.secondsHand.layer.anchorPoint = CGPointMake(0.5, 0.5);
-    [self addSubview:self.secondsHand];
-
     self.minutesHand = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_22_minutes.png"]] autorelease];
     self.minutesHand.layer.anchorPoint = CGPointMake(0.5, 0.5);
     [self addSubview:self.minutesHand];
@@ -38,12 +36,14 @@
     self.hoursHand.layer.anchorPoint = CGPointMake(0.5, 0.5);
     [self addSubview:self.hoursHand];
 
+    self.hourAngle = 0.0;
+    self.minuteAngle = 0.0;
+
     [self animate];
 }
 
 - (void)dealloc 
 {
-    self.secondsHand = nil;
     self.minutesHand = nil;
     self.hoursHand = nil;
     [super dealloc];
@@ -57,51 +57,39 @@
                                                        fromDate:today];
     NSInteger hour = [weekdayComponents hour];
     NSInteger minute = [weekdayComponents minute];
-    NSInteger second = [weekdayComponents second];
     
-    CGFloat hourAngle = 0.0;
-    CGFloat minuteAngle = 0.0;
-    CGFloat secondsAngle = 0.0;
+    CGFloat newMinuteAngle = 0.0;
     CGFloat minutesContributionAngle = 0.0;
-    CGFloat secondsContributionAngle = 0.0;
     if (hour > 12)
     {
         hour = hour - 12;
     }
     if (hour < 6)
     {
-        hourAngle = hour * M_PI / 6.0;
+        self.hourAngle = hour * M_PI / 6.0;
     }
     else 
     {
-        hourAngle = -1.0 * (12 - hour) * M_PI / 6.0;
+        self.hourAngle = -1.0 * (12 - hour) * M_PI / 6.0;
     }
     minutesContributionAngle = minute * M_PI / 360.0;
-    hourAngle += minutesContributionAngle;
+    self.hourAngle += minutesContributionAngle;
     
     if (minute < 30)
     {
-        minuteAngle = minute * M_PI / 30.0;
+        newMinuteAngle = minute * M_PI / 30.0;
     }
     else
     {
-        minuteAngle = -1.0 * (60.0 - minute) * M_PI / 30.0;
-    }
-    secondsContributionAngle = second * M_PI / 1800.0;
-    minuteAngle += secondsContributionAngle;
-    
-    if (second < 30)
-    {
-        secondsAngle = second * M_PI / 30.0;
-    }
-    else 
-    {
-        secondsAngle = -1.0 * (60.0 - second) * M_PI / 30.0;
+        newMinuteAngle = -1.0 * (60.0 - minute) * M_PI / 30.0;
     }
     
-    self.hoursHand.transform = CGAffineTransformMakeRotation(hourAngle);
-    self.minutesHand.transform = CGAffineTransformMakeRotation(minuteAngle);
-    self.secondsHand.transform = CGAffineTransformMakeRotation(secondsAngle);
+    if (newMinuteAngle != self.minuteAngle)
+    {
+        self.minuteAngle = newMinuteAngle;
+        self.hoursHand.transform = CGAffineTransformMakeRotation(self.hourAngle);
+        self.minutesHand.transform = CGAffineTransformMakeRotation(self.minuteAngle);
+    }
 }
 
 @end

@@ -39,7 +39,6 @@
 		3A43D8931195A09E005C9F65 /* ClockButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43D8921195A09E005C9F65 /* ClockButtonView.m */; };
 		3A43D8B41195A38E005C9F65 /* button_22_hours.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B11195A38E005C9F65 /* button_22_hours.png */; };
 		3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B21195A38E005C9F65 /* button_22_minutes.png */; };
-		3A43D8B61195A38E005C9F65 /* button_22_seconds.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B31195A38E005C9F65 /* button_22_seconds.png */; };
 		3A43D9471195A81E005C9F65 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D9461195A81E005C9F65 /* OpenGLES.framework */; };
 		3A43D94B1195A82D005C9F65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D94A1195A82D005C9F65 /* QuartzCore.framework */; };
 		3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA6C9DE119630AD00026526 /* EAGLView.m */; };
@@ -87,7 +86,6 @@
 		3A43D8921195A09E005C9F65 /* ClockButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockButtonView.m; sourceTree = "<group>"; };
 		3A43D8B11195A38E005C9F65 /* button_22_hours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_hours.png; sourceTree = "<group>"; };
 		3A43D8B21195A38E005C9F65 /* button_22_minutes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_minutes.png; sourceTree = "<group>"; };
-		3A43D8B31195A38E005C9F65 /* button_22_seconds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_seconds.png; sourceTree = "<group>"; };
 		3A43D9461195A81E005C9F65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3A43D94A1195A82D005C9F65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3AA6C89A11961F2E00026526 /* values.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = values.inc; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 			children = (
 				3A43D8B11195A38E005C9F65 /* button_22_hours.png */,
 				3A43D8B21195A38E005C9F65 /* button_22_minutes.png */,
-				3A43D8B31195A38E005C9F65 /* button_22_seconds.png */,
 				3A43D82011958FCD005C9F65 /* button_31_needle.png */,
 				3A3BA19E11957C3D0021D14B /* button_11.png */,
 				3A3BA19F11957C3D0021D14B /* button_12.png */,
@@ -334,7 +331,6 @@
 				3A43D82111958FCD005C9F65 /* button_31_needle.png in Resources */,
 				3A43D8B41195A38E005C9F65 /* button_22_hours.png in Resources */,
 				3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */,
-				3A43D8B61195A38E005C9F65 /* button_22_seconds.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
