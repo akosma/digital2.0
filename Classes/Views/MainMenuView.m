@@ -16,6 +16,9 @@
 @interface MainMenuView ()
 
 @property (nonatomic, retain) NSArray *buttons;
+@property (nonatomic, retain) NSArray *normalFrames;
+@property (nonatomic) CGSize originalSize;
+@property (nonatomic, assign) ButtonView *selectedButton;
 
 @end
 
@@ -23,6 +26,7 @@
 @implementation MainMenuView
 
 @synthesize buttons = _buttons;
+@synthesize normalFrames = _normalFrames;
 @synthesize button11 = _button11;
 @synthesize button12 = _button12;
 @synthesize button13 = _button13;
@@ -32,11 +36,17 @@
 @synthesize button31 = _button31;
 @synthesize button32 = _button32;
 @synthesize button33 = _button33;
+@synthesize originalSize = _originalSize;
+@synthesize dockView = _dockView;
+@synthesize selectedButton = _selectedButton;
 
+@dynamic minimized;
 @dynamic orientation;
 
 - (void)dealloc 
 {
+    self.selectedButton = nil;
+    self.normalFrames = nil;
     self.buttons = nil;
     self.button11 = nil;
     self.button12 = nil;
@@ -47,6 +57,7 @@
     self.button31 = nil;
     self.button32 = nil;
     self.button33 = nil;
+    self.dockView = nil;
     [super dealloc];
 }
 
@@ -56,9 +67,21 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    _minimized = NO;
     self.buttons = [NSArray arrayWithObjects:self.button11, self.button12, self.button13,
                     self.button21, self.button22, self.button23,
                     self.button31, self.button32, self.button33, nil];
+    self.normalFrames = [NSArray arrayWithObjects:[NSValue valueWithCGRect:self.button11.frame],
+                         [NSValue valueWithCGRect:self.button12.frame],
+                         [NSValue valueWithCGRect:self.button13.frame],
+                         [NSValue valueWithCGRect:self.button21.frame],
+                         [NSValue valueWithCGRect:self.button22.frame],
+                         [NSValue valueWithCGRect:self.button23.frame],
+                         [NSValue valueWithCGRect:self.button31.frame],
+                         [NSValue valueWithCGRect:self.button32.frame],
+                         [NSValue valueWithCGRect:self.button33.frame],
+                         nil];
+    self.originalSize = self.frame.size;
 }
 
 #pragma mark -
@@ -78,11 +101,17 @@
     [self.button23 animate];
 }
 
+- (void)toggleMinimized
+{
+    self.minimized = !self.isMinimized;
+}
+
 #pragma mark -
 #pragma mark ButtonViewDelegate methods
 
 - (void)didTouchButtonView:(ButtonView *)button
 {
+    self.selectedButton = button;
     for (ButtonView *currentButton in self.buttons)
     {
         currentButton.hasShadow = (currentButton != button);
@@ -105,6 +134,61 @@
         
         self.button31.orientation = self.orientation;
         self.button11.orientation = self.orientation;
+    }
+}
+
+- (BOOL)isMinimized
+{
+    return _minimized;
+}
+
+- (void)setMinimized:(BOOL)newValue
+{
+    if (newValue != self.minimized)
+    {
+        _minimized = newValue;
+        
+        [UIView beginAnimations:nil context:NULL];
+        if (self.isMinimized)
+        {
+            self.frame = self.dockView.frame;
+            
+            for (NSInteger index = 0; index < [self.buttons count]; ++index)
+            {
+                ButtonView *currentButton = [self.buttons objectAtIndex:index];
+                currentButton.transform = CGAffineTransformMakeScale(0.25, 0.25);
+                if (currentButton == self.selectedButton)
+                {
+                    currentButton.frame = CGRectMake(index * 50.0, 
+                                                     -10.0, 
+                                                     currentButton.frame.size.width, 
+                                                     currentButton.frame.size.height);
+                    
+                }
+                else
+                {
+                    currentButton.frame = CGRectMake(index * 50.0, 
+                                                     0.0, 
+                                                     currentButton.frame.size.width, 
+                                                     currentButton.frame.size.height);
+                }
+            }
+        }
+        else
+        {
+            self.frame = CGRectMake(self.superview.bounds.size.width / 2.0 - self.originalSize.width / 2.0, 
+                                    self.superview.bounds.size.height / 2.0 - self.originalSize.height / 2.0,
+                                    self.originalSize.width, self.originalSize.height);
+            
+            for (NSInteger index = 0; index < [self.buttons count]; ++index)
+            {
+                ButtonView *currentButton = [self.buttons objectAtIndex:index];
+                NSValue *currentRectValue = [self.normalFrames objectAtIndex:index];
+                currentButton.transform = CGAffineTransformIdentity;
+                currentButton.frame = [currentRectValue CGRectValue];
+            }
+        }
+        [UIView commitAnimations];
     }
 }
 

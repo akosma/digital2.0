@@ -38,7 +38,7 @@
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
-                                                                                     action:@selector(resetAllButtons)] autorelease];
+                                                                                     action:@selector(toggleMinimized)] autorelease];
     [self.view addGestureRecognizer:tapRecognizer];
 }
 

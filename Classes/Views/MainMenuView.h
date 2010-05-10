@@ -26,10 +26,18 @@
     CubeButtonView *_button23;
     CompassButtonView *_button31;
     ButtonView *_button32;
-    ButtonView *_button33;    
+    ButtonView *_button33;
+    
+    ButtonView *_selectedButton;
 
     NSArray *_buttons;
+    NSArray *_normalFrames;
     UIInterfaceOrientation _orientation;
+    CGSize _originalSize;
+    
+    UIView *_dockView;
+    
+    BOOL _minimized;
 }
 
 @property (nonatomic, retain) IBOutlet RotationButtonView *button11;
@@ -43,8 +51,11 @@
 @property (nonatomic, retain) IBOutlet ButtonView *button33;
 
 @property (nonatomic) UIInterfaceOrientation orientation;
+@property (nonatomic, getter=isMinimized) BOOL minimized;
+@property (nonatomic, retain) IBOutlet UIView *dockView;
 
 - (void)animate;
 - (void)resetAllButtons;
+- (void)toggleMinimized;
 
 @end
