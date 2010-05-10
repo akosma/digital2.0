@@ -63,6 +63,38 @@
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
+    switch (tag) 
+    {
+        case 11:
+            break;
+
+        case 12:
+            break;
+
+        case 13:
+            break;
+            
+        case 21:
+            break;
+            
+        case 22:
+            break;
+            
+        case 23:
+            break;
+            
+        case 31:
+            break;
+            
+        case 32:
+            break;
+            
+        case 33:
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end
