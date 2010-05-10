@@ -62,6 +62,10 @@
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(animate)];
     [self.displayLink setFrameInterval:1];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                     action:@selector(resetButtons:)] autorelease];
+    [self.view addGestureRecognizer:tapRecognizer];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -99,6 +103,14 @@
 {
     [self.button22 animate];
     [self.button23 animate];
+}
+
+- (void)resetButtons:(UITapGestureRecognizer *)recognizer
+{
+    for (ButtonView *currentButton in self.buttons)
+    {
+        currentButton.hasShadow = YES;
+    }
 }
 
 @end
