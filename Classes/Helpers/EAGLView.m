@@ -64,25 +64,12 @@
 -(void)drawCube
 {
 	const GLfloat cubeVertices[6][12] = {
-		{ 1,-1, 1, -1,-1, 1,  1, 1, 1, -1, 1, 1 },
-		{ 1, 1, 1,  1,-1, 1,  1, 1,-1,  1,-1,-1 },
-		{-1, 1,-1, -1,-1,-1, -1, 1, 1, -1,-1, 1 },
-		{ 1, 1, 1, -1, 1, 1,  1, 1,-1, -1, 1,-1 },
-		{ 1,-1,-1, -1,-1,-1,  1, 1,-1, -1, 1,-1 },
-		{ 1,-1, 1, -1,-1, 1,  1,-1,-1, -1,-1,-1 },
-	};
-	
-	const GLfloat cubeColors[6][4] = {
-		{0.33, 0.33, 0.33, 1.0}, 
-        {0.66, 0.66, 0.66, 1.0}, 
-        {0.8, 0.8, 0.8, 1.0},
-        {1, 1, 1, 1}, 
-        {0, 0, 0, 1}, 
-        {0.21, 0.21, 0.21, 1},
-	};
-	
-	const GLfloat cubeTexCoords[8] = {
-		1, 0,  1, 1,  0, 0,  0, 1,
+		{ 1, 1, 1,  1,-1, 1,  1,-1,-1,  1, 1,-1 },
+		{-1, 1,-1, -1, 1, 1,  1, 1, 1,  1, 1,-1 },
+		{ 1,-1, 1, -1,-1, 1, -1, 1, 1,  1, 1, 1 },
+		{-1, 1, 1, -1,-1, 1, -1,-1,-1, -1, 1,-1 },
+		{ 1,-1,-1, -1,-1,-1, -1, 1,-1,  1, 1,-1 },
+		{ 1,-1, 1, -1,-1, 1, -1,-1,-1,  1,-1,-1 },
 	};
 	
 	cubeRot += 1;
@@ -94,13 +81,14 @@
 
 	glRotatef(cubeRot, 1, 0, 0);
 	glRotatef(cubeRot, 0, 1, 1);
-	
-	glTexCoordPointer(2, GL_FLOAT, 0, cubeTexCoords);
+    glEnable(GL_LINE_STRIP);
+    glPointSize(1.0);
+    glLineWidth(4.0);
+
 	for (int f = 0; f < 6; f++) 
     {
-		glColor4f(cubeColors[f][0], cubeColors[f][1], cubeColors[f][2], cubeColors[f][3]);
 		glVertexPointer(3, GL_FLOAT, 0, cubeVertices[f]);
-		glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+		glDrawArrays(GL_LINE_STRIP, 0, 4);
 	}
 	
 	glPopMatrix();
@@ -128,7 +116,6 @@
 	glRotatef(0.0f, 0.0f, 0.0f, 0.0f);
 	glMatrixMode(GL_MODELVIEW);
 
-	
     const GLfloat zNear = 0.1, zFar = 1000.0, fieldOfView = 50.0;
     GLfloat size;
 	
@@ -150,8 +137,8 @@
     glTranslatef(0.0, 0.0, zTransform);
     
 	glEnableClientState(GL_VERTEX_ARRAY);
-	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	glEnable(GL_TEXTURE_2D);
+//	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+//	glEnable(GL_TEXTURE_2D);
 	
 	[self drawCube];
 	
