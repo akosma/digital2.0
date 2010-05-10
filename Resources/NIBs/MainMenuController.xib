@@ -45,7 +45,7 @@
 					<object class="IBUIView" id="738061807">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">269</int>
-						<string key="NSFrame">{{159, 947}, {450, 45}}</string>
+						<string key="NSFrame">{{114, 932}, {540, 60}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="680965865">
 							<int key="NSColorSpace">1</int>
@@ -455,12 +455,12 @@
 						<reference key="object" ref="766721923"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="738061807"/>
 							<reference ref="54267795"/>
 							<reference ref="732010497"/>
 							<reference ref="914297392"/>
 							<reference ref="118195360"/>
 							<reference ref="616124114"/>
+							<reference ref="738061807"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -589,7 +589,7 @@
 					<string>UIResponder</string>
 					<string>MainMenuView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>{{273, 43}, {768, 1024}}</string>
+					<string>{{273, 43}, {783, 813}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>RotationButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

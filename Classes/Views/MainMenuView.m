@@ -20,6 +20,8 @@
 @property (nonatomic) CGSize originalSize;
 @property (nonatomic, assign) ButtonView *selectedButton;
 
+- (void)highlightCurrentButtonInDock;
+
 @end
 
 
@@ -112,10 +114,8 @@
 - (void)didTouchButtonView:(ButtonView *)button
 {
     self.selectedButton = button;
-    for (ButtonView *currentButton in self.buttons)
-    {
-        currentButton.hasShadow = (currentButton != button);
-    }
+    self.minimized = YES;
+    [self highlightCurrentButtonInDock];
 }
 
 #pragma mark -
@@ -152,27 +152,7 @@
         if (self.isMinimized)
         {
             self.frame = self.dockView.frame;
-            
-            for (NSInteger index = 0; index < [self.buttons count]; ++index)
-            {
-                ButtonView *currentButton = [self.buttons objectAtIndex:index];
-                currentButton.transform = CGAffineTransformMakeScale(0.25, 0.25);
-                if (currentButton == self.selectedButton)
-                {
-                    currentButton.frame = CGRectMake(index * 50.0, 
-                                                     -10.0, 
-                                                     currentButton.frame.size.width, 
-                                                     currentButton.frame.size.height);
-                    
-                }
-                else
-                {
-                    currentButton.frame = CGRectMake(index * 50.0, 
-                                                     0.0, 
-                                                     currentButton.frame.size.width, 
-                                                     currentButton.frame.size.height);
-                }
-            }
+            [self highlightCurrentButtonInDock];
         }
         else
         {
@@ -186,6 +166,38 @@
                 NSValue *currentRectValue = [self.normalFrames objectAtIndex:index];
                 currentButton.transform = CGAffineTransformIdentity;
                 currentButton.frame = [currentRectValue CGRectValue];
+            }
+        }
+        [UIView commitAnimations];
+    }
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)highlightCurrentButtonInDock
+{
+    if (self.isMinimized)
+    {
+        [UIView beginAnimations:nil context:NULL];
+        for (NSInteger index = 0; index < [self.buttons count]; ++index)
+        {
+            ButtonView *currentButton = [self.buttons objectAtIndex:index];
+            currentButton.transform = CGAffineTransformMakeScale(0.3, 0.3);
+            if (currentButton == self.selectedButton)
+            {
+                currentButton.frame = CGRectMake(index * 60.0, 
+                                                 -10.0, 
+                                                 currentButton.frame.size.width, 
+                                                 currentButton.frame.size.height);
+                
+            }
+            else
+            {
+                currentButton.frame = CGRectMake(index * 60.0, 
+                                                 0.0, 
+                                                 currentButton.frame.size.width, 
+                                                 currentButton.frame.size.height);
             }
         }
         [UIView commitAnimations];
