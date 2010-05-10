@@ -22,6 +22,7 @@
 @property (nonatomic, copy) NSString *imageName;
 @property (nonatomic) BOOL hasShadow;
 @property (nonatomic, assign) IBOutlet id<ButtonViewDelegate> delegate;
+@property (nonatomic, retain) UIImageView *foregroundImageView;
 
 - (void)subclassSetup;
 - (void)animate;

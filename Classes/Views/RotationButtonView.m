@@ -1,0 +1,65 @@
+//
+//  RotationButtonView.m
+//  Digital 2.0
+//
+//  Created by Adrian on 5/10/10.
+//  Copyright 2010 akosma software. All rights reserved.
+//
+
+#import "RotationButtonView.h"
+
+@implementation RotationButtonView
+
+@dynamic orientation;
+
+- (void)subclassSetup
+{
+}
+
+- (void)dealloc 
+{
+    [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Properties
+
+- (UIInterfaceOrientation)orientation
+{
+    return _orientation;
+}
+
+- (void)setOrientation:(UIInterfaceOrientation)newOrientation
+{
+    if (newOrientation != self.orientation)
+    {
+        _orientation = newOrientation;
+        
+        CGAffineTransform transform = CGAffineTransformIdentity;
+        switch (self.orientation) 
+        {
+            case UIInterfaceOrientationPortrait:
+                break;
+                
+            case UIInterfaceOrientationPortraitUpsideDown:
+                transform = CGAffineTransformMakeRotation(M_PI);
+                break;
+                
+            case UIInterfaceOrientationLandscapeLeft:
+                transform = CGAffineTransformMakeRotation(M_PI / 2.0);
+                break;
+                
+            case UIInterfaceOrientationLandscapeRight:
+                transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
+                break;
+                
+            default:
+                break;
+        }
+        [UIView beginAnimations:nil context:NULL];
+        self.foregroundImageView.transform = transform;
+        [UIView commitAnimations];
+    }
+}
+
+@end

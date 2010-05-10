@@ -14,11 +14,12 @@
 @class CompassButtonView;
 @class ClockButtonView;
 @class CubeButtonView;
+@class RotationButtonView;
 
 @interface MainMenuController : UIViewController <ButtonViewDelegate>
 {
 @private
-    ButtonView *_button11;
+    RotationButtonView *_button11;
     ButtonView *_button12;
     ButtonView *_button13;
     ButtonView *_button21;
@@ -33,7 +34,7 @@
     NSArray *_buttons;
 }
 
-@property (nonatomic, retain) IBOutlet ButtonView *button11;
+@property (nonatomic, retain) IBOutlet RotationButtonView *button11;
 @property (nonatomic, retain) IBOutlet ButtonView *button12;
 @property (nonatomic, retain) IBOutlet ButtonView *button13;
 @property (nonatomic, retain) IBOutlet ButtonView *button21;

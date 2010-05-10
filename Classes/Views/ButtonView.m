@@ -12,7 +12,6 @@
 @interface ButtonView ()
 
 @property (nonatomic, retain) UIImageView *backgroundImageView;
-@property (nonatomic, retain) UIImageView *foregroundImageView;
 
 - (void)setup;
 - (void)buttonTouched:(UITapGestureRecognizer *)recognizer;

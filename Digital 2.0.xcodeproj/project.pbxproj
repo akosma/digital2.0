@@ -42,6 +42,7 @@
 		3A43D9471195A81E005C9F65 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D9461195A81E005C9F65 /* OpenGLES.framework */; };
 		3A43D94B1195A82D005C9F65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D94A1195A82D005C9F65 /* QuartzCore.framework */; };
 		3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA6C9DE119630AD00026526 /* EAGLView.m */; };
+		3AA8E313119800C700DD0287 /* RotationButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8E312119800C700DD0287 /* RotationButtonView.m */; };
 		3ABABDF21195B21600AEFF39 /* CubeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABABDF11195B21600AEFF39 /* CubeButtonView.m */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,8 @@
 		3AA6C89A11961F2E00026526 /* values.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = values.inc; sourceTree = "<group>"; };
 		3AA6C9DD119630AD00026526 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		3AA6C9DE119630AD00026526 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		3AA8E311119800C700DD0287 /* RotationButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationButtonView.h; sourceTree = "<group>"; };
+		3AA8E312119800C700DD0287 /* RotationButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationButtonView.m; sourceTree = "<group>"; };
 		3ABABDF01195B21600AEFF39 /* CubeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeButtonView.h; sourceTree = "<group>"; };
 		3ABABDF11195B21600AEFF39 /* CubeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeButtonView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Digital 2.0-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Digital 2.0-Info.plist"; path = "../Digital 2.0-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -196,6 +199,8 @@
 				3A43D8921195A09E005C9F65 /* ClockButtonView.m */,
 				3ABABDF01195B21600AEFF39 /* CubeButtonView.h */,
 				3ABABDF11195B21600AEFF39 /* CubeButtonView.m */,
+				3AA8E311119800C700DD0287 /* RotationButtonView.h */,
+				3AA8E312119800C700DD0287 /* RotationButtonView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 				3A43D8931195A09E005C9F65 /* ClockButtonView.m in Sources */,
 				3ABABDF21195B21600AEFF39 /* CubeButtonView.m in Sources */,
 				3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */,
+				3AA8E313119800C700DD0287 /* RotationButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

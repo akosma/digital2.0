@@ -11,6 +11,7 @@
 #import "CompassButtonView.h"
 #import "ClockButtonView.h"
 #import "CubeButtonView.h"
+#import "RotationButtonView.h"
 
 @interface MainMenuController ()
 
@@ -72,6 +73,7 @@
 {
     [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
     self.button31.orientation = self.interfaceOrientation;
+    self.button11.orientation = self.interfaceOrientation;
 }
 
 - (void)didReceiveMemoryWarning 
