@@ -35,14 +35,6 @@
 
 @dynamic orientation;
 
-- (id)initWithCoder:(NSCoder *)coder 
-{
-    if ((self = [super initWithCoder:coder]))
-    {
-    }
-    return self;
-}
-
 - (void)dealloc 
 {
     self.buttons = nil;
