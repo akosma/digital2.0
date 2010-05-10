@@ -12,6 +12,7 @@
 @interface MainMenuController ()
 
 @property (nonatomic, retain) CADisplayLink *displayLink;
+@property (nonatomic, retain) UIPopoverController *popover;
 
 @end
 
@@ -20,11 +21,21 @@
 
 @synthesize displayLink = _displayLink;
 @synthesize mainMenuView = _mainMenuView;
+@synthesize akosmaInfoButton = _akosmaInfoButton;
+@synthesize moserInfoButton = _moserInfoButton;
+@synthesize vpsInfoButton = _vpsInfoButton;
+@synthesize touchableView = _touchableView;
+@synthesize popover = _popover;
 
 - (void)dealloc 
 {
     self.displayLink = nil;
     self.mainMenuView = nil;
+    self.touchableView = nil;
+    self.vpsInfoButton = nil;
+    self.moserInfoButton = nil;
+    self.akosmaInfoButton = nil;
+    self.popover = nil;
     [super dealloc];
 }
 
@@ -38,13 +49,8 @@
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     
     UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
-                                                                                     action:@selector(toggleMinimized)] autorelease];
-    [self.view addGestureRecognizer:tapRecognizer];
-
-    UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self 
-                                                                                     action:@selector(panRecognized:)] autorelease];
-    panRecognizer.maximumNumberOfTouches = 1;
-    [self.view addGestureRecognizer:panRecognizer];
+                                                                                     action:@selector(backToMenu)] autorelease];
+    [self.touchableView addGestureRecognizer:tapRecognizer];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -64,11 +70,30 @@
 }
 
 #pragma mark -
-#pragma mark Gesture recognizers
+#pragma mark IBAction methods
 
-- (void)panRecognized:(UIPanGestureRecognizer *)recognizer
+- (IBAction)showInfo:(id)sender
 {
-    [self.mainMenuView panRecognized:recognizer];
+    if (sender == self.akosmaInfoButton)
+    {
+    }
+    else if (sender == self.moserInfoButton)
+    {
+    }
+    else if (sender == self.vpsInfoButton)
+    {
+    }
+
+    if (self.popover == nil)
+    {
+        UIViewController *controller = [[[UIViewController alloc] init] autorelease];
+        self.popover = [[[UIPopoverController alloc] initWithContentViewController:controller] autorelease];
+        self.popover.popoverContentSize = CGSizeMake(200.0, 400.0);
+    }
+    [self.popover presentPopoverFromRect:[sender frame] 
+                             inView:self.view 
+           permittedArrowDirections:UIPopoverArrowDirectionAny 
+                           animated:YES];
 }
 
 #pragma mark -

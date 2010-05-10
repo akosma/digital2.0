@@ -86,6 +86,11 @@
                          [NSValue valueWithCGRect:self.button33.frame],
                          nil];
     self.originalSize = self.frame.size;
+
+    UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self
+                                                                                     action:@selector(panRecognized:)] autorelease];
+    panRecognizer.maximumNumberOfTouches = 1;
+    [self addGestureRecognizer:panRecognizer];
 }
 
 #pragma mark -
@@ -105,9 +110,9 @@
     [self.button23 animate];
 }
 
-- (void)toggleMinimized
+- (void)backToMenu
 {
-    self.minimized = !self.isMinimized;
+    self.minimized = NO;
 }
 
 - (void)panRecognized:(UIPanGestureRecognizer *)recognizer
@@ -115,13 +120,23 @@
     if (self.isMinimized)
     {
         CGPoint point = [recognizer locationInView:self.dockView];
+        NSLog(@"point: %@", NSStringFromCGPoint(point));
         if (point.x > 0 && point.y > 0)
         {
             ButtonView *buttonView = (ButtonView *)[self hitTest:point withEvent:nil];
-            if (buttonView != nil && [buttonView isKindOfClass:[ButtonView class]])
+            if (buttonView != nil)
             {
-                self.selectedButton = buttonView;
-                [self highlightCurrentButtonInDock];
+                if ([buttonView isKindOfClass:[ButtonView class]])
+                {
+                    self.selectedButton = buttonView;
+                    [self highlightCurrentButtonInDock];
+                }
+                else if ([buttonView isKindOfClass:[NSClassFromString(@"EAGLView") class]])
+                {
+                    buttonView = (ButtonView *)buttonView.superview;
+                    self.selectedButton = buttonView;
+                    [self highlightCurrentButtonInDock];
+                }
             }
         }
     }
@@ -134,7 +149,6 @@
 {
     self.selectedButton = button;
     self.minimized = YES;
-    [self highlightCurrentButtonInDock];
     
     if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
     {
@@ -176,7 +190,6 @@
         if (self.isMinimized)
         {
             self.frame = self.dockView.frame;
-            [self highlightCurrentButtonInDock];
         }
         else
         {
@@ -194,6 +207,7 @@
         }
         [UIView commitAnimations];
     }
+    [self highlightCurrentButtonInDock];
 }
 
 #pragma mark -

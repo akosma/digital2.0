@@ -60,7 +60,6 @@
 
 - (void)animate;
 - (void)resetAllButtons;
-- (void)toggleMinimized;
-- (void)panRecognized:(UIPanGestureRecognizer *)recognizer;
+- (void)backToMenu;
 
 @end

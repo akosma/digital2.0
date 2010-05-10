@@ -17,8 +17,22 @@
 @private
     MainMenuView *_mainMenuView;
     CADisplayLink *_displayLink;
+    
+    UIButton *_akosmaInfoButton;
+    UIButton *_moserInfoButton;
+    UIButton *_vpsInfoButton;
+    
+    UIView *_touchableView;
+    
+    UIPopoverController *_popover;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;
+@property (nonatomic, retain) IBOutlet UIButton *akosmaInfoButton;
+@property (nonatomic, retain) IBOutlet UIButton *moserInfoButton;
+@property (nonatomic, retain) IBOutlet UIButton *vpsInfoButton;
+@property (nonatomic, retain) IBOutlet UIView *touchableView;
+
+- (IBAction)showInfo:(id)sender;
 
 @end
