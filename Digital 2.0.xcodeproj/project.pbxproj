@@ -89,7 +89,6 @@
 		3A43D8B21195A38E005C9F65 /* button_22_minutes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_minutes.png; sourceTree = "<group>"; };
 		3A43D9461195A81E005C9F65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3A43D94A1195A82D005C9F65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3AA6C89A11961F2E00026526 /* values.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = values.inc; sourceTree = "<group>"; };
 		3AA6C9DD119630AD00026526 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		3AA6C9DE119630AD00026526 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
 		3AA8E311119800C700DD0287 /* RotationButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationButtonView.h; sourceTree = "<group>"; };
@@ -264,7 +263,6 @@
 			children = (
 				3AA6C9DD119630AD00026526 /* EAGLView.h */,
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
-				3AA6C89A11961F2E00026526 /* values.inc */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
