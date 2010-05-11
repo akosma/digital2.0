@@ -41,6 +41,9 @@
 		3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B21195A38E005C9F65 /* button_22_minutes.png */; };
 		3A43D9471195A81E005C9F65 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D9461195A81E005C9F65 /* OpenGLES.framework */; };
 		3A43D94B1195A82D005C9F65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D94A1195A82D005C9F65 /* QuartzCore.framework */; };
+		3A493846119A062E0091ABDB /* button_21.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A493845119A062E0091ABDB /* button_21.mp4 */; };
+		3A49384A119A066F0091ABDB /* VideoButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A493849119A066F0091ABDB /* VideoButtonView.m */; };
+		3A49384D119A068E0091ABDB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A49384C119A068E0091ABDB /* MediaPlayer.framework */; };
 		3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA6C9DE119630AD00026526 /* EAGLView.m */; };
 		3AA8E313119800C700DD0287 /* RotationButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8E312119800C700DD0287 /* RotationButtonView.m */; };
 		3AA8E34B1198084200DD0287 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8E34A1198084200DD0287 /* MainMenuView.m */; };
@@ -90,6 +93,10 @@
 		3A43D8B21195A38E005C9F65 /* button_22_minutes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_minutes.png; sourceTree = "<group>"; };
 		3A43D9461195A81E005C9F65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3A43D94A1195A82D005C9F65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3A493845119A062E0091ABDB /* button_21.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = button_21.mp4; sourceTree = "<group>"; };
+		3A493848119A066F0091ABDB /* VideoButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoButtonView.h; sourceTree = "<group>"; };
+		3A493849119A066F0091ABDB /* VideoButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoButtonView.m; sourceTree = "<group>"; };
+		3A49384C119A068E0091ABDB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3A5A29E7119830EA0061FA73 /* MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewDelegate.h; sourceTree = "<group>"; };
 		3AA6C9DD119630AD00026526 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		3AA6C9DE119630AD00026526 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
@@ -113,6 +120,7 @@
 				3A3BA2B211958C180021D14B /* CoreLocation.framework in Frameworks */,
 				3A43D9471195A81E005C9F65 /* OpenGLES.framework in Frameworks */,
 				3A43D94B1195A82D005C9F65 /* QuartzCore.framework in Frameworks */,
+				3A49384D119A068E0091ABDB /* MediaPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +159,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A49384C119A068E0091ABDB /* MediaPlayer.framework */,
 				3A3BA2B111958C180021D14B /* CoreLocation.framework */,
 				3A43D9461195A81E005C9F65 /* OpenGLES.framework */,
 				3A43D94A1195A82D005C9F65 /* QuartzCore.framework */,
@@ -204,6 +213,8 @@
 				3ABABDF11195B21600AEFF39 /* CubeButtonView.m */,
 				3AA8E311119800C700DD0287 /* RotationButtonView.h */,
 				3AA8E312119800C700DD0287 /* RotationButtonView.m */,
+				3A493848119A066F0091ABDB /* VideoButtonView.h */,
+				3A493849119A066F0091ABDB /* VideoButtonView.m */,
 				3AA8E3491198084200DD0287 /* MainMenuView.h */,
 				3AA8E34A1198084200DD0287 /* MainMenuView.m */,
 				3A5A29E7119830EA0061FA73 /* MainMenuViewDelegate.h */,
@@ -218,6 +229,7 @@
 				3A3BA23A119584320021D14B /* Entitlements.plist */,
 				3A3BA19611957B470021D14B /* Images */,
 				3A3BA19711957B470021D14B /* NIBs */,
+				3A493843119A062E0091ABDB /* Videos */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -272,6 +284,22 @@
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3A493843119A062E0091ABDB /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				3A493844119A062E0091ABDB /* Button */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		3A493844119A062E0091ABDB /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				3A493845119A062E0091ABDB /* button_21.mp4 */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +369,7 @@
 				3A43D82111958FCD005C9F65 /* button_31_needle.png in Resources */,
 				3A43D8B41195A38E005C9F65 /* button_22_hours.png in Resources */,
 				3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */,
+				3A493846119A062E0091ABDB /* button_21.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +390,7 @@
 				3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */,
 				3AA8E313119800C700DD0287 /* RotationButtonView.m in Sources */,
 				3AA8E34B1198084200DD0287 /* MainMenuView.m in Sources */,
+				3A49384A119A066F0091ABDB /* VideoButtonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "ClockButtonView.h"
 #import "CubeButtonView.h"
 #import "RotationButtonView.h"
+#import "VideoButtonView.h"
 
 @interface MainMenuView ()
 
