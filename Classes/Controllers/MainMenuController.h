@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MainMenuViewDelegate.h"
 
@@ -25,6 +26,8 @@
     UIView *_touchableView;
     
     UIPopoverController *_popover;
+    
+    MPMoviePlayerController *_moviePlayer;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;

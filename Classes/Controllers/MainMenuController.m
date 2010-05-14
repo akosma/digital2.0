@@ -13,6 +13,7 @@
 
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) UIPopoverController *popover;
+@property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 
 @end
 
@@ -26,9 +27,11 @@
 @synthesize vpsInfoButton = _vpsInfoButton;
 @synthesize touchableView = _touchableView;
 @synthesize popover = _popover;
+@synthesize moviePlayer = _moviePlayer;
 
 - (void)dealloc 
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.displayLink = nil;
     self.mainMenuView = nil;
     self.touchableView = nil;
@@ -36,6 +39,7 @@
     self.moserInfoButton = nil;
     self.akosmaInfoButton = nil;
     self.popover = nil;
+    self.moviePlayer = nil;
     [super dealloc];
 }
 
@@ -101,7 +105,6 @@
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
-    NSLog(@"current tag: %d", tag);
     switch (tag) 
     {
         case 11:
@@ -114,7 +117,31 @@
             break;
             
         case 21:
+        {
+            if (self.moviePlayer == nil)
+            {
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
+                NSURL *url = [NSURL fileURLWithPath:path];
+                self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
+                self.moviePlayer.shouldAutoplay = YES;
+                self.moviePlayer.view.frame = self.view.bounds;
+                self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                
+                [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                         selector:@selector(moviePlaybackFinished:) 
+                                                             name:MPMoviePlayerPlaybackDidFinishNotification 
+                                                           object:self.moviePlayer];
+                [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                         selector:@selector(moviePlaybackFinished:) 
+                                                             name:MPMoviePlayerDidExitFullscreenNotification
+                                                           object:self.moviePlayer];
+            }
+            [self.view addSubview:self.moviePlayer.view];
+            [UIView beginAnimations:nil context:NULL];
+            self.moviePlayer.view.transform = CGAffineTransformIdentity;
+            [UIView commitAnimations];
             break;
+        }
             
         case 22:
             break;
@@ -134,6 +161,16 @@
         default:
             break;
     }
+}
+
+#pragma mark -
+#pragma mark NSNotification handlers
+
+- (void)moviePlaybackFinished:(id)sender
+{
+    [self.moviePlayer.view removeFromSuperview];
+    self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    [self.mainMenuView backToMenu];
 }
 
 @end
