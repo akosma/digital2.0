@@ -10,32 +10,32 @@
 
 @interface VideoButtonView ()
 
-@property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, retain) UIImageView *movieAnimation;
 
 @end
 
 
 @implementation VideoButtonView
 
-@synthesize moviePlayer = _moviePlayer;
+@synthesize movieAnimation = _movieAnimation;
 
 - (void)subclassSetup
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"button_21" ofType:@"mp4"];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
-    self.moviePlayer.shouldAutoplay = YES;
-    self.moviePlayer.controlStyle = MPMovieControlStyleNone;
-    self.moviePlayer.repeatMode = MPMovieRepeatModeOne;
-    self.moviePlayer.view.frame = self.bounds;
-    self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.9, 0.9);
-    [self addSubview:self.moviePlayer.view];
-    [self.moviePlayer play];
+    self.movieAnimation = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
+    self.movieAnimation.contentMode = UIViewContentModeCenter;
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:24];
+    for (NSInteger index = 0; index <= 23; ++index)
+    {
+        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"button_21_%d.png", index]]];
+    }
+    self.movieAnimation.animationImages = images;
+    [self.movieAnimation startAnimating];
+    [self addSubview:self.movieAnimation];
 }
 
 - (void)dealloc 
 {
-    self.moviePlayer = nil;
+    self.movieAnimation = nil;
     [super dealloc];
 }
 

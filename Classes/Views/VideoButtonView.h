@@ -13,7 +13,7 @@
 @interface VideoButtonView : ButtonView 
 {
 @private
-    MPMoviePlayerController *_moviePlayer;
+    UIImageView *_movieAnimation;
 }
 
 @end
