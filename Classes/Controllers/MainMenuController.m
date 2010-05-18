@@ -133,8 +133,9 @@
                 NSURL *url = [NSURL fileURLWithPath:path];
                 self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
                 self.moviePlayer.shouldAutoplay = YES;
-                self.moviePlayer.view.frame = self.view.bounds;
+                self.moviePlayer.view.frame = CGRectInset(self.view.bounds, 100.0, 100.0);
                 self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
+                self.moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
                 
                 [[NSNotificationCenter defaultCenter] addObserver:self 
                                                          selector:@selector(moviePlaybackFinished:) 
