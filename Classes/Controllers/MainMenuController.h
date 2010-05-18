@@ -12,6 +12,7 @@
 #import "MainMenuViewDelegate.h"
 
 @class MainMenuView;
+@class SoundManager;
 
 @interface MainMenuController : UIViewController <MainMenuViewDelegate>
 {
@@ -28,6 +29,7 @@
     UIPopoverController *_popover;
     
     MPMoviePlayerController *_moviePlayer;
+    SoundManager *_soundManager;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;

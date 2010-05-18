@@ -8,12 +8,14 @@
 
 #import "MainMenuController.h"
 #import "MainMenuView.h"
+#import "SoundManager.h"
 
 @interface MainMenuController ()
 
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) UIPopoverController *popover;
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, retain) SoundManager *soundManager;
 
 @end
 
@@ -28,6 +30,7 @@
 @synthesize touchableView = _touchableView;
 @synthesize popover = _popover;
 @synthesize moviePlayer = _moviePlayer;
+@synthesize soundManager = _soundManager;
 
 - (void)dealloc 
 {
@@ -40,6 +43,7 @@
     self.akosmaInfoButton = nil;
     self.popover = nil;
     self.moviePlayer = nil;
+    self.soundManager = nil;
     [super dealloc];
 }
 
@@ -51,6 +55,7 @@
                                                    selector:@selector(animate)];
     [self.displayLink setFrameInterval:1];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    self.soundManager = [SoundManager sharedSoundManager];
     
     UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
                                                                                      action:@selector(backToMenu)] autorelease];
@@ -108,16 +113,20 @@
     switch (tag) 
     {
         case 11:
+            [self.soundManager.sound11 play];
             break;
 
         case 12:
+            [self.soundManager.sound12 play];
             break;
 
         case 13:
+            [self.soundManager.sound13 play];
             break;
             
         case 21:
         {
+            [self.soundManager.sound21 play];
             if (self.moviePlayer == nil)
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
@@ -144,18 +153,23 @@
         }
             
         case 22:
+            [self.soundManager.sound22 play];
             break;
             
         case 23:
+            [self.soundManager.sound23 play];
             break;
             
         case 31:
+            [self.soundManager.sound31 play];
             break;
             
         case 32:
+            [self.soundManager.sound32 play];
             break;
             
         case 33:
+            [self.soundManager.sound33 play];
             break;
             
         default:

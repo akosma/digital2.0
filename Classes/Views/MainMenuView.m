@@ -97,14 +97,6 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (void)resetAllButtons
-{
-    for (ButtonView *currentButton in self.buttons)
-    {
-        currentButton.hasShadow = YES;
-    }
-}
-
 - (void)animate
 {
     [self.button22 animate];
@@ -204,11 +196,18 @@
     if (newValue != self.minimized)
     {
         _minimized = newValue;
+        NSString *animationName = (self.minimized) ? @"minimize" : @"maximize";
         
-        [UIView beginAnimations:nil context:NULL];
+        [UIView beginAnimations:animationName context:NULL];
+//        [UIView setAnimationDelegate:self];
+//        [UIView setAnimationDidStopSelector:@selector(animationFinished:finished:context:)];
         if (self.isMinimized)
         {
             self.frame = self.dockView.frame;
+//            for (ButtonView *currentButton in self.buttons)
+//            {
+//                currentButton.hasShadow = NO;
+//            }            
         }
         else
         {
@@ -227,6 +226,22 @@
         [UIView commitAnimations];
     }
     [self highlightCurrentButtonInDock];
+}
+
+#pragma mark -
+#pragma mark UIView animation delegate methods
+
+- (void)animationFinished:(NSString *)animationID 
+                 finished:(BOOL)finished 
+                  context:(void *)context
+{
+//    if ([animationID isEqualToString:@"maximize"])
+//    {
+//        for (ButtonView *currentButton in self.buttons)
+//        {
+//            currentButton.hasShadow = YES;
+//        }            
+//    }
 }
 
 #pragma mark -

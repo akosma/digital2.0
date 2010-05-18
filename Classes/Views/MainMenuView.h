@@ -60,7 +60,6 @@
 @property (nonatomic, assign) IBOutlet id<MainMenuViewDelegate> delegate;
 
 - (void)animate;
-- (void)resetAllButtons;
 - (void)backToMenu;
 
 @end
