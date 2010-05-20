@@ -18,7 +18,7 @@
 {
     id view = [[[[self class] alloc] initWithFrame:CGRectMake(0.0, 0.0, 768.0, 1004.0)] autorelease];
     [view setOrientation:orientation];
-    [view setTransform:CGAffineTransformMakeScale(0.1, 0.1)];
+    [view setTransform:CGAffineTransformMakeScale(0.01, 0.01)];
     return view;
 }
 
@@ -60,7 +60,7 @@
     [UIView beginAnimations:MINIMIZE_ANIMATION_ID context:NULL];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationFinished:finished:context:)];
-    self.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    self.transform = CGAffineTransformMakeScale(0.01, 0.01);
     [UIView commitAnimations];
 }
 
