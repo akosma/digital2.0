@@ -7,13 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import "MainMenuViewDelegate.h"
 
 @class MainMenuView;
 @class SoundManager;
-@class FluidFeatureView;
+@class FeatureView;
 
 @interface MainMenuController : UIViewController <MainMenuViewDelegate>
 {
@@ -28,9 +27,8 @@
     UIPopoverController *_popover;
     UIView *_featureReferenceView;
     
-    MPMoviePlayerController *_moviePlayer;
     SoundManager *_soundManager;
-    FluidFeatureView *_fluidFeatureView;
+    FeatureView *_featureView;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;

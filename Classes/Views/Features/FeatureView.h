@@ -16,6 +16,10 @@
 
 @property (nonatomic) UIInterfaceOrientation orientation;
 
++ (id)featureViewWithOrientation:(UIInterfaceOrientation)orientation;
+
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration;
+- (void)maximize;
+- (void)minimize;
 
 @end

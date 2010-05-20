@@ -47,6 +47,17 @@
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIView" id="738061807">
+								<reference key="NSNextResponder" ref="1061383124"/>
+								<int key="NSvFlags">269</int>
+								<string key="NSFrame">{{114, 882}, {540, 60}}</string>
+								<reference key="NSSuperview" ref="1061383124"/>
+								<object class="NSColor" key="IBUIBackgroundColor" id="680965865">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
+								</object>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+							</object>
 							<object class="IBUIView" id="616124114">
 								<reference key="NSNextResponder" ref="1061383124"/>
 								<int key="NSvFlags">301</int>
@@ -173,17 +184,6 @@
 									</object>
 								</object>
 								<string key="NSFrame">{{80, 164}, {608, 608}}</string>
-								<reference key="NSSuperview" ref="1061383124"/>
-								<object class="NSColor" key="IBUIBackgroundColor" id="680965865">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEAA</bytes>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-							</object>
-							<object class="IBUIView" id="738061807">
-								<reference key="NSNextResponder" ref="1061383124"/>
-								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{114, 882}, {540, 60}}</string>
 								<reference key="NSSuperview" ref="1061383124"/>
 								<reference key="IBUIBackgroundColor" ref="680965865"/>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>

@@ -9,15 +9,16 @@
 #import "MainMenuController.h"
 #import "MainMenuView.h"
 #import "SoundManager.h"
+#import "FeatureView.h"
 #import "FluidFeatureView.h"
+#import "MovieFeatureView.h"
 
 @interface MainMenuController ()
 
 @property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) UIPopoverController *popover;
-@property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) SoundManager *soundManager;
-@property (nonatomic, retain) FluidFeatureView *fluidFeatureView;
+@property (nonatomic, retain) FeatureView *featureView;
 
 @end
 
@@ -30,23 +31,20 @@
 @synthesize moserInfoButton = _moserInfoButton;
 @synthesize vpsInfoButton = _vpsInfoButton;
 @synthesize popover = _popover;
-@synthesize moviePlayer = _moviePlayer;
 @synthesize soundManager = _soundManager;
-@synthesize fluidFeatureView = _fluidFeatureView;
+@synthesize featureView = _featureView;
 @synthesize featureReferenceView = _featureReferenceView;
 
 - (void)dealloc 
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.displayLink = nil;
     self.mainMenuView = nil;
     self.vpsInfoButton = nil;
     self.moserInfoButton = nil;
     self.akosmaInfoButton = nil;
     self.popover = nil;
-    self.moviePlayer = nil;
     self.soundManager = nil;
-    self.fluidFeatureView = nil;
+    self.featureView = nil;
     self.featureReferenceView = nil;
     [super dealloc];
 }
@@ -60,9 +58,6 @@
     [self.displayLink setFrameInterval:1];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.soundManager = [SoundManager sharedSoundManager];
-    
-//    UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
-//                                                                                     action:@selector(backToMenu)] autorelease];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -73,7 +68,7 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
-    [self.fluidFeatureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    [self.featureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -119,93 +114,70 @@
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
-    switch (tag) 
+    if (self.featureView.tag == tag)
     {
-        case 11:
-            [self.soundManager.sound11 play];
-            
-            if (self.fluidFeatureView == nil)
-            {
-                self.fluidFeatureView = [[[FluidFeatureView alloc] initWithFrame:CGRectMake(0.0, 0.0, 768.0, 1004.0)] autorelease];
-                self.fluidFeatureView.orientation = self.interfaceOrientation;
-                self.fluidFeatureView.transform = CGAffineTransformMakeScale(0.1, 0.1);
-            }
-            [self.featureReferenceView insertSubview:self.fluidFeatureView belowSubview:self.mainMenuView];
-            [UIView beginAnimations:nil context:NULL];
-            self.fluidFeatureView.transform = CGAffineTransformIdentity;
-            [UIView commitAnimations];
-            break;
-
-        case 12:
-            [self.soundManager.sound12 play];
-            break;
-
-        case 13:
-            [self.soundManager.sound13 play];
-            break;
-            
-        case 21:
-        {
-            [self.soundManager.sound21 play];
-            if (self.moviePlayer == nil)
-            {
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
-                self.moviePlayer.shouldAutoplay = YES;
-                self.moviePlayer.view.frame = CGRectInset(self.view.bounds, 100.0, 100.0);
-                self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
-                self.moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
-                
-                [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                         selector:@selector(moviePlaybackFinished:) 
-                                                             name:MPMoviePlayerPlaybackDidFinishNotification 
-                                                           object:self.moviePlayer];
-                [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                         selector:@selector(moviePlaybackFinished:) 
-                                                             name:MPMoviePlayerDidExitFullscreenNotification
-                                                           object:self.moviePlayer];
-            }
-            [self.view addSubview:self.moviePlayer.view];
-            [UIView beginAnimations:nil context:NULL];
-            self.moviePlayer.view.transform = CGAffineTransformIdentity;
-            [UIView commitAnimations];
-            break;
-        }
-            
-        case 22:
-            [self.soundManager.sound22 play];
-            break;
-            
-        case 23:
-            [self.soundManager.sound23 play];
-            break;
-            
-        case 31:
-            [self.soundManager.sound31 play];
-            break;
-            
-        case 32:
-            [self.soundManager.sound32 play];
-            break;
-            
-        case 33:
-            [self.soundManager.sound33 play];
-            break;
-            
-        default:
-            break;
+        [self.featureView minimize];
+        self.featureView = nil;
+        self.mainMenuView.minimized = NO;
     }
-}
+    else
+    {
+        FeatureView *oldFeatureView = [self.featureView retain];
+        [oldFeatureView minimize];
+        self.featureView = nil;
+        switch (tag) 
+        {
+            case 11:
+            {
+                [self.soundManager.sound11 play];
+                self.featureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                break;
+            }
 
-#pragma mark -
-#pragma mark NSNotification handlers
+            case 12:
+                [self.soundManager.sound12 play];
+                break;
 
-- (void)moviePlaybackFinished:(id)sender
-{
-    [self.moviePlayer.view removeFromSuperview];
-    self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.1, 0.1);
-    [self.mainMenuView backToMenu];
+            case 13:
+                [self.soundManager.sound13 play];
+                break;
+                
+            case 21:
+            {
+                [self.soundManager.sound21 play];
+                self.featureView = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                break;
+            }
+                
+            case 22:
+                [self.soundManager.sound22 play];
+                break;
+                
+            case 23:
+                [self.soundManager.sound23 play];
+                break;
+                
+            case 31:
+                [self.soundManager.sound31 play];
+                break;
+                
+            case 32:
+                [self.soundManager.sound32 play];
+                break;
+                
+            case 33:
+                [self.soundManager.sound33 play];
+                break;
+                
+            default:
+                break;
+        }
+        [oldFeatureView release];
+        [self.featureReferenceView insertSubview:self.featureView 
+                                    belowSubview:self.mainMenuView.dockView];
+        [self.featureView maximize];
+        self.featureView.tag = tag;
+    }
 }
 
 @end

@@ -26,9 +26,6 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
-        self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
-        self.contentMode = UIViewContentModeScaleToFill;
-
         UIImage *image = [UIImage imageNamed:@"agnes_london_53.jpg"];
         self.photoView = [[[UIImageView alloc] initWithImage:image] autorelease];
         self.photoView.frame = frame;
