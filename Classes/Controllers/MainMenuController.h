@@ -13,6 +13,7 @@
 
 @class MainMenuView;
 @class SoundManager;
+@class FluidFeatureView;
 
 @interface MainMenuController : UIViewController <MainMenuViewDelegate>
 {
@@ -30,6 +31,7 @@
     
     MPMoviePlayerController *_moviePlayer;
     SoundManager *_soundManager;
+    FluidFeatureView *_fluidFeatureView;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;

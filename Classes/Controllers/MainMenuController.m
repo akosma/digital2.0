@@ -9,6 +9,7 @@
 #import "MainMenuController.h"
 #import "MainMenuView.h"
 #import "SoundManager.h"
+#import "FluidFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -16,6 +17,7 @@
 @property (nonatomic, retain) UIPopoverController *popover;
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) SoundManager *soundManager;
+@property (nonatomic, retain) FluidFeatureView *fluidFeatureView;
 
 @end
 
@@ -31,6 +33,7 @@
 @synthesize popover = _popover;
 @synthesize moviePlayer = _moviePlayer;
 @synthesize soundManager = _soundManager;
+@synthesize fluidFeatureView = _fluidFeatureView;
 
 - (void)dealloc 
 {
@@ -44,6 +47,7 @@
     self.popover = nil;
     self.moviePlayer = nil;
     self.soundManager = nil;
+    self.fluidFeatureView = nil;
     [super dealloc];
 }
 
@@ -65,6 +69,12 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {
     return YES;
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    [self.fluidFeatureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -114,6 +124,17 @@
     {
         case 11:
             [self.soundManager.sound11 play];
+            
+            if (self.fluidFeatureView == nil)
+            {
+                self.fluidFeatureView = [[[FluidFeatureView alloc] initWithFrame:CGRectMake(0.0, 0.0, 768.0, 1004.0)] autorelease];
+                self.fluidFeatureView.orientation = self.interfaceOrientation;
+                self.fluidFeatureView.transform = CGAffineTransformMakeScale(0.1, 0.1);
+            }
+            [self.view addSubview:self.fluidFeatureView];
+            [UIView beginAnimations:nil context:NULL];
+            self.fluidFeatureView.transform = CGAffineTransformIdentity;
+            [UIView commitAnimations];
             break;
 
         case 12:

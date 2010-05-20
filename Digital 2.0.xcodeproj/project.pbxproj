@@ -84,6 +84,9 @@
 		3AD3946811A5304600654504 /* VideoButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945E11A5304600654504 /* VideoButtonView.m */; };
 		3AD3946911A5304600654504 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946111A5304600654504 /* MainMenuView.m */; };
 		3AD3946F11A5313900654504 /* FeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946E11A5313900654504 /* FeatureView.m */; };
+		3AD3949311A537E100654504 /* agnes_london_53.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3949211A537E100654504 /* agnes_london_53.jpg */; };
+		3AD3949611A5380900654504 /* FluidFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3949511A5380900654504 /* FluidFeatureView.m */; };
+		3AD394D211A541B100654504 /* loremipsum.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD394D111A541B100654504 /* loremipsum.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +185,10 @@
 		3AD3946211A5304600654504 /* MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewDelegate.h; sourceTree = "<group>"; };
 		3AD3946D11A5313900654504 /* FeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureView.h; sourceTree = "<group>"; };
 		3AD3946E11A5313900654504 /* FeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureView.m; sourceTree = "<group>"; };
+		3AD3949211A537E100654504 /* agnes_london_53.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agnes_london_53.jpg; sourceTree = "<group>"; };
+		3AD3949411A5380900654504 /* FluidFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FluidFeatureView.h; sourceTree = "<group>"; };
+		3AD3949511A5380900654504 /* FluidFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FluidFeatureView.m; sourceTree = "<group>"; };
+		3AD394D111A541B100654504 /* loremipsum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loremipsum.txt; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Digital 2.0-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Digital 2.0-Info.plist"; path = "../Digital 2.0-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -296,6 +303,7 @@
 				3A3BA19611957B470021D14B /* Images */,
 				3A3BA19711957B470021D14B /* NIBs */,
 				3A493843119A062E0091ABDB /* Videos */,
+				3AD394D011A5419C00654504 /* Texts */,
 				3A58ED9A11A290A900BC976C /* Sounds */,
 			);
 			path = Resources;
@@ -311,6 +319,7 @@
 				3A3BA1E5119581970021D14B /* digital_20_title.png */,
 				3A3BA1E6119581970021D14B /* footer.png */,
 				3A3BA19D11957C3D0021D14B /* Buttons */,
+				3AD3949111A537D900654504 /* Features */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -471,8 +480,26 @@
 			children = (
 				3AD3946D11A5313900654504 /* FeatureView.h */,
 				3AD3946E11A5313900654504 /* FeatureView.m */,
+				3AD3949411A5380900654504 /* FluidFeatureView.h */,
+				3AD3949511A5380900654504 /* FluidFeatureView.m */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		3AD3949111A537D900654504 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3949211A537E100654504 /* agnes_london_53.jpg */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3AD394D011A5419C00654504 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				3AD394D111A541B100654504 /* loremipsum.txt */,
+			);
+			path = Texts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -575,6 +602,8 @@
 				3A58EDA811A290A900BC976C /* projector_v2.wav in Resources */,
 				3A58EDA911A290A900BC976C /* realite augmentee.wav in Resources */,
 				3A58EDAA11A290A900BC976C /* shop.wav in Resources */,
+				3AD3949311A537E100654504 /* agnes_london_53.jpg in Resources */,
+				3AD394D211A541B100654504 /* loremipsum.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +628,7 @@
 				3AD3946811A5304600654504 /* VideoButtonView.m in Sources */,
 				3AD3946911A5304600654504 /* MainMenuView.m in Sources */,
 				3AD3946F11A5313900654504 /* FeatureView.m in Sources */,
+				3AD3949611A5380900654504 /* FluidFeatureView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

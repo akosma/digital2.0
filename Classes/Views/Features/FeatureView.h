@@ -10,7 +10,12 @@
 
 @interface FeatureView : UIView 
 {
-
+@private
+    UIInterfaceOrientation _orientation;
 }
+
+@property (nonatomic) UIInterfaceOrientation orientation;
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration;
 
 @end
