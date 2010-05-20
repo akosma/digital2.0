@@ -19,6 +19,7 @@
 @property (nonatomic, retain) UIPopoverController *popover;
 @property (nonatomic, retain) SoundManager *soundManager;
 @property (nonatomic, retain) FeatureView *featureView;
+@property (nonatomic) NSInteger lastTag;
 
 @end
 
@@ -34,6 +35,7 @@
 @synthesize soundManager = _soundManager;
 @synthesize featureView = _featureView;
 @synthesize featureReferenceView = _featureReferenceView;
+@synthesize lastTag = _lastTag;
 
 - (void)dealloc 
 {
@@ -114,7 +116,7 @@
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
-    if (self.featureView.tag == tag)
+    if (self.lastTag == tag)
     {
         [self.featureView minimize];
         self.featureView = nil;
@@ -176,7 +178,7 @@
         [self.featureReferenceView insertSubview:self.featureView 
                                     belowSubview:self.mainMenuView.dockView];
         [self.featureView maximize];
-        self.featureView.tag = tag;
+        self.lastTag = tag;
     }
 }
 

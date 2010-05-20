@@ -29,6 +29,7 @@
     
     SoundManager *_soundManager;
     FeatureView *_featureView;
+    NSInteger _lastTag;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;
