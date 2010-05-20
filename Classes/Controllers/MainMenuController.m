@@ -53,6 +53,7 @@
     [super viewDidLoad];
     self.mainMenuView.orientation = self.interfaceOrientation;
     self.soundManager = [SoundManager sharedSoundManager];
+    self.lastTag = -1;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -113,6 +114,7 @@
     {
         [self.featureView minimize];
         self.featureView = nil;
+        self.lastTag = -1;
         self.mainMenuView.minimized = NO;
     }
     else
