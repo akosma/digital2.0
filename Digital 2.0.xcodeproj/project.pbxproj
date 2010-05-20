@@ -83,6 +83,7 @@
 		3AD3946711A5304600654504 /* RotationButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945C11A5304600654504 /* RotationButtonView.m */; };
 		3AD3946811A5304600654504 /* VideoButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945E11A5304600654504 /* VideoButtonView.m */; };
 		3AD3946911A5304600654504 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946111A5304600654504 /* MainMenuView.m */; };
+		3AD3946F11A5313900654504 /* FeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946E11A5313900654504 /* FeatureView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +180,8 @@
 		3AD3946011A5304600654504 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
 		3AD3946111A5304600654504 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
 		3AD3946211A5304600654504 /* MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewDelegate.h; sourceTree = "<group>"; };
+		3AD3946D11A5313900654504 /* FeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureView.h; sourceTree = "<group>"; };
+		3AD3946E11A5313900654504 /* FeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Digital 2.0-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Digital 2.0-Info.plist"; path = "../Digital 2.0-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,6 +283,7 @@
 			children = (
 				3AD3945111A5304600654504 /* Buttons */,
 				3AD3945F11A5304600654504 /* MainMenu */,
+				3AD3946C11A5312F00654504 /* Features */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -462,6 +466,15 @@
 			path = MainMenu;
 			sourceTree = "<group>";
 		};
+		3AD3946C11A5312F00654504 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3946D11A5313900654504 /* FeatureView.h */,
+				3AD3946E11A5313900654504 /* FeatureView.m */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -585,6 +598,7 @@
 				3AD3946711A5304600654504 /* RotationButtonView.m in Sources */,
 				3AD3946811A5304600654504 /* VideoButtonView.m in Sources */,
 				3AD3946911A5304600654504 /* MainMenuView.m in Sources */,
+				3AD3946F11A5313900654504 /* FeatureView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
