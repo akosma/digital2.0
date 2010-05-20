@@ -87,6 +87,8 @@
                          [NSValue valueWithCGRect:self.button33.frame],
                          nil];
     self.originalSize = self.frame.size;
+    self.backgroundColor = [UIColor clearColor];
+    self.dockView.backgroundColor = [UIColor clearColor];
 
     UIPanGestureRecognizer *panRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(panRecognized:)] autorelease];

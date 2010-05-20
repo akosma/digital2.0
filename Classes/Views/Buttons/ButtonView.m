@@ -56,6 +56,7 @@
     self.backgroundImageView = [[[UIImageView alloc] initWithFrame:rect] autorelease];
     self.backgroundImageView.image = [UIImage imageNamed:@"button_background.png"];
     self.foregroundImageView = [[[UIImageView alloc] initWithFrame:rect] autorelease];
+    self.backgroundColor = [UIColor clearColor];
     
     self.hasShadow = NO;
     

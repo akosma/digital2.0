@@ -29,18 +29,17 @@
 @synthesize akosmaInfoButton = _akosmaInfoButton;
 @synthesize moserInfoButton = _moserInfoButton;
 @synthesize vpsInfoButton = _vpsInfoButton;
-@synthesize touchableView = _touchableView;
 @synthesize popover = _popover;
 @synthesize moviePlayer = _moviePlayer;
 @synthesize soundManager = _soundManager;
 @synthesize fluidFeatureView = _fluidFeatureView;
+@synthesize featureReferenceView = _featureReferenceView;
 
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.displayLink = nil;
     self.mainMenuView = nil;
-    self.touchableView = nil;
     self.vpsInfoButton = nil;
     self.moserInfoButton = nil;
     self.akosmaInfoButton = nil;
@@ -48,6 +47,7 @@
     self.moviePlayer = nil;
     self.soundManager = nil;
     self.fluidFeatureView = nil;
+    self.featureReferenceView = nil;
     [super dealloc];
 }
 
@@ -61,9 +61,8 @@
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.soundManager = [SoundManager sharedSoundManager];
     
-    UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
-                                                                                     action:@selector(backToMenu)] autorelease];
-    [self.touchableView addGestureRecognizer:tapRecognizer];
+//    UITapGestureRecognizer *tapRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self.mainMenuView
+//                                                                                     action:@selector(backToMenu)] autorelease];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -110,9 +109,9 @@
         self.popover.popoverContentSize = CGSizeMake(200.0, 400.0);
     }
     [self.popover presentPopoverFromRect:[sender frame] 
-                             inView:self.view 
-           permittedArrowDirections:UIPopoverArrowDirectionAny 
-                           animated:YES];
+                                  inView:self.view 
+                permittedArrowDirections:UIPopoverArrowDirectionAny 
+                                animated:YES];
 }
 
 #pragma mark -
@@ -131,7 +130,7 @@
                 self.fluidFeatureView.orientation = self.interfaceOrientation;
                 self.fluidFeatureView.transform = CGAffineTransformMakeScale(0.1, 0.1);
             }
-            [self.view addSubview:self.fluidFeatureView];
+            [self.featureReferenceView insertSubview:self.fluidFeatureView belowSubview:self.mainMenuView];
             [UIView beginAnimations:nil context:NULL];
             self.fluidFeatureView.transform = CGAffineTransformIdentity;
             [UIView commitAnimations];

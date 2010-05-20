@@ -35,7 +35,7 @@
         self.photoView.contentMode = UIViewContentModeCenter;
         [self addSubview:self.photoView];
         
-        CGRect rect = CGRectMake(0.0, 0.0, 328.0, 777.0);
+        CGRect rect = CGRectMake(0.0, 0.0, 328.0, 700.0);
         UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:rect] autorelease];
         scrollView.backgroundColor = [UIColor clearColor];
         scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -54,7 +54,7 @@
         label.text = text;
         label.font = font;
 
-        self.textView = [[[UIView alloc] initWithFrame:CGRectMake(384.0, 117.0, 328.0, 777.0)] autorelease];
+        self.textView = [[[UIView alloc] initWithFrame:CGRectMake(384.0, 100.0, 328.0, 700.0)] autorelease];
         self.textView.layer.cornerRadius = 10.0;
         self.textView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.75];
         self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;

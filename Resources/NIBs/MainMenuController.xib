@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="105"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -46,18 +47,6 @@
 						<int key="NSvFlags">274</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIView" id="738061807">
-								<reference key="NSNextResponder" ref="1061383124"/>
-								<int key="NSvFlags">269</int>
-								<string key="NSFrame">{{114, 882}, {540, 60}}</string>
-								<reference key="NSSuperview" ref="1061383124"/>
-								<reference key="NSWindow"/>
-								<object class="NSColor" key="IBUIBackgroundColor" id="680965865">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEAA</bytes>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-							</object>
 							<object class="IBUIView" id="616124114">
 								<reference key="NSNextResponder" ref="1061383124"/>
 								<int key="NSvFlags">301</int>
@@ -68,7 +57,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{24, 24}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -84,7 +72,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{216, 24}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -98,7 +85,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{408, 24}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -112,7 +98,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{24, 216}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -126,7 +111,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{216, 216}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -140,7 +124,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{408, 216}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -154,7 +137,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{24, 408}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -168,7 +150,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{216, 408}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -182,7 +163,6 @@
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{408, 408}, {175, 175}}</string>
 										<reference key="NSSuperview" ref="616124114"/>
-										<reference key="NSWindow"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MQA</bytes>
@@ -194,14 +174,23 @@
 								</object>
 								<string key="NSFrame">{{80, 164}, {608, 608}}</string>
 								<reference key="NSSuperview" ref="1061383124"/>
-								<reference key="NSWindow"/>
+								<object class="NSColor" key="IBUIBackgroundColor" id="680965865">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MSAxIDEAA</bytes>
+								</object>
+								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+							</object>
+							<object class="IBUIView" id="738061807">
+								<reference key="NSNextResponder" ref="1061383124"/>
+								<int key="NSvFlags">269</int>
+								<string key="NSFrame">{{114, 882}, {540, 60}}</string>
+								<reference key="NSSuperview" ref="1061383124"/>
 								<reference key="IBUIBackgroundColor" ref="680965865"/>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
 						</object>
 						<string key="NSFrame">{{0, 50}, {768, 942}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -212,9 +201,8 @@
 					<object class="IBUIImageView" id="118195360">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrameSize">{1024, 51}</string>
+						<string key="NSFrameSize">{1024, 49}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
@@ -228,9 +216,8 @@
 					<object class="IBUIImageView" id="914297392">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">256</int>
-						<string key="NSFrameSize">{149, 51}</string>
+						<string key="NSFrameSize">{149, 49}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
@@ -244,9 +231,8 @@
 					<object class="IBUIImageView" id="732010497">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">289</int>
-						<string key="NSFrame">{{536, 0}, {233, 61}}</string>
+						<string key="NSFrame">{{536, 0}, {233, 49}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
@@ -262,7 +248,6 @@
 						<int key="NSvFlags">269</int>
 						<string key="NSFrame">{{0, 992}, {1024, 12}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">4</int>
@@ -278,7 +263,6 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{536, 7}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -306,7 +290,6 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{613, 7}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -324,7 +307,6 @@
 						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{690, 7}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -340,7 +322,6 @@
 				</object>
 				<string key="NSFrameSize">{768, 1004}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -585,11 +566,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">touchableView</string>
+						<string key="label">featureReferenceView</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="1061383124"/>
 					</object>
-					<int key="connectionID">106</int>
+					<int key="connectionID">109</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -825,7 +806,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">108</int>
+			<int key="maxID">109</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -886,17 +867,17 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>akosmaInfoButton</string>
+							<string>featureReferenceView</string>
 							<string>mainMenuView</string>
 							<string>moserInfoButton</string>
-							<string>touchableView</string>
 							<string>vpsInfoButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIButton</string>
+							<string>UIView</string>
 							<string>MainMenuView</string>
 							<string>UIButton</string>
-							<string>UIView</string>
 							<string>UIButton</string>
 						</object>
 					</object>
@@ -1225,9 +1206,9 @@
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{1024, 51}</string>
-				<string>{233, 61}</string>
-				<string>{149, 51}</string>
+				<string>{1024, 49}</string>
+				<string>{233, 49}</string>
+				<string>{149, 49}</string>
 				<string>{1024, 12}</string>
 			</object>
 		</object>

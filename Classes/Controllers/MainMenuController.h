@@ -25,9 +25,8 @@
     UIButton *_moserInfoButton;
     UIButton *_vpsInfoButton;
     
-    UIView *_touchableView;
-    
     UIPopoverController *_popover;
+    UIView *_featureReferenceView;
     
     MPMoviePlayerController *_moviePlayer;
     SoundManager *_soundManager;
@@ -38,7 +37,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *akosmaInfoButton;
 @property (nonatomic, retain) IBOutlet UIButton *moserInfoButton;
 @property (nonatomic, retain) IBOutlet UIButton *vpsInfoButton;
-@property (nonatomic, retain) IBOutlet UIView *touchableView;
+@property (nonatomic, retain) IBOutlet UIView *featureReferenceView;
 
 - (IBAction)showInfo:(id)sender;
 
