@@ -13,7 +13,6 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
 		3A3BA19911957B580021D14B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19811957B580021D14B /* MainWindow.xib */; };
-		3A3BA19C11957C370021D14B /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19B11957C370021D14B /* ButtonView.m */; };
 		3A3BA1A811957C3D0021D14B /* button_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19E11957C3D0021D14B /* button_11.png */; };
 		3A3BA1A911957C3D0021D14B /* button_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19F11957C3D0021D14B /* button_12.png */; };
 		3A3BA1AA11957C3D0021D14B /* button_13.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1A011957C3D0021D14B /* button_13.png */; };
@@ -33,15 +32,12 @@
 		3A3BA1EB119581970021D14B /* digital_20_title.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1E5119581970021D14B /* digital_20_title.png */; };
 		3A3BA1EC119581970021D14B /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1E6119581970021D14B /* footer.png */; };
 		3A3BA23B119584320021D14B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA23A119584320021D14B /* Entitlements.plist */; };
-		3A3BA2AF11958BF50021D14B /* CompassButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA2AE11958BF50021D14B /* CompassButtonView.m */; };
 		3A3BA2B211958C180021D14B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3BA2B111958C180021D14B /* CoreLocation.framework */; };
 		3A43D82111958FCD005C9F65 /* button_31_needle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D82011958FCD005C9F65 /* button_31_needle.png */; };
-		3A43D8931195A09E005C9F65 /* ClockButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A43D8921195A09E005C9F65 /* ClockButtonView.m */; };
 		3A43D8B41195A38E005C9F65 /* button_22_hours.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B11195A38E005C9F65 /* button_22_hours.png */; };
 		3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B21195A38E005C9F65 /* button_22_minutes.png */; };
 		3A43D9471195A81E005C9F65 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D9461195A81E005C9F65 /* OpenGLES.framework */; };
 		3A43D94B1195A82D005C9F65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D94A1195A82D005C9F65 /* QuartzCore.framework */; };
-		3A49384A119A066F0091ABDB /* VideoButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A493849119A066F0091ABDB /* VideoButtonView.m */; };
 		3A49384D119A068E0091ABDB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A49384C119A068E0091ABDB /* MediaPlayer.framework */; };
 		3A58EDA311A290A900BC976C /* clap_v2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58ED9B11A290A900BC976C /* clap_v2.wav */; };
 		3A58EDA411A290A900BC976C /* clock2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58ED9C11A290A900BC976C /* clock2.wav */; };
@@ -80,9 +76,13 @@
 		3A998215119D2C79000ECE4E /* button_21_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9981FD119D2C79000ECE4E /* button_21_9.png */; };
 		3A998240119D3224000ECE4E /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A99823F119D3224000ECE4E /* test.mp4 */; };
 		3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA6C9DE119630AD00026526 /* EAGLView.m */; };
-		3AA8E313119800C700DD0287 /* RotationButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8E312119800C700DD0287 /* RotationButtonView.m */; };
-		3AA8E34B1198084200DD0287 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8E34A1198084200DD0287 /* MainMenuView.m */; };
-		3ABABDF21195B21600AEFF39 /* CubeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABABDF11195B21600AEFF39 /* CubeButtonView.m */; };
+		3AD3946311A5304600654504 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945311A5304600654504 /* ButtonView.m */; };
+		3AD3946411A5304600654504 /* ClockButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945611A5304600654504 /* ClockButtonView.m */; };
+		3AD3946511A5304600654504 /* CompassButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945811A5304600654504 /* CompassButtonView.m */; };
+		3AD3946611A5304600654504 /* CubeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945A11A5304600654504 /* CubeButtonView.m */; };
+		3AD3946711A5304600654504 /* RotationButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945C11A5304600654504 /* RotationButtonView.m */; };
+		3AD3946811A5304600654504 /* VideoButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945E11A5304600654504 /* VideoButtonView.m */; };
+		3AD3946911A5304600654504 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946111A5304600654504 /* MainMenuView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,8 +95,6 @@
 		3A3BA19011957B3C0021D14B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
 		3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
 		3A3BA19811957B580021D14B /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
-		3A3BA19A11957C370021D14B /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
-		3A3BA19B11957C370021D14B /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		3A3BA19E11957C3D0021D14B /* button_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_11.png; sourceTree = "<group>"; };
 		3A3BA19F11957C3D0021D14B /* button_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_12.png; sourceTree = "<group>"; };
 		3A3BA1A011957C3D0021D14B /* button_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_13.png; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		3A3BA1A511957C3D0021D14B /* button_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_32.png; sourceTree = "<group>"; };
 		3A3BA1A611957C3D0021D14B /* button_33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_33.png; sourceTree = "<group>"; };
 		3A3BA1A711957C3D0021D14B /* button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_background.png; sourceTree = "<group>"; };
-		3A3BA1C811957FB40021D14B /* ButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewDelegate.h; sourceTree = "<group>"; };
 		3A3BA1D8119581240021D14B /* MainMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuController.xib; sourceTree = "<group>"; };
 		3A3BA1DB1195813A0021D14B /* MainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuController.h; sourceTree = "<group>"; };
 		3A3BA1DC1195813A0021D14B /* MainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuController.m; sourceTree = "<group>"; };
@@ -118,18 +115,12 @@
 		3A3BA1E5119581970021D14B /* digital_20_title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = digital_20_title.png; sourceTree = "<group>"; };
 		3A3BA1E6119581970021D14B /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer.png; sourceTree = "<group>"; };
 		3A3BA23A119584320021D14B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
-		3A3BA2AD11958BF50021D14B /* CompassButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassButtonView.h; sourceTree = "<group>"; };
-		3A3BA2AE11958BF50021D14B /* CompassButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassButtonView.m; sourceTree = "<group>"; };
 		3A3BA2B111958C180021D14B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3A43D82011958FCD005C9F65 /* button_31_needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_31_needle.png; sourceTree = "<group>"; };
-		3A43D8911195A09E005C9F65 /* ClockButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockButtonView.h; sourceTree = "<group>"; };
-		3A43D8921195A09E005C9F65 /* ClockButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockButtonView.m; sourceTree = "<group>"; };
 		3A43D8B11195A38E005C9F65 /* button_22_hours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_hours.png; sourceTree = "<group>"; };
 		3A43D8B21195A38E005C9F65 /* button_22_minutes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_minutes.png; sourceTree = "<group>"; };
 		3A43D9461195A81E005C9F65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3A43D94A1195A82D005C9F65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		3A493848119A066F0091ABDB /* VideoButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoButtonView.h; sourceTree = "<group>"; };
-		3A493849119A066F0091ABDB /* VideoButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoButtonView.m; sourceTree = "<group>"; };
 		3A49384C119A068E0091ABDB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		3A58ED9B11A290A900BC976C /* clap_v2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clap_v2.wav; sourceTree = "<group>"; };
 		3A58ED9C11A290A900BC976C /* clock2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clock2.wav; sourceTree = "<group>"; };
@@ -145,7 +136,6 @@
 		3A58EDB311A2913000BC976C /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		3A58EDB811A291F200BC976C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3A58EE2F11A2972C00BC976C /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		3A5A29E7119830EA0061FA73 /* MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewDelegate.h; sourceTree = "<group>"; };
 		3A9981E6119D2C79000ECE4E /* button_21_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_0.png; sourceTree = "<group>"; };
 		3A9981E7119D2C79000ECE4E /* button_21_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_1.png; sourceTree = "<group>"; };
 		3A9981E8119D2C79000ECE4E /* button_21_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_10.png; sourceTree = "<group>"; };
@@ -173,12 +163,22 @@
 		3A99823F119D3224000ECE4E /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		3AA6C9DD119630AD00026526 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		3AA6C9DE119630AD00026526 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
-		3AA8E311119800C700DD0287 /* RotationButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationButtonView.h; sourceTree = "<group>"; };
-		3AA8E312119800C700DD0287 /* RotationButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationButtonView.m; sourceTree = "<group>"; };
-		3AA8E3491198084200DD0287 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
-		3AA8E34A1198084200DD0287 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
-		3ABABDF01195B21600AEFF39 /* CubeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeButtonView.h; sourceTree = "<group>"; };
-		3ABABDF11195B21600AEFF39 /* CubeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeButtonView.m; sourceTree = "<group>"; };
+		3AD3945211A5304600654504 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
+		3AD3945311A5304600654504 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
+		3AD3945411A5304600654504 /* ButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewDelegate.h; sourceTree = "<group>"; };
+		3AD3945511A5304600654504 /* ClockButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockButtonView.h; sourceTree = "<group>"; };
+		3AD3945611A5304600654504 /* ClockButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockButtonView.m; sourceTree = "<group>"; };
+		3AD3945711A5304600654504 /* CompassButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassButtonView.h; sourceTree = "<group>"; };
+		3AD3945811A5304600654504 /* CompassButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassButtonView.m; sourceTree = "<group>"; };
+		3AD3945911A5304600654504 /* CubeButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeButtonView.h; sourceTree = "<group>"; };
+		3AD3945A11A5304600654504 /* CubeButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CubeButtonView.m; sourceTree = "<group>"; };
+		3AD3945B11A5304600654504 /* RotationButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotationButtonView.h; sourceTree = "<group>"; };
+		3AD3945C11A5304600654504 /* RotationButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotationButtonView.m; sourceTree = "<group>"; };
+		3AD3945D11A5304600654504 /* VideoButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoButtonView.h; sourceTree = "<group>"; };
+		3AD3945E11A5304600654504 /* VideoButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoButtonView.m; sourceTree = "<group>"; };
+		3AD3946011A5304600654504 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
+		3AD3946111A5304600654504 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
+		3AD3946211A5304600654504 /* MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewDelegate.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Digital 2.0-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Digital 2.0-Info.plist"; path = "../Digital 2.0-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,22 +278,8 @@
 		3A3BA19311957B3C0021D14B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A3BA19A11957C370021D14B /* ButtonView.h */,
-				3A3BA19B11957C370021D14B /* ButtonView.m */,
-				3A3BA1C811957FB40021D14B /* ButtonViewDelegate.h */,
-				3A3BA2AD11958BF50021D14B /* CompassButtonView.h */,
-				3A3BA2AE11958BF50021D14B /* CompassButtonView.m */,
-				3A43D8911195A09E005C9F65 /* ClockButtonView.h */,
-				3A43D8921195A09E005C9F65 /* ClockButtonView.m */,
-				3ABABDF01195B21600AEFF39 /* CubeButtonView.h */,
-				3ABABDF11195B21600AEFF39 /* CubeButtonView.m */,
-				3AA8E311119800C700DD0287 /* RotationButtonView.h */,
-				3AA8E312119800C700DD0287 /* RotationButtonView.m */,
-				3A493848119A066F0091ABDB /* VideoButtonView.h */,
-				3A493849119A066F0091ABDB /* VideoButtonView.m */,
-				3AA8E3491198084200DD0287 /* MainMenuView.h */,
-				3AA8E34A1198084200DD0287 /* MainMenuView.m */,
-				3A5A29E7119830EA0061FA73 /* MainMenuViewDelegate.h */,
+				3AD3945111A5304600654504 /* Buttons */,
+				3AD3945F11A5304600654504 /* MainMenu */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,6 +432,36 @@
 			path = button_21;
 			sourceTree = "<group>";
 		};
+		3AD3945111A5304600654504 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3945211A5304600654504 /* ButtonView.h */,
+				3AD3945311A5304600654504 /* ButtonView.m */,
+				3AD3945411A5304600654504 /* ButtonViewDelegate.h */,
+				3AD3945511A5304600654504 /* ClockButtonView.h */,
+				3AD3945611A5304600654504 /* ClockButtonView.m */,
+				3AD3945711A5304600654504 /* CompassButtonView.h */,
+				3AD3945811A5304600654504 /* CompassButtonView.m */,
+				3AD3945911A5304600654504 /* CubeButtonView.h */,
+				3AD3945A11A5304600654504 /* CubeButtonView.m */,
+				3AD3945B11A5304600654504 /* RotationButtonView.h */,
+				3AD3945C11A5304600654504 /* RotationButtonView.m */,
+				3AD3945D11A5304600654504 /* VideoButtonView.h */,
+				3AD3945E11A5304600654504 /* VideoButtonView.m */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3AD3945F11A5304600654504 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3AD3946011A5304600654504 /* MainMenuView.h */,
+				3AD3946111A5304600654504 /* MainMenuView.m */,
+				3AD3946211A5304600654504 /* MainMenuViewDelegate.h */,
+			);
+			path = MainMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -558,17 +574,17 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */,
-				3A3BA19C11957C370021D14B /* ButtonView.m in Sources */,
 				3A3BA1DD1195813A0021D14B /* MainMenuController.m in Sources */,
-				3A3BA2AF11958BF50021D14B /* CompassButtonView.m in Sources */,
-				3A43D8931195A09E005C9F65 /* ClockButtonView.m in Sources */,
-				3ABABDF21195B21600AEFF39 /* CubeButtonView.m in Sources */,
 				3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */,
-				3AA8E313119800C700DD0287 /* RotationButtonView.m in Sources */,
-				3AA8E34B1198084200DD0287 /* MainMenuView.m in Sources */,
-				3A49384A119A066F0091ABDB /* VideoButtonView.m in Sources */,
 				3A58EDB011A290E100BC976C /* SoundEffect.m in Sources */,
 				3A58EDB411A2913000BC976C /* SoundManager.m in Sources */,
+				3AD3946311A5304600654504 /* ButtonView.m in Sources */,
+				3AD3946411A5304600654504 /* ClockButtonView.m in Sources */,
+				3AD3946511A5304600654504 /* CompassButtonView.m in Sources */,
+				3AD3946611A5304600654504 /* CubeButtonView.m in Sources */,
+				3AD3946711A5304600654504 /* RotationButtonView.m in Sources */,
+				3AD3946811A5304600654504 /* VideoButtonView.m in Sources */,
+				3AD3946911A5304600654504 /* MainMenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
