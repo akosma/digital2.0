@@ -13,6 +13,7 @@
 #import "CubeButtonView.h"
 #import "RotationButtonView.h"
 #import "VideoButtonView.h"
+#import "EAGLView.h"
 
 @interface MainMenuView ()
 
@@ -99,12 +100,6 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (void)animate
-{
-    [self.button22 animate];
-    [self.button23 animate];
-}
-
 - (void)backToMenu
 {
     self.minimized = NO;
@@ -129,7 +124,7 @@
                             self.selectedButton = buttonView;
                             [self highlightCurrentButtonInDock];
                         }
-                        else if ([buttonView isKindOfClass:[NSClassFromString(@"EAGLView") class]])
+                        else if ([buttonView isKindOfClass:[EAGLView class]])
                         {
                             buttonView = (ButtonView *)buttonView.superview;
                             self.selectedButton = buttonView;

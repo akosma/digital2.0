@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "ButtonViewDelegate.h"
 
 @interface ButtonView : UIView 
 {
 @private
+    CADisplayLink *_displayLink;
     UIImageView *_backgroundImageView;
     UIImageView *_foregroundImageView;
     NSString *_imageName;
@@ -23,8 +25,10 @@
 @property (nonatomic) BOOL hasShadow;
 @property (nonatomic, assign) IBOutlet id<ButtonViewDelegate> delegate;
 @property (nonatomic, retain) UIImageView *foregroundImageView;
+@property (nonatomic, retain) CADisplayLink *displayLink;
 
 - (void)subclassSetup;
 - (void)animate;
+- (void)initializeTimer;
 
 @end

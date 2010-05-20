@@ -38,7 +38,8 @@
 
     self.hourAngle = 0.0;
     self.minuteAngle = 0.0;
-
+ 
+    [self initializeTimer];
     [self animate];
 }
 
@@ -50,7 +51,7 @@
 }
 
 - (void)animate
-{
+{    
     NSDate *today = [NSDate date];
     NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
     NSDateComponents *weekdayComponents = [gregorian components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)

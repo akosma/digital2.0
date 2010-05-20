@@ -15,7 +15,6 @@
 
 @interface MainMenuController ()
 
-@property (nonatomic, retain) CADisplayLink *displayLink;
 @property (nonatomic, retain) UIPopoverController *popover;
 @property (nonatomic, retain) SoundManager *soundManager;
 @property (nonatomic, retain) FeatureView *featureView;
@@ -26,7 +25,6 @@
 
 @implementation MainMenuController
 
-@synthesize displayLink = _displayLink;
 @synthesize mainMenuView = _mainMenuView;
 @synthesize akosmaInfoButton = _akosmaInfoButton;
 @synthesize moserInfoButton = _moserInfoButton;
@@ -39,7 +37,6 @@
 
 - (void)dealloc 
 {
-    self.displayLink = nil;
     self.mainMenuView = nil;
     self.vpsInfoButton = nil;
     self.moserInfoButton = nil;
@@ -55,10 +52,6 @@
 {
     [super viewDidLoad];
     self.mainMenuView.orientation = self.interfaceOrientation;
-    self.displayLink = [CADisplayLink displayLinkWithTarget:self.mainMenuView 
-                                                   selector:@selector(animate)];
-    [self.displayLink setFrameInterval:1];
-    [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.soundManager = [SoundManager sharedSoundManager];
 }
 

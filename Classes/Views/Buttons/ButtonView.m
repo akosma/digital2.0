@@ -21,6 +21,7 @@
 
 @implementation ButtonView
 
+@synthesize displayLink = _displayLink;
 @synthesize backgroundImageView = _backgroundImageView;
 @synthesize foregroundImageView = _foregroundImageView;
 @synthesize delegate = _delegate;
@@ -71,6 +72,7 @@
 
 - (void)dealloc 
 {
+    self.displayLink = nil;
     self.backgroundImageView = nil;
     self.foregroundImageView = nil;
     self.imageName = nil;
@@ -87,6 +89,17 @@
 
 - (void)animate
 {
+}
+
+- (void)initializeTimer
+{
+    if (self.displayLink == nil)
+    {
+        self.displayLink = [CADisplayLink displayLinkWithTarget:self 
+                                                       selector:@selector(animate)];
+        [self.displayLink setFrameInterval:1];
+        [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    }
 }
 
 #pragma mark -

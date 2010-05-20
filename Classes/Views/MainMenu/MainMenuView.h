@@ -59,7 +59,6 @@
 @property (nonatomic, retain) IBOutlet UIView *dockView;
 @property (nonatomic, assign) IBOutlet id<MainMenuViewDelegate> delegate;
 
-- (void)animate;
 - (void)backToMenu;
 
 @end

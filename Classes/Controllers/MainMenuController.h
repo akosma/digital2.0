@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 #import "MainMenuViewDelegate.h"
 
 @class MainMenuView;
@@ -18,7 +17,6 @@
 {
 @private
     MainMenuView *_mainMenuView;
-    CADisplayLink *_displayLink;
     
     UIButton *_akosmaInfoButton;
     UIButton *_moserInfoButton;
