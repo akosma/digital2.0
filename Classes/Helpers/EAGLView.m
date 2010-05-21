@@ -139,6 +139,7 @@
     glTranslatef(0.0, 0.0, zTransform);
     
 	glEnableClientState(GL_VERTEX_ARRAY);
+    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST);
     glEnable(GL_LINE_SMOOTH);
     glEnable(GL_POINT_SMOOTH);
 
