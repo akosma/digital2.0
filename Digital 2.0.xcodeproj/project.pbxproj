@@ -66,6 +66,13 @@
 		3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A8B911A69C8F00E7B49E /* NSDataAdditions.m */; };
 		3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A8BB11A69C8F00E7B49E /* TBXML.m */; };
 		3A78A8BF11A69C9B00E7B49E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78A8BE11A69C9B00E7B49E /* libxml2.dylib */; };
+		3A78A9BC11A6B04300E7B49E /* weather_cloudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9B711A6B04300E7B49E /* weather_cloudy.png */; };
+		3A78A9BD11A6B04300E7B49E /* weather_partially_sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9B811A6B04300E7B49E /* weather_partially_sunny.png */; };
+		3A78A9BE11A6B04300E7B49E /* weather_rainy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9B911A6B04300E7B49E /* weather_rainy.png */; };
+		3A78A9BF11A6B04300E7B49E /* weather_snowy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9BA11A6B04300E7B49E /* weather_snowy.png */; };
+		3A78A9C011A6B04300E7B49E /* weather_sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9BB11A6B04300E7B49E /* weather_sunny.png */; };
+		3A78A9C311A6B14A00E7B49E /* WeatherInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */; };
+		3A78A9D311A6B4C300E7B49E /* WeatherInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A9D211A6B4C300E7B49E /* WeatherInfoCell.m */; };
 		3A9981FE119D2C79000ECE4E /* button_21_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9981E6119D2C79000ECE4E /* button_21_0.png */; };
 		3A9981FF119D2C79000ECE4E /* button_21_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9981E7119D2C79000ECE4E /* button_21_1.png */; };
 		3A998200119D2C79000ECE4E /* button_21_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9981E8119D2C79000ECE4E /* button_21_10.png */; };
@@ -186,6 +193,14 @@
 		3A78A8BA11A69C8F00E7B49E /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
 		3A78A8BB11A69C8F00E7B49E /* TBXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBXML.m; sourceTree = "<group>"; };
 		3A78A8BE11A69C9B00E7B49E /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3A78A9B711A6B04300E7B49E /* weather_cloudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_cloudy.png; sourceTree = "<group>"; };
+		3A78A9B811A6B04300E7B49E /* weather_partially_sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_partially_sunny.png; sourceTree = "<group>"; };
+		3A78A9B911A6B04300E7B49E /* weather_rainy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_rainy.png; sourceTree = "<group>"; };
+		3A78A9BA11A6B04300E7B49E /* weather_snowy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_snowy.png; sourceTree = "<group>"; };
+		3A78A9BB11A6B04300E7B49E /* weather_sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather_sunny.png; sourceTree = "<group>"; };
+		3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherInfoCell.xib; sourceTree = "<group>"; };
+		3A78A9D111A6B4C300E7B49E /* WeatherInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoCell.h; sourceTree = "<group>"; };
+		3A78A9D211A6B4C300E7B49E /* WeatherInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoCell.m; sourceTree = "<group>"; };
 		3A9981E6119D2C79000ECE4E /* button_21_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_0.png; sourceTree = "<group>"; };
 		3A9981E7119D2C79000ECE4E /* button_21_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_1.png; sourceTree = "<group>"; };
 		3A9981E8119D2C79000ECE4E /* button_21_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_10.png; sourceTree = "<group>"; };
@@ -280,7 +295,6 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				3A78A8BE11A69C9B00E7B49E /* libxml2.dylib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -297,6 +311,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A78A8BE11A69C9B00E7B49E /* libxml2.dylib */,
 				3A78A86E11A692E300E7B49E /* CFNetwork.framework */,
 				3A78A87011A692E800E7B49E /* SystemConfiguration.framework */,
 				3A78A87211A692ED00E7B49E /* libz.1.2.3.dylib */,
@@ -348,6 +363,7 @@
 				3AD3945111A5304600654504 /* Buttons */,
 				3AD3945F11A5304600654504 /* MainMenu */,
 				3AD3946C11A5312F00654504 /* Features */,
+				3A78A9D011A6B4C300E7B49E /* TableCells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -377,6 +393,7 @@
 				3A3BA1E6119581970021D14B /* footer.png */,
 				3A3BA19D11957C3D0021D14B /* Buttons */,
 				3AD3949111A537D900654504 /* Features */,
+				3A78A9B611A6B04300E7B49E /* WeatherIcons */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -386,6 +403,7 @@
 			children = (
 				3A3BA1D8119581240021D14B /* MainMenuController.xib */,
 				3A3BA19811957B580021D14B /* MainWindow.xib */,
+				3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */,
 			);
 			path = NIBs;
 			sourceTree = "<group>";
@@ -523,6 +541,27 @@
 				3A78A8BB11A69C8F00E7B49E /* TBXML.m */,
 			);
 			path = TBXML;
+			sourceTree = "<group>";
+		};
+		3A78A9B611A6B04300E7B49E /* WeatherIcons */ = {
+			isa = PBXGroup;
+			children = (
+				3A78A9B711A6B04300E7B49E /* weather_cloudy.png */,
+				3A78A9B811A6B04300E7B49E /* weather_partially_sunny.png */,
+				3A78A9B911A6B04300E7B49E /* weather_rainy.png */,
+				3A78A9BA11A6B04300E7B49E /* weather_snowy.png */,
+				3A78A9BB11A6B04300E7B49E /* weather_sunny.png */,
+			);
+			path = WeatherIcons;
+			sourceTree = "<group>";
+		};
+		3A78A9D011A6B4C300E7B49E /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				3A78A9D111A6B4C300E7B49E /* WeatherInfoCell.h */,
+				3A78A9D211A6B4C300E7B49E /* WeatherInfoCell.m */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 		3A9981E5119D2C79000ECE4E /* button_21 */ = {
@@ -719,6 +758,12 @@
 				3A58EDAA11A290A900BC976C /* shop.wav in Resources */,
 				3AD3949311A537E100654504 /* agnes_london_53.jpg in Resources */,
 				3AD394D211A541B100654504 /* loremipsum.txt in Resources */,
+				3A78A9BC11A6B04300E7B49E /* weather_cloudy.png in Resources */,
+				3A78A9BD11A6B04300E7B49E /* weather_partially_sunny.png in Resources */,
+				3A78A9BE11A6B04300E7B49E /* weather_rainy.png in Resources */,
+				3A78A9BF11A6B04300E7B49E /* weather_snowy.png in Resources */,
+				3A78A9C011A6B04300E7B49E /* weather_sunny.png in Resources */,
+				3A78A9C311A6B14A00E7B49E /* WeatherInfoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -757,6 +802,7 @@
 				3A78A89211A697F000E7B49E /* WeatherInfoManager.m in Sources */,
 				3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */,
 				3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */,
+				3A78A9D311A6B4C300E7B49E /* WeatherInfoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

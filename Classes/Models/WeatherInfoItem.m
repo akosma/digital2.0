@@ -48,7 +48,6 @@
     
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:@"yyyy-MM-dd"];
-    [formatter setTimeStyle:NSDateFormatterNoStyle];
     
     item.date = [formatter dateFromString:dateText];
     item.maxTempC = [tempMaxText intValue];
