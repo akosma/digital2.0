@@ -11,6 +11,8 @@
 @interface VideoButtonView ()
 
 @property (nonatomic, retain) UIImageView *movieAnimation;
+@property (nonatomic, retain) NSMutableArray *images;
+@property (nonatomic, retain) UIImageView *staticImage;
 
 @end
 
@@ -18,26 +20,61 @@
 @implementation VideoButtonView
 
 @synthesize movieAnimation = _movieAnimation;
+@synthesize images = _images;
+@synthesize staticImage = _staticImage;
 
 - (void)subclassSetup
 {
-    self.movieAnimation = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
-    self.movieAnimation.contentMode = UIViewContentModeCenter;
-    NSMutableArray *images = [NSMutableArray arrayWithCapacity:24];
+    self.images = [NSMutableArray arrayWithCapacity:24];
     for (NSInteger index = 0; index <= 23; ++index)
     {
-        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"button_21_%d.png", index]]];
+        [self.images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"button_21_%d.png", index]]];
     }
-    self.movieAnimation.animationImages = images;
-    [self.movieAnimation startAnimating];
+    
+    self.movieAnimation = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
+    self.movieAnimation.contentMode = UIViewContentModeCenter;
+    self.movieAnimation.animationImages = self.images;
+    self.movieAnimation.animationDuration = 1.0;
+    self.movieAnimation.animationRepeatCount = 1;
+    self.movieAnimation.hidden = YES;
+
+    self.staticImage = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
+    self.staticImage.contentMode = UIViewContentModeCenter;
+    self.staticImage.image = [UIImage imageNamed:@"button_21_23.png"];
+    
     [self addSubview:self.movieAnimation];
+    [self addSubview:self.staticImage];
+    
+    [self initializeTimer];
 }
 
 - (void)dealloc 
 {
+    self.staticImage = nil;
     self.movieAnimation = nil;
+    self.images = nil;
     [super dealloc];
 }
 
+- (void)animate
+{
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    NSDateComponents *components = [gregorian components:NSSecondCalendarUnit fromDate:today];
+    NSInteger second = [components second];
+    
+    if (second == self.nextSecondAnimation)
+    {
+        [self.movieAnimation startAnimating];
+        self.movieAnimation.hidden = NO;
+        self.staticImage.hidden = YES;
+    }
+    else
+    {
+        [self.movieAnimation stopAnimating];
+        self.staticImage.hidden = NO;
+        self.movieAnimation.hidden = YES;
+    }
+}
 
 @end

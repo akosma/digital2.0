@@ -13,6 +13,8 @@
 {
 @private
     UIImageView *_movieAnimation;
+    UIImageView *_staticImage;
+    NSMutableArray *_images;
 }
 
 @end

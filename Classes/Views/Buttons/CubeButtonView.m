@@ -30,7 +30,15 @@
 
 - (void)animate
 {
-    [self.eaglView drawView];
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar] autorelease];
+    NSDateComponents *components = [gregorian components:NSSecondCalendarUnit fromDate:today];
+    NSInteger second = [components second];
+    
+    if (second > self.nextSecondAnimation && second < (self.nextSecondAnimation + 5))
+    {
+        [self.eaglView drawView];
+    }
 }
 
 - (void)dealloc 

@@ -25,6 +25,7 @@
 @synthesize backgroundImageView = _backgroundImageView;
 @synthesize foregroundImageView = _foregroundImageView;
 @synthesize delegate = _delegate;
+@synthesize nextSecondAnimation = _nextSecondAnimation;
 @dynamic hasShadow;
 @dynamic imageName;
 
@@ -93,6 +94,7 @@
 
 - (void)initializeTimer
 {
+    self.nextSecondAnimation = arc4random() % 59;
     if (self.displayLink == nil)
     {
         self.displayLink = [CADisplayLink displayLinkWithTarget:self 

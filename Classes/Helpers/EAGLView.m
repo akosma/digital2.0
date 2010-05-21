@@ -50,7 +50,9 @@
             [self release];
             return nil;
         }
-        
+
+        cubeRot = arc4random() % 50;
+
         animating = FALSE;
 		displayLinkSupported = FALSE;
 		
@@ -137,9 +139,9 @@
     glTranslatef(0.0, 0.0, zTransform);
     
 	glEnableClientState(GL_VERTEX_ARRAY);
-//	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-//	glEnable(GL_TEXTURE_2D);
-	
+    glEnable(GL_LINE_SMOOTH);
+    glEnable(GL_POINT_SMOOTH);
+
 	[self drawCube];
 	
     glBindRenderbufferOES(GL_RENDERBUFFER_OES, viewRenderbuffer);

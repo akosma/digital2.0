@@ -17,6 +17,7 @@
     UIImageView *_backgroundImageView;
     UIImageView *_foregroundImageView;
     NSString *_imageName;
+    NSInteger _nextSecondAnimation;
     BOOL _hasShadow;
     id<ButtonViewDelegate> _delegate;
 }
@@ -26,6 +27,7 @@
 @property (nonatomic, assign) IBOutlet id<ButtonViewDelegate> delegate;
 @property (nonatomic, retain) UIImageView *foregroundImageView;
 @property (nonatomic, retain) CADisplayLink *displayLink;
+@property (nonatomic) NSInteger nextSecondAnimation;
 
 - (void)subclassSetup;
 - (void)animate;
