@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @class MainMenuController;
 
@@ -15,6 +16,7 @@
 @private
     UIWindow *_window;
     MainMenuController *_mainMenuController;
+    MPMoviePlayerController *_moviePlayer;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

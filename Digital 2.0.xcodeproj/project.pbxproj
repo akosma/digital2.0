@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3A19AD9F11B6442D0020B62A /* tunnel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A19AD9E11B6442D0020B62A /* tunnel.mp4 */; };
 		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
 		3A3BA19911957B580021D14B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19811957B580021D14B /* MainWindow.xib */; };
 		3A3BA1A811957C3D0021D14B /* button_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19E11957C3D0021D14B /* button_11.png */; };
@@ -120,6 +121,7 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Digital 2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Digital 2.0_Prefix.pch"; sourceTree = "<group>"; };
+		3A19AD9E11B6442D0020B62A /* tunnel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tunnel.mp4; sourceTree = "<group>"; };
 		3A3BA19011957B3C0021D14B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
 		3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
 		3A3BA19811957B580021D14B /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		3A493843119A062E0091ABDB /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				3A19AD9E11B6442D0020B62A /* tunnel.mp4 */,
 				3A99823F119D3224000ECE4E /* test.mp4 */,
 			);
 			path = Videos;
@@ -764,6 +767,7 @@
 				3A78A9BF11A6B04300E7B49E /* weather_snowy.png in Resources */,
 				3A78A9C011A6B04300E7B49E /* weather_sunny.png in Resources */,
 				3A78A9C311A6B14A00E7B49E /* WeatherInfoCell.xib in Resources */,
+				3A19AD9F11B6442D0020B62A /* tunnel.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
