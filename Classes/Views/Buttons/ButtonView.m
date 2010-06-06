@@ -26,7 +26,6 @@
 @synthesize foregroundImageView = _foregroundImageView;
 @synthesize delegate = _delegate;
 @synthesize nextSecondAnimation = _nextSecondAnimation;
-@dynamic hasShadow;
 @dynamic imageName;
 
 #pragma mark -
@@ -59,8 +58,6 @@
     self.backgroundImageView.image = [UIImage imageNamed:@"button_background.png"];
     self.foregroundImageView = [[[UIImageView alloc] initWithFrame:rect] autorelease];
     self.backgroundColor = [UIColor clearColor];
-    
-    self.hasShadow = NO;
     
     UITapGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self 
                                                                                   action:@selector(buttonTouched:)] autorelease];
@@ -106,34 +103,6 @@
 
 #pragma mark -
 #pragma mark Properties
-
-- (BOOL)hasShadow
-{
-    return _hasShadow;
-}
-
-- (void)setHasShadow:(BOOL)newValue
-{
-    if (newValue != self.hasShadow)
-    {
-        _hasShadow = newValue;
-        
-        if (self.hasShadow)
-        {
-            self.backgroundImageView.layer.shadowColor = [UIColor blackColor].CGColor;
-            self.backgroundImageView.layer.shadowRadius = 5.0;
-            self.backgroundImageView.layer.shadowOpacity = 0.75;
-            self.backgroundImageView.layer.shadowOffset = CGSizeMake(0.0, 1.0);
-        }
-        else
-        {
-            self.backgroundImageView.layer.shadowColor = [UIColor clearColor].CGColor;
-            self.backgroundImageView.layer.shadowRadius = 0.0;
-            self.backgroundImageView.layer.shadowOpacity = 0.0;
-            self.backgroundImageView.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-        }
-    }
-}
 
 - (NSString *)imageName
 {
