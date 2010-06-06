@@ -16,6 +16,7 @@
 
 @interface MainMenuController ()
 
+@property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) UIPopoverController *popover;
 @property (nonatomic, retain) SoundManager *soundManager;
 @property (nonatomic, retain) FeatureView *featureView;
@@ -26,6 +27,7 @@
 
 @implementation MainMenuController
 
+@synthesize moviePlayer = _moviePlayer;
 @synthesize mainMenuView = _mainMenuView;
 @synthesize akosmaInfoButton = _akosmaInfoButton;
 @synthesize moserInfoButton = _moserInfoButton;
@@ -38,6 +40,7 @@
 
 - (void)dealloc 
 {
+    self.moviePlayer = nil;
     self.mainMenuView = nil;
     self.vpsInfoButton = nil;
     self.moserInfoButton = nil;
@@ -52,9 +55,26 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    self.mainMenuView.orientation = self.interfaceOrientation;
-    self.soundManager = [SoundManager sharedSoundManager];
-    self.lastTag = -1;
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"tunnel" ofType:@"mp4"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self 
+               selector:@selector(movieReady:) 
+                   name:MPMoviePlayerLoadStateDidChangeNotification
+                 object:self.moviePlayer];
+    [center addObserver:self 
+               selector:@selector(moviePlaybackFinished:) 
+                   name:MPMoviePlayerPlaybackDidFinishNotification
+                 object:self.moviePlayer];
+    
+    self.moviePlayer.view.frame = [UIScreen mainScreen].bounds;
+    self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
+    self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self.view addSubview:self.moviePlayer.view];
+    self.view.alpha = 0.0;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -179,6 +199,32 @@
         [self.featureView maximize];
         self.lastTag = tag;
     }
+}
+
+#pragma mark -
+#pragma mark NSNotification handlers
+
+- (void)movieReady:(NSNotification *)notification
+{
+    if (self.moviePlayer.loadState == 3)
+    {
+        self.view.alpha = 1.0;
+        self.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+        self.moviePlayer.controlStyle = MPMovieControlModeDefault;
+        [self.moviePlayer play];
+    }
+}
+
+- (void)moviePlaybackFinished:(NSNotification *)notification
+{
+    self.mainMenuView.orientation = self.interfaceOrientation;
+    self.soundManager = [SoundManager sharedSoundManager];
+    self.lastTag = -1;
+    self.mainMenuView.alpha = 1.0;
+
+    [UIView beginAnimations:nil context:NULL];
+    self.moviePlayer.view.alpha = 0.0;
+    [UIView commitAnimations];
 }
 
 @end

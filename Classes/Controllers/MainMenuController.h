@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import "MainMenuViewDelegate.h"
 
 @class MainMenuView;
@@ -16,6 +17,7 @@
 @interface MainMenuController : UIViewController <MainMenuViewDelegate>
 {
 @private
+    MPMoviePlayerController *_moviePlayer;
     MainMenuView *_mainMenuView;
     
     UIButton *_akosmaInfoButton;
