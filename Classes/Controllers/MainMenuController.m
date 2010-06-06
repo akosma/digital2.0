@@ -13,6 +13,7 @@
 #import "FluidFeatureView.h"
 #import "MovieFeatureView.h"
 #import "WeatherFeatureView.h"
+#import "MakingOfFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -188,6 +189,7 @@
                 
             case 33:
                 [self.soundManager.sound33 play];
+                self.featureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
                 
             default:

@@ -13,6 +13,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		3A19AD9F11B6442D0020B62A /* tunnel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A19AD9E11B6442D0020B62A /* tunnel.mp4 */; };
 		3A25C98511BBF23700F08691 /* Making_of.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C98411BBF23700F08691 /* Making_of.mp4 */; };
+		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
 		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
 		3A3BA19911957B580021D14B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19811957B580021D14B /* MainWindow.xib */; };
 		3A3BA1A811957C3D0021D14B /* button_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19E11957C3D0021D14B /* button_11.png */; };
@@ -124,6 +125,8 @@
 		32CA4F630368D1EE00C91783 /* Digital 2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Digital 2.0_Prefix.pch"; sourceTree = "<group>"; };
 		3A19AD9E11B6442D0020B62A /* tunnel.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tunnel.mp4; sourceTree = "<group>"; };
 		3A25C98411BBF23700F08691 /* Making_of.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Making_of.mp4; sourceTree = "<group>"; };
+		3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakingOfFeatureView.h; sourceTree = "<group>"; };
+		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
 		3A3BA19011957B3C0021D14B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
 		3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
 		3A3BA19811957B580021D14B /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -642,6 +645,8 @@
 				3A9E7A2D11A5D5E100C32968 /* MovieFeatureView.m */,
 				3A78A88011A6936100E7B49E /* WeatherFeatureView.h */,
 				3A78A88111A6936100E7B49E /* WeatherFeatureView.m */,
+				3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */,
+				3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -811,6 +816,7 @@
 				3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */,
 				3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */,
 				3A78A9D311A6B4C300E7B49E /* WeatherInfoCell.m in Sources */,
+				3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
