@@ -16,6 +16,7 @@
 #import "MakingOfFeatureView.h"
 #import "MapFeatureView.h"
 #import "FontFeatureView.h"
+#import "ShopFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -150,6 +151,7 @@
     {
         FeatureView *oldFeatureView = [self.featureView retain];
         [oldFeatureView minimize];
+        [self.featureView removeFromSuperview];
         self.featureView = nil;
         switch (tag) 
         {
@@ -167,6 +169,7 @@
 
             case 13:
                 [self.soundManager.sound13 play];
+                self.featureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
                 
             case 21:

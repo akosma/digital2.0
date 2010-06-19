@@ -37,6 +37,13 @@
 		3A3BA1EC119581970021D14B /* footer.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1E6119581970021D14B /* footer.png */; };
 		3A3BA23B119584320021D14B /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA23A119584320021D14B /* Entitlements.plist */; };
 		3A3BA2B211958C180021D14B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3BA2B111958C180021D14B /* CoreLocation.framework */; };
+		3A3FC35811CD35040055F311 /* beach1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35111CD35030055F311 /* beach1.mp4 */; };
+		3A3FC35911CD35040055F311 /* beach2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35211CD35030055F311 /* beach2.mp4 */; };
+		3A3FC35A11CD35040055F311 /* city.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35311CD35040055F311 /* city.mp4 */; };
+		3A3FC35B11CD35040055F311 /* golf1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35411CD35040055F311 /* golf1.mp4 */; };
+		3A3FC35C11CD35040055F311 /* golf2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35511CD35040055F311 /* golf2.mp4 */; };
+		3A3FC35D11CD35040055F311 /* night1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35611CD35040055F311 /* night1.mp4 */; };
+		3A3FC35E11CD35040055F311 /* night2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35711CD35040055F311 /* night2.mp4 */; };
 		3A43D82111958FCD005C9F65 /* button_31_needle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D82011958FCD005C9F65 /* button_31_needle.png */; };
 		3A43D8B41195A38E005C9F65 /* button_22_hours.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B11195A38E005C9F65 /* button_22_hours.png */; };
 		3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B21195A38E005C9F65 /* button_22_minutes.png */; };
@@ -116,6 +123,15 @@
 		3AC0CE7211CD13BD006C8C12 /* CustomFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0CE7111CD13BD006C8C12 /* CustomFontView.m */; };
 		3AC0CEEF11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CEED11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf */; };
 		3AC0CEF011CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CEEE11CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf */; };
+		3AC0CF1F11CD1EDE006C8C12 /* ShopFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF1E11CD1EDE006C8C12 /* ShopFeatureView.xib */; };
+		3AC0CF2A11CD2088006C8C12 /* contour_dress_beach_casual.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2211CD2088006C8C12 /* contour_dress_beach_casual.png */; };
+		3AC0CF2B11CD2088006C8C12 /* contour_dress_city_casual.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2311CD2088006C8C12 /* contour_dress_city_casual.png */; };
+		3AC0CF2C11CD2088006C8C12 /* contour_dress_golf.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2411CD2088006C8C12 /* contour_dress_golf.png */; };
+		3AC0CF2D11CD2088006C8C12 /* contour_dress_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2511CD2088006C8C12 /* contour_dress_night.png */; };
+		3AC0CF2E11CD2088006C8C12 /* dress_beach_casual.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2611CD2088006C8C12 /* dress_beach_casual.png */; };
+		3AC0CF2F11CD2088006C8C12 /* dress_city_casual.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2711CD2088006C8C12 /* dress_city_casual.png */; };
+		3AC0CF3011CD2088006C8C12 /* dress_golf.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2811CD2088006C8C12 /* dress_golf.png */; };
+		3AC0CF3111CD2088006C8C12 /* dress_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2911CD2088006C8C12 /* dress_night.png */; };
 		3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD17FD111CCCA1A00E888A5 /* Icon.png */; };
 		3AD17FEF11CCCBFC00E888A5 /* MapFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */; };
 		3AD17FF411CCCC6F00E888A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD17FF311CCCC6F00E888A5 /* MapKit.framework */; };
@@ -169,6 +185,13 @@
 		3A3BA1E6119581970021D14B /* footer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer.png; sourceTree = "<group>"; };
 		3A3BA23A119584320021D14B /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		3A3BA2B111958C180021D14B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3A3FC35111CD35030055F311 /* beach1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = beach1.mp4; sourceTree = "<group>"; };
+		3A3FC35211CD35030055F311 /* beach2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = beach2.mp4; sourceTree = "<group>"; };
+		3A3FC35311CD35040055F311 /* city.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = city.mp4; sourceTree = "<group>"; };
+		3A3FC35411CD35040055F311 /* golf1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = golf1.mp4; sourceTree = "<group>"; };
+		3A3FC35511CD35040055F311 /* golf2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = golf2.mp4; sourceTree = "<group>"; };
+		3A3FC35611CD35040055F311 /* night1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = night1.mp4; sourceTree = "<group>"; };
+		3A3FC35711CD35040055F311 /* night2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = night2.mp4; sourceTree = "<group>"; };
 		3A43D82011958FCD005C9F65 /* button_31_needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_31_needle.png; sourceTree = "<group>"; };
 		3A43D8B11195A38E005C9F65 /* button_22_hours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_hours.png; sourceTree = "<group>"; };
 		3A43D8B21195A38E005C9F65 /* button_22_minutes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_minutes.png; sourceTree = "<group>"; };
@@ -271,6 +294,15 @@
 		3AC0CE7111CD13BD006C8C12 /* CustomFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFontView.m; sourceTree = "<group>"; };
 		3AC0CEED11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Bold.ttf"; sourceTree = "<group>"; };
 		3AC0CEEE11CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
+		3AC0CF1E11CD1EDE006C8C12 /* ShopFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopFeatureView.xib; sourceTree = "<group>"; };
+		3AC0CF2211CD2088006C8C12 /* contour_dress_beach_casual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contour_dress_beach_casual.png; sourceTree = "<group>"; };
+		3AC0CF2311CD2088006C8C12 /* contour_dress_city_casual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contour_dress_city_casual.png; sourceTree = "<group>"; };
+		3AC0CF2411CD2088006C8C12 /* contour_dress_golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contour_dress_golf.png; sourceTree = "<group>"; };
+		3AC0CF2511CD2088006C8C12 /* contour_dress_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contour_dress_night.png; sourceTree = "<group>"; };
+		3AC0CF2611CD2088006C8C12 /* dress_beach_casual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_beach_casual.png; sourceTree = "<group>"; };
+		3AC0CF2711CD2088006C8C12 /* dress_city_casual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_city_casual.png; sourceTree = "<group>"; };
+		3AC0CF2811CD2088006C8C12 /* dress_golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_golf.png; sourceTree = "<group>"; };
+		3AC0CF2911CD2088006C8C12 /* dress_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_night.png; sourceTree = "<group>"; };
 		3AD17FD111CCCA1A00E888A5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3AD17FED11CCCBFC00E888A5 /* MapFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFeatureView.h; sourceTree = "<group>"; };
 		3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFeatureView.m; sourceTree = "<group>"; };
@@ -444,6 +476,7 @@
 				3A3BA1E5119581970021D14B /* digital_20_title.png */,
 				3A3BA1E6119581970021D14B /* footer.png */,
 				3A3BA19D11957C3D0021D14B /* Buttons */,
+				3AC0CF2111CD2088006C8C12 /* Dresses */,
 				3AD3949111A537D900654504 /* Features */,
 				3A78A9B611A6B04300E7B49E /* WeatherIcons */,
 			);
@@ -457,6 +490,7 @@
 				3A3BA19811957B580021D14B /* MainWindow.xib */,
 				3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */,
 				3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */,
+				3AC0CF1E11CD1EDE006C8C12 /* ShopFeatureView.xib */,
 			);
 			path = NIBs;
 			sourceTree = "<group>";
@@ -480,6 +514,20 @@
 				3A3BA1A711957C3D0021D14B /* button_background.png */,
 			);
 			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3A3FC35011CD35030055F311 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				3A3FC35111CD35030055F311 /* beach1.mp4 */,
+				3A3FC35211CD35030055F311 /* beach2.mp4 */,
+				3A3FC35311CD35040055F311 /* city.mp4 */,
+				3A3FC35411CD35040055F311 /* golf1.mp4 */,
+				3A3FC35511CD35040055F311 /* golf2.mp4 */,
+				3A3FC35611CD35040055F311 /* night1.mp4 */,
+				3A3FC35711CD35040055F311 /* night2.mp4 */,
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		3A43D93A1195A7E1005C9F65 /* Helpers */ = {
@@ -508,6 +556,7 @@
 				3A25C98411BBF23700F08691 /* Making_of.mp4 */,
 				3A19AD9E11B6442D0020B62A /* tunnel.mp4 */,
 				3A99823F119D3224000ECE4E /* test.mp4 */,
+				3A3FC35011CD35030055F311 /* Shop */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -673,6 +722,21 @@
 				3AC0CEEE11CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		3AC0CF2111CD2088006C8C12 /* Dresses */ = {
+			isa = PBXGroup;
+			children = (
+				3AC0CF2211CD2088006C8C12 /* contour_dress_beach_casual.png */,
+				3AC0CF2311CD2088006C8C12 /* contour_dress_city_casual.png */,
+				3AC0CF2411CD2088006C8C12 /* contour_dress_golf.png */,
+				3AC0CF2511CD2088006C8C12 /* contour_dress_night.png */,
+				3AC0CF2611CD2088006C8C12 /* dress_beach_casual.png */,
+				3AC0CF2711CD2088006C8C12 /* dress_city_casual.png */,
+				3AC0CF2811CD2088006C8C12 /* dress_golf.png */,
+				3AC0CF2911CD2088006C8C12 /* dress_night.png */,
+			);
+			path = Dresses;
 			sourceTree = "<group>";
 		};
 		3AD3945111A5304600654504 /* Buttons */ = {
@@ -863,6 +927,22 @@
 				3AC0CDAB11CCFB10006C8C12 /* FontFeatureView.xib in Resources */,
 				3AC0CEEF11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf in Resources */,
 				3AC0CEF011CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf in Resources */,
+				3AC0CF1F11CD1EDE006C8C12 /* ShopFeatureView.xib in Resources */,
+				3AC0CF2A11CD2088006C8C12 /* contour_dress_beach_casual.png in Resources */,
+				3AC0CF2B11CD2088006C8C12 /* contour_dress_city_casual.png in Resources */,
+				3AC0CF2C11CD2088006C8C12 /* contour_dress_golf.png in Resources */,
+				3AC0CF2D11CD2088006C8C12 /* contour_dress_night.png in Resources */,
+				3AC0CF2E11CD2088006C8C12 /* dress_beach_casual.png in Resources */,
+				3AC0CF2F11CD2088006C8C12 /* dress_city_casual.png in Resources */,
+				3AC0CF3011CD2088006C8C12 /* dress_golf.png in Resources */,
+				3AC0CF3111CD2088006C8C12 /* dress_night.png in Resources */,
+				3A3FC35811CD35040055F311 /* beach1.mp4 in Resources */,
+				3A3FC35911CD35040055F311 /* beach2.mp4 in Resources */,
+				3A3FC35A11CD35040055F311 /* city.mp4 in Resources */,
+				3A3FC35B11CD35040055F311 /* golf1.mp4 in Resources */,
+				3A3FC35C11CD35040055F311 /* golf2.mp4 in Resources */,
+				3A3FC35D11CD35040055F311 /* night1.mp4 in Resources */,
+				3A3FC35E11CD35040055F311 /* night2.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

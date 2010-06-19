@@ -49,6 +49,7 @@
 
 - (void)dealloc 
 {
+    [WeatherInfoManager sharedWeatherInfoManager].delegate = nil;
     self.weatherItems = nil;
     self.tableView = nil;
     [super dealloc];
