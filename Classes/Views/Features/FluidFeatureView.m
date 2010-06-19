@@ -7,12 +7,12 @@
 //
 
 #import "FluidFeatureView.h"
-#import <QuartzCore/QuartzCore.h>
+#import "BoxView.h"
 
 @interface FluidFeatureView ()
 
 @property (nonatomic, retain) UIImageView *photoView;
-@property (nonatomic, retain) UIView *textView;
+@property (nonatomic, retain) BoxView *textView;
 
 @end
 
@@ -32,33 +32,11 @@
         self.photoView.contentMode = UIViewContentModeCenter;
         [self addSubview:self.photoView];
         
-        CGRect rect = CGRectMake(0.0, 0.0, 328.0, 700.0);
-        UIScrollView *scrollView = [[[UIScrollView alloc] initWithFrame:rect] autorelease];
-        scrollView.backgroundColor = [UIColor clearColor];
-        scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
-        
         NSString *path = [[NSBundle mainBundle] pathForResource:@"loremipsum" ofType:@"txt"];
         NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
-        UIFont *font = [UIFont systemFontOfSize:17.0];
-        
-        CGSize size = [text sizeWithFont:font constrainedToSize:CGSizeMake(288.0, 2900.0)];
-        
-        UILabel *label = [[[UILabel alloc] initWithFrame:rect] autorelease];
-        label.frame = CGRectMake(20.0, 20.0, 288.0, size.height);
-        label.numberOfLines = 0;
-        label.backgroundColor = [UIColor clearColor];
-        label.text = text;
-        label.font = font;
-
-        self.textView = [[[UIView alloc] initWithFrame:CGRectMake(384.0, 100.0, 328.0, 700.0)] autorelease];
-        self.textView.layer.cornerRadius = 10.0;
-        self.textView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.75];
-        self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleHeight;
-        
-        scrollView.contentSize = CGSizeMake(size.width, size.height + 40.0);
-        [scrollView addSubview:label];
-        [self.textView addSubview:scrollView];
+        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 100.0, 328.0, 700.0)] autorelease];
+        self.textView.text = text;
         [self addSubview:self.textView];
     }
     return self;

@@ -14,6 +14,7 @@
 		3A19AD9F11B6442D0020B62A /* tunnel.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A19AD9E11B6442D0020B62A /* tunnel.mp4 */; };
 		3A25C98511BBF23700F08691 /* Making_of.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C98411BBF23700F08691 /* Making_of.mp4 */; };
 		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
+		3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */; };
 		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
 		3A3BA19911957B580021D14B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19811957B580021D14B /* MainWindow.xib */; };
 		3A3BA1A811957C3D0021D14B /* button_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19E11957C3D0021D14B /* button_11.png */; };
@@ -103,6 +104,11 @@
 		3A998240119D3224000ECE4E /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A99823F119D3224000ECE4E /* test.mp4 */; };
 		3A9E7A2E11A5D5E100C32968 /* MovieFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9E7A2D11A5D5E100C32968 /* MovieFeatureView.m */; };
 		3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA6C9DE119630AD00026526 /* EAGLView.m */; };
+		3AC0CC5611CCD85F006C8C12 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0CC5511CCD85F006C8C12 /* BoxView.m */; };
+		3AC0CC9211CCDC08006C8C12 /* location.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CC9111CCDC08006C8C12 /* location.txt */; };
+		3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD17FD111CCCA1A00E888A5 /* Icon.png */; };
+		3AD17FEF11CCCBFC00E888A5 /* MapFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */; };
+		3AD17FF411CCCC6F00E888A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD17FF311CCCC6F00E888A5 /* MapKit.framework */; };
 		3AD3946311A5304600654504 /* ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945311A5304600654504 /* ButtonView.m */; };
 		3AD3946411A5304600654504 /* ClockButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945611A5304600654504 /* ClockButtonView.m */; };
 		3AD3946511A5304600654504 /* CompassButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945811A5304600654504 /* CompassButtonView.m */; };
@@ -127,6 +133,8 @@
 		3A25C98411BBF23700F08691 /* Making_of.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Making_of.mp4; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
+		3A3AF67111BC629B00BD6421 /* ShopFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopFeatureView.h; sourceTree = "<group>"; };
+		3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopFeatureView.m; sourceTree = "<group>"; };
 		3A3BA19011957B3C0021D14B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
 		3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
 		3A3BA19811957B580021D14B /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
@@ -237,6 +245,13 @@
 		3A9E7A2D11A5D5E100C32968 /* MovieFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieFeatureView.m; sourceTree = "<group>"; };
 		3AA6C9DD119630AD00026526 /* EAGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGLView.h; sourceTree = "<group>"; };
 		3AA6C9DE119630AD00026526 /* EAGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGLView.m; sourceTree = "<group>"; };
+		3AC0CC5411CCD85F006C8C12 /* BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
+		3AC0CC5511CCD85F006C8C12 /* BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
+		3AC0CC9111CCDC08006C8C12 /* location.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = location.txt; sourceTree = "<group>"; };
+		3AD17FD111CCCA1A00E888A5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		3AD17FED11CCCBFC00E888A5 /* MapFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFeatureView.h; sourceTree = "<group>"; };
+		3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFeatureView.m; sourceTree = "<group>"; };
+		3AD17FF311CCCC6F00E888A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3AD3945211A5304600654504 /* ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonView.h; sourceTree = "<group>"; };
 		3AD3945311A5304600654504 /* ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonView.m; sourceTree = "<group>"; };
 		3AD3945411A5304600654504 /* ButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonViewDelegate.h; sourceTree = "<group>"; };
@@ -279,6 +294,7 @@
 				3A78A87111A692E800E7B49E /* SystemConfiguration.framework in Frameworks */,
 				3A78A87311A692ED00E7B49E /* libz.1.2.3.dylib in Frameworks */,
 				3A78A8BF11A69C9B00E7B49E /* libxml2.dylib in Frameworks */,
+				3AD17FF411CCCC6F00E888A5 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +334,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3AD17FF311CCCC6F00E888A5 /* MapKit.framework */,
 				3A78A8BE11A69C9B00E7B49E /* libxml2.dylib */,
 				3A78A86E11A692E300E7B49E /* CFNetwork.framework */,
 				3A78A87011A692E800E7B49E /* SystemConfiguration.framework */,
@@ -392,6 +409,7 @@
 		3A3BA19611957B470021D14B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3AD17FD111CCCA1A00E888A5 /* Icon.png */,
 				3A3BA1E1119581970021D14B /* bar.png */,
 				3A3BA1E2119581970021D14B /* companies.png */,
 				3A3BA1E3119581970021D14B /* Default-Landscape.png */,
@@ -441,6 +459,8 @@
 			children = (
 				3AA6C9DD119630AD00026526 /* EAGLView.h */,
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
+				3AC0CC5411CCD85F006C8C12 /* BoxView.h */,
+				3AC0CC5511CCD85F006C8C12 /* BoxView.m */,
 				3A58EDB211A2913000BC976C /* SoundManager.h */,
 				3A58EDB311A2913000BC976C /* SoundManager.m */,
 				3A78A89011A697F000E7B49E /* WeatherInfoManager.h */,
@@ -647,6 +667,10 @@
 				3A78A88111A6936100E7B49E /* WeatherFeatureView.m */,
 				3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */,
 				3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */,
+				3A3AF67111BC629B00BD6421 /* ShopFeatureView.h */,
+				3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */,
+				3AD17FED11CCCBFC00E888A5 /* MapFeatureView.h */,
+				3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -663,6 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				3AD394D111A541B100654504 /* loremipsum.txt */,
+				3AC0CC9111CCDC08006C8C12 /* location.txt */,
 			);
 			path = Texts;
 			sourceTree = "<group>";
@@ -777,6 +802,8 @@
 				3A78A9C311A6B14A00E7B49E /* WeatherInfoCell.xib in Resources */,
 				3A19AD9F11B6442D0020B62A /* tunnel.mp4 in Resources */,
 				3A25C98511BBF23700F08691 /* Making_of.mp4 in Resources */,
+				3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */,
+				3AC0CC9211CCDC08006C8C12 /* location.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +844,9 @@
 				3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */,
 				3A78A9D311A6B4C300E7B49E /* WeatherInfoCell.m in Sources */,
 				3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */,
+				3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */,
+				3AD17FEF11CCCBFC00E888A5 /* MapFeatureView.m in Sources */,
+				3AC0CC5611CCD85F006C8C12 /* BoxView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -832,6 +862,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Digital 2.0_Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Digital 2.0-Info.plist";
 				PRODUCT_NAME = "Digital 2.0";
@@ -845,6 +876,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Digital 2.0_Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Digital 2.0-Info.plist";
 				PRODUCT_NAME = "Digital 2.0";
@@ -877,6 +909,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Digital 2.0_Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "Digital 2.0-Info.plist";
 				PRODUCT_NAME = "Digital 2.0";

@@ -14,6 +14,7 @@
 #import "MovieFeatureView.h"
 #import "WeatherFeatureView.h"
 #import "MakingOfFeatureView.h"
+#import "MapFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -56,6 +57,9 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    
+#ifndef CONFIGURATION_Debug
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:@"tunnel" ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
@@ -76,6 +80,8 @@
     
     [self.view addSubview:self.moviePlayer.view];
     self.view.alpha = 0.0;
+    
+#endif
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -180,7 +186,10 @@
                 break;
                 
             case 31:
+            {
                 [self.soundManager.sound31 play];
+                self.featureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
+            }
                 break;
                 
             case 32:

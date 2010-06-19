@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "FeatureView.h"
 
+@class BoxView;
+
 @interface FluidFeatureView : FeatureView
 {
 @private
     UIImageView *_photoView;
-    UIView *_textView;
+    BoxView *_textView;
 }
 
 @end
