@@ -8,12 +8,14 @@
 
 #import "FontFeatureView.h"
 #import "FontView.h"
+#import "CustomFontView.h"
 
 @interface FontFeatureView ()
 
 @property (nonatomic, retain) FontView *webFontView;
 @property (nonatomic, retain) FontView *iPhoneFontView;
 @property (nonatomic, retain) FontView *iPadFontView;
+@property (nonatomic, retain) CustomFontView *customView;
 
 @end
 
@@ -23,6 +25,7 @@
 @synthesize webFontView = _webFontView;
 @synthesize iPhoneFontView = _iPhoneFontView;
 @synthesize iPadFontView = _iPadFontView;
+@synthesize customView = _customView;
 
 @synthesize mainView = _mainView;
 @synthesize titleLabel = _titleLabel;
@@ -55,14 +58,18 @@
         self.iPadFontView = [[[FontView alloc] initWithFrame:self.iPadPlaceholder.frame] autorelease];
         self.iPadFontView.data = [NSDictionary dictionaryWithContentsOfFile:path];
         
+        self.customView = [[[CustomFontView alloc] initWithFrame:self.customFontView.frame] autorelease];
+        
         self.webPlaceholder.backgroundColor = [UIColor clearColor];
         self.iPhonePlaceholder.backgroundColor = [UIColor clearColor];
         self.iPadPlaceholder.backgroundColor = [UIColor clearColor];
+        self.customFontView.backgroundColor = [UIColor clearColor];
         
         [self addSubview:self.mainView];
         [self addSubview:self.webFontView];
         [self addSubview:self.iPadFontView];
         [self addSubview:self.iPhoneFontView];
+        [self addSubview:self.customView];
     }
     return self;
 }
@@ -72,6 +79,7 @@
     self.webFontView = nil;
     self.iPhoneFontView = nil;
     self.iPadFontView = nil;
+    self.customView = nil;
 
     self.mainView = nil;
     self.titleLabel = nil;
@@ -101,7 +109,7 @@
     CGRect iPhoneFontViewFrame = CGRectMake(352.0, 138.0, 300.0, 300.0);
     CGRect iPadLabelFrame = CGRectMake(684.0, 58.0, 253.0, 72.0);
     CGRect iPadFontViewFrame = CGRectMake(684.0, 138.0, 300.0, 300.0);
-    CGRect moreLabelFrame = CGRectMake(20.0, 455.0, 541.0, 126.0);
+    CGRect moreLabelFrame = CGRectMake(20.0, 455.0, 541.0, 66.0);
     CGRect customFontViewFrame = CGRectMake(563.0, 455.0, 421.0, 177.0);
     
     if (UIInterfaceOrientationIsPortrait(newOrientation))
@@ -125,7 +133,9 @@
     self.iPadLabel.frame = iPadLabelFrame;
     self.iPadFontView.frame = iPadFontViewFrame;
     self.moreLabel.frame = moreLabelFrame;
-    self.customFontView.frame = customFontViewFrame;
+
+    self.customView.frame = customFontViewFrame;
+    [self.customView setNeedsDisplay];
 }
 
 @end

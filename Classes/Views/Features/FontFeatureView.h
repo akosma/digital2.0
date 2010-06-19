@@ -10,6 +10,7 @@
 #import "FeatureView.h"
 
 @class FontView;
+@class CustomFontView;
 
 @interface FontFeatureView : FeatureView
 {
@@ -17,6 +18,7 @@
     FontView *_webFontView;
     FontView *_iPhoneFontView;
     FontView *_iPadFontView;
+    CustomFontView *_customView;
     
     UIView *_mainView;
     UILabel *_titleLabel;
