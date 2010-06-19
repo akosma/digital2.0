@@ -211,7 +211,7 @@
     if (self.moviePlayer.loadState == 3)
     {
         self.view.alpha = 1.0;
-        self.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+        self.moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
         self.moviePlayer.controlStyle = MPMovieControlModeDefault;
         [self.moviePlayer play];
     }
