@@ -106,6 +106,12 @@
 		3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA6C9DE119630AD00026526 /* EAGLView.m */; };
 		3AC0CC5611CCD85F006C8C12 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0CC5511CCD85F006C8C12 /* BoxView.m */; };
 		3AC0CC9211CCDC08006C8C12 /* location.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CC9111CCDC08006C8C12 /* location.txt */; };
+		3AC0CCCD11CCE29D006C8C12 /* FontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0CCCC11CCE29D006C8C12 /* FontView.m */; };
+		3AC0CCEC11CCE56C006C8C12 /* FontFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0CCEB11CCE56C006C8C12 /* FontFeatureView.m */; };
+		3AC0CD3F11CCEAC8006C8C12 /* iPadFonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CD3E11CCEAC8006C8C12 /* iPadFonts.plist */; };
+		3AC0CD4111CCEBD0006C8C12 /* iPhoneFonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CD4011CCEBD0006C8C12 /* iPhoneFonts.plist */; };
+		3AC0CD4411CCEBDD006C8C12 /* WebFonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CD4311CCEBDD006C8C12 /* WebFonts.plist */; };
+		3AC0CDAB11CCFB10006C8C12 /* FontFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */; };
 		3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD17FD111CCCA1A00E888A5 /* Icon.png */; };
 		3AD17FEF11CCCBFC00E888A5 /* MapFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */; };
 		3AD17FF411CCCC6F00E888A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD17FF311CCCC6F00E888A5 /* MapKit.framework */; };
@@ -248,6 +254,14 @@
 		3AC0CC5411CCD85F006C8C12 /* BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
 		3AC0CC5511CCD85F006C8C12 /* BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
 		3AC0CC9111CCDC08006C8C12 /* location.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = location.txt; sourceTree = "<group>"; };
+		3AC0CCCB11CCE29D006C8C12 /* FontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontView.h; sourceTree = "<group>"; };
+		3AC0CCCC11CCE29D006C8C12 /* FontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontView.m; sourceTree = "<group>"; };
+		3AC0CCEA11CCE56C006C8C12 /* FontFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontFeatureView.h; sourceTree = "<group>"; };
+		3AC0CCEB11CCE56C006C8C12 /* FontFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontFeatureView.m; sourceTree = "<group>"; };
+		3AC0CD3E11CCEAC8006C8C12 /* iPadFonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iPadFonts.plist; sourceTree = "<group>"; };
+		3AC0CD4011CCEBD0006C8C12 /* iPhoneFonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = iPhoneFonts.plist; sourceTree = "<group>"; };
+		3AC0CD4311CCEBDD006C8C12 /* WebFonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebFonts.plist; sourceTree = "<group>"; };
+		3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FontFeatureView.xib; sourceTree = "<group>"; };
 		3AD17FD111CCCA1A00E888A5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3AD17FED11CCCBFC00E888A5 /* MapFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFeatureView.h; sourceTree = "<group>"; };
 		3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFeatureView.m; sourceTree = "<group>"; };
@@ -397,6 +411,7 @@
 			children = (
 				8D1107310486CEB800E47090 /* Digital 2.0-Info.plist */,
 				3A3BA23A119584320021D14B /* Entitlements.plist */,
+				3AC0CD3D11CCEAB8006C8C12 /* Data */,
 				3A3BA19611957B470021D14B /* Images */,
 				3A3BA19711957B470021D14B /* NIBs */,
 				3A493843119A062E0091ABDB /* Videos */,
@@ -429,6 +444,7 @@
 				3A3BA1D8119581240021D14B /* MainMenuController.xib */,
 				3A3BA19811957B580021D14B /* MainWindow.xib */,
 				3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */,
+				3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */,
 			);
 			path = NIBs;
 			sourceTree = "<group>";
@@ -461,6 +477,8 @@
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
 				3AC0CC5411CCD85F006C8C12 /* BoxView.h */,
 				3AC0CC5511CCD85F006C8C12 /* BoxView.m */,
+				3AC0CCCB11CCE29D006C8C12 /* FontView.h */,
+				3AC0CCCC11CCE29D006C8C12 /* FontView.m */,
 				3A58EDB211A2913000BC976C /* SoundManager.h */,
 				3A58EDB311A2913000BC976C /* SoundManager.m */,
 				3A78A89011A697F000E7B49E /* WeatherInfoManager.h */,
@@ -624,6 +642,16 @@
 			path = button_21;
 			sourceTree = "<group>";
 		};
+		3AC0CD3D11CCEAB8006C8C12 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3AC0CD3E11CCEAC8006C8C12 /* iPadFonts.plist */,
+				3AC0CD4011CCEBD0006C8C12 /* iPhoneFonts.plist */,
+				3AC0CD4311CCEBDD006C8C12 /* WebFonts.plist */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		3AD3945111A5304600654504 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +689,8 @@
 				3AD3946E11A5313900654504 /* FeatureView.m */,
 				3AD3949411A5380900654504 /* FluidFeatureView.h */,
 				3AD3949511A5380900654504 /* FluidFeatureView.m */,
+				3AC0CCEA11CCE56C006C8C12 /* FontFeatureView.h */,
+				3AC0CCEB11CCE56C006C8C12 /* FontFeatureView.m */,
 				3A9E7A2C11A5D5E100C32968 /* MovieFeatureView.h */,
 				3A9E7A2D11A5D5E100C32968 /* MovieFeatureView.m */,
 				3A78A88011A6936100E7B49E /* WeatherFeatureView.h */,
@@ -804,6 +834,10 @@
 				3A25C98511BBF23700F08691 /* Making_of.mp4 in Resources */,
 				3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */,
 				3AC0CC9211CCDC08006C8C12 /* location.txt in Resources */,
+				3AC0CD3F11CCEAC8006C8C12 /* iPadFonts.plist in Resources */,
+				3AC0CD4111CCEBD0006C8C12 /* iPhoneFonts.plist in Resources */,
+				3AC0CD4411CCEBDD006C8C12 /* WebFonts.plist in Resources */,
+				3AC0CDAB11CCFB10006C8C12 /* FontFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +881,8 @@
 				3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */,
 				3AD17FEF11CCCBFC00E888A5 /* MapFeatureView.m in Sources */,
 				3AC0CC5611CCD85F006C8C12 /* BoxView.m in Sources */,
+				3AC0CCCD11CCE29D006C8C12 /* FontView.m in Sources */,
+				3AC0CCEC11CCE56C006C8C12 /* FontFeatureView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

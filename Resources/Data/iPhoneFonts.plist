@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   iPhoneFonts.plist
+   Digital 2.0
+
+   Created by Adrian on 6/19/10.
+   Copyright 2010 akosma software. All rights reserved.
+-->
+<plist version="1.0">
+<dict>
+	<key>American Typewriter</key>
+	<string>AmericanTypewriter</string>
+	<key>AppleGothic</key>
+	<string>AppleGothic</string>
+	<key>Arial</key>
+	<string>ArialMT</string>
+	<key>Arial Hebrew</key>
+	<string>ArialHebrew</string>
+	<key>Arial Rounded MT Bold</key>
+	<string>ArialRoundedMTBold</string>
+	<key>Arial Unicode MS</key>
+	<string>ArialUnicodeMS</string>
+	<key>Courier</key>
+	<string>Courier</string>
+	<key>Courier New</key>
+	<string>CourierNewPSMT</string>
+	<key>DB LCD Temp</key>
+	<string>DBLCDTempBlack</string>
+	<key>Geeza Pro</key>
+	<string>GeezaPro</string>
+	<key>Georgia</key>
+	<string>Georgia</string>
+	<key>Heiti J</key>
+	<string>STHeitiJ-Medium</string>
+	<key>Heiti K</key>
+	<string>STHeitiK-Medium</string>
+	<key>Heiti SC</key>
+	<string>STHeitiSC-Medium</string>
+	<key>Heiti TC</key>
+	<string>STHeitiTC-Medium</string>
+	<key>Helvetica</key>
+	<string>Helvetica</string>
+	<key>Helvetica Neue</key>
+	<string>HelveticaNeue</string>
+	<key>Hiragino Kaku Gothic ProN</key>
+	<string>HiraKakuProN-W3</string>
+	<key>Marker Felt</key>
+	<string>MarkerFelt-Thin</string>
+	<key>Thonburi</key>
+	<string>Thonburi</string>
+	<key>Times New Roman</key>
+	<string>TimesNewRomanPSMT</string>
+	<key>Trebuchet MS</key>
+	<string>TrebuchetMS</string>
+	<key>Verdana</key>
+	<string>Verdana</string>
+	<key>Zapfino</key>
+	<string>Zapfino</string>
+</dict>
+</plist>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Academy Engraved LET</key>
+	<string>AcademyEngravedLetPlain</string>
+	<key>American Typewriter</key>
+	<string>AmericanTypewriter</string>
+	<key>AppleGothic</key>
+	<string>AppleGothic</string>
+	<key>Arial</key>
+	<string>ArialMT</string>
+	<key>Arial Hebrew</key>
+	<string>ArialHebrew</string>
+	<key>Arial Rounded MT Bold</key>
+	<string>ArialRoundedMTBold</string>
+	<key>Baskerville</key>
+	<string>Baskerville</string>
+	<key>Bodoni 72</key>
+	<string>BodoniSvtyTwoITCTT-Book</string>
+	<key>Bodoni 72 Oldstyle</key>
+	<string>BodoniSvtyTwoOSITCTT-Book</string>
+	<key>Bodoni 72 Smallcaps</key>
+	<string>BodoniSvtyTwoSCITCTT-Book</string>
+	<key>Bodoni Ornaments</key>
+	<string>BodoniOrnamentsITCTT</string>
+	<key>Bradley Hand</key>
+	<string>BradleyHandITCTT-Bold</string>
+	<key>Chalkduster</key>
+	<string>Chalkduster</string>
+	<key>Cochin</key>
+	<string>Cochin</string>
+	<key>Copperplate</key>
+	<string>Copperplate</string>
+	<key>Courier</key>
+	<string>Courier</string>
+	<key>Courier New</key>
+	<string>CourierNewPSMT</string>
+	<key>DB LCD Temp</key>
+	<string>DBLCDTempBlack</string>
+	<key>Didot</key>
+	<string>Didot</string>
+	<key>Futura</key>
+	<string>Futura-Medium</string>
+	<key>Geeza Pro</key>
+	<string>GeezaPro</string>
+	<key>Georgia</key>
+	<string>Georgia</string>
+	<key>Gill Sans</key>
+	<string>GillSans</string>
+	<key>Heiti J</key>
+	<string>STHeitiJ-Medium</string>
+	<key>Heiti K</key>
+	<string>STHeitiK-Medium</string>
+	<key>Heiti SC</key>
+	<string>STHeitiSC-Medium</string>
+	<key>Heiti TC</key>
+	<string>STHeitiTC-Medium</string>
+	<key>Helvetica</key>
+	<string>Helvetica</string>
+	<key>Helvetica Neue</key>
+	<string>HelveticaNeue</string>
+	<key>Hiragino Kaku Gothic ProN</key>
+	<string>HiraKakuProN-W3</string>
+	<key>Hiragino Mincho ProN</key>
+	<string>HiraMinProN-W3</string>
+	<key>Hoefler Text</key>
+	<string>HoeflerText-Regular</string>
+	<key>Marker Felt</key>
+	<string>MarkerFelt-Thin</string>
+	<key>Optima</key>
+	<string>Optima-Regular</string>
+	<key>Palatino</key>
+	<string>Palatino-Roman</string>
+	<key>Papyrus</key>
+	<string>Papyrus</string>
+	<key>Party LET</key>
+	<string>PartyLetPlain</string>
+	<key>Snell Roundhand</key>
+	<string>SnellRoundhand</string>
+	<key>Thonburi</key>
+	<string>Thonburi</string>
+	<key>Times New Roman</key>
+	<string>TimesNewRomanPSMT</string>
+	<key>Trebuchet MS</key>
+	<string>TrebuchetMS</string>
+	<key>Verdana</key>
+	<string>Verdana</string>
+	<key>Zapf Dingbats</key>
+	<string>ZapfDingbatsITC</string>
+	<key>Zapfino</key>
+	<string>Zapfino</string>
+</dict>
+</plist>

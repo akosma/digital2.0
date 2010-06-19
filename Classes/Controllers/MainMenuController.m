@@ -15,6 +15,7 @@
 #import "WeatherFeatureView.h"
 #import "MakingOfFeatureView.h"
 #import "MapFeatureView.h"
+#import "FontFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -161,6 +162,7 @@
 
             case 12:
                 [self.soundManager.sound12 play];
+                self.featureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
 
             case 13:
