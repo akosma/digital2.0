@@ -232,7 +232,7 @@
     CGRect contourBeachFrame = CGRectMake(816.0, 20.0, 150.0, 230.0);
     CGRect contourNightFrame = CGRectMake(558.0, 331.0, 150.0, 230.0);
     CGRect contourGolfFrame = CGRectMake(789.0, 331.0, 150.0, 230.0);
-    CGRect titleLabelFrame = CGRectMake(55.0, 478.0, 455.0, 35.0);
+    CGRect titleLabelFrame = CGRectMake(20.0, 478.0, 455.0, 35.0);
     CGRect descriptionLabelFrame = CGRectMake(20.0, 521.0, 404.0, 95.0);
     CGRect cityPriceLabelFrame = CGRectMake(542.0, 258.0, 121.0, 47.0);
     CGRect plagePriceLabelFrame = CGRectMake(756.0, 258.0, 121.0, 47.0);

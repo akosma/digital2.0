@@ -47,8 +47,9 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"loremipsum" ofType:@"txt"];
         NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
-        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 100.0, 328.0, 700.0)] autorelease];
+        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 400.0, 328.0, 440.0)] autorelease];
         self.textView.text = text;
+        self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
         [self addSubview:self.textView];
         
         [self performSelector:@selector(changeImage) 
