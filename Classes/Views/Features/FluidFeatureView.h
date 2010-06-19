@@ -14,8 +14,10 @@
 @interface FluidFeatureView : FeatureView
 {
 @private
-    UIImageView *_photoView;
+    UIImageView *_photoView1;
+    UIImageView *_photoView2;
     BoxView *_textView;
+    BOOL _firstImage;
 }
 
 @end
