@@ -47,17 +47,16 @@
                        name:MPMoviePlayerLoadStateDidChangeNotification
                      object:self.moviePlayer];
         
-        CGFloat width = 500.0;
+        CGFloat width = 700.0;
         self.moviePlayer.view.frame = CGRectMake(self.bounds.size.width / 2.0 - width / 2.0, 
                                                  (self.bounds.size.height - 120.0) / 2.0 - width / 2.0, 
                                                  width, 
                                                  width);
         self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
-        self.moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
-        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | 
-        UIViewAutoresizingFlexibleTopMargin | 
-        UIViewAutoresizingFlexibleLeftMargin | 
-        UIViewAutoresizingFlexibleBottomMargin;
+        self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
+        self.moviePlayer.controlStyle = MPMovieControlModeDefault;
+        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
+                                                UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.moviePlayer.view];
     }
     return self;

@@ -786,10 +786,10 @@
 				3A9E7A2D11A5D5E100C32968 /* MovieFeatureView.m */,
 				3A78A88011A6936100E7B49E /* WeatherFeatureView.h */,
 				3A78A88111A6936100E7B49E /* WeatherFeatureView.m */,
-				3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */,
-				3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */,
 				3AD17FED11CCCBFC00E888A5 /* MapFeatureView.h */,
 				3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */,
+				3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */,
+				3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */,
 			);
 			path = Features;
 			sourceTree = "<group>";

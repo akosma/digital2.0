@@ -44,6 +44,7 @@
 
 - (void)dealloc 
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.moviePlayer = nil;
     self.mainMenuView = nil;
     self.vpsInfoButton = nil;
@@ -59,6 +60,7 @@
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
 #ifndef CONFIGURATION_Debug
     
@@ -66,7 +68,6 @@
     NSURL *url = [NSURL fileURLWithPath:path];
     self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
     
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self 
                selector:@selector(movieReady:) 
                    name:MPMoviePlayerLoadStateDidChangeNotification
@@ -84,6 +85,17 @@
     self.view.alpha = 0.0;
     
 #endif
+    
+    [center addObserver:self 
+               selector:@selector(restoreMenu)
+                   name:FeatureViewMinimizedNotification 
+                 object:nil];
+}
+
+- (void)restoreMenu
+{
+    [self.mainMenuView backToMenu];
+    self.featureReferenceView.backgroundColor = [UIColor whiteColor];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
@@ -140,6 +152,7 @@
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
+    self.featureReferenceView.backgroundColor = [UIColor whiteColor];
     if (self.lastTag == tag)
     {
         [self.featureView minimize];
@@ -204,6 +217,7 @@
             case 33:
                 [self.soundManager.sound33 play];
                 self.featureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                self.featureReferenceView.backgroundColor = [UIColor blackColor];
                 break;
                 
             default:

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define FeatureViewMinimizedNotification @"FeatureViewMinimizedNotification"
+
 @interface FeatureView : UIView 
 {
 @private
