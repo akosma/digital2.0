@@ -65,6 +65,7 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.moviePlayer stop];
     self.moviePlayer = nil;
     [super dealloc];
 }
@@ -74,7 +75,8 @@
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
-    [self minimize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewShouldMinimizeNotification 
+                                                        object:self];
 }
 
 - (void)moviePlaybackChanged:(NSNotification *)notification
@@ -82,7 +84,8 @@
     if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused ||
              self.moviePlayer.playbackState == MPMoviePlaybackStateStopped)
     {
-        [self minimize];
+        [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewShouldMinimizeNotification 
+                                                            object:self];
     }
 }
 

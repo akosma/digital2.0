@@ -62,9 +62,6 @@
     [UIView setAnimationDidStopSelector:@selector(animationFinished:finished:context:)];
     self.transform = CGAffineTransformMakeScale(0.01, 0.01);
     [UIView commitAnimations];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewMinimizedNotification 
-                                                        object:self];
 }
 
 #pragma mark -

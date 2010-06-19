@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define FeatureViewMinimizedNotification @"FeatureViewMinimizedNotification"
+#define FeatureViewShouldMinimizeNotification @"FeatureViewShouldMinimizeNotification"
 
 @interface FeatureView : UIView 
 {

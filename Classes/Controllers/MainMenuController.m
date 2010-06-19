@@ -88,12 +88,16 @@
     
     [center addObserver:self 
                selector:@selector(restoreMenu)
-                   name:FeatureViewMinimizedNotification 
+                   name:FeatureViewShouldMinimizeNotification 
                  object:nil];
 }
 
 - (void)restoreMenu
 {
+    [self.featureView minimize];
+    self.featureView = nil;
+    self.lastTag = -1;
+    self.mainMenuView.minimized = NO;
     [self.mainMenuView backToMenu];
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
 }
@@ -164,7 +168,6 @@
     {
         FeatureView *oldFeatureView = [self.featureView retain];
         [oldFeatureView minimize];
-        [self.featureView removeFromSuperview];
         self.featureView = nil;
         switch (tag) 
         {
