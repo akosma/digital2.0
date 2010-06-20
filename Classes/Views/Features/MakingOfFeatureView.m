@@ -24,10 +24,10 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
+        self.backgroundColor = [UIColor blackColor];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"Making_of" ofType:@"mp4"];
         NSURL *url = [NSURL fileURLWithPath:path];
         self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
-        self.moviePlayer.shouldAutoplay = YES;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self 
@@ -35,28 +35,15 @@
                        name:MPMoviePlayerPlaybackDidFinishNotification
                      object:self.moviePlayer];
         [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerDidExitFullscreenNotification
-                     object:self.moviePlayer];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackChanged:) 
-                       name:MPMoviePlayerPlaybackStateDidChangeNotification
-                     object:self.moviePlayer];
-        [center addObserver:self 
                    selector:@selector(movieReady:) 
                        name:MPMoviePlayerLoadStateDidChangeNotification
                      object:self.moviePlayer];
         
-        CGFloat width = 700.0;
-        self.moviePlayer.view.frame = CGRectMake(self.bounds.size.width / 2.0 - width / 2.0, 
-                                                 (self.bounds.size.height - 120.0) / 2.0 - width / 2.0, 
-                                                 width, 
-                                                 width);
-        self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+        self.moviePlayer.view.hidden = YES;
         self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
         self.moviePlayer.controlStyle = MPMovieControlModeDefault;
         self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-                                                UIViewAutoresizingFlexibleHeight;
+                                                 UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.moviePlayer.view];
     }
     return self;
@@ -65,9 +52,38 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.moviePlayer stop];
+    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
+    {
+        [self.moviePlayer stop];
+    }
     self.moviePlayer = nil;
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark Overridden methods
+
+- (void)setOrientation:(UIInterfaceOrientation)newOrientation
+{
+    [super setOrientation:newOrientation];
+    
+    CGRect movieFrame = CGRectMake(0.0, 0.0, 1024.0, 748.0);
+    
+    if (UIInterfaceOrientationIsPortrait(newOrientation))
+    {
+        movieFrame = CGRectMake(0.0, 0.0, 768.0, 1024.0);
+    }
+
+    self.moviePlayer.view.frame = movieFrame;
+}
+
+- (void)minimize
+{
+    [super minimize];
+    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
+    {
+        [self.moviePlayer stop];
+    }
 }
 
 #pragma mark -
@@ -79,23 +95,12 @@
                                                         object:self];
 }
 
-- (void)moviePlaybackChanged:(NSNotification *)notification
-{
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused ||
-        self.moviePlayer.playbackState == MPMoviePlaybackStateStopped)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewShouldMinimizeNotification 
-                                                            object:self];
-    }
-}
-
 - (void)movieReady:(NSNotification *)notification
 {
     if (self.moviePlayer.loadState == 3)
     {
-        [UIView beginAnimations:nil context:NULL];
-        self.moviePlayer.view.transform = CGAffineTransformIdentity;
-        [UIView commitAnimations];
+        self.moviePlayer.view.hidden = NO;
+        [self.moviePlayer play];
     }
 }
 
