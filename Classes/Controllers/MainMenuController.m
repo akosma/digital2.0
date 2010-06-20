@@ -17,6 +17,7 @@
 #import "MapFeatureView.h"
 #import "FontFeatureView.h"
 #import "ShopFeatureView.h"
+#import "DemoAppDelegate.h"
 
 @interface MainMenuController ()
 
@@ -64,7 +65,7 @@
     
 #ifndef CONFIGURATION_Debug
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"tunnel" ofType:@"mp4"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"tunnel_final2_8MB" ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
     
@@ -77,10 +78,12 @@
                    name:MPMoviePlayerPlaybackDidFinishNotification
                  object:self.moviePlayer];
     
-    self.moviePlayer.view.frame = [UIScreen mainScreen].bounds;
+    self.moviePlayer.view.frame = [DemoAppDelegate sharedAppDelegate].window.frame;
     self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
     self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    
+    self.moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
+    self.moviePlayer.controlStyle = MPMovieControlModeDefault;
+
     [self.view addSubview:self.moviePlayer.view];
     self.view.alpha = 0.0;
     
@@ -242,8 +245,6 @@
     if (self.moviePlayer.loadState == 3)
     {
         self.view.alpha = 1.0;
-        self.moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
-        self.moviePlayer.controlStyle = MPMovieControlModeDefault;
         [self.moviePlayer play];
     }
 }

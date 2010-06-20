@@ -14,6 +14,11 @@
 @synthesize window = _window;
 @synthesize mainMenuController = _mainMenuController;
 
++ (DemoAppDelegate *)sharedAppDelegate
+{
+    return (DemoAppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
     [self.window addSubview:self.mainMenuController.view];
