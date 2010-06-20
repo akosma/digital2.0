@@ -27,7 +27,7 @@
         
         [self.contentView addSubview:self.containerView];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.dateLabel.transform = CGAffineTransformMakeRotation(3.0 * M_PI / 2.0);
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
