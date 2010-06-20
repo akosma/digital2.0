@@ -84,9 +84,9 @@
         self.boxView.text = text;
         
         [self addSubview:self.mainView];
-        [self addSubview:self.boxView];
         [self addSubview:self.weatherTableView];
         [self addSubview:self.stockTableView];
+        [self addSubview:self.boxView];
     }
     return self;
 }
@@ -195,40 +195,34 @@
 {
     [super setOrientation:newOrientation];
     
-    CGRect titleLabelFrame = CGRectMake(20.0, 20.0, 130.0, 21.0);
-    CGRect webLabelFrame = CGRectMake(20.0, 58.0, 253.0, 72.0);
-    CGRect webFontViewFrame = CGRectMake(20.0, 138.0, 300.0, 300.0);
-    CGRect iPhoneLabelFrame = CGRectMake(352.0, 58.0, 253.0, 72.0);
-    CGRect iPhoneFontViewFrame = CGRectMake(352.0, 138.0, 300.0, 300.0);
-    CGRect iPadLabelFrame = CGRectMake(684.0, 58.0, 253.0, 72.0);
-    CGRect iPadFontViewFrame = CGRectMake(684.0, 138.0, 300.0, 300.0);
-    CGRect moreLabelFrame = CGRectMake(20.0, 455.0, 541.0, 66.0);
-    CGRect customFontViewFrame = CGRectMake(563.0, 455.0, 421.0, 177.0);
+    CGRect titleLabelFrame = CGRectMake(164.0, 6.0, 178.0, 21.0);
+    CGRect descriptionLabelFrame = CGRectMake(164.0, 35.0, 696.0, 229.0);
+    CGRect stockTitleLabelFrame = CGRectMake(164.0, 272.0, 100.0, 21.0);
+    CGRect weatherTableViewFrame = CGRectMake(530.0, 301.0, 330.0, 300.0);
+    CGRect weatherTitleLabelFrame = CGRectMake(530.0, 272.0, 145.0, 21.0);
+    CGRect stockTableViewFrame = CGRectMake(164.0, 301.0, 330.0, 300.0);
     
     if (UIInterfaceOrientationIsPortrait(newOrientation))
     {
-        titleLabelFrame = CGRectMake(57.0, 20.0, 130.0, 21.0);
-        webLabelFrame = CGRectMake(57.0, 58.0, 253.0, 72.0);
-        webFontViewFrame = CGRectMake(57.0, 138.0, 300.0, 300.0);
-        iPhoneLabelFrame = CGRectMake(411.0, 58.0, 253.0, 72.0);
-        iPhoneFontViewFrame = CGRectMake(411.0, 138.0, 300.0, 300.0);
-        iPadLabelFrame = CGRectMake(57.0, 467.0, 253.0, 72.0);
-        iPadFontViewFrame = CGRectMake(57.0, 547.0, 300.0, 300.0);
-        moreLabelFrame = CGRectMake(416.0, 528.0, 295.0, 134.0);
-        customFontViewFrame = CGRectMake(416.0, 670.0, 295.0, 177.0);
+        titleLabelFrame = CGRectMake(37.0, 73.0, 178.0, 21.0);
+        descriptionLabelFrame = CGRectMake(37.0, 102.0, 330.0, 697.0);
+        stockTitleLabelFrame = CGRectMake(403.0, 73.0, 100.0, 21.0);
+        weatherTableViewFrame = CGRectMake(403.0, 469.0, 330.0, 330.0);
+        weatherTitleLabelFrame = CGRectMake(403.0, 440.0, 145.0, 21.0);
+        stockTableViewFrame = CGRectMake(403.0, 102.0, 330.0, 330.0);
     }
     
-//    self.titleLabel.frame = titleLabelFrame;
-//    self.webLabel.frame = webLabelFrame;
-//    self.webFontView.frame = webFontViewFrame;
-//    self.iPhoneLabel.frame = iPhoneLabelFrame;
-//    self.iPhoneFontView.frame = iPhoneFontViewFrame;
-//    self.iPadLabel.frame = iPadLabelFrame;
-//    self.iPadFontView.frame = iPadFontViewFrame;
-//    self.moreLabel.frame = moreLabelFrame;
-//    
-//    self.customView.frame = customFontViewFrame;
-//    [self.customView setNeedsDisplay];
+    self.titleLabel.frame = titleLabelFrame;
+    self.descriptionPlaceholder.frame = descriptionLabelFrame;
+    self.boxView.frame = descriptionLabelFrame;
+    self.stockTitleLabel.frame = stockTitleLabelFrame;
+    self.weatherInfoPlaceholder.frame = weatherTableViewFrame;
+    self.weatherTableView.frame = weatherTableViewFrame;
+    self.meteoTitleLabel.frame = weatherTitleLabelFrame;
+    self.stockInfoPlaceholder.frame = stockTableViewFrame;
+    self.stockTableView.frame = stockTableViewFrame;
+    
+    [self.boxView updateLayout];
 }
 
 #pragma mark -

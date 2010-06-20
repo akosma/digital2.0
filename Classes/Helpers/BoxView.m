@@ -14,8 +14,6 @@
 @property (nonatomic, retain) UILabel *label;
 @property (nonatomic, retain) UIScrollView *scrollView;
 
-- (void)updateLayout;
-
 @end
 
 
@@ -34,7 +32,7 @@
         CGRect rect = CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height);
         self.scrollView = [[[UIScrollView alloc] initWithFrame:rect] autorelease];
         self.scrollView.backgroundColor = [UIColor clearColor];
-        self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+        self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
         UIFont *font = [UIFont systemFontOfSize:17.0];
         
@@ -92,9 +90,12 @@
 
 - (void)updateLayout
 {
+    CGRect rect = CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height);
+    self.scrollView.frame = rect;
+    CGFloat width = rect.size.width - 40.0;
     CGSize size = [self.label.text sizeWithFont:self.label.font
-                              constrainedToSize:CGSizeMake(288.0, 2900.0)];
-    self.label.frame = CGRectMake(20.0, 20.0, 288.0, size.height);
+                              constrainedToSize:CGSizeMake(width, 2900.0)];
+    self.label.frame = CGRectMake(20.0, 20.0, width, size.height);
     self.scrollView.contentSize = CGSizeMake(size.width, size.height + 40.0);
 }
 

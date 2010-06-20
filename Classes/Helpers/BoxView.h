@@ -18,4 +18,6 @@
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, retain) UIFont *font;
 
+- (void)updateLayout;
+
 @end

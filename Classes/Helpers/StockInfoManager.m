@@ -69,13 +69,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(StockInfoManager)
 
 - (void)retrieveStockInformation
 {
-    self.stockItems = [NSMutableArray array];
-    for (NSString *stock in self.stockQuotes)
+    if (self.stockItems == nil)
     {
-        NSString *urlString = [NSString stringWithFormat:BASE_URL, stock];
-        NSURL *url = [NSURL URLWithString:urlString];
-        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-        [self.networkQueue addOperation:request];
+        self.stockItems = [NSMutableArray array];
+        for (NSString *stock in self.stockQuotes)
+        {
+            NSString *urlString = [NSString stringWithFormat:BASE_URL, stock];
+            NSURL *url = [NSURL URLWithString:urlString];
+            ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+            [self.networkQueue addOperation:request];
+        }
+    }
+    else
+    {
+        [self callDelegate];
     }
 }
 
