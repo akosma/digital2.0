@@ -11,7 +11,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		3A25C98511BBF23700F08691 /* Making_of.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A25C98411BBF23700F08691 /* Making_of.mp4 */; };
 		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
 		3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */; };
 		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
@@ -84,6 +83,7 @@
 		3A78A9C011A6B04300E7B49E /* weather_sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9BB11A6B04300E7B49E /* weather_sunny.png */; };
 		3A78A9C311A6B14A00E7B49E /* WeatherInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */; };
 		3A78A9D311A6B4C300E7B49E /* WeatherInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A9D211A6B4C300E7B49E /* WeatherInfoCell.m */; };
+		3A7A9D0211CEA5F800B316F3 /* making_of_final.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A7A9D0111CEA5F800B316F3 /* making_of_final.mp4 */; };
 		3A99187C11CE9F2700FFB12B /* tunnel_final2_8MB.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A99187B11CE9F2700FFB12B /* tunnel_final2_8MB.mp4 */; };
 		3A9981FE119D2C79000ECE4E /* button_21_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9981E6119D2C79000ECE4E /* button_21_0.png */; };
 		3A9981FF119D2C79000ECE4E /* button_21_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9981E7119D2C79000ECE4E /* button_21_1.png */; };
@@ -168,7 +168,6 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Digital 2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Digital 2.0_Prefix.pch"; sourceTree = "<group>"; };
-		3A25C98411BBF23700F08691 /* Making_of.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Making_of.mp4; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
 		3A3AF67111BC629B00BD6421 /* ShopFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopFeatureView.h; sourceTree = "<group>"; };
@@ -262,6 +261,7 @@
 		3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherInfoCell.xib; sourceTree = "<group>"; };
 		3A78A9D111A6B4C300E7B49E /* WeatherInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoCell.h; sourceTree = "<group>"; };
 		3A78A9D211A6B4C300E7B49E /* WeatherInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoCell.m; sourceTree = "<group>"; };
+		3A7A9D0111CEA5F800B316F3 /* making_of_final.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = making_of_final.mp4; sourceTree = "<group>"; };
 		3A99187B11CE9F2700FFB12B /* tunnel_final2_8MB.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tunnel_final2_8MB.mp4; sourceTree = "<group>"; };
 		3A9981E6119D2C79000ECE4E /* button_21_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_0.png; sourceTree = "<group>"; };
 		3A9981E7119D2C79000ECE4E /* button_21_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_21_1.png; sourceTree = "<group>"; };
@@ -593,8 +593,8 @@
 		3A493843119A062E0091ABDB /* Videos */ = {
 			isa = PBXGroup;
 			children = (
+				3A7A9D0111CEA5F800B316F3 /* making_of_final.mp4 */,
 				3A99187B11CE9F2700FFB12B /* tunnel_final2_8MB.mp4 */,
-				3A25C98411BBF23700F08691 /* Making_of.mp4 */,
 				3A99823F119D3224000ECE4E /* test.mp4 */,
 				3A3FC35011CD35030055F311 /* Shop */,
 			);
@@ -990,7 +990,6 @@
 				3A78A9BF11A6B04300E7B49E /* weather_snowy.png in Resources */,
 				3A78A9C011A6B04300E7B49E /* weather_sunny.png in Resources */,
 				3A78A9C311A6B14A00E7B49E /* WeatherInfoCell.xib in Resources */,
-				3A25C98511BBF23700F08691 /* Making_of.mp4 in Resources */,
 				3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */,
 				3AC0CC9211CCDC08006C8C12 /* location.txt in Resources */,
 				3AC0CD3F11CCEAC8006C8C12 /* iPadFonts.plist in Resources */,
@@ -1022,6 +1021,7 @@
 				3ABD1E4711CE890100336F42 /* stock_same.png in Resources */,
 				3ABD1E4811CE890100336F42 /* stock_up.png in Resources */,
 				3A99187C11CE9F2700FFB12B /* tunnel_final2_8MB.mp4 in Resources */,
+				3A7A9D0211CEA5F800B316F3 /* making_of_final.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

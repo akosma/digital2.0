@@ -25,7 +25,7 @@
     if ((self = [super initWithFrame:frame])) 
     {
         self.backgroundColor = [UIColor blackColor];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Making_of" ofType:@"mp4"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"making_of_final" ofType:@"mp4"];
         NSURL *url = [NSURL fileURLWithPath:path];
         self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
         
