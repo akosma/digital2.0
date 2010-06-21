@@ -19,6 +19,7 @@
 #import "ShopFeatureView.h"
 #import "DemoAppDelegate.h"
 #import "AboutController.h"
+#import "SimulationFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -223,6 +224,7 @@
                 
             case 23:
                 [self.soundManager.sound23 play];
+                self.featureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
                 
             case 31:

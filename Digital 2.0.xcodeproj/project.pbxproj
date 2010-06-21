@@ -62,6 +62,7 @@
 		3A56666011CFCB2C008D1943 /* photo_moser_007.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56665811CFCB2C008D1943 /* photo_moser_007.jpg */; };
 		3A56666111CFCB2C008D1943 /* photo_moser_008.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56665911CFCB2C008D1943 /* photo_moser_008.jpg */; };
 		3A5666B111CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A5666B011CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 */; };
+		3A5667D011CFF0FA008D1943 /* SimulationFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5667CE11CFF0FA008D1943 /* SimulationFeatureView.m */; };
 		3A58EDA311A290A900BC976C /* clap_v2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58ED9B11A290A900BC976C /* clap_v2.wav */; };
 		3A58EDA411A290A900BC976C /* clock2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58ED9C11A290A900BC976C /* clock2.wav */; };
 		3A58EDA511A290A900BC976C /* Fluide_v2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58ED9D11A290A900BC976C /* Fluide_v2.wav */; };
@@ -239,6 +240,9 @@
 		3A56665811CFCB2C008D1943 /* photo_moser_007.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_moser_007.jpg; sourceTree = "<group>"; };
 		3A56665911CFCB2C008D1943 /* photo_moser_008.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_moser_008.jpg; sourceTree = "<group>"; };
 		3A5666B011CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PRES_VPS_640x360_1000Kbs.mp4; sourceTree = "<group>"; };
+		3A5667CD11CFF0FA008D1943 /* SimulationFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationFeatureView.h; sourceTree = "<group>"; };
+		3A5667CE11CFF0FA008D1943 /* SimulationFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulationFeatureView.m; sourceTree = "<group>"; };
+		3A5667CF11CFF0FA008D1943 /* values.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = values.inc; sourceTree = "<group>"; };
 		3A58ED9B11A290A900BC976C /* clap_v2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clap_v2.wav; sourceTree = "<group>"; };
 		3A58ED9C11A290A900BC976C /* clock2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = clock2.wav; sourceTree = "<group>"; };
 		3A58ED9D11A290A900BC976C /* Fluide_v2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Fluide_v2.wav; sourceTree = "<group>"; };
@@ -922,6 +926,9 @@
 				3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */,
 				3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */,
 				3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */,
+				3A5667CD11CFF0FA008D1943 /* SimulationFeatureView.h */,
+				3A5667CE11CFF0FA008D1943 /* SimulationFeatureView.m */,
+				3A5667CF11CFF0FA008D1943 /* values.inc */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -1153,6 +1160,7 @@
 				3ABD1DB811CE7DE700336F42 /* SBJsonWriter.m in Sources */,
 				3ABD1DBD11CE7DFF00336F42 /* StockInfoManager.m in Sources */,
 				3A5665CD11CFB980008D1943 /* AboutController.m in Sources */,
+				3A5667D011CFF0FA008D1943 /* SimulationFeatureView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
