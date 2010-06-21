@@ -10,10 +10,13 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "FeatureView.h"
 
-@interface MovieFeatureView : FeatureView 
+@interface MovieFeatureView : FeatureView <UIScrollViewDelegate>
 {
 @private
-    MPMoviePlayerController *_moviePlayer;
+    NSMutableArray *_movieControllers;
+    NSArray *_movieNames;
+    UIScrollView *_scrollView;
+    NSInteger _currentMovieID;
 }
 
 @end

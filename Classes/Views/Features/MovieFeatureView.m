@@ -10,64 +10,99 @@
 
 @interface MovieFeatureView ()
 
-@property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, retain) NSMutableArray *movieControllers;
+@property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic) NSInteger currentMovieID;
+@property (nonatomic, retain) NSArray *movieNames;
+
+- (void)showCurrentMovie;
 
 @end
 
 
 @implementation MovieFeatureView
 
-@synthesize moviePlayer = _moviePlayer;
+@synthesize movieControllers = _movieControllers;
+@synthesize scrollView = _scrollView;
+@synthesize currentMovieID = _currentMovieID;
+@synthesize movieNames = _movieNames;
 
 - (id)initWithFrame:(CGRect)frame 
 {
     if ((self = [super initWithFrame:frame])) 
     {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp4"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
-        self.moviePlayer.shouldAutoplay = YES;
-
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerPlaybackDidFinishNotification
-                     object:self.moviePlayer];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerDidExitFullscreenNotification
-                     object:self.moviePlayer];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackChanged:) 
-                       name:MPMoviePlayerPlaybackStateDidChangeNotification
-                     object:self.moviePlayer];
-        [center addObserver:self 
-                   selector:@selector(movieReady:) 
-                       name:MPMoviePlayerLoadStateDidChangeNotification
-                     object:self.moviePlayer];
-
-        CGFloat width = 500.0;
-        self.moviePlayer.view.frame = CGRectMake(self.bounds.size.width / 2.0 - width / 2.0, 
-                                                (self.bounds.size.height - 120.0) / 2.0 - width / 2.0, 
-                                                width, 
-                                                width);
-        self.moviePlayer.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
-        self.moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
-        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | 
-                                                    UIViewAutoresizingFlexibleTopMargin | 
-                                                    UIViewAutoresizingFlexibleLeftMargin | 
-                                                    UIViewAutoresizingFlexibleBottomMargin;
-        [self addSubview:self.moviePlayer.view];
+        self.movieNames = [NSArray arrayWithObjects:@"mini HD_1800", @"mini key_1800", @"minisquare_1800", nil];
+        NSInteger count = [self.movieNames count];
+        self.currentMovieID = 0;
+        self.movieControllers = [NSMutableArray arrayWithCapacity:count];
+        self.scrollView = [[[UIScrollView alloc] initWithFrame:frame] autorelease];
+        self.scrollView.contentSize = CGSizeMake(frame.size.width * count, frame.size.height);
+        self.scrollView.pagingEnabled = YES;
+        self.scrollView.delegate = self;
+        [self addSubview:self.scrollView];
+        [self showCurrentMovie];
     }
     return self;
 }
 
 - (void)dealloc 
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.moviePlayer stop];
-    self.moviePlayer = nil;
+    self.movieNames = nil;
+    self.movieControllers = nil;
+    self.scrollView = nil;
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark UIScrollViewDelegate methods
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    NSInteger previousMovieID = self.currentMovieID;
+    self.currentMovieID = (NSInteger)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
+    if (self.currentMovieID != previousMovieID)
+    {
+        [self showCurrentMovie];
+    }
+}
+
+#pragma mark -
+#pragma mark Overridden methods
+
+- (void)setOrientation:(UIInterfaceOrientation)newOrientation
+{
+    [super setOrientation:newOrientation];
+    
+    CGRect movieFrame = CGRectMake(0.0, 100.0, 1024.0, 548.0);
+    
+    if (UIInterfaceOrientationIsPortrait(newOrientation))
+    {
+        movieFrame = CGRectMake(0.0, 100.0, 768.0, 824.0);
+    }
+    
+    self.scrollView.frame = movieFrame;
+    NSInteger count = [self.movieNames count];
+    self.scrollView.contentSize = CGSizeMake(movieFrame.size.width * count, movieFrame.size.height);
+    CGRect rect = CGRectMake(self.currentMovieID * movieFrame.size.width, 0.0, movieFrame.size.width, movieFrame.size.height);
+    NSInteger index = 0;
+    for (MPMoviePlayerController *player in self.movieControllers)
+    {
+        CGRect movieRect = CGRectMake(index * movieFrame.size.width, 0.0, movieFrame.size.width, movieFrame.size.height);
+        player.view.frame = movieRect;
+        ++index;
+    }
+    [self.scrollView scrollRectToVisible:rect animated:NO];
+}
+
+- (void)minimize
+{
+    [super minimize];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    MPMoviePlayerController *moviePlayer = [self.movieControllers objectAtIndex:self.currentMovieID];
+    if (moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
+    {
+        [moviePlayer stop];
+    }
 }
 
 #pragma mark -
@@ -75,28 +110,58 @@
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewShouldMinimizeNotification 
-                                                        object:self];
+    self.currentMovieID = (self.currentMovieID + 1) % [self.movieNames count];
+    [self showCurrentMovie];
 }
 
-- (void)moviePlaybackChanged:(NSNotification *)notification
-{
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePaused ||
-             self.moviePlayer.playbackState == MPMoviePlaybackStateStopped)
-    {
-        [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewShouldMinimizeNotification 
-                                                            object:self];
-    }
-}
+#pragma mark -
+#pragma mark Private methods
 
-- (void)movieReady:(NSNotification *)notification
+- (void)showCurrentMovie
 {
-    if (self.moviePlayer.loadState == 3)
+    for (MPMoviePlayerController *player in self.movieControllers)
     {
-        [UIView beginAnimations:nil context:NULL];
-        self.moviePlayer.view.transform = CGAffineTransformIdentity;
-        [UIView commitAnimations];
+        [player stop];
+        player.view.hidden = YES;
     }
+    
+    MPMoviePlayerController *moviePlayer = nil;
+    CGRect rect = CGRectMake(self.currentMovieID * self.scrollView.frame.size.width, 0.0, 
+                             self.scrollView.frame.size.width, self.scrollView.frame.size.height);
+    
+    if ([self.movieControllers count] > self.currentMovieID)
+    {
+        moviePlayer = [self.movieControllers objectAtIndex:self.currentMovieID];
+    }
+    
+    if (moviePlayer == nil)
+    {
+        NSString *name = [self.movieNames objectAtIndex:self.currentMovieID];
+        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
+        moviePlayer.shouldAutoplay = YES;
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self 
+                   selector:@selector(moviePlaybackFinished:) 
+                       name:MPMoviePlayerPlaybackDidFinishNotification
+                     object:moviePlayer];
+        
+        moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
+        moviePlayer.controlStyle = MPMovieControlModeDefault;
+        moviePlayer.view.frame = rect;
+        
+        [self.movieControllers insertObject:moviePlayer atIndex:self.currentMovieID];
+        [self.scrollView addSubview:moviePlayer.view];
+    }
+    
+    moviePlayer.view.hidden = NO;
+    if (moviePlayer.playbackState != MPMoviePlaybackStatePlaying)
+    {
+        [moviePlayer play];
+    }
+    [self.scrollView scrollRectToVisible:rect animated:NO];
 }
 
 @end
