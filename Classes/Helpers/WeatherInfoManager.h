@@ -10,11 +10,10 @@
 #import <CoreLocation/CoreLocation.h>
 #import "WeatherInfoManagerDelegate.h"
 
-@interface WeatherInfoManager : NSObject <CLLocationManagerDelegate> 
+@interface WeatherInfoManager : NSObject 
 {
 @private
     NSString *_apiKey;
-    CLLocationManager *_locationManager;
     id<WeatherInfoManagerDelegate> _delegate;
     NSMutableArray *_weatherItems;
 }

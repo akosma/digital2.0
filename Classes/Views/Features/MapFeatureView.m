@@ -8,14 +8,12 @@
 
 #import "MapFeatureView.h"
 #import "BoxView.h"
+#import "DemoAppDelegate.h"
 
 @interface MapFeatureView ()
 
 @property (nonatomic, retain) MKMapView *mapView;
-@property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) BoxView *textView;
-
-- (void)zoom;
 
 @end
 
@@ -24,7 +22,6 @@
 @implementation MapFeatureView
 
 @synthesize mapView = _mapView;
-@synthesize locationManager = _locationManager;
 @synthesize textView = _textView;
 
 - (id)initWithFrame:(CGRect)frame 
@@ -38,17 +35,12 @@
         self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:self.mapView];
 
-        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
-        if (self.locationManager.locationServicesEnabled)
-        {
-            self.locationManager.delegate = self;
-            [self.locationManager startUpdatingLocation];
-        }
-        else 
-        {
-            self.locationManager = nil;
-        }
-
+        CLLocationCoordinate2D coordinate = [DemoAppDelegate sharedAppDelegate].locationManager.location.coordinate;
+        CLLocationCoordinate2D center = {coordinate.latitude -= 0.0001, coordinate.longitude += 0.0001};
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.001, 0.001);
+        MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
+        [self.mapView setRegion:region animated:YES];
+        
         NSString *path = [[NSBundle mainBundle] pathForResource:@"location" ofType:@"txt"];
         NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
@@ -62,33 +54,9 @@
 
 - (void)dealloc 
 {
-    [self.locationManager stopUpdatingLocation];
-    self.locationManager.delegate = nil;
-    self.locationManager = nil;
     self.mapView = nil;
     self.textView = nil;
     [super dealloc];
-}
-
-#pragma mark -
-#pragma mark Private methods
-
-- (void)zoom
-{
-    CLLocationCoordinate2D coordinate = self.locationManager.location.coordinate;
-    MKCoordinateSpan span = MKCoordinateSpanMake(0.1, 0.1);
-    MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, span);
-    [self.mapView setRegion:region animated:YES];
-}
-
-#pragma mark -
-#pragma CLLocationManagerDelegate methods
-
-- (void)locationManager:(CLLocationManager *)manager 
-    didUpdateToLocation:(CLLocation *)newLocation 
-           fromLocation:(CLLocation *)oldLocation
-{
-    [self zoom];
 }
 
 @end

@@ -11,13 +11,13 @@
 #import "TBXML.h"
 #import "WeatherInfoItem.h"
 #import "ASIHTTPRequest.h"
+#import "DemoAppDelegate.h"
 
 #define WEATHER_TAG_NAME @"weather"
 #define BASE_URL @"http://www.worldweatheronline.com/feed/weather.ashx?lat=%1.4f&lon=%1.4f&num_of_days=5&key=%@"
 
 @interface WeatherInfoManager ()
 
-@property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, copy) NSString *apiKey;
 @property (nonatomic, retain) NSMutableArray *weatherItems;
 
@@ -32,7 +32,6 @@
 SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
 
 @synthesize apiKey = _apiKey;
-@synthesize locationManager = _locationManager;
 @synthesize delegate = _delegate;
 @synthesize weatherItems = _weatherItems;
 
@@ -43,11 +42,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
 {
     if (self = [super init])
     {
-        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
-        self.locationManager.delegate = self;
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-        self.locationManager.distanceFilter = 500.0;
-        
         self.apiKey = @"d1787f1384072206101005";
     }
     return self;
@@ -55,9 +49,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
 
 - (void)dealloc
 {
-    self.locationManager.delegate = nil;
-    [self.locationManager stopUpdatingLocation];
-    self.locationManager = nil;
     self.apiKey = nil;
     self.delegate = nil;
     self.weatherItems = nil;
@@ -71,29 +62,21 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
 {
     if (self.weatherItems == nil)
     {
-        [self.locationManager startUpdatingLocation];
+        CLLocationManager *manager = [DemoAppDelegate sharedAppDelegate].locationManager;
+        CLLocation *location = manager.location;
+        CLLocationDegrees latitude = location.coordinate.latitude;
+        CLLocationDegrees longitude = location.coordinate.longitude;
+        
+        NSString *stringURL = [NSString stringWithFormat:BASE_URL, latitude, longitude, self.apiKey];
+        NSURL *url = [NSURL URLWithString:stringURL];
+        ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+        request.delegate = self;
+        [request startAsynchronous];
     }
     else 
     {
         [self callDelegate];
     }
-}
-
-#pragma mark -
-#pragma mark CLLocationManagerDelegate methods
-
-- (void)locationManager:(CLLocationManager *)manager 
-    didUpdateToLocation:(CLLocation *)newLocation 
-           fromLocation:(CLLocation *)oldLocation
-{
-    CLLocationDegrees latitude = newLocation.coordinate.latitude;
-    CLLocationDegrees longitude = newLocation.coordinate.longitude;
-    
-    NSString *stringURL = [NSString stringWithFormat:BASE_URL, latitude, longitude, self.apiKey];
-    NSURL *url = [NSURL URLWithString:stringURL];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    request.delegate = self;
-    [request startAsynchronous];
 }
 
 #pragma mark -

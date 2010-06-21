@@ -13,11 +13,10 @@
 
 @class BoxView;
 
-@interface MapFeatureView : FeatureView <CLLocationManagerDelegate>
+@interface MapFeatureView : FeatureView
 {
 @private
     MKMapView *_mapView;
-    CLLocationManager *_locationManager;
     BoxView *_textView;
 }
 
