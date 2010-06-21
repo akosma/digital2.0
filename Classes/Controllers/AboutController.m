@@ -71,6 +71,7 @@
         UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
         imageView.frame = CGRectMake(index * 205.0, 0.0, 205.0, 120.0);
         [self.moserSampleView addSubview:imageView];
+        [imageView release];
     }
 }
 
