@@ -13,6 +13,7 @@
 @class MainMenuView;
 @class SoundManager;
 @class FeatureView;
+@class AboutController;
 
 @interface MainMenuController : UIViewController <MainMenuViewDelegate>
 {
@@ -30,6 +31,7 @@
     SoundManager *_soundManager;
     FeatureView *_featureView;
     NSInteger _lastTag;
+    AboutController *_aboutController;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;
@@ -37,6 +39,7 @@
 @property (nonatomic, retain) IBOutlet UIButton *moserInfoButton;
 @property (nonatomic, retain) IBOutlet UIButton *vpsInfoButton;
 @property (nonatomic, retain) IBOutlet UIView *featureReferenceView;
+@property (nonatomic, retain) AboutController *aboutController;
 
 - (IBAction)showInfo:(id)sender;
 

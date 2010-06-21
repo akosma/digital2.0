@@ -18,6 +18,7 @@
 #import "FontFeatureView.h"
 #import "ShopFeatureView.h"
 #import "DemoAppDelegate.h"
+#import "AboutController.h"
 
 @interface MainMenuController ()
 
@@ -42,6 +43,7 @@
 @synthesize featureView = _featureView;
 @synthesize featureReferenceView = _featureReferenceView;
 @synthesize lastTag = _lastTag;
+@synthesize aboutController = _aboutController;
 
 - (void)dealloc 
 {
@@ -55,6 +57,7 @@
     self.soundManager = nil;
     self.featureView = nil;
     self.featureReferenceView = nil;
+    self.aboutController = nil;
     [super dealloc];
 }
 
@@ -113,6 +116,7 @@
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {
     [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    [self.popover dismissPopoverAnimated:YES];
     [self.featureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
 }
 
@@ -132,22 +136,32 @@
 
 - (IBAction)showInfo:(id)sender
 {
-    if (sender == self.akosmaInfoButton)
+    if (self.aboutController == nil)
     {
-    }
-    else if (sender == self.moserInfoButton)
-    {
-    }
-    else if (sender == self.vpsInfoButton)
-    {
+        self.aboutController = [AboutController controller];
     }
 
     if (self.popover == nil)
     {
         UIViewController *controller = [[[UIViewController alloc] init] autorelease];
         self.popover = [[[UIPopoverController alloc] initWithContentViewController:controller] autorelease];
-        self.popover.popoverContentSize = CGSizeMake(200.0, 400.0);
+        self.popover.popoverContentSize = CGSizeMake(245.0, 558.0);
+        self.popover.contentViewController = self.aboutController;
     }
+
+    if (sender == self.akosmaInfoButton)
+    {
+        self.aboutController.item = AboutControllerItemAkosma;
+    }
+    else if (sender == self.moserInfoButton)
+    {
+        self.aboutController.item = AboutControllerItemMoser;
+    }
+    else if (sender == self.vpsInfoButton)
+    {
+        self.aboutController.item = AboutControllerItemVPS;
+    }
+    
     [self.popover presentPopoverFromRect:[sender frame] 
                                   inView:self.view 
                 permittedArrowDirections:UIPopoverArrowDirectionAny 
