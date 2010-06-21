@@ -20,6 +20,7 @@
 #import "DemoAppDelegate.h"
 #import "AboutController.h"
 #import "SimulationFeatureView.h"
+#import "ConnectivityFeatureView.h"
 
 @interface MainMenuController ()
 
@@ -236,6 +237,7 @@
                 
             case 32:
                 [self.soundManager.sound32 play];
+                self.featureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
                 
             case 33:
