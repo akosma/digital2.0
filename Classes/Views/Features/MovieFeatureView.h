@@ -19,4 +19,6 @@
     NSInteger _currentMovieID;
 }
 
+- (void)showCurrentMovie;
+
 @end

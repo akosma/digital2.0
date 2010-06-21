@@ -15,8 +15,6 @@
 @property (nonatomic) NSInteger currentMovieID;
 @property (nonatomic, retain) NSArray *movieNames;
 
-- (void)showCurrentMovie;
-
 @end
 
 
@@ -40,7 +38,6 @@
         self.scrollView.pagingEnabled = YES;
         self.scrollView.delegate = self;
         [self addSubview:self.scrollView];
-        [self showCurrentMovie];
     }
     return self;
 }
@@ -73,11 +70,11 @@
 {
     [super setOrientation:newOrientation];
     
-    CGRect movieFrame = CGRectMake(0.0, 100.0, 1024.0, 548.0);
+    CGRect movieFrame = CGRectMake(0.0, 50.0, 1024.0, 548.0);
     
     if (UIInterfaceOrientationIsPortrait(newOrientation))
     {
-        movieFrame = CGRectMake(0.0, 100.0, 768.0, 824.0);
+        movieFrame = CGRectMake(0.0, 50.0, 768.0, 824.0);
     }
     
     self.scrollView.frame = movieFrame;
@@ -98,11 +95,12 @@
 {
     [super minimize];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    MPMoviePlayerController *moviePlayer = [self.movieControllers objectAtIndex:self.currentMovieID];
-    if (moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
+    for (MPMoviePlayerController *player in self.movieControllers)
     {
-        [moviePlayer stop];
+        player.currentPlaybackTime = player.duration;
+        [player.view removeFromSuperview];
     }
+    self.movieControllers = nil;
 }
 
 #pragma mark -
@@ -151,7 +149,7 @@
         moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
         moviePlayer.controlStyle = MPMovieControlModeDefault;
         moviePlayer.view.frame = rect;
-        
+
         [self.movieControllers insertObject:moviePlayer atIndex:self.currentMovieID];
         [self.scrollView addSubview:moviePlayer.view];
     }

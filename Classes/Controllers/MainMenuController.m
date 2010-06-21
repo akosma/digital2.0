@@ -208,7 +208,9 @@
             case 21:
             {
                 [self.soundManager.sound21 play];
-                self.featureView = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                MovieFeatureView *view = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                [view showCurrentMovie];
+                self.featureView = view;
                 break;
             }
                 
