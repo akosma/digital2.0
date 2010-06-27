@@ -43,6 +43,7 @@
 		3A3FC35D11CD35040055F311 /* night1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35611CD35040055F311 /* night1.mp4 */; };
 		3A3FC35E11CD35040055F311 /* night2.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC35711CD35040055F311 /* night2.mp4 */; };
 		3A3FC41711CD55D90055F311 /* desert.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A3FC41611CD55D90055F311 /* desert.jpg */; };
+		3A431FB211D783FB0039BFF7 /* logo_vps.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A431FB111D783FB0039BFF7 /* logo_vps.png */; };
 		3A43D82111958FCD005C9F65 /* button_31_needle.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D82011958FCD005C9F65 /* button_31_needle.png */; };
 		3A43D8B41195A38E005C9F65 /* button_22_hours.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B11195A38E005C9F65 /* button_22_hours.png */; };
 		3A43D8B51195A38E005C9F65 /* button_22_minutes.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A43D8B21195A38E005C9F65 /* button_22_minutes.png */; };
@@ -222,6 +223,7 @@
 		3A3FC35611CD35040055F311 /* night1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = night1.mp4; sourceTree = "<group>"; };
 		3A3FC35711CD35040055F311 /* night2.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = night2.mp4; sourceTree = "<group>"; };
 		3A3FC41611CD55D90055F311 /* desert.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = desert.jpg; sourceTree = "<group>"; };
+		3A431FB111D783FB0039BFF7 /* logo_vps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_vps.png; sourceTree = "<group>"; };
 		3A43D82011958FCD005C9F65 /* button_31_needle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_31_needle.png; sourceTree = "<group>"; };
 		3A43D8B11195A38E005C9F65 /* button_22_hours.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_hours.png; sourceTree = "<group>"; };
 		3A43D8B21195A38E005C9F65 /* button_22_minutes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_22_minutes.png; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 		3A5665E611CFBB8B008D1943 /* Logos */ = {
 			isa = PBXGroup;
 			children = (
+				3A431FB111D783FB0039BFF7 /* logo_vps.png */,
 				3A5665E711CFBB8B008D1943 /* logo_moser.png */,
 				3A56664711CFC8EE008D1943 /* photo_akosma.jpg */,
 				3A56665211CFCB2C008D1943 /* photo_moser_001.jpg */,
@@ -1115,6 +1118,7 @@
 				3A56666111CFCB2C008D1943 /* photo_moser_008.jpg in Resources */,
 				3A5666B111CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 in Resources */,
 				3A56684511CFF890008D1943 /* FeatureView.xib in Resources */,
+				3A431FB211D783FB0039BFF7 /* logo_vps.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
