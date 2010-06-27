@@ -42,5 +42,6 @@
 @property (nonatomic, retain) AboutController *aboutController;
 
 - (IBAction)showInfo:(id)sender;
+- (IBAction)backToHome:(id)sender;
 
 @end

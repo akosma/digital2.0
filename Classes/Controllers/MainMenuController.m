@@ -30,6 +30,8 @@
 @property (nonatomic, retain) FeatureView *featureView;
 @property (nonatomic) NSInteger lastTag;
 
+- (void)restoreMenu;
+
 @end
 
 
@@ -168,6 +170,11 @@
                                   inView:self.view 
                 permittedArrowDirections:UIPopoverArrowDirectionAny 
                                 animated:YES];
+}
+
+- (IBAction)backToHome:(id)sender
+{
+    [self restoreMenu];
 }
 
 #pragma mark -
