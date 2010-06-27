@@ -80,10 +80,27 @@
                                                                                        action:@selector(drag:)] autorelease];
         UIPanGestureRecognizer *recognizer4 = [[[UIPanGestureRecognizer alloc] initWithTarget:self 
                                                                                        action:@selector(drag:)] autorelease];
+        
+        UITapGestureRecognizer *recognizer5 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:@selector(tap:)] autorelease];
+        UITapGestureRecognizer *recognizer6 = [[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                       action:@selector(tap:)] autorelease];
+        UITapGestureRecognizer *recognizer7 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:@selector(tap:)] autorelease];
+        UITapGestureRecognizer *recognizer8 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
+                                                                                       action:@selector(tap:)] autorelease];
+
         [self.dressCity addGestureRecognizer:recognizer1];
+        [self.dressCity addGestureRecognizer:recognizer5];
+        
         [self.dressGolf addGestureRecognizer:recognizer2];
+        [self.dressGolf addGestureRecognizer:recognizer6];
+
         [self.dressBeach addGestureRecognizer:recognizer3];
+        [self.dressBeach addGestureRecognizer:recognizer7];
+        
         [self.dressNight addGestureRecognizer:recognizer4];
+        [self.dressNight addGestureRecognizer:recognizer8];
         
         [self addSubview:self.mainView];
     }
@@ -119,6 +136,27 @@
                                               
 #pragma mark -
 #pragma mark Gesture recognizer methods
+
+- (void)tap:(UIGestureRecognizer *)recognizer
+{
+    self.currentDressImage = (UIImageView *)recognizer.view;
+    if (self.currentDressImage == self.dressCity)
+    {
+        self.currentDress = CurrentDressCity;
+    }
+    else if (self.currentDressImage == self.dressBeach)
+    {
+        self.currentDress = CurrentDressBeach;
+    }
+    else if (self.currentDressImage == self.dressNight)
+    {
+        self.currentDress = CurrentDressNight;
+    }
+    else if (self.currentDressImage == self.dressGolf)
+    {
+        self.currentDress = CurrentDressGolf;
+    }
+}
 
 - (void)drag:(UIGestureRecognizer *)recognizer
 {
