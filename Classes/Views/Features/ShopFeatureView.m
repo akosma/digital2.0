@@ -139,22 +139,25 @@
 
 - (void)tap:(UIGestureRecognizer *)recognizer
 {
-    self.currentDressImage = (UIImageView *)recognizer.view;
-    if (self.currentDressImage == self.dressCity)
+    if (recognizer.state == UIGestureRecognizerStateEnded)
     {
-        self.currentDress = CurrentDressCity;
-    }
-    else if (self.currentDressImage == self.dressBeach)
-    {
-        self.currentDress = CurrentDressBeach;
-    }
-    else if (self.currentDressImage == self.dressNight)
-    {
-        self.currentDress = CurrentDressNight;
-    }
-    else if (self.currentDressImage == self.dressGolf)
-    {
-        self.currentDress = CurrentDressGolf;
+        self.currentDressImage = (UIImageView *)recognizer.view;
+        if (self.currentDressImage == self.dressCity)
+        {
+            self.currentDress = CurrentDressCity;
+        }
+        else if (self.currentDressImage == self.dressBeach)
+        {
+            self.currentDress = CurrentDressBeach;
+        }
+        else if (self.currentDressImage == self.dressNight)
+        {
+            self.currentDress = CurrentDressNight;
+        }
+        else if (self.currentDressImage == self.dressGolf)
+        {
+            self.currentDress = CurrentDressGolf;
+        }
     }
 }
 
