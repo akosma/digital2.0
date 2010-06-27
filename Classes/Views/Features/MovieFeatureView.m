@@ -91,6 +91,14 @@
 
 - (void)dealloc 
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    for (MPMoviePlayerController *player in self.movieControllers)
+    {
+        player.currentPlaybackTime = player.duration;
+        [player.view removeFromSuperview];
+    }
+    self.movieControllers = nil;
+    
     self.texts = nil;
     self.movieNames = nil;
     self.movieControllers = nil;

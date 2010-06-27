@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <MessageUI/MessageUI.h>
 #import "MainMenuViewDelegate.h"
 
 @class MainMenuView;
@@ -15,7 +16,8 @@
 @class FeatureView;
 @class AboutController;
 
-@interface MainMenuController : UIViewController <MainMenuViewDelegate>
+@interface MainMenuController : UIViewController <MainMenuViewDelegate, 
+                                                  MFMailComposeViewControllerDelegate>
 {
 @private
     MPMoviePlayerController *_moviePlayer;

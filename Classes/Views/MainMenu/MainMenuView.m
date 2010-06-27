@@ -100,11 +100,6 @@
 #pragma mark -
 #pragma mark Public methods
 
-- (void)backToMenu
-{
-    self.minimized = NO;
-}
-
 - (void)panRecognized:(UIPanGestureRecognizer *)recognizer
 {
     if (self.isMinimized)

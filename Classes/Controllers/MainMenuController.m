@@ -31,6 +31,7 @@
 @property (nonatomic) NSInteger lastTag;
 
 - (void)restoreMenu;
+- (void)shareViaEmail;
 
 @end
 
@@ -95,6 +96,12 @@
     self.view.alpha = 0.0;
     
 #endif
+
+    [center addObserver:self 
+               selector:@selector(shareViaEmail) 
+                   name:ConnectivityFeatureViewOpenShareByEmailNotification 
+                 object:nil];
+    
     
     [center addObserver:self 
                selector:@selector(restoreMenu)
@@ -102,15 +109,44 @@
                  object:nil];
 }
 
+#pragma mark -
+#pragma mark Private methods
+
 - (void)restoreMenu
 {
     [self.featureView minimize];
     self.featureView = nil;
     self.lastTag = -1;
     self.mainMenuView.minimized = NO;
-    [self.mainMenuView backToMenu];
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
 }
+
+- (void)shareViaEmail
+{
+    MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
+    composer.mailComposeDelegate = self;
+    
+    NSString *title = @"Check out Digital 2.0";
+    NSString *body = @"Check out this great iPad app!";
+    [composer setSubject:title];
+    [composer setMessageBody:body isHTML:NO];
+    
+    [self presentModalViewController:composer animated:YES];
+    [composer release];
+}
+
+#pragma mark -
+#pragma mark MFMailComposeViewControllerDelegate methods
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller 
+          didFinishWithResult:(MFMailComposeResult)result 
+                        error:(NSError*)error
+{
+    [controller dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark UIViewController methods
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {
@@ -280,6 +316,7 @@
         {
             [sound play];
 
+            [self.featureView minimize];
             [self.featureView removeFromSuperview];
             self.featureView = nextFeatureView;
             [self.featureReferenceView insertSubview:self.featureView 

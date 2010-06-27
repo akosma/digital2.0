@@ -93,10 +93,10 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 
 - (void)dealloc 
 {
-    
     [self stopAnimation];
     
-    if ([EAGLContext currentContext] == context) {
+    if ([EAGLContext currentContext] == context) 
+    {
         [EAGLContext setCurrentContext:nil];
     }
     
@@ -229,6 +229,12 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 {
 }
 
+- (void)minimize
+{
+    [super minimize];
+    [self stopAnimation];
+}    
+
 - (void)layoutSubviews 
 {
     [EAGLContext setCurrentContext:context];
@@ -323,11 +329,9 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 
 - (void)startAnimation 
 {
-    animationTimer = [[NSTimer scheduledTimerWithTimeInterval:animationInterval 
-                                                       target:self 
-                                                     selector:@selector(animate) 
-                                                     userInfo:nil 
-                                                      repeats:YES] retain];
+    animationTimer = [[NSTimer alloc] initWithFireDate:[NSDate date] interval:animationInterval target:self selector:@selector(animate) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:animationTimer 
+                                 forMode:NSDefaultRunLoopMode];
 }
 
 - (void)stopAnimation 
