@@ -37,7 +37,7 @@
 
         CLLocationCoordinate2D coordinate = [DemoAppDelegate sharedAppDelegate].locationManager.location.coordinate;
         CLLocationCoordinate2D center = {coordinate.latitude -= 0.0001, coordinate.longitude += 0.0001};
-        MKCoordinateSpan span = MKCoordinateSpanMake(0.001, 0.001);
+        MKCoordinateSpan span = MKCoordinateSpanMake(0.00105, 0.00105);
         MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
         [self.mapView setRegion:region animated:YES];
         
