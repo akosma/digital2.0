@@ -47,9 +47,9 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"loremipsum" ofType:@"txt"];
         NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
-        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 400.0, 328.0, 440.0)] autorelease];
+        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 200.0, 328.0, 640.0)] autorelease];
         self.textView.text = text;
-        self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+        self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [self addSubview:self.textView];
         
         [self performSelector:@selector(changeImage) 
@@ -78,6 +78,23 @@
     [self performSelector:@selector(changeImage) 
                withObject:nil
                afterDelay:5.0];
+}
+
+#pragma mark -
+#pragma mark Overridden methods
+
+- (void)setOrientation:(UIInterfaceOrientation)newOrientation
+{
+    [super setOrientation:newOrientation];
+    
+    CGRect frame = CGRectMake(630.0, 300.0, 328.0, 300.0);
+    
+    if (UIInterfaceOrientationIsPortrait(newOrientation))
+    {
+        frame = CGRectMake(384.0, 70.0, 328.0, 770.0);
+    }
+    
+    self.textView.frame = frame;
 }
 
 @end
