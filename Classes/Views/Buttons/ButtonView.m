@@ -125,7 +125,8 @@
 
 - (void)buttonTouched:(UITapGestureRecognizer *)recognizer
 {
-    if ([self.delegate respondsToSelector:@selector(didTouchButtonView:)])
+    if (recognizer.state == UIGestureRecognizerStateEnded && 
+        [self.delegate respondsToSelector:@selector(didTouchButtonView:)])
     {
         [self.delegate didTouchButtonView:self];
     }

@@ -28,6 +28,8 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
+        self.requiresNetwork = YES;
+
         self.mapView = [[[MKMapView alloc] initWithFrame:frame] autorelease];
         self.mapView.showsUserLocation = YES;
         self.mapView.mapType = MKMapTypeSatellite;

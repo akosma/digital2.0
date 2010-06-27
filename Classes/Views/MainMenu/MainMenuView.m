@@ -156,8 +156,6 @@
 - (void)didTouchButtonView:(ButtonView *)button
 {
     self.selectedButton = button;
-    self.minimized = YES;
-    
     if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
     {
         [self.delegate mainMenu:self didSelectButtonWithTag:button.tag];

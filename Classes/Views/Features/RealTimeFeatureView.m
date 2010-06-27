@@ -47,6 +47,8 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
+        self.requiresNetwork = YES;
+
         [[NSBundle mainBundle] loadNibNamed:@"RealTimeFeatureView" 
                                       owner:self 
                                     options:nil];
@@ -54,7 +56,7 @@
         self.weatherTableView = [[[UITableView alloc] initWithFrame:self.weatherInfoPlaceholder.frame
                                                               style:UITableViewStylePlain] autorelease];
         self.weatherTableView.separatorColor = [UIColor whiteColor];
-        self.weatherTableView.rowHeight = 100.0;
+        self.weatherTableView.rowHeight = 81.0;
         self.weatherTableView.dataSource = self;
         self.weatherTableView.delegate = self;
         
@@ -65,7 +67,7 @@
         self.stockTableView = [[[UITableView alloc] initWithFrame:self.stockInfoPlaceholder.frame
                                                               style:UITableViewStylePlain] autorelease];
         self.stockTableView.separatorColor = [UIColor whiteColor];
-        self.stockTableView.rowHeight = 100.0;
+        self.stockTableView.rowHeight = 81.0;
         self.stockTableView.dataSource = self;
         self.stockTableView.delegate = self;
 
@@ -207,9 +209,9 @@
         titleLabelFrame = CGRectMake(37.0, 73.0, 178.0, 21.0);
         descriptionLabelFrame = CGRectMake(37.0, 102.0, 330.0, 697.0);
         stockTitleLabelFrame = CGRectMake(403.0, 73.0, 100.0, 21.0);
-        weatherTableViewFrame = CGRectMake(403.0, 469.0, 330.0, 330.0);
+        weatherTableViewFrame = CGRectMake(403.0, 469.0, 330.0, 300.0);
         weatherTitleLabelFrame = CGRectMake(403.0, 440.0, 145.0, 21.0);
-        stockTableViewFrame = CGRectMake(403.0, 102.0, 330.0, 330.0);
+        stockTableViewFrame = CGRectMake(403.0, 102.0, 330.0, 300.0);
     }
     
     self.titleLabel.frame = titleLabelFrame;
@@ -293,7 +295,7 @@
 - (UIImage *)iconForStock:(NSString *)stock
 {
     float value = [stock floatValue];
-    if (abs(value) < 0.001)
+    if (value == 0.0)
     {
         return [UIImage imageNamed:@"stock_same.png"];
     }

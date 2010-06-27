@@ -14,9 +14,11 @@
 {
 @private
     UIInterfaceOrientation _orientation;
+    BOOL _requiresNetwork;
 }
 
 @property (nonatomic) UIInterfaceOrientation orientation;
+@property (nonatomic) BOOL requiresNetwork;
 
 + (id)featureViewWithOrientation:(UIInterfaceOrientation)orientation;
 

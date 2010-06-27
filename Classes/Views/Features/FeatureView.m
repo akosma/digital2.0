@@ -12,6 +12,7 @@
 
 @implementation FeatureView
 
+@synthesize requiresNetwork = _requiresNetwork;
 @dynamic orientation;
 
 + (id)featureViewWithOrientation:(UIInterfaceOrientation)orientation
@@ -28,6 +29,7 @@
     {
         self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
         self.contentMode = UIViewContentModeScaleToFill;
+        self.requiresNetwork = NO;
     }
     return self;
 }

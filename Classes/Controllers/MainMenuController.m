@@ -192,75 +192,102 @@
     }
     else
     {
-        FeatureView *oldFeatureView = [self.featureView retain];
-        [oldFeatureView minimize];
-        self.featureView = nil;
+        FeatureView *nextFeatureView = nil;
+        SoundEffect *sound = nil;
         switch (tag) 
         {
             case 11:
             {
-                [self.soundManager.sound11 play];
-                self.featureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                sound = self.soundManager.sound11;
+                nextFeatureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
             }
 
             case 12:
-                [self.soundManager.sound12 play];
-                self.featureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
+            {
+                sound = self.soundManager.sound12;
+                nextFeatureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
+            }
 
             case 13:
-                [self.soundManager.sound13 play];
-                self.featureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
+            {
+                sound = self.soundManager.sound13;
+                nextFeatureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
+            }
                 
             case 21:
             {
-                [self.soundManager.sound21 play];
+                sound = self.soundManager.sound21;
                 MovieFeatureView *view = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 [view showCurrentMovie];
-                self.featureView = view;
+                nextFeatureView = view;
                 break;
             }
                 
             case 22:
             {
-                [self.soundManager.sound22 play];
-                self.featureView = [RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                sound = self.soundManager.sound22;
+                nextFeatureView = [RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
             }
                 
             case 23:
-                [self.soundManager.sound23 play];
-                self.featureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
+            {
+                sound = self.soundManager.sound23;
+                nextFeatureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
+            }
                 
             case 31:
             {
-                [self.soundManager.sound31 play];
-                self.featureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
-            }
+                sound = self.soundManager.sound31;
+                nextFeatureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
+            }
                 
             case 32:
-                [self.soundManager.sound32 play];
-                self.featureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
+            {
+                sound = self.soundManager.sound32;
+                nextFeatureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
+            }
                 
             case 33:
-                [self.soundManager.sound33 play];
-                self.featureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
+            {
+                sound = self.soundManager.sound33;
+                nextFeatureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 self.featureReferenceView.backgroundColor = [UIColor blackColor];
                 break;
+            }
                 
             default:
                 break;
         }
-        [oldFeatureView release];
-        [self.featureReferenceView insertSubview:self.featureView 
-                                    belowSubview:self.mainMenuView.dockView];
-        [self.featureView maximize];
-        self.lastTag = tag;
+
+        if (nextFeatureView.requiresNetwork && ![DemoAppDelegate sharedAppDelegate].connectionAvailable)
+        {
+            NSString *message = @"This feature requires a network connection.";
+            UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:nil
+                                                             message:message 
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"OK" 
+                                                   otherButtonTitles:nil] autorelease];
+            [alert show];
+        }
+        else
+        {
+            [sound play];
+
+            [self.featureView removeFromSuperview];
+            self.featureView = nextFeatureView;
+            [self.featureReferenceView insertSubview:self.featureView 
+                                        belowSubview:self.mainMenuView.dockView];
+            [self.featureView maximize];
+            self.lastTag = tag;
+            self.mainMenuView.minimized = YES;
+        }
     }
 }
 
