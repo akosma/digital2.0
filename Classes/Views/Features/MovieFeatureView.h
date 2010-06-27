@@ -15,8 +15,14 @@
 @private
     NSMutableArray *_movieControllers;
     NSArray *_movieNames;
+    NSArray *_texts;
+    NSArray *_titles;
     UIScrollView *_scrollView;
     NSInteger _currentMovieID;
+    UILabel *_titleLabel;
+    UILabel *_textLabel;
+    UIButton *_rightButton;
+    UIButton *_leftButton;
 }
 
 - (void)showCurrentMovie;
