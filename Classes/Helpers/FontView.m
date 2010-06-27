@@ -31,7 +31,7 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
-        self.fontSize = 25.0;
+        self.fontSize = 19.0;
 
         CGRect rect = CGRectMake(10.0, 10.0, self.frame.size.width - 10.0, self.frame.size.height - 10.0);
         self.tableView = [[[UITableView alloc] initWithFrame:rect style:UITableViewStylePlain] autorelease];
@@ -96,7 +96,7 @@
 {
     NSString *fontName = [self.keys objectAtIndex:indexPath.row];
     UIFont *font = [UIFont fontWithName:[self.data objectForKey:fontName] size:self.fontSize];
-    return [fontName sizeWithFont:font].height + 10.0;
+    return [fontName sizeWithFont:font].height + 5.0;
 }
 
 #pragma mark -
