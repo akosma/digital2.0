@@ -14,6 +14,7 @@
 {
 @private
     MPMoviePlayerController *_moviePlayer;
+    UILabel *_label;
 }
 
 @end

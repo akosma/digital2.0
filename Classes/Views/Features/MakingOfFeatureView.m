@@ -12,6 +12,7 @@
 @interface MakingOfFeatureView ()
 
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, retain) UILabel *label;
 
 @end
 
@@ -19,6 +20,7 @@
 @implementation MakingOfFeatureView
 
 @synthesize moviePlayer = _moviePlayer;
+@synthesize label = _label;
 
 - (id)initWithFrame:(CGRect)frame 
 {
@@ -45,6 +47,17 @@
         self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
                                                  UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.moviePlayer.view];
+        
+        self.label = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 150.0, 50.0)] autorelease];
+        self.label.text = @"Making of";
+        self.label.font = [UIFont systemFontOfSize:19.0];
+        self.label.textColor = [UIColor colorWithWhite:0.75 alpha:1.0];
+        self.label.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.label];
+
+        [self performSelector:@selector(fadeLabel) 
+                   withObject:nil
+                   afterDelay:3.0];
     }
     return self;
 }
@@ -58,6 +71,13 @@
     }
     self.moviePlayer = nil;
     [super dealloc];
+}
+
+- (void)fadeLabel
+{
+    [UIView beginAnimations:nil context:NULL];
+    self.label.alpha = 0.0;
+    [UIView commitAnimations];
 }
 
 #pragma mark -
