@@ -80,6 +80,7 @@
     CFRelease(attributes);
     
     CTLineRef line = CTLineCreateWithAttributedString(attrString);
+    CFRelease(attrString);
     
     // Set text position and draw the line into the graphics context
     CGContextSetTextPosition(context, 0.0, self.frame.size.height - position);
