@@ -41,11 +41,7 @@
                        name:MPMoviePlayerLoadStateDidChangeNotification
                      object:self.moviePlayer];
         
-        self.moviePlayer.view.hidden = YES;
         self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
-        self.moviePlayer.controlStyle = MPMovieControlModeDefault;
-        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-                                                 UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.moviePlayer.view];
         
         self.label = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 350.0, 60.0)] autorelease];
@@ -61,9 +57,10 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
     if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
     {
-        [self.moviePlayer stop];
+        self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration;
     }
     self.moviePlayer = nil;
     [super dealloc];
@@ -96,9 +93,10 @@
 - (void)minimize
 {
     [super minimize];
+    [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
     if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
     {
-        [self.moviePlayer stop];
+        self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration;
     }
 }
 
@@ -115,8 +113,11 @@
 {
     if (self.moviePlayer.loadState == 3)
     {
-        self.moviePlayer.view.hidden = NO;
-        [self.moviePlayer play];
+        self.moviePlayer.controlStyle = MPMovieControlModeDefault;
+        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
+        UIViewAutoresizingFlexibleHeight;
+        self.moviePlayer.view.contentMode = UIViewContentModeScaleAspectFit;
+        self.moviePlayer.shouldAutoplay = YES;
 
         [self performSelector:@selector(fadeLabel) 
                    withObject:nil

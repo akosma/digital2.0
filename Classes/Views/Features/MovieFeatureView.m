@@ -212,6 +212,19 @@
     [self nextMovie:self];
 }
 
+- (void)movieReady:(NSNotification *)notification
+{
+    MPMoviePlayerController *player = [notification object];
+    if (player.loadState == 3)
+    {
+        player.controlStyle = MPMovieControlModeDefault;
+        player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
+                                        UIViewAutoresizingFlexibleHeight;
+        player.view.contentMode = UIViewContentModeScaleAspectFit;
+        player.shouldAutoplay = YES;
+    }
+}
+
 #pragma mark -
 #pragma mark Private methods
 
@@ -247,6 +260,10 @@
         [center addObserver:self 
                    selector:@selector(moviePlaybackFinished:) 
                        name:MPMoviePlayerPlaybackDidFinishNotification
+                     object:moviePlayer];
+        [center addObserver:self 
+                   selector:@selector(movieReady:) 
+                       name:MPMoviePlayerLoadStateDidChangeNotification
                      object:moviePlayer];
         
         moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
