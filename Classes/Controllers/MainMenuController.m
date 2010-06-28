@@ -350,6 +350,9 @@
     [UIView beginAnimations:nil context:NULL];
     self.moviePlayer.view.alpha = 0.0;
     [UIView commitAnimations];
+    
+    [[DemoAppDelegate sharedAppDelegate].locationManager startUpdatingLocation];
+    [[DemoAppDelegate sharedAppDelegate].locationManager startUpdatingHeading];
 }
 
 @end

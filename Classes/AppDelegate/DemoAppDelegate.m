@@ -38,8 +38,6 @@
     {
         self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         self.locationManager.distanceFilter = 500.0;
-        [self.locationManager startUpdatingLocation];
-        [self.locationManager startUpdatingHeading];
     }
     else 
     {
