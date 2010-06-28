@@ -181,6 +181,7 @@
     {
         CGRect movieRect = CGRectMake(index * movieFrame.size.width, 0.0, movieFrame.size.width, movieFrame.size.height);
         player.view.frame = movieRect;
+        player.view.contentMode = UIViewContentModeScaleAspectFit;
         ++index;
     }
     [self.scrollView scrollRectToVisible:rect animated:NO];
@@ -203,6 +204,11 @@
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
+    for (MPMoviePlayerController *player in self.movieControllers)
+    {
+        player.currentPlaybackTime = player.duration;
+        [player.view removeFromSuperview];
+    }
     [self nextMovie:self];
 }
 

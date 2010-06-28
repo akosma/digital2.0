@@ -121,7 +121,7 @@
         safariImageViewFrame = CGRectMake(192.0, 105.0, 78.0, 78.0);
         mailImageViewFrame = CGRectMake(278.0, 105.0, 78.0, 78.0);
         webViewFrame = CGRectMake(20.0, 191.0, 728.0, 504.0);
-        descriptionLabelFrame = CGRectMake(20.0, 703.0, 728.0, 50.0);
+        descriptionLabelFrame = CGRectMake(20.0, 703.0, 728.0, 67.0);
     }
     
     self.titleLabel.frame = titleLabelFrame;
