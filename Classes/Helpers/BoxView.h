@@ -17,6 +17,7 @@
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, retain) UIFont *font;
+@property (nonatomic) BOOL scrollEnabled;
 
 - (void)updateLayout;
 

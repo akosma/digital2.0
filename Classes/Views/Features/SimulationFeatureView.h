@@ -12,6 +12,8 @@
 #import <OpenGLES/ES1/glext.h>
 #import "FeatureView.h"
 
+@class BoxView;
+
 @interface SimulationFeatureView : FeatureView
 {
 @private
@@ -33,6 +35,8 @@
     CGPoint startTouchPosition2;
     
     GLenum drawMode;
+    
+    BoxView *_box;
 }
 
 - (void)startAnimation;

@@ -9,15 +9,20 @@
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import "SimulationFeatureView.h"
+#import "BoxView.h"
 
 #define ROTATION_ANGLE_STEP 5.0
 #define USE_DEPTH_BUFFER 1
 #define DEGREES_TO_RADIANS(__ANGLE) ((__ANGLE) / 180.0 * M_PI)
 
 @interface SimulationFeatureView ()
+
+@property (nonatomic, retain) BoxView *box;
+
 - (BOOL)createFramebuffer;
 - (void)destroyFramebuffer;
 - (void)animate;
+
 @end
 
 // This code comes from
@@ -40,6 +45,8 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 }
 
 @implementation SimulationFeatureView
+
+@synthesize box = _box;
 
 #pragma mark -
 #pragma mark Static methods
@@ -87,6 +94,13 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
         
 		[self setupView];
         [self startAnimation];
+
+        self.box = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 450.0, 328.0, 340.0)] autorelease];
+        self.box.text = @"Simulation\n\nThe iPad allows the creation of dynamic applications. Developers can leverage a modern graphics processing unit, together with raw, 3-dimensional accelerometer data updated every second, all leading to a sensational, incredible simulation of reality. And even better yet: touch-driven.\n\nWhen simulating reality, sky is the only limit.";
+        self.box.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+        self.box.backgroundColor = [UIColor colorWithWhite:0.75 alpha:0.75];
+        self.box.scrollEnabled = NO;
+        [self addSubview:self.box];
     }
     return self;
 }
@@ -101,6 +115,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
     }
     
     [context release];  
+    self.box = nil;
     [super dealloc];
 }
 

@@ -24,6 +24,7 @@
 @synthesize scrollView = _scrollView;
 @dynamic font;
 @dynamic text;
+@dynamic scrollEnabled;
 
 - (id)initWithFrame:(CGRect)frame 
 {
@@ -83,6 +84,16 @@
 {
     self.label.font = newFont;
     [self updateLayout];
+}
+
+- (BOOL)scrollEnabled
+{
+    return self.scrollView.scrollEnabled;
+}
+
+- (void)setScrollEnabled:(BOOL)newValue
+{
+    self.scrollView.scrollEnabled = newValue;
 }
 
 #pragma mark -
