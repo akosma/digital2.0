@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */; };
 		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
 		3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */; };
 		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
@@ -62,7 +63,6 @@
 		3A56665F11CFCB2C008D1943 /* photo_moser_006.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56665711CFCB2C008D1943 /* photo_moser_006.jpg */; };
 		3A56666011CFCB2C008D1943 /* photo_moser_007.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56665811CFCB2C008D1943 /* photo_moser_007.jpg */; };
 		3A56666111CFCB2C008D1943 /* photo_moser_008.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56665911CFCB2C008D1943 /* photo_moser_008.jpg */; };
-		3A5666B111CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A5666B011CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 */; };
 		3A5667D011CFF0FA008D1943 /* SimulationFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5667CE11CFF0FA008D1943 /* SimulationFeatureView.m */; };
 		3A56684311CFF866008D1943 /* ConnectivityFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A56684211CFF866008D1943 /* ConnectivityFeatureView.m */; };
 		3A56684511CFF890008D1943 /* FeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A56684411CFF890008D1943 /* FeatureView.xib */; };
@@ -193,6 +193,7 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Digital 2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Digital 2.0_Prefix.pch"; sourceTree = "<group>"; };
+		3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PRES_VPS_640x360_1000Kbs - iPhone.m4v"; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
 		3A3AF67111BC629B00BD6421 /* ShopFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopFeatureView.h; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		3A56665711CFCB2C008D1943 /* photo_moser_006.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_moser_006.jpg; sourceTree = "<group>"; };
 		3A56665811CFCB2C008D1943 /* photo_moser_007.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_moser_007.jpg; sourceTree = "<group>"; };
 		3A56665911CFCB2C008D1943 /* photo_moser_008.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_moser_008.jpg; sourceTree = "<group>"; };
-		3A5666B011CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PRES_VPS_640x360_1000Kbs.mp4; sourceTree = "<group>"; };
 		3A5667CD11CFF0FA008D1943 /* SimulationFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationFeatureView.h; sourceTree = "<group>"; };
 		3A5667CE11CFF0FA008D1943 /* SimulationFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulationFeatureView.m; sourceTree = "<group>"; };
 		3A5667CF11CFF0FA008D1943 /* values.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = values.inc; sourceTree = "<group>"; };
@@ -657,7 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				3A7A9D0111CEA5F800B316F3 /* making_of_final.mp4 */,
-				3A5666B011CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 */,
+				3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */,
 				3A99187B11CE9F2700FFB12B /* tunnel_final2_8MB.mp4 */,
 				3A3FC35011CD35030055F311 /* Shop */,
 				3A725F6411CF90D9008E461A /* VideoFeature */,
@@ -1143,7 +1143,6 @@
 				3A56665F11CFCB2C008D1943 /* photo_moser_006.jpg in Resources */,
 				3A56666011CFCB2C008D1943 /* photo_moser_007.jpg in Resources */,
 				3A56666111CFCB2C008D1943 /* photo_moser_008.jpg in Resources */,
-				3A5666B111CFD147008D1943 /* PRES_VPS_640x360_1000Kbs.mp4 in Resources */,
 				3A56684511CFF890008D1943 /* FeatureView.xib in Resources */,
 				3A431FB211D783FB0039BFF7 /* logo_vps.png in Resources */,
 				3A93344611D7C2FF0047ED4E /* ConnectivityFeatureView.xib in Resources */,
@@ -1151,6 +1150,7 @@
 				3A93344E11D7C4380047ED4E /* connectivity_facebook.png in Resources */,
 				3A93344F11D7C4380047ED4E /* connectivity_safari.png in Resources */,
 				3A93345011D7C4380047ED4E /* connectivity_twitter.png in Resources */,
+				3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

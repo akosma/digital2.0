@@ -180,7 +180,7 @@
                 [self.timer invalidate];
                 self.timer = nil;
 
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"PRES_VPS_640x360_1000Kbs" ofType:@"mp4"];
+                NSString *path = [[NSBundle mainBundle] pathForResource:@"PRES_VPS_640x360_1000Kbs - iPhone" ofType:@"m4v"];
                 NSURL *url = [NSURL fileURLWithPath:path];
                 self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
                 self.moviePlayer.shouldAutoplay = YES;
