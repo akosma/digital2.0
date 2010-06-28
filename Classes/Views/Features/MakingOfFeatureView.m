@@ -54,10 +54,6 @@
         self.label.textColor = [UIColor colorWithWhite:0.75 alpha:1.0];
         self.label.backgroundColor = [UIColor clearColor];
         [self addSubview:self.label];
-
-        [self performSelector:@selector(fadeLabel) 
-                   withObject:nil
-                   afterDelay:3.0];
     }
     return self;
 }
@@ -121,6 +117,10 @@
     {
         self.moviePlayer.view.hidden = NO;
         [self.moviePlayer play];
+
+        [self performSelector:@selector(fadeLabel) 
+                   withObject:nil
+                   afterDelay:3.0];
     }
 }
 
