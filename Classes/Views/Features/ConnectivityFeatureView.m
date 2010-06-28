@@ -111,7 +111,7 @@
     CGRect safariImageViewFrame = CGRectMake(20.0, 277.0, 78.0, 78.0);
     CGRect mailImageViewFrame = CGRectMake(20.0, 363.0, 78.0, 78.0);
     CGRect webViewFrame = CGRectMake(106.0, 105.0, 898.0, 336.0);
-    CGRect descriptionLabelFrame = CGRectMake(20.0, 449.0, 984.0, 113.0);
+    CGRect descriptionLabelFrame = CGRectMake(20.0, 449.0, 984.0, 50.0);
     
     if (UIInterfaceOrientationIsPortrait(newOrientation))
     {
@@ -121,7 +121,7 @@
         safariImageViewFrame = CGRectMake(192.0, 105.0, 78.0, 78.0);
         mailImageViewFrame = CGRectMake(278.0, 105.0, 78.0, 78.0);
         webViewFrame = CGRectMake(20.0, 191.0, 728.0, 504.0);
-        descriptionLabelFrame = CGRectMake(20.0, 703.0, 728.0, 113.0);
+        descriptionLabelFrame = CGRectMake(20.0, 703.0, 728.0, 50.0);
     }
     
     self.titleLabel.frame = titleLabelFrame;
