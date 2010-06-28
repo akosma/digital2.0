@@ -212,19 +212,6 @@
     [self nextMovie:self];
 }
 
-- (void)movieReady:(NSNotification *)notification
-{
-    MPMoviePlayerController *player = [notification object];
-    if (player.loadState == 3)
-    {
-        player.controlStyle = MPMovieControlModeDefault;
-        player.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-                                        UIViewAutoresizingFlexibleHeight;
-        player.view.contentMode = UIViewContentModeScaleAspectFit;
-        player.shouldAutoplay = YES;
-    }
-}
-
 #pragma mark -
 #pragma mark Private methods
 
@@ -261,16 +248,14 @@
                    selector:@selector(moviePlaybackFinished:) 
                        name:MPMoviePlayerPlaybackDidFinishNotification
                      object:moviePlayer];
-        [center addObserver:self 
-                   selector:@selector(movieReady:) 
-                       name:MPMoviePlayerLoadStateDidChangeNotification
-                     object:moviePlayer];
         
         moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
         moviePlayer.controlStyle = MPMovieControlModeDefault;
         moviePlayer.view.frame = rect;
         moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
-
+        moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        moviePlayer.view.contentMode = UIViewContentModeScaleAspectFit;
+        
         [self.movieControllers insertObject:moviePlayer atIndex:self.currentMovieID];
         [self.scrollView addSubview:moviePlayer.view];
     }

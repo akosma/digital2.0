@@ -366,17 +366,6 @@
     }
 }
 
-- (void)moviePlaybackChanged:(NSNotification *)notification
-{
-}
-
-- (void)movieReady:(NSNotification *)notification
-{
-    if (self.moviePlayer.loadState == 3)
-    {
-    }
-}
-
 #pragma mark -
 #pragma mark Private methods
 
@@ -409,18 +398,6 @@
             [center addObserver:self 
                        selector:@selector(moviePlaybackFinished:) 
                            name:MPMoviePlayerPlaybackDidFinishNotification
-                         object:self.moviePlayer];
-            [center addObserver:self 
-                       selector:@selector(moviePlaybackFinished:) 
-                           name:MPMoviePlayerDidExitFullscreenNotification
-                         object:self.moviePlayer];
-            [center addObserver:self 
-                       selector:@selector(moviePlaybackChanged:) 
-                           name:MPMoviePlayerPlaybackStateDidChangeNotification
-                         object:self.moviePlayer];
-            [center addObserver:self 
-                       selector:@selector(movieReady:) 
-                           name:MPMoviePlayerLoadStateDidChangeNotification
                          object:self.moviePlayer];
 
             self.moviePlayer.shouldAutoplay = YES;
