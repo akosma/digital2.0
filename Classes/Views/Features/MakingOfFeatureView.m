@@ -114,8 +114,8 @@
     if (self.moviePlayer.loadState == 3)
     {
         self.moviePlayer.controlStyle = MPMovieControlModeDefault;
-        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-        UIViewAutoresizingFlexibleHeight;
+        self.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
+        self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.moviePlayer.view.contentMode = UIViewContentModeScaleAspectFit;
         self.moviePlayer.shouldAutoplay = YES;
 

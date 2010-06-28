@@ -269,6 +269,7 @@
         moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
         moviePlayer.controlStyle = MPMovieControlModeDefault;
         moviePlayer.view.frame = rect;
+        moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
 
         [self.movieControllers insertObject:moviePlayer atIndex:self.currentMovieID];
         [self.scrollView addSubview:moviePlayer.view];
