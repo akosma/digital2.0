@@ -41,10 +41,12 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
-        self.texts = [NSArray arrayWithObjects:@"Video contents, whether displayed in portrait or landscape mode, must adapt to the screen.  This is a new way of thinking about image format. Remember... Think square!",
-                      @"The iPad screen offers very high resolution; it is essential to film in HD for an irreproachable image quality to do the support justice.", 
-                      @"Keying is the key to integrating interactive video content into your iPad application.", nil];
-        self.titles = [NSArray arrayWithObjects:@"Think square!", @"HD or nothing.", @"Keying", nil];
+        self.texts = [NSArray arrayWithObjects:@"The iPad screen offers very high resolution; it is essential to film in HD for an irreproachable image quality to do the support justice.", 
+                      @"Keying is the key to integrating interactive video content into your iPad application.", 
+                      @"Video contents, whether displayed in portrait or landscape mode, must adapt to the screen. This is a new way of thinking about image format. Remember... Think square!", nil];
+        self.titles = [NSArray arrayWithObjects:@"HD or nothing.", 
+                       @"Keying", 
+                       @"Think square!", nil];
         self.movieNames = [NSArray arrayWithObjects:@"mini HD_1800", @"mini key_1800", @"minisquare_1800", nil];
         NSInteger count = [self.movieNames count];
         self.currentMovieID = 0;
