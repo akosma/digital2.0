@@ -12,9 +12,9 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="14"/>
 			<integer value="37"/>
 			<integer value="2"/>
-			<integer value="14"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -166,7 +166,7 @@ YS5jb20</string>
 					<object class="IBUILabel" id="987008339">
 						<reference key="NSNextResponder" ref="1031682370"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 53}, {205, 343}}</string>
+						<string key="NSFrame">{{20, 47}, {205, 362}}</string>
 						<reference key="NSSuperview" ref="1031682370"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -179,8 +179,8 @@ ZSBzZW5zZXMsIHRha2VzIG1hbnkgZm9ybXMgYW5kIHNlZWtzIHRvIGJlIGdsb2JhbCByZXF1aXJlcyBh
 IHJpZ29yb3VzIGFuZCBwZXJmZWN0bHktY29udHJvbGxlZCBhcHByb2FjaC4gIFdlIGFsc28gcHJvdmlk
 ZSB0aGF0IHRvdWNoIG9mIHZpc3VhbCBlbGVnYW5jZSBhbmQgZW1vdGlvbiB3aGljaCBjaGFyYWN0ZXJp
 c2VzIHRoZSBlbnZpcm9ubWVudCBhbmQgY29tbXVuaWNhdGlvbiBvZiBhcHBlYWxpbmcgYW5kIGR1cmFi
-bGUgYnJhbmRzLg0NUnVlIGR1IFNpbXBsb24gM2QNMTAwNiBsYXVzYW5uZQ0rIDQxIDIxIDYxNCAwNiA2
-Ng1tb3NlcmRlc2lnbi5jaA</string>
+bGUgYnJhbmRzLg0NUnVlIGR1IFNpbXBsb24gM2QNMTAwNiBMYXVzYW5uZQpTd2l0emVybGFuZA0rIDQx
+IDIxIDYxNCAwNiA2Ng1tb3NlcmRlc2lnbi5jaA</string>
 						<reference key="IBUIFont" ref="9580059"/>
 						<reference key="IBUITextColor" ref="188500360"/>
 						<nil key="IBUIHighlightedColor"/>
@@ -206,7 +206,7 @@ Ng1tb3NlcmRlc2lnbi5jaA</string>
 					<object class="IBUIButton" id="368877875">
 						<reference key="NSNextResponder" ref="1031682370"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 366}, {146, 37}}</string>
+						<string key="NSFrame">{{20, 379}, {146, 37}}</string>
 						<reference key="NSSuperview" ref="1031682370"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
