@@ -48,9 +48,9 @@
                                                  UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.moviePlayer.view];
         
-        self.label = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 150.0, 50.0)] autorelease];
+        self.label = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 350.0, 60.0)] autorelease];
         self.label.text = @"Making of";
-        self.label.font = [UIFont systemFontOfSize:19.0];
+        self.label.font = [UIFont systemFontOfSize:38.0];
         self.label.textColor = [UIColor colorWithWhite:0.75 alpha:1.0];
         self.label.backgroundColor = [UIColor clearColor];
         [self addSubview:self.label];
