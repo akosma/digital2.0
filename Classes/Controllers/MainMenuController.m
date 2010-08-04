@@ -21,6 +21,7 @@
 #import "AboutController.h"
 #import "SimulationFeatureView.h"
 #import "ConnectivityFeatureView.h"
+#import "MPMoviePlayerController+Extensions.h"
 
 @interface MainMenuController ()
 
@@ -55,7 +56,7 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.moviePlayer stop];
+    [self.moviePlayer fullStop];
     self.moviePlayer = nil;
     self.mainMenuView = nil;
     self.vpsInfoButton = nil;

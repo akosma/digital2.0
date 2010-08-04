@@ -13,10 +13,7 @@
 - (void)fullStop
 {
     [self stop];
-    if (self.playbackState == MPMoviePlaybackStatePlaying)
-    {
-        self.currentPlaybackTime = self.duration;
-    }
+    self.currentPlaybackTime = self.duration;
     [self.view removeFromSuperview];
 }
 
