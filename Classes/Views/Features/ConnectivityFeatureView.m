@@ -81,11 +81,11 @@
     {
         if (recognizer.view == self.twitterImageView)
         {
-            [self loadWebsite:@"http://twitter.com/"];
+            [self loadWebsite:@"http://twitter.com/digital2dot0"];
         }
         else if (recognizer.view == self.facebookImageView)
         {
-            [self loadWebsite:@"http://facebook.com/"];
+            [self loadWebsite:@"http://www.facebook.com/pages/digital20/122084417836409?ref=ts"];
         }
         else if (recognizer.view == self.safariImageView)
         {
