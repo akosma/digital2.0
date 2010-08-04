@@ -27,22 +27,6 @@
     if ((self = [super initWithFrame:frame])) 
     {
         self.backgroundColor = [UIColor blackColor];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"making_of_final" ofType:@"mp4"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
-        
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerPlaybackDidFinishNotification
-                     object:self.moviePlayer];
-        [center addObserver:self 
-                   selector:@selector(movieReady:) 
-                       name:MPMoviePlayerLoadStateDidChangeNotification
-                     object:self.moviePlayer];
-        
-        self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
-        [self addSubview:self.moviePlayer.view];
         
         self.label = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 350.0, 60.0)] autorelease];
         self.label.text = @"Making of";
@@ -87,12 +71,47 @@
     self.moviePlayer.view.frame = movieFrame;
 }
 
+- (void)maximize
+{
+    [super maximize];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"making_of_final" ofType:@"mp4"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    self.moviePlayer.contentURL = url;
+}
+
 - (void)minimize
 {
     [super minimize];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
+}
+
+#pragma mark -
+#pragma mark Overridden getters
+
+- (MPMoviePlayerController *)moviePlayer
+{
+    if (_moviePlayer == nil)
+    {
+        _moviePlayer = [[MPMoviePlayerController alloc] init];
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self 
+                   selector:@selector(moviePlaybackFinished:) 
+                       name:MPMoviePlayerPlaybackDidFinishNotification
+                     object:_moviePlayer];
+        [center addObserver:self 
+                   selector:@selector(movieReady:) 
+                       name:MPMoviePlayerLoadStateDidChangeNotification
+                     object:_moviePlayer];
+        
+        _moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
+        [self addSubview:_moviePlayer.view];
+    }
+    return _moviePlayer;
 }
 
 #pragma mark -
