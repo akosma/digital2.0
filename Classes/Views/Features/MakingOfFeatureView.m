@@ -97,6 +97,7 @@
     if (_moviePlayer == nil)
     {
         _moviePlayer = [[MPMoviePlayerController alloc] init];
+        _moviePlayer.shouldAutoplay = YES;
         
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self 
@@ -130,7 +131,6 @@
         self.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
         self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.moviePlayer.view.contentMode = UIViewContentModeScaleAspectFit;
-        self.moviePlayer.shouldAutoplay = YES;
 
         [self performSelector:@selector(fadeLabel) 
                    withObject:nil
