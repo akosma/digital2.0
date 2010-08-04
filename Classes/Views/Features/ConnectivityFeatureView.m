@@ -39,7 +39,7 @@
                                     options:nil];
         
         [self addSubview:self.mainView];
-        [self loadWebsite:@"http://www.twitter.com/"];
+        [self loadWebsite:@"http://twitter.com/digital2dot0"];
         
         UITapGestureRecognizer *recognizer1 = [[[UITapGestureRecognizer alloc] initWithTarget:self 
                                                                                        action:@selector(touched:)] autorelease];
