@@ -34,6 +34,8 @@
     FeatureView *_featureView;
     NSInteger _lastTag;
     AboutController *_aboutController;
+    
+    NSMutableDictionary *_viewCache;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;

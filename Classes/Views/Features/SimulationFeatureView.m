@@ -18,6 +18,7 @@
 @interface SimulationFeatureView ()
 
 @property (nonatomic, retain) BoxView *box;
+@property (nonatomic) BOOL animating;
 
 - (BOOL)createFramebuffer;
 - (void)destroyFramebuffer;
@@ -47,6 +48,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 @implementation SimulationFeatureView
 
 @synthesize box = _box;
+@synthesize animating = _animating;
 
 #pragma mark -
 #pragma mark Static methods
@@ -61,7 +63,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 
 - (id)initWithFrame:(CGRect)frame 
 {
-    if ((self = [super initWithFrame:(CGRect)frame])) 
+    if ((self = [super initWithFrame:frame])) 
     {
         // Get the layer
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
@@ -91,7 +93,10 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
         zTransform = -30.0;
         
         self.multipleTouchEnabled = YES;
-        
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.backgroundColor = [UIColor whiteColor];
+        self.animating = NO;
+
 		[self setupView];
         [self startAnimation];
 
@@ -128,6 +133,12 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
     rotationAngles[1] -= ROTATION_ANGLE_STEP / 5.0;
     rotationAngles[2] += ROTATION_ANGLE_STEP / 5.0;
     [self drawView];
+    if (self.animating)
+    {
+        [self performSelector:@selector(animate) 
+                   withObject:nil
+                   afterDelay:animationInterval];
+    }
 }
 
 - (void)drawView 
@@ -244,12 +255,6 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 {
 }
 
-- (void)minimize
-{
-    [super minimize];
-    [self stopAnimation];
-}    
-
 - (void)layoutSubviews 
 {
     [EAGLContext setCurrentContext:context];
@@ -344,16 +349,16 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 
 - (void)startAnimation 
 {
-    animationTimer = [[NSTimer alloc] initWithFireDate:[NSDate date] interval:animationInterval target:self selector:@selector(animate) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:animationTimer 
-                                 forMode:NSDefaultRunLoopMode];
+    self.animating = YES;
+    [self performSelector:@selector(animate) 
+               withObject:nil
+               afterDelay:animationInterval];
 }
 
 - (void)stopAnimation 
 {
-    [animationTimer invalidate];
-    [animationTimer release];
-    animationTimer = nil;
+    self.animating = NO;
+    [[self class] cancelPreviousPerformRequestsWithTarget:self];
 }
 
 - (void)checkGLError:(BOOL)visibleCheck 
@@ -398,5 +403,20 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
             break;
     }
 }
+
+#pragma mark -
+#pragma mark Overridden methods
+
+- (void)maximize
+{
+    [super maximize];
+    [self startAnimation];
+}
+
+- (void)minimize
+{
+    [super minimize];
+    [self stopAnimation];
+}    
 
 @end

@@ -26,8 +26,8 @@
     
     GLuint depthRenderbuffer;
     
-    NSTimer *animationTimer;
     NSTimeInterval animationInterval;
+    BOOL _animating;
 
     GLfloat rotationAngles[3];
     GLfloat zTransform;

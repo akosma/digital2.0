@@ -7,11 +7,11 @@
 //
 
 #import "MovieFeatureView.h"
+#import "MPMoviePlayerController+Extensions.h"
 
 @interface MovieFeatureView ()
 
-@property (nonatomic, retain) NSMutableArray *movieControllers;
-@property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) MPMoviePlayerController *movieController;
 @property (nonatomic) NSInteger currentMovieID;
 @property (nonatomic, retain) NSArray *movieNames;
 @property (nonatomic, retain) NSArray *texts;
@@ -26,8 +26,7 @@
 
 @implementation MovieFeatureView
 
-@synthesize movieControllers = _movieControllers;
-@synthesize scrollView = _scrollView;
+@synthesize movieController = _movieController;
 @synthesize currentMovieID = _currentMovieID;
 @synthesize movieNames = _movieNames;
 @synthesize texts = _texts;
@@ -48,14 +47,7 @@
                        @"Keying", 
                        @"Think square!", nil];
         self.movieNames = [NSArray arrayWithObjects:@"mini HD_1800", @"mini key_1800", @"minisquare_1800", nil];
-        NSInteger count = [self.movieNames count];
         self.currentMovieID = 0;
-        self.movieControllers = [NSMutableArray arrayWithCapacity:count];
-        self.scrollView = [[[UIScrollView alloc] initWithFrame:frame] autorelease];
-        self.scrollView.contentSize = CGSizeMake(frame.size.width * count, frame.size.height);
-        self.scrollView.pagingEnabled = YES;
-        self.scrollView.delegate = self;
-        [self addSubview:self.scrollView];
 
         self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 150.0, 50.0)] autorelease];
         self.titleLabel.font = [UIFont systemFontOfSize:19.0];
@@ -94,17 +86,11 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    for (MPMoviePlayerController *player in self.movieControllers)
-    {
-        player.currentPlaybackTime = player.duration;
-        [player.view removeFromSuperview];
-    }
-    self.movieControllers = nil;
+    [self.movieController fullStop];
+    self.movieController = nil;
     
     self.texts = nil;
     self.movieNames = nil;
-    self.movieControllers = nil;
-    self.scrollView = nil;
     self.titleLabel = nil;
     self.textLabel = nil;
     self.rightButton = nil;
@@ -125,19 +111,6 @@
 {
     self.currentMovieID = (self.currentMovieID - 1) % [self.movieNames count];
     [self showCurrentMovie];
-}
-
-#pragma mark -
-#pragma mark UIScrollViewDelegate methods
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    NSInteger previousMovieID = self.currentMovieID;
-    self.currentMovieID = (NSInteger)(self.scrollView.contentOffset.x / self.scrollView.frame.size.width);
-    if (self.currentMovieID != previousMovieID)
-    {
-        [self showCurrentMovie];
-    }
 }
 
 #pragma mark -
@@ -172,31 +145,24 @@
     self.leftButton.frame = leftButtonFrame;
     self.titleLabel.frame = titleLabelFrame;
     self.textLabel.frame = textLabelFrame;
-    self.scrollView.frame = movieFrame;
-    NSInteger count = [self.movieNames count];
-    self.scrollView.contentSize = CGSizeMake(movieFrame.size.width * count, movieFrame.size.height);
-    CGRect rect = CGRectMake(self.currentMovieID * movieFrame.size.width, 0.0, movieFrame.size.width, movieFrame.size.height);
-    NSInteger index = 0;
-    for (MPMoviePlayerController *player in self.movieControllers)
-    {
-        CGRect movieRect = CGRectMake(index * movieFrame.size.width, 0.0, movieFrame.size.width, movieFrame.size.height);
-        player.view.frame = movieRect;
-        player.view.contentMode = UIViewContentModeScaleAspectFit;
-        ++index;
-    }
-    [self.scrollView scrollRectToVisible:rect animated:NO];
+    self.movieController.view.frame = movieFrame;
+    self.movieController.view.contentMode = UIViewContentModeScaleAspectFit;
+}
+
+- (void)maximize
+{
+    [super maximize];
+    self.currentMovieID = 0;
+    [self showCurrentMovie];
 }
 
 - (void)minimize
 {
     [super minimize];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    for (MPMoviePlayerController *player in self.movieControllers)
-    {
-        player.currentPlaybackTime = player.duration;
-        [player.view removeFromSuperview];
-    }
-    self.movieControllers = nil;
+    self.currentMovieID = 0;
+    [self.movieController fullStop];
+    self.movieController = nil;
 }
 
 #pragma mark -
@@ -204,12 +170,31 @@
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
-    for (MPMoviePlayerController *player in self.movieControllers)
-    {
-        player.currentPlaybackTime = player.duration;
-        [player.view removeFromSuperview];
-    }
     [self nextMovie:self];
+}
+
+#pragma mark -
+#pragma mark Overridden getter
+
+- (MPMoviePlayerController *)movieController
+{
+    if (_movieController == nil)
+    {
+        _movieController = [[MPMoviePlayerController alloc] init];
+        _movieController.shouldAutoplay = YES;
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self 
+                   selector:@selector(moviePlaybackFinished:) 
+                       name:MPMoviePlayerPlaybackDidFinishNotification
+                     object:_movieController];
+        
+        _movieController.backgroundView.backgroundColor = [UIColor whiteColor];
+        _movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        _movieController.view.contentMode = UIViewContentModeScaleAspectFit;
+        [self addSubview:_movieController.view];
+    }
+    return _movieController;
 }
 
 #pragma mark -
@@ -220,52 +205,13 @@
     self.rightButton.hidden = (self.currentMovieID == 2);
     self.leftButton.hidden = (self.currentMovieID == 0);
     
-    for (MPMoviePlayerController *player in self.movieControllers)
-    {
-        [player stop];
-        player.view.hidden = YES;
-    }
-    
-    MPMoviePlayerController *moviePlayer = nil;
-    CGRect rect = CGRectMake(self.currentMovieID * self.scrollView.frame.size.width, 0.0, 
-                             self.scrollView.frame.size.width, self.scrollView.frame.size.height);
-    
-    if ([self.movieControllers count] > self.currentMovieID)
-    {
-        moviePlayer = [self.movieControllers objectAtIndex:self.currentMovieID];
-    }
-    
-    if (moviePlayer == nil)
-    {
-        NSString *name = [self.movieNames objectAtIndex:self.currentMovieID];
-        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
-        moviePlayer.shouldAutoplay = YES;
-        
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerPlaybackDidFinishNotification
-                     object:moviePlayer];
-        
-        moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
-        moviePlayer.controlStyle = MPMovieControlModeDefault;
-        moviePlayer.view.frame = rect;
-        moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
-        moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        moviePlayer.view.contentMode = UIViewContentModeScaleAspectFit;
-        
-        [self.movieControllers insertObject:moviePlayer atIndex:self.currentMovieID];
-        [self.scrollView addSubview:moviePlayer.view];
-    }
-    
-    moviePlayer.view.hidden = NO;
-    if (moviePlayer.playbackState != MPMoviePlaybackStatePlaying)
-    {
-        [moviePlayer play];
-    }
-    [self.scrollView scrollRectToVisible:rect animated:NO];
+    [self.movieController stop];
+
+    NSString *name = [self.movieNames objectAtIndex:self.currentMovieID];
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    self.movieController.contentURL = url;
+    [self.movieController play];
     
     self.titleLabel.text = [self.titles objectAtIndex:self.currentMovieID];
     self.textLabel.text = [self.texts objectAtIndex:self.currentMovieID];

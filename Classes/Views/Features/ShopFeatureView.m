@@ -7,6 +7,7 @@
 //
 
 #import "ShopFeatureView.h"
+#import "MPMoviePlayerController+Extensions.h"
 
 @interface ShopFeatureView ()
 
@@ -68,7 +69,6 @@
                                       owner:self
                                     options:nil];
 
-        self.currentDress = CurrentDressCity;
         self.defileMode = NO;
         self.videoView.backgroundColor = [UIColor clearColor];
         
@@ -110,6 +110,9 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.moviePlayer fullStop];
+    self.moviePlayer = nil;
+    
     self.contourCity = nil;
     self.dressCity = nil;
     self.contourBeach = nil;
@@ -260,6 +263,21 @@
 #pragma mark -
 #pragma mark Overridden methods
 
+- (void)maximize
+{
+    [super maximize];
+    self.currentDress = CurrentDressCity;
+}
+
+- (void)minimize
+{
+    [super minimize];
+    self.currentDress = CurrentDressNone;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.moviePlayer fullStop];
+    self.moviePlayer = nil;
+}
+
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {
     [super setOrientation:newOrientation];
@@ -315,11 +333,7 @@
     self.nightPriceLabel.frame = nightPriceLabelFrame;
     self.golfPriceLabel.frame = golfPriceLabelFrame;
     self.videoView.frame = videoViewFrame;
-    
-    if (self.moviePlayer != nil)
-    {
-        self.moviePlayer.view.frame = videoViewFrame;
-    }
+    self.moviePlayer.view.frame = videoViewFrame;
 }
 
 #pragma mark -
@@ -367,6 +381,30 @@
 }
 
 #pragma mark -
+#pragma mark Overridden getters
+
+- (MPMoviePlayerController *)moviePlayer
+{
+    if (_moviePlayer == nil)
+    {
+        _moviePlayer = [[MPMoviePlayerController alloc] init];
+        
+        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+        [center addObserver:self 
+                   selector:@selector(moviePlaybackFinished:) 
+                       name:MPMoviePlayerPlaybackDidFinishNotification
+                     object:_moviePlayer];
+        
+        _moviePlayer.shouldAutoplay = YES;
+        _moviePlayer.controlStyle = MPMovieControlModeDefault;
+        _moviePlayer.view.frame = self.videoView.frame;
+        _moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
+        [self.mainView insertSubview:_moviePlayer.view belowSubview:self.videoView];
+    }
+    return _moviePlayer;
+}
+
+#pragma mark -
 #pragma mark Private methods
 
 - (void)setCurrentDress:(CurrentDress)dress
@@ -375,78 +413,64 @@
     {
         _currentDress = dress;
 
-        self.contourCity.hidden = (self.currentDress != CurrentDressCity);
-        self.contourBeach.hidden = (self.currentDress != CurrentDressBeach);
-        self.contourNight.hidden = (self.currentDress != CurrentDressNight);
-        self.contourGolf.hidden = (self.currentDress != CurrentDressGolf);
-
-        self.dressCity.hidden = !self.contourCity.hidden;
-        self.dressBeach.hidden = !self.contourBeach.hidden;
-        self.dressNight.hidden = !self.contourNight.hidden;
-        self.dressGolf.hidden = !self.contourGolf.hidden;
-        
-        self.dressCity.frame = self.dressCityFrame;
-        self.dressBeach.frame = self.dressBeachFrame;
-        self.dressNight.frame = self.dressNightFrame;
-        self.dressGolf.frame = self.dressGolfFrame;
-
-        if (self.moviePlayer == nil)
+        if (self.currentDress != CurrentDressNone)
         {
-            self.moviePlayer = [[[MPMoviePlayerController alloc] init] autorelease];
+            self.contourCity.hidden = (self.currentDress != CurrentDressCity);
+            self.contourBeach.hidden = (self.currentDress != CurrentDressBeach);
+            self.contourNight.hidden = (self.currentDress != CurrentDressNight);
+            self.contourGolf.hidden = (self.currentDress != CurrentDressGolf);
+
+            self.dressCity.hidden = !self.contourCity.hidden;
+            self.dressBeach.hidden = !self.contourBeach.hidden;
+            self.dressNight.hidden = !self.contourNight.hidden;
+            self.dressGolf.hidden = !self.contourGolf.hidden;
             
-            NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-            [center addObserver:self 
-                       selector:@selector(moviePlaybackFinished:) 
-                           name:MPMoviePlayerPlaybackDidFinishNotification
-                         object:self.moviePlayer];
+            self.dressCity.frame = self.dressCityFrame;
+            self.dressBeach.frame = self.dressBeachFrame;
+            self.dressNight.frame = self.dressNightFrame;
+            self.dressGolf.frame = self.dressGolfFrame;
 
-            self.moviePlayer.shouldAutoplay = YES;
-            self.moviePlayer.controlStyle = MPMovieControlModeDefault;
-            self.moviePlayer.view.frame = self.videoView.frame;
-            self.moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
-            [self.mainView insertSubview:self.moviePlayer.view belowSubview:self.videoView];
-        }
-
-        switch (self.currentDress) 
-        {
-            case CurrentDressBeach:
+            switch (self.currentDress) 
             {
-                self.defileMode = YES;
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"beach2" ofType:@"mp4"];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
-                break;
+                case CurrentDressBeach:
+                {
+                    self.defileMode = YES;
+                    NSString *path = [[NSBundle mainBundle] pathForResource:@"beach2" ofType:@"mp4"];
+                    NSURL *url = [NSURL fileURLWithPath:path];
+                    self.moviePlayer.contentURL = url;
+                    break;
+                }
+                    
+                case CurrentDressCity:
+                {
+                    self.defileMode = NO;
+                    NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"mp4"];
+                    NSURL *url = [NSURL fileURLWithPath:path];
+                    self.moviePlayer.contentURL = url;
+                    break;
+                }
+                    
+                case CurrentDressGolf:
+                {
+                    self.defileMode = YES;
+                    NSString *path = [[NSBundle mainBundle] pathForResource:@"golf2" ofType:@"mp4"];
+                    NSURL *url = [NSURL fileURLWithPath:path];
+                    self.moviePlayer.contentURL = url;
+                    break;
+                }
+                    
+                case CurrentDressNight:
+                {
+                    self.defileMode = YES;
+                    NSString *path = [[NSBundle mainBundle] pathForResource:@"night2" ofType:@"mp4"];
+                    NSURL *url = [NSURL fileURLWithPath:path];
+                    self.moviePlayer.contentURL = url;
+                    break;
+                }
+                    
+                default:
+                    break;
             }
-                
-            case CurrentDressCity:
-            {
-                self.defileMode = NO;
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"mp4"];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
-                break;
-            }
-                
-            case CurrentDressGolf:
-            {
-                self.defileMode = YES;
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"golf2" ofType:@"mp4"];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
-                break;
-            }
-                
-            case CurrentDressNight:
-            {
-                self.defileMode = YES;
-                NSString *path = [[NSBundle mainBundle] pathForResource:@"night2" ofType:@"mp4"];
-                NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
-                break;
-            }
-                
-            default:
-                break;
         }
     }
 }

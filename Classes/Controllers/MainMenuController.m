@@ -29,6 +29,7 @@
 @property (nonatomic, retain) SoundManager *soundManager;
 @property (nonatomic, retain) FeatureView *featureView;
 @property (nonatomic) NSInteger lastTag;
+@property (nonatomic, retain) NSMutableDictionary *viewCache;
 
 - (void)restoreMenu;
 - (void)shareViaEmail;
@@ -49,10 +50,12 @@
 @synthesize featureReferenceView = _featureReferenceView;
 @synthesize lastTag = _lastTag;
 @synthesize aboutController = _aboutController;
+@synthesize viewCache = _viewCache;
 
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.moviePlayer stop];
     self.moviePlayer = nil;
     self.mainMenuView = nil;
     self.vpsInfoButton = nil;
@@ -63,12 +66,15 @@
     self.featureView = nil;
     self.featureReferenceView = nil;
     self.aboutController = nil;
+    self.viewCache = nil;
+
     [super dealloc];
 }
 
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
+    self.viewCache = [NSMutableDictionary dictionaryWithCapacity:9];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
 #ifndef CONFIGURATION_Debug
@@ -169,6 +175,7 @@
 - (void)didReceiveMemoryWarning 
 {
     [super didReceiveMemoryWarning];
+    [self.viewCache removeAllObjects];
 }
 
 #pragma mark -
@@ -228,50 +235,71 @@
     }
     else
     {
-        FeatureView *nextFeatureView = nil;
+        NSNumber *key = [NSNumber numberWithInt:tag];
+        FeatureView *nextFeatureView = [self.viewCache objectForKey:key];
         SoundEffect *sound = nil;
         switch (tag) 
         {
             case 11:
             {
                 sound = self.soundManager.sound11;
-                nextFeatureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
 
             case 12:
             {
                 sound = self.soundManager.sound12;
-                nextFeatureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
 
             case 13:
             {
                 sound = self.soundManager.sound13;
-                nextFeatureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
                 
             case 21:
             {
                 sound = self.soundManager.sound21;
-                MovieFeatureView *view = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                [view showCurrentMovie];
-                nextFeatureView = view;
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
                 
             case 22:
             {
                 sound = self.soundManager.sound22;
-                nextFeatureView = [RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
                 
             case 23:
             {
                 sound = self.soundManager.sound23;
+                // For performance reasons, this view has a special treatment,
+                // and is not kept in cache...!
                 nextFeatureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 break;
             }
@@ -279,22 +307,34 @@
             case 31:
             {
                 sound = self.soundManager.sound31;
-                nextFeatureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
                 
             case 32:
             {
                 sound = self.soundManager.sound32;
-                nextFeatureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
                 
             case 33:
             {
                 sound = self.soundManager.sound33;
-                nextFeatureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                self.featureReferenceView.backgroundColor = [UIColor blackColor];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    self.featureReferenceView.backgroundColor = [UIColor blackColor];
+                    [self.viewCache setObject:nextFeatureView forKey:key];
+                }
                 break;
             }
                 
@@ -321,6 +361,7 @@
             self.featureView = nextFeatureView;
             [self.featureReferenceView insertSubview:self.featureView 
                                         belowSubview:self.mainMenuView.dockView];
+            self.featureView.orientation = self.interfaceOrientation;
             [self.featureView maximize];
             self.lastTag = tag;
             self.mainMenuView.minimized = YES;

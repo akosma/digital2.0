@@ -7,7 +7,7 @@
 //
 
 #import "MakingOfFeatureView.h"
-
+#import "MPMoviePlayerController+Extensions.h"
 
 @interface MakingOfFeatureView ()
 
@@ -58,10 +58,7 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
-    {
-        self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration;
-    }
+    [self.moviePlayer fullStop];
     self.moviePlayer = nil;
     [super dealloc];
 }
@@ -94,10 +91,8 @@
 {
     [super minimize];
     [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
-    {
-        self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration;
-    }
+    [self.moviePlayer fullStop];
+    self.moviePlayer = nil;
 }
 
 #pragma mark -
@@ -113,7 +108,6 @@
 {
     if (self.moviePlayer.loadState == 3)
     {
-        self.moviePlayer.controlStyle = MPMovieControlModeDefault;
         self.moviePlayer.scalingMode = MPMovieScalingModeAspectFit;
         self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.moviePlayer.view.contentMode = UIViewContentModeScaleAspectFit;

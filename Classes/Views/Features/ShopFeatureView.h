@@ -11,6 +11,7 @@
 #import "FeatureView.h"
 
 typedef enum {
+    CurrentDressNone = 0,
     CurrentDressCity = 1,
     CurrentDressBeach = 2,
     CurrentDressNight = 3,

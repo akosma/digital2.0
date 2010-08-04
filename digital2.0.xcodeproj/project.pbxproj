@@ -11,6 +11,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3A0CED8A1209724400A1154C /* MPMoviePlayerController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */; };
 		3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */; };
 		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
 		3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */; };
@@ -193,6 +194,8 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* digital2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = digital2.0_Prefix.pch; sourceTree = "<group>"; };
+		3A0CED881209724400A1154C /* MPMoviePlayerController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+Extensions.h"; sourceTree = "<group>"; };
+		3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+Extensions.m"; sourceTree = "<group>"; };
 		3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PRES_VPS_640x360_1000Kbs - iPhone.m4v"; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
@@ -649,6 +652,8 @@
 				3ABD1DBB11CE7DFF00336F42 /* StockInfoManager.h */,
 				3ABD1DBC11CE7DFF00336F42 /* StockInfoManager.m */,
 				3ABD1DBE11CE7E1000336F42 /* StockInfoManagerDelegate.h */,
+				3A0CED881209724400A1154C /* MPMoviePlayerController+Extensions.h */,
+				3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1207,6 +1212,7 @@
 				3A5665CD11CFB980008D1943 /* AboutController.m in Sources */,
 				3A5667D011CFF0FA008D1943 /* SimulationFeatureView.m in Sources */,
 				3A56684311CFF866008D1943 /* ConnectivityFeatureView.m in Sources */,
+				3A0CED8A1209724400A1154C /* MPMoviePlayerController+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

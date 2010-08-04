@@ -13,11 +13,10 @@
 @interface MovieFeatureView : FeatureView <UIScrollViewDelegate>
 {
 @private
-    NSMutableArray *_movieControllers;
+    MPMoviePlayerController *_movieController;
     NSArray *_movieNames;
     NSArray *_texts;
     NSArray *_titles;
-    UIScrollView *_scrollView;
     NSInteger _currentMovieID;
     UILabel *_titleLabel;
     UILabel *_textLabel;
