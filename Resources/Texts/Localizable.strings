@@ -1,0 +1,15 @@
+/* 
+   Localizable.strings
+   digital2.0
+
+   Created by Adrian on 8/4/10.
+   Copyright 2010 akosma software. All rights reserved.
+ */
+
+/* MainMenuController */
+MAIN_MENU_CONTROLLER_EMAIL_SUBJECT = "Check out digital2.0"; /* Subject line in the e-mail to share the application */
+MAIN_MENU_CONTROLLER_EMAIL_BODY = "Check out the <a href=\"http://itunes.apple.com/ch/app/digital2-0/id379896829?mt=8\">digital2.0</a> iPad app, a collaboration between <a href=\"http://www.moserdesign.ch/\">moser</a>,  <a href=\"http://akosma.com/\">akosma software</a> and  <a href=\"http://www.vpsprod.com/\">VPS prod</a>!"; /* Body of the e-mail to share the application */
+MAIN_MENU_CONTROLLER_REQUIRES_NETWORK = "This feature requires a network connection."; /* Message shown for features requiring a network connection */
+
+/* SimulationFeatureView */
+SIMULATION_FEATURE_VIEW_BOX_TEXT = "Simulation\n\nThe iPad allows the creation of dynamic applications. Developers can leverage a modern graphics processing unit, together with raw, 3-dimensional accelerometer data updated every second, all leading to a sensational, incredible simulation of reality. And even better yet: touch-driven.\n\nWhen simulating reality, sky is the only limit."; /* Text for the box in the simulation feature */

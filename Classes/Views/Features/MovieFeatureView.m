@@ -40,13 +40,12 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
-        self.texts = [NSArray arrayWithObjects:@"The iPad screen offers very high resolution; it is essential to film in HD for an irreproachable image quality to do the support justice.", 
-                      @"Keying is the key to integrating interactive video content into your iPad application.", 
-                      @"Video contents, whether displayed in portrait or landscape mode, must adapt to the screen. This is a new way of thinking about image format. Remember... Think square!", nil];
-        self.titles = [NSArray arrayWithObjects:@"HD or nothing.", 
-                       @"Keying", 
-                       @"Think square!", nil];
-        self.movieNames = [NSArray arrayWithObjects:@"mini HD_1800", @"mini key_1800", @"minisquare_1800", nil];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"MovieFeatureViewTexts" ofType:@"plist"];
+        self.texts = [NSArray arrayWithContentsOfFile:path];
+        path = [[NSBundle mainBundle] pathForResource:@"MovieFeatureViewTitles" ofType:@"plist"];
+        self.titles = [NSArray arrayWithContentsOfFile:path];
+        path = [[NSBundle mainBundle] pathForResource:@"MovieFeatureMovieNames" ofType:@"plist"];
+        self.movieNames = [NSArray arrayWithContentsOfFile:path];
         self.currentMovieID = 0;
 
         self.titleLabel = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 150.0, 50.0)] autorelease];
@@ -192,7 +191,7 @@
         _movieController.backgroundView.backgroundColor = [UIColor whiteColor];
         _movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _movieController.view.contentMode = UIViewContentModeScaleAspectFit;
-        [self addSubview:_movieController.view];
+        [self insertSubview:_movieController.view belowSubview:self.titleLabel];
     }
     return _movieController;
 }

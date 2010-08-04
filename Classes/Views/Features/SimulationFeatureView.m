@@ -101,7 +101,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
         [self startAnimation];
 
         self.box = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 450.0, 328.0, 340.0)] autorelease];
-        self.box.text = @"Simulation\n\nThe iPad allows the creation of dynamic applications. Developers can leverage a modern graphics processing unit, together with raw, 3-dimensional accelerometer data updated every second, all leading to a sensational, incredible simulation of reality. And even better yet: touch-driven.\n\nWhen simulating reality, sky is the only limit.";
+        self.box.text = NSLocalizedString(@"SIMULATION_FEATURE_VIEW_BOX_TEXT", @"Text for the box in the simulation feature");
         self.box.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
         self.box.backgroundColor = [UIColor colorWithWhite:0.75 alpha:0.75];
         self.box.scrollEnabled = NO;

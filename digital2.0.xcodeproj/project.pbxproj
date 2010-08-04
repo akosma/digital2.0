@@ -12,6 +12,10 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		3A0CED8A1209724400A1154C /* MPMoviePlayerController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */; };
+		3A0CEE8212098C4300A1154C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEE8112098C4300A1154C /* Localizable.strings */; };
+		3A0CEEA212098F7700A1154C /* MovieFeatureViewTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEEA112098F7700A1154C /* MovieFeatureViewTexts.plist */; };
+		3A0CEEA41209900E00A1154C /* MovieFeatureViewTitles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEEA31209900E00A1154C /* MovieFeatureViewTitles.plist */; };
+		3A0CEEA61209904500A1154C /* MovieFeatureMovieNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEEA51209904500A1154C /* MovieFeatureMovieNames.plist */; };
 		3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */; };
 		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
 		3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */; };
@@ -196,6 +200,10 @@
 		32CA4F630368D1EE00C91783 /* digital2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = digital2.0_Prefix.pch; sourceTree = "<group>"; };
 		3A0CED881209724400A1154C /* MPMoviePlayerController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+Extensions.h"; sourceTree = "<group>"; };
 		3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+Extensions.m"; sourceTree = "<group>"; };
+		3A0CEE8112098C4300A1154C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3A0CEEA112098F7700A1154C /* MovieFeatureViewTexts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieFeatureViewTexts.plist; sourceTree = "<group>"; };
+		3A0CEEA31209900E00A1154C /* MovieFeatureViewTitles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieFeatureViewTitles.plist; sourceTree = "<group>"; };
+		3A0CEEA51209904500A1154C /* MovieFeatureMovieNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieFeatureMovieNames.plist; sourceTree = "<group>"; };
 		3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PRES_VPS_640x360_1000Kbs - iPhone.m4v"; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
@@ -890,6 +898,9 @@
 				3AC0CD3E11CCEAC8006C8C12 /* iPadFonts.plist */,
 				3AC0CD4011CCEBD0006C8C12 /* iPhoneFonts.plist */,
 				3AC0CD4311CCEBDD006C8C12 /* WebFonts.plist */,
+				3A0CEEA112098F7700A1154C /* MovieFeatureViewTexts.plist */,
+				3A0CEEA31209900E00A1154C /* MovieFeatureViewTitles.plist */,
+				3A0CEEA51209904500A1154C /* MovieFeatureMovieNames.plist */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -991,6 +1002,7 @@
 				3AD394D111A541B100654504 /* loremipsum.txt */,
 				3AC0CC9111CCDC08006C8C12 /* location.txt */,
 				3ABD1D6411CE6F1E00336F42 /* realtime.txt */,
+				3A0CEE8112098C4300A1154C /* Localizable.strings */,
 			);
 			path = Texts;
 			sourceTree = "<group>";
@@ -1156,6 +1168,10 @@
 				3A93344F11D7C4380047ED4E /* connectivity_safari.png in Resources */,
 				3A93345011D7C4380047ED4E /* connectivity_twitter.png in Resources */,
 				3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */,
+				3A0CEE8212098C4300A1154C /* Localizable.strings in Resources */,
+				3A0CEEA212098F7700A1154C /* MovieFeatureViewTexts.plist in Resources */,
+				3A0CEEA41209900E00A1154C /* MovieFeatureViewTitles.plist in Resources */,
+				3A0CEEA61209904500A1154C /* MovieFeatureMovieNames.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

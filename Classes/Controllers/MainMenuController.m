@@ -133,10 +133,10 @@
     MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
     composer.mailComposeDelegate = self;
     
-    NSString *title = @"Check out Digital 2.0";
-    NSString *body = @"Check out this great iPad app!";
+    NSString *title = NSLocalizedString(@"MAIN_MENU_CONTROLLER_EMAIL_SUBJECT", @"Subject line in the e-mail to share the application");
+    NSString *body = NSLocalizedString(@"MAIN_MENU_CONTROLLER_EMAIL_BODY", @"Body of the e-mail to share the application");
     [composer setSubject:title];
-    [composer setMessageBody:body isHTML:NO];
+    [composer setMessageBody:body isHTML:YES];
     
     [self presentModalViewController:composer animated:YES];
     [composer release];
@@ -345,7 +345,7 @@
 
         if (nextFeatureView.requiresNetwork && ![DemoAppDelegate sharedAppDelegate].connectionAvailable)
         {
-            NSString *message = @"This feature requires a network connection.";
+            NSString *message = NSLocalizedString(@"MAIN_MENU_CONTROLLER_REQUIRES_NETWORK", @"Message shown for features requiring a network connection");
             UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:nil
                                                              message:message 
                                                             delegate:nil
