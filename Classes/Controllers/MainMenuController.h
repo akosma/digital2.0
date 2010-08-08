@@ -36,6 +36,7 @@
     AboutController *_aboutController;
     
     NSMutableDictionary *_viewCache;
+    BOOL _externalScreenAvailable;
 }
 
 @property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;

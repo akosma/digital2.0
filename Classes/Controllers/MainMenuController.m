@@ -31,9 +31,13 @@
 @property (nonatomic, retain) FeatureView *featureView;
 @property (nonatomic) NSInteger lastTag;
 @property (nonatomic, retain) NSMutableDictionary *viewCache;
+@property (nonatomic) BOOL externalScreenAvailable;
 
 - (void)restoreMenu;
 - (void)shareViaEmail;
+- (UIScreen *)scanForExternalScreen;
+- (void)showCurrentFeatureInExternalScreen;
+- (void)restoreCurrentFeatureInStandardScreen;
 
 @end
 
@@ -52,6 +56,7 @@
 @synthesize lastTag = _lastTag;
 @synthesize aboutController = _aboutController;
 @synthesize viewCache = _viewCache;
+@synthesize externalScreenAvailable = _externalScreenAvailable;
 
 - (void)dealloc 
 {
@@ -114,6 +119,16 @@
                selector:@selector(restoreMenu)
                    name:FeatureViewShouldMinimizeNotification 
                  object:nil];
+    
+    self.externalScreenAvailable = ([self scanForExternalScreen] != nil);
+    [center addObserver:self 
+               selector:@selector(externalScreenAvailabilityChanged:) 
+                   name:UIScreenDidConnectNotification 
+                 object:nil];
+    [center addObserver:self 
+               selector:@selector(externalScreenAvailabilityChanged:) 
+                   name:UIScreenDidDisconnectNotification
+                 object:nil];
 }
 
 #pragma mark -
@@ -140,6 +155,40 @@
     
     [self presentModalViewController:composer animated:YES];
     [composer release];
+}
+
+- (UIScreen *)scanForExternalScreen
+{
+    NSArray *deviceScreens = [UIScreen screens];
+    for (UIScreen *screen in deviceScreens)
+    {
+        if (![screen isEqual:[UIScreen mainScreen]])
+        {
+            return screen;
+        }
+    }
+    return nil;
+}
+
+- (void)showCurrentFeatureInExternalScreen
+{
+    UIScreen *externalScreen = [self scanForExternalScreen];
+    
+    if (externalScreen != nil)
+    {
+        UIWindow *externalWindow = [[[UIWindow alloc] initWithFrame:externalScreen.bounds] autorelease];
+        externalWindow.screen = externalScreen;
+        [externalWindow addSubview:self.featureView];
+        [externalWindow makeKeyAndVisible];
+    }
+}
+
+- (void)restoreCurrentFeatureInStandardScreen
+{
+    [self.featureReferenceView insertSubview:self.featureView 
+                                belowSubview:self.mainMenuView.dockView];
+    self.featureView.orientation = self.interfaceOrientation;
+    [self.featureView maximize];
 }
 
 #pragma mark -
@@ -356,16 +405,20 @@
         else
         {
             [sound play];
-
             [self.featureView minimize];
             [self.featureView removeFromSuperview];
             self.featureView = nextFeatureView;
-            [self.featureReferenceView insertSubview:self.featureView 
-                                        belowSubview:self.mainMenuView.dockView];
-            self.featureView.orientation = self.interfaceOrientation;
-            [self.featureView maximize];
             self.lastTag = tag;
             self.mainMenuView.minimized = YES;
+            
+            if (self.externalScreenAvailable)
+            {
+                [self showCurrentFeatureInExternalScreen];
+            }
+            else
+            {
+                [self restoreCurrentFeatureInStandardScreen];
+            }
         }
     }
 }
@@ -395,6 +448,20 @@
     
     [[DemoAppDelegate sharedAppDelegate].locationManager startUpdatingLocation];
     [[DemoAppDelegate sharedAppDelegate].locationManager startUpdatingHeading];
+}
+
+- (void)externalScreenAvailabilityChanged:(NSNotification *)notification
+{
+    if ([[notification name] isEqualToString:UIScreenDidConnectNotification])
+    {
+        self.externalScreenAvailable = YES;
+        [self showCurrentFeatureInExternalScreen];
+    }
+    else if ([[notification name] isEqualToString:UIScreenDidDisconnectNotification])
+    {
+        self.externalScreenAvailable = NO;
+        [self restoreCurrentFeatureInStandardScreen];
+    }
 }
 
 @end
