@@ -79,6 +79,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"making_of_final" ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.moviePlayer.contentURL = url;
+    self.moviePlayer.controlStyle = MPMovieControlModeDefault;
 }
 
 - (void)removeFromSuperview
@@ -104,7 +105,6 @@
     {
         _moviePlayer = [[MPMoviePlayerController alloc] init];
         _moviePlayer.shouldAutoplay = YES;
-        _moviePlayer.controlStyle = MPMovieControlModeDefault;
 
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self 

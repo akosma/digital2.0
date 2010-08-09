@@ -198,7 +198,6 @@
         _movieController.backgroundView.backgroundColor = [UIColor whiteColor];
         _movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _movieController.view.contentMode = UIViewContentModeScaleAspectFit;
-        _movieController.controlStyle = MPMovieControlModeDefault;
         [self insertSubview:_movieController.view belowSubview:self.titleLabel];
     }
     return _movieController;
@@ -216,7 +215,8 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.movieController.contentURL = url;
-    
+    self.movieController.controlStyle = MPMovieControlModeDefault;
+
     self.titleLabel.text = [self.titles objectAtIndex:self.currentMovieID];
     self.textLabel.text = [self.texts objectAtIndex:self.currentMovieID];
 

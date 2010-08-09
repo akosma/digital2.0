@@ -402,7 +402,6 @@
                      object:_moviePlayer];
         
         _moviePlayer.shouldAutoplay = YES;
-        _moviePlayer.controlStyle = MPMovieControlModeDefault;
         _moviePlayer.view.frame = self.videoView.frame;
         _moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
         [self.mainView insertSubview:_moviePlayer.view belowSubview:self.videoView];
@@ -477,6 +476,7 @@
                 default:
                     break;
             }
+            self.moviePlayer.controlStyle = MPMovieControlModeDefault;
         }
     }
 }
