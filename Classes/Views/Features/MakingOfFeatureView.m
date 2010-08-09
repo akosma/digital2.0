@@ -26,6 +26,7 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
+        self.shouldBeCached = NO;
         self.backgroundColor = [UIColor blackColor];
         
         self.label = [[[UILabel alloc] initWithFrame:CGRectMake(10.0, 10.0, 350.0, 60.0)] autorelease];
@@ -80,13 +81,18 @@
     self.moviePlayer.contentURL = url;
 }
 
-- (void)minimize
+- (void)removeFromSuperview
 {
-    [super minimize];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
+
+    // When FeatureViews are minimized, they are animated, which might trigger
+    // a replay of the embedded video; in feature views with video, we
+    // remove the video first, then remove the view from the hierarchy. 
+    // This way, you don't get the audio going on without the video...!
+    [super removeFromSuperview];
 }
 
 #pragma mark -
@@ -98,7 +104,8 @@
     {
         _moviePlayer = [[MPMoviePlayerController alloc] init];
         _moviePlayer.shouldAutoplay = YES;
-        
+        _moviePlayer.controlStyle = MPMovieControlModeDefault;
+
         NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
         [center addObserver:self 
                    selector:@selector(moviePlaybackFinished:) 

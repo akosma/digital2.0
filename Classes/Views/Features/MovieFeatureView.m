@@ -40,6 +40,8 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
+        self.shouldBeCached = NO;
+
         NSString *path = [[NSBundle mainBundle] pathForResource:@"MovieFeatureViewTexts" ofType:@"plist"];
         self.texts = [NSArray arrayWithContentsOfFile:path];
         path = [[NSBundle mainBundle] pathForResource:@"MovieFeatureViewTitles" ofType:@"plist"];
@@ -148,20 +150,25 @@
     self.movieController.view.contentMode = UIViewContentModeScaleAspectFit;
 }
 
+- (void)removeFromSuperview
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.currentMovieID = 0;
+    [self.movieController fullStop];
+    self.movieController = nil;
+    
+    // When FeatureViews are minimized, they are animated, which might trigger
+    // a replay of the embedded video; in feature views with video, we
+    // remove the video first, then remove the view from the hierarchy. 
+    // This way, you don't get the audio going on without the video...!
+    [super removeFromSuperview];
+}
+
 - (void)maximize
 {
     [super maximize];
     self.currentMovieID = 0;
     [self showCurrentMovie];
-}
-
-- (void)minimize
-{
-    [super minimize];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.currentMovieID = 0;
-    [self.movieController fullStop];
-    self.movieController = nil;
 }
 
 #pragma mark -
@@ -191,6 +198,7 @@
         _movieController.backgroundView.backgroundColor = [UIColor whiteColor];
         _movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _movieController.view.contentMode = UIViewContentModeScaleAspectFit;
+        _movieController.controlStyle = MPMovieControlModeDefault;
         [self insertSubview:_movieController.view belowSubview:self.titleLabel];
     }
     return _movieController;
@@ -204,13 +212,10 @@
     self.rightButton.hidden = (self.currentMovieID == 2);
     self.leftButton.hidden = (self.currentMovieID == 0);
     
-    [self.movieController stop];
-
     NSString *name = [self.movieNames objectAtIndex:self.currentMovieID];
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
     self.movieController.contentURL = url;
-    [self.movieController play];
     
     self.titleLabel.text = [self.titles objectAtIndex:self.currentMovieID];
     self.textLabel.text = [self.texts objectAtIndex:self.currentMovieID];

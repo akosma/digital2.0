@@ -40,6 +40,7 @@
 - (UIScreen *)scanForExternalScreen;
 - (void)showCurrentFeatureInExternalScreen;
 - (void)showCurrentFeatureInStandardScreen;
+- (void)minimizeCurrentFeatureView;
 
 @end
 
@@ -161,10 +162,16 @@
 #pragma mark -
 #pragma mark Private methods
 
-- (void)restoreMenu
+- (void)minimizeCurrentFeatureView
 {
     [self.featureView minimize];
     self.featureView = nil;
+    self.featureReferenceView.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)restoreMenu
+{
+    [self minimizeCurrentFeatureView];
     self.lastTag = -1;
     self.mainMenuView.minimized = NO;
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
@@ -214,9 +221,10 @@
         self.externalWindow.backgroundColor = self.featureReferenceView.backgroundColor;
         [self.externalWindow addSubview:self.featureView];
         [self.externalWindow makeKeyAndVisible];
-        self.featureView.orientation = UIInterfaceOrientationLandscapeLeft;
-        self.featureView.center = self.externalWindow.center;
         [self.featureView maximize];
+
+        // This *must* be the last instruction!
+        self.featureView.orientation = UIInterfaceOrientationLandscapeRight;
     }
 }
 
@@ -224,8 +232,10 @@
 {
     [self.featureReferenceView insertSubview:self.featureView 
                                 belowSubview:self.mainMenuView.dockView];
-    self.featureView.orientation = self.interfaceOrientation;
     [self.featureView maximize];
+    
+    // This *must* be the last instruction!
+    self.featureView.orientation = self.interfaceOrientation;
 }
 
 #pragma mark -
@@ -248,15 +258,21 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {
-    [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
-    [self.popover dismissPopoverAnimated:YES];
-    [self.featureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    if (!self.externalScreenAvailable)
+    {
+        [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+        [self.popover dismissPopoverAnimated:YES];
+        [self.featureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    }
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-    self.mainMenuView.orientation = self.interfaceOrientation;
+    if (!self.externalScreenAvailable)
+    {
+        [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+        self.mainMenuView.orientation = self.interfaceOrientation;
+    }
 }
 
 - (void)didReceiveMemoryWarning 
@@ -315,8 +331,7 @@
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
     if (self.lastTag == tag)
     {
-        [self.featureView minimize];
-        self.featureView = nil;
+        [self minimizeCurrentFeatureView];
         self.lastTag = -1;
         self.mainMenuView.minimized = NO;
     }
@@ -333,7 +348,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -344,7 +358,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -355,7 +368,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -366,7 +378,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -377,7 +388,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -385,9 +395,10 @@
             case 23:
             {
                 sound = self.soundManager.sound23;
-                // For performance reasons, this view has a special treatment,
-                // and is not kept in cache...!
-                nextFeatureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                if (nextFeatureView == nil)
+                {
+                    nextFeatureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                }
                 break;
             }
                 
@@ -397,7 +408,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -408,7 +418,6 @@
                 if (nextFeatureView == nil)
                 {
                     nextFeatureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
@@ -420,13 +429,17 @@
                 {
                     nextFeatureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
                     self.featureReferenceView.backgroundColor = [UIColor blackColor];
-                    [self.viewCache setObject:nextFeatureView forKey:key];
                 }
                 break;
             }
                 
             default:
                 break;
+        }
+        
+        if (nextFeatureView.shouldBeCached)
+        {
+            [self.viewCache setObject:nextFeatureView forKey:key];
         }
 
         if (nextFeatureView.requiresNetwork && ![DemoAppDelegate sharedAppDelegate].connectionAvailable)
@@ -441,9 +454,8 @@
         }
         else
         {
-            [sound play];
-            [self.featureView minimize];
-            [self.featureView removeFromSuperview];
+            [self minimizeCurrentFeatureView];
+
             self.featureView = nextFeatureView;
             self.lastTag = tag;
             self.mainMenuView.minimized = YES;
@@ -456,6 +468,7 @@
             {
                 [self showCurrentFeatureInStandardScreen];
             }
+            [sound play];
         }
     }
 }

@@ -13,6 +13,8 @@
 @implementation FeatureView
 
 @synthesize requiresNetwork = _requiresNetwork;
+@synthesize minimized = _minimized;
+@synthesize shouldBeCached = _shouldBeCached;
 @dynamic orientation;
 
 + (id)featureViewWithOrientation:(UIInterfaceOrientation)orientation
@@ -30,6 +32,8 @@
         self.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
         self.contentMode = UIViewContentModeScaleToFill;
         self.requiresNetwork = NO;
+        self.minimized = YES;
+        self.shouldBeCached = YES;
     }
     return self;
 }
@@ -44,14 +48,12 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:duration];
     self.orientation = interfaceOrientation;
-    [UIView commitAnimations];
 }
 
 - (void)maximize
 {
+    self.minimized = NO;
     [UIView beginAnimations:nil context:NULL];
     self.transform = CGAffineTransformIdentity;
     [UIView commitAnimations];
@@ -59,24 +61,9 @@
 
 - (void)minimize
 {
-    [UIView beginAnimations:MINIMIZE_ANIMATION_ID context:NULL];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(animationFinished:finished:context:)];
+    self.minimized = YES;
     self.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    [UIView commitAnimations];
-}
-
-#pragma mark -
-#pragma mark UIView animation delegate methods
-
-- (void)animationFinished:(NSString *)animationID 
-                 finished:(BOOL)finished 
-                  context:(void *)context
-{
-    if ([animationID isEqualToString:MINIMIZE_ANIMATION_ID])
-    {
-        [self removeFromSuperview];
-    }
+    [self removeFromSuperview];
 }
 
 #pragma mark -

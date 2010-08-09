@@ -65,6 +65,8 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 {
     if ((self = [super initWithFrame:frame])) 
     {
+        self.shouldBeCached = NO;
+
         // Get the layer
         CAEAGLLayer *eaglLayer = (CAEAGLLayer *)self.layer;
         

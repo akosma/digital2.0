@@ -15,10 +15,14 @@
 @private
     UIInterfaceOrientation _orientation;
     BOOL _requiresNetwork;
+    BOOL _minimized;
+    BOOL _shouldBeCached;
 }
 
 @property (nonatomic) UIInterfaceOrientation orientation;
 @property (nonatomic) BOOL requiresNetwork;
+@property (nonatomic) BOOL minimized;
+@property (nonatomic) BOOL shouldBeCached;
 
 + (id)featureViewWithOrientation:(UIInterfaceOrientation)orientation;
 

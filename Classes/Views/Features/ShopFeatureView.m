@@ -69,6 +69,7 @@
                                       owner:self
                                     options:nil];
 
+        self.shouldBeCached = NO;
         self.defileMode = NO;
         self.videoView.backgroundColor = [UIColor clearColor];
         
@@ -269,13 +270,18 @@
     self.currentDress = CurrentDressCity;
 }
 
-- (void)minimize
+- (void)removeFromSuperview
 {
-    [super minimize];
     self.currentDress = CurrentDressNone;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
+    
+    // When FeatureViews are minimized, they are animated, which triggers
+    // a replay of the embedded video; in feature views with video, we
+    // remove the video first, then animate the minimization. This way,
+    // you don't get the audio going on without the video...!
+    [super removeFromSuperview];
 }
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
