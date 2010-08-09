@@ -32,12 +32,14 @@
 @property (nonatomic) NSInteger lastTag;
 @property (nonatomic, retain) NSMutableDictionary *viewCache;
 @property (nonatomic) BOOL externalScreenAvailable;
+@property (nonatomic, retain) IBOutlet UIWindow *externalWindow;
+@property (nonatomic, assign) UIScreen *externalScreen;
 
 - (void)restoreMenu;
 - (void)shareViaEmail;
 - (UIScreen *)scanForExternalScreen;
 - (void)showCurrentFeatureInExternalScreen;
-- (void)restoreCurrentFeatureInStandardScreen;
+- (void)showCurrentFeatureInStandardScreen;
 
 @end
 
@@ -57,6 +59,8 @@
 @synthesize aboutController = _aboutController;
 @synthesize viewCache = _viewCache;
 @synthesize externalScreenAvailable = _externalScreenAvailable;
+@synthesize externalWindow = _externalWindow;
+@synthesize externalScreen = _externalScreen;
 
 - (void)dealloc 
 {
@@ -73,6 +77,8 @@
     self.featureReferenceView = nil;
     self.aboutController = nil;
     self.viewCache = nil;
+    self.externalWindow = nil;
+    self.externalScreen = nil;
 
     [super dealloc];
 }
@@ -83,11 +89,34 @@
     self.viewCache = [NSMutableDictionary dictionaryWithCapacity:9];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
+    self.externalScreen = [self scanForExternalScreen];
+    self.externalScreenAvailable = (self.externalScreen != nil);
+    
+    [center addObserver:self 
+               selector:@selector(externalScreenAvailabilityChanged:) 
+                   name:UIScreenDidConnectNotification 
+                 object:nil];
+
+    [center addObserver:self 
+               selector:@selector(externalScreenAvailabilityChanged:) 
+                   name:UIScreenDidDisconnectNotification
+                 object:nil];
+    
+    [center addObserver:self 
+               selector:@selector(shareViaEmail) 
+                   name:ConnectivityFeatureViewOpenShareByEmailNotification 
+                 object:nil];
+    
+    [center addObserver:self 
+               selector:@selector(restoreMenu)
+                   name:FeatureViewShouldMinimizeNotification 
+                 object:nil];
+    
 #ifndef CONFIGURATION_Debug
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"tunnel_final2_8MB" ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
-    self.moviePlayer = [[[MPMoviePlayerController alloc] initWithContentURL:url] autorelease];
+    self.moviePlayer = [[[MPMoviePlayerController alloc] init] autorelease];
     
     [center addObserver:self 
                selector:@selector(movieReady:) 
@@ -97,38 +126,36 @@
                selector:@selector(moviePlaybackFinished:) 
                    name:MPMoviePlayerPlaybackDidFinishNotification
                  object:self.moviePlayer];
-    
-    self.moviePlayer.view.frame = [DemoAppDelegate sharedAppDelegate].window.frame;
+
     self.moviePlayer.backgroundView.backgroundColor = [UIColor blackColor];
     self.moviePlayer.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
     self.moviePlayer.controlStyle = MPMovieControlModeDefault;
 
-    [self.view addSubview:self.moviePlayer.view];
+    if (self.externalScreenAvailable)
+    {
+        self.externalWindow = [[[UIWindow alloc] initWithFrame:self.externalScreen.bounds] autorelease];
+        self.externalWindow.screen = self.externalScreen;
+        self.externalWindow.backgroundColor = [UIColor blackColor];
+        self.moviePlayer.view.frame = self.externalWindow.frame;
+        self.moviePlayer.view.center = self.externalWindow.center;
+        [self.externalWindow addSubview:self.moviePlayer.view];
+        [self.externalWindow makeKeyAndVisible];
+        
+        // Let's wait some seconds, waiting for the VGA signal to be ready!
+        [self.moviePlayer performSelector:@selector(setContentURL:) 
+                                  withObject:url 
+                                  afterDelay:6.0];
+    }
+    else
+    {
+        self.moviePlayer.contentURL = url;
+        self.moviePlayer.view.frame = [DemoAppDelegate sharedAppDelegate].window.frame;
+        [self.view addSubview:self.moviePlayer.view];
+    }
     self.view.alpha = 0.0;
     
 #endif
-
-    [center addObserver:self 
-               selector:@selector(shareViaEmail) 
-                   name:ConnectivityFeatureViewOpenShareByEmailNotification 
-                 object:nil];
-    
-    
-    [center addObserver:self 
-               selector:@selector(restoreMenu)
-                   name:FeatureViewShouldMinimizeNotification 
-                 object:nil];
-    
-    self.externalScreenAvailable = ([self scanForExternalScreen] != nil);
-    [center addObserver:self 
-               selector:@selector(externalScreenAvailabilityChanged:) 
-                   name:UIScreenDidConnectNotification 
-                 object:nil];
-    [center addObserver:self 
-               selector:@selector(externalScreenAvailabilityChanged:) 
-                   name:UIScreenDidDisconnectNotification
-                 object:nil];
 }
 
 #pragma mark -
@@ -172,18 +199,28 @@
 
 - (void)showCurrentFeatureInExternalScreen
 {
-    UIScreen *externalScreen = [self scanForExternalScreen];
-    
-    if (externalScreen != nil)
+    if (self.externalScreen == nil)
     {
-        UIWindow *externalWindow = [[[UIWindow alloc] initWithFrame:externalScreen.bounds] autorelease];
-        externalWindow.screen = externalScreen;
-        [externalWindow addSubview:self.featureView];
-        [externalWindow makeKeyAndVisible];
+        self.externalScreen = [self scanForExternalScreen];
+    }
+
+    if (self.externalScreen != nil)
+    {
+        if (self.externalWindow == nil)
+        {
+            self.externalWindow = [[[UIWindow alloc] initWithFrame:self.externalScreen.bounds] autorelease];
+        }
+        self.externalWindow.screen = self.externalScreen;
+        self.externalWindow.backgroundColor = self.featureReferenceView.backgroundColor;
+        [self.externalWindow addSubview:self.featureView];
+        [self.externalWindow makeKeyAndVisible];
+        self.featureView.orientation = UIInterfaceOrientationLandscapeLeft;
+        self.featureView.center = self.externalWindow.center;
+        [self.featureView maximize];
     }
 }
 
-- (void)restoreCurrentFeatureInStandardScreen
+- (void)showCurrentFeatureInStandardScreen
 {
     [self.featureReferenceView insertSubview:self.featureView 
                                 belowSubview:self.mainMenuView.dockView];
@@ -417,7 +454,7 @@
             }
             else
             {
-                [self restoreCurrentFeatureInStandardScreen];
+                [self showCurrentFeatureInStandardScreen];
             }
         }
     }
@@ -454,13 +491,16 @@
 {
     if ([[notification name] isEqualToString:UIScreenDidConnectNotification])
     {
+        self.externalScreen = [notification object];
         self.externalScreenAvailable = YES;
         [self showCurrentFeatureInExternalScreen];
     }
     else if ([[notification name] isEqualToString:UIScreenDidDisconnectNotification])
     {
+        self.externalScreen = nil;
+        self.externalWindow = nil;
         self.externalScreenAvailable = NO;
-        [self restoreCurrentFeatureInStandardScreen];
+        [self showCurrentFeatureInStandardScreen];
     }
 }
 
