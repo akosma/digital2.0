@@ -189,6 +189,7 @@
 		3AD3949311A537E100654504 /* agnes_london_53.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3949211A537E100654504 /* agnes_london_53.jpg */; };
 		3AD3949611A5380900654504 /* FluidFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3949511A5380900654504 /* FluidFeatureView.m */; };
 		3AD394D211A541B100654504 /* loremipsum.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3AD394D111A541B100654504 /* loremipsum.txt */; };
+		3AE5B4E81210546800640CEE /* email.html in Resources */ = {isa = PBXBuildFile; fileRef = 3AE5B4E71210546800640CEE /* email.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -429,6 +430,7 @@
 		3AD3949411A5380900654504 /* FluidFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FluidFeatureView.h; sourceTree = "<group>"; };
 		3AD3949511A5380900654504 /* FluidFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FluidFeatureView.m; sourceTree = "<group>"; };
 		3AD394D111A541B100654504 /* loremipsum.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = loremipsum.txt; sourceTree = "<group>"; };
+		3AE5B4E71210546800640CEE /* email.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = email.html; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* digital2.0-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "digital2.0-Info.plist"; path = "../digital2.0-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1003,6 +1005,7 @@
 				3AC0CC9111CCDC08006C8C12 /* location.txt */,
 				3ABD1D6411CE6F1E00336F42 /* realtime.txt */,
 				3A0CEE8112098C4300A1154C /* Localizable.strings */,
+				3AE5B4E71210546800640CEE /* email.html */,
 			);
 			path = Texts;
 			sourceTree = "<group>";
@@ -1172,6 +1175,7 @@
 				3A0CEEA212098F7700A1154C /* MovieFeatureViewTexts.plist in Resources */,
 				3A0CEEA41209900E00A1154C /* MovieFeatureViewTitles.plist in Resources */,
 				3A0CEEA61209904500A1154C /* MovieFeatureMovieNames.plist in Resources */,
+				3AE5B4E81210546800640CEE /* email.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

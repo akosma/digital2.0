@@ -8,7 +8,6 @@
 
 /* MainMenuController */
 MAIN_MENU_CONTROLLER_EMAIL_SUBJECT = "Check out digital2.0"; /* Subject line in the e-mail to share the application */
-MAIN_MENU_CONTROLLER_EMAIL_BODY = "Check out the <a href=\"http://itunes.apple.com/ch/app/digital2-0/id379896829?mt=8\">digital2.0</a> iPad app, a collaboration between <a href=\"http://www.moserdesign.ch/\">moser</a>,  <a href=\"http://akosma.com/\">akosma software</a> and  <a href=\"http://www.vpsprod.com/\">VPS prod</a>!"; /* Body of the e-mail to share the application */
 MAIN_MENU_CONTROLLER_REQUIRES_NETWORK = "This feature requires a network connection."; /* Message shown for features requiring a network connection */
 
 /* SimulationFeatureView */

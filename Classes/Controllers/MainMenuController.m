@@ -183,7 +183,8 @@
     composer.mailComposeDelegate = self;
     
     NSString *title = NSLocalizedString(@"MAIN_MENU_CONTROLLER_EMAIL_SUBJECT", @"Subject line in the e-mail to share the application");
-    NSString *body = NSLocalizedString(@"MAIN_MENU_CONTROLLER_EMAIL_BODY", @"Body of the e-mail to share the application");
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"email" ofType:@"html"];
+    NSString *body = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     [composer setSubject:title];
     [composer setMessageBody:body isHTML:YES];
     
