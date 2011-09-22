@@ -1,5 +1,5 @@
 //
-//  RotationButtonView.h
+//  D2RotationButtonView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 5/10/10.
@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonView.h"
+#import "D2ButtonView.h"
 
-@interface RotationButtonView : ButtonView 
-{
-@private
-    UIInterfaceOrientation _orientation;
-}
+@interface D2RotationButtonView : D2ButtonView 
 
 @property (nonatomic) UIInterfaceOrientation orientation;
 

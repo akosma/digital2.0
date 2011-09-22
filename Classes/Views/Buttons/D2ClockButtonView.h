@@ -1,5 +1,5 @@
 //
-//  ButtonViewDelegate.h
+//  D2ClockButtonView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 5/8/10.
@@ -7,13 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "D2ButtonView.h"
 
-@class ButtonView;
-
-@protocol ButtonViewDelegate <NSObject>
-
-@optional
-
-- (void)didTouchButtonView:(ButtonView *)button;
+@interface D2ClockButtonView : D2ButtonView 
 
 @end

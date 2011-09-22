@@ -1,15 +1,14 @@
 //
-//  ClockButtonView.m
+//  D2ClockButtonView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/8/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "ClockButtonView.h"
-#import <QuartzCore/QuartzCore.h>
+#import "D2ClockButtonView.h"
 
-@interface ClockButtonView ()
+@interface D2ClockButtonView ()
 
 @property (nonatomic, retain) UIImageView *minutesHand;
 @property (nonatomic, retain) UIImageView *hoursHand;
@@ -19,7 +18,7 @@
 @end
 
 
-@implementation ClockButtonView
+@implementation D2ClockButtonView
 
 @synthesize minutesHand = _minutesHand;
 @synthesize hoursHand = _hoursHand;
@@ -45,8 +44,8 @@
 
 - (void)dealloc 
 {
-    self.minutesHand = nil;
-    self.hoursHand = nil;
+    [_minutesHand release];
+    [_hoursHand release];
     [super dealloc];
 }
 

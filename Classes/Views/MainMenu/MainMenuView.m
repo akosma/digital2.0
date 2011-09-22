@@ -7,12 +7,12 @@
 //
 
 #import "MainMenuView.h"
-#import "ButtonView.h"
-#import "CompassButtonView.h"
-#import "ClockButtonView.h"
-#import "CubeButtonView.h"
-#import "RotationButtonView.h"
-#import "VideoButtonView.h"
+#import "D2ButtonView.h"
+#import "D2CompassButtonView.h"
+#import "D2ClockButtonView.h"
+#import "D2CubeButtonView.h"
+#import "D2RotationButtonView.h"
+#import "D2VideoButtonView.h"
 #import "EAGLView.h"
 
 @interface MainMenuView ()
@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSArray *buttons;
 @property (nonatomic, retain) NSArray *normalFrames;
 @property (nonatomic) CGSize originalSize;
-@property (nonatomic, assign) ButtonView *selectedButton;
+@property (nonatomic, assign) D2ButtonView *selectedButton;
 
 - (void)highlightCurrentButtonInDock;
 
@@ -111,17 +111,17 @@
                 CGPoint point = [recognizer locationInView:self.dockView];
                 if (point.x > 0 && point.y > 0)
                 {
-                    ButtonView *buttonView = (ButtonView *)[self hitTest:point withEvent:nil];
+                    D2ButtonView *buttonView = (D2ButtonView *)[self hitTest:point withEvent:nil];
                     if (buttonView != nil)
                     {
-                        if ([buttonView isKindOfClass:[ButtonView class]])
+                        if ([buttonView isKindOfClass:[D2ButtonView class]])
                         {
                             self.selectedButton = buttonView;
                             [self highlightCurrentButtonInDock];
                         }
                         else if ([buttonView isKindOfClass:[EAGLView class]])
                         {
-                            buttonView = (ButtonView *)buttonView.superview;
+                            buttonView = (D2ButtonView *)buttonView.superview;
                             self.selectedButton = buttonView;
                             [self highlightCurrentButtonInDock];
                         }
@@ -148,7 +148,7 @@
 #pragma mark -
 #pragma mark ButtonViewDelegate methods
 
-- (void)didTouchButtonView:(ButtonView *)button
+- (void)didTouchButtonView:(D2ButtonView *)button
 {
     self.selectedButton = button;
     if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
@@ -201,7 +201,7 @@
                                  
                                  for (NSInteger index = 0; index < [self.buttons count]; ++index)
                                  {
-                                     ButtonView *currentButton = [self.buttons objectAtIndex:index];
+                                     D2ButtonView *currentButton = [self.buttons objectAtIndex:index];
                                      NSValue *currentRectValue = [self.normalFrames objectAtIndex:index];
                                      currentButton.transform = CGAffineTransformIdentity;
                                      currentButton.frame = [currentRectValue CGRectValue];
@@ -223,7 +223,7 @@
                          animations:^{
                              for (NSInteger index = 0; index < [self.buttons count]; ++index)
                              {
-                                 ButtonView *currentButton = [self.buttons objectAtIndex:index];
+                                 D2ButtonView *currentButton = [self.buttons objectAtIndex:index];
                                  currentButton.transform = CGAffineTransformMakeScale(0.3, 0.3);
                                  if (currentButton == self.selectedButton)
                                  {

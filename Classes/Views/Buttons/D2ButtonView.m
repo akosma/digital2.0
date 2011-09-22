@@ -1,17 +1,17 @@
 //
-//  ButtonView.m
+//  D2ButtonView.m
 //  Digital2.0
 //
 //  Created by Adrian on 5/8/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "ButtonView.h"
-#import <QuartzCore/QuartzCore.h>
+#import "D2ButtonView.h"
 
-@interface ButtonView ()
+@interface D2ButtonView ()
 
 @property (nonatomic, retain) UIImageView *backgroundImageView;
+@property (nonatomic, retain) CADisplayLink *displayLink;
 
 - (void)setup;
 - (void)buttonTouched:(UITapGestureRecognizer *)recognizer;
@@ -19,17 +19,14 @@
 @end
 
 
-@implementation ButtonView
+@implementation D2ButtonView
 
 @synthesize displayLink = _displayLink;
 @synthesize backgroundImageView = _backgroundImageView;
 @synthesize foregroundImageView = _foregroundImageView;
 @synthesize delegate = _delegate;
 @synthesize nextSecondAnimation = _nextSecondAnimation;
-@dynamic imageName;
-
-#pragma mark -
-#pragma mark Init and dealloc
+@synthesize imageName = _imageName;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -70,16 +67,15 @@
 
 - (void)dealloc 
 {
-    self.displayLink = nil;
-    self.backgroundImageView = nil;
-    self.foregroundImageView = nil;
-    self.imageName = nil;
-    self.delegate = nil;
+    [_displayLink release];
+    [_backgroundImageView release];
+    [_foregroundImageView release];
+    [_imageName release];
+    [_delegate release];
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark Methods overridden by subclasses
+#pragma mark - Methods overridden by subclasses
 
 - (void)subclassSetup
 {
@@ -101,8 +97,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (NSString *)imageName
 {
@@ -120,8 +115,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark Gesture recognizer handler
+#pragma mark - Gesture recognizer handler
 
 - (void)buttonTouched:(UITapGestureRecognizer *)recognizer
 {

@@ -1,23 +1,23 @@
 //
-//  RotationButtonView.m
+//  D2RotationButtonView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/10/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "RotationButtonView.h"
+#import "D2RotationButtonView.h"
 
-@interface RotationButtonView ()
+@interface D2RotationButtonView ()
 
 - (void)changeOrientation;
 
 @end
 
 
-@implementation RotationButtonView
+@implementation D2RotationButtonView
 
-@dynamic orientation;
+@synthesize orientation = _orientation;
 
 - (void)subclassSetup
 {
@@ -28,8 +28,7 @@
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (UIInterfaceOrientation)orientation
 {
@@ -45,8 +44,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark Private methods
+#pragma mark - Private methods
 
 - (void)changeOrientation
 {

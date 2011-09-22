@@ -798,23 +798,23 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>{{227, 43}, {768, 1024}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>RotationButtonView</string>
+					<string>D2RotationButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>ButtonView</string>
+					<string>D2ButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>ButtonView</string>
+					<string>D2ButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>VideoButtonView</string>
+					<string>D2VideoButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>ClockButtonView</string>
+					<string>D2ClockButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>CubeButtonView</string>
+					<string>D2CubeButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>CompassButtonView</string>
+					<string>D2CompassButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>ButtonView</string>
+					<string>D2ButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>ButtonView</string>
+					<string>D2ButtonView</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -844,7 +844,7 @@
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBPartialClassDescription">
-					<string key="className">ButtonView</string>
+					<string key="className">D2ButtonView</string>
 					<string key="superclassName">UIView</string>
 					<object class="NSMutableDictionary" key="outlets">
 						<string key="NS.key.0">delegate</string>
@@ -858,40 +858,32 @@
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Views/Buttons/ButtonView.h</string>
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">ButtonView</string>
-					<string key="superclassName">UIView</string>
+					<string key="className">D2ClockButtonView</string>
+					<string key="superclassName">D2ButtonView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">ClockButtonView</string>
-					<string key="superclassName">ButtonView</string>
+					<string key="className">D2CompassButtonView</string>
+					<string key="superclassName">D2ButtonView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Views/Buttons/ClockButtonView.h</string>
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">CompassButtonView</string>
-					<string key="superclassName">ButtonView</string>
+					<string key="className">D2CubeButtonView</string>
+					<string key="superclassName">D2ButtonView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Views/Buttons/CompassButtonView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">CubeButtonView</string>
-					<string key="superclassName">ButtonView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Views/Buttons/CubeButtonView.h</string>
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -988,6 +980,22 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">D2RotationButtonView</string>
+					<string key="superclassName">D2ButtonView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">D2VideoButtonView</string>
+					<string key="superclassName">D2ButtonView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">MainMenuView</string>
 					<string key="superclassName">UIView</string>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1008,15 +1016,15 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>RotationButtonView</string>
-							<string>ButtonView</string>
-							<string>ButtonView</string>
-							<string>VideoButtonView</string>
-							<string>ClockButtonView</string>
-							<string>CubeButtonView</string>
-							<string>CompassButtonView</string>
-							<string>ButtonView</string>
-							<string>ButtonView</string>
+							<string>D2RotationButtonView</string>
+							<string>D2ButtonView</string>
+							<string>D2ButtonView</string>
+							<string>D2VideoButtonView</string>
+							<string>D2ClockButtonView</string>
+							<string>D2CubeButtonView</string>
+							<string>D2CompassButtonView</string>
+							<string>D2ButtonView</string>
+							<string>D2ButtonView</string>
 							<string>id</string>
 							<string>UIView</string>
 						</object>
@@ -1041,39 +1049,39 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button11</string>
-								<string key="candidateClassName">RotationButtonView</string>
+								<string key="candidateClassName">D2RotationButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button12</string>
-								<string key="candidateClassName">ButtonView</string>
+								<string key="candidateClassName">D2ButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button13</string>
-								<string key="candidateClassName">ButtonView</string>
+								<string key="candidateClassName">D2ButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button21</string>
-								<string key="candidateClassName">VideoButtonView</string>
+								<string key="candidateClassName">D2VideoButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button22</string>
-								<string key="candidateClassName">ClockButtonView</string>
+								<string key="candidateClassName">D2ClockButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button23</string>
-								<string key="candidateClassName">CubeButtonView</string>
+								<string key="candidateClassName">D2CubeButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button31</string>
-								<string key="candidateClassName">CompassButtonView</string>
+								<string key="candidateClassName">D2CompassButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button32</string>
-								<string key="candidateClassName">ButtonView</string>
+								<string key="candidateClassName">D2ButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">button33</string>
-								<string key="candidateClassName">ButtonView</string>
+								<string key="candidateClassName">D2ButtonView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">delegate</string>
@@ -1102,22 +1110,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Externals/JSON/SBJsonWriter.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">RotationButtonView</string>
-					<string key="superclassName">ButtonView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Views/Buttons/RotationButtonView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">VideoButtonView</string>
-					<string key="superclassName">ButtonView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/Views/Buttons/VideoButtonView.h</string>
 					</object>
 				</object>
 			</object>

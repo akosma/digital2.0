@@ -7,30 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonViewDelegate.h"
+#import "D2ButtonViewDelegate.h"
 #import "MainMenuViewDelegate.h"
 
-@class ButtonView;
-@class CompassButtonView;
-@class ClockButtonView;
-@class CubeButtonView;
-@class RotationButtonView;
-@class VideoButtonView;
+@class D2ButtonView;
+@class D2CompassButtonView;
+@class D2ClockButtonView;
+@class D2CubeButtonView;
+@class D2RotationButtonView;
+@class D2VideoButtonView;
 
-@interface MainMenuView : UIView <ButtonViewDelegate>
+@interface MainMenuView : UIView <D2ButtonViewDelegate>
 {
 @private
-    RotationButtonView *_button11;
-    ButtonView *_button12;
-    ButtonView *_button13;
-    VideoButtonView *_button21;
-    ClockButtonView *_button22;
-    CubeButtonView *_button23;
-    CompassButtonView *_button31;
-    ButtonView *_button32;
-    ButtonView *_button33;
+    D2RotationButtonView *_button11;
+    D2ButtonView *_button12;
+    D2ButtonView *_button13;
+    D2VideoButtonView *_button21;
+    D2ClockButtonView *_button22;
+    D2CubeButtonView *_button23;
+    D2CompassButtonView *_button31;
+    D2ButtonView *_button32;
+    D2ButtonView *_button33;
     
-    ButtonView *_selectedButton;
+    D2ButtonView *_selectedButton;
 
     NSArray *_buttons;
     NSArray *_normalFrames;
@@ -44,15 +44,15 @@
     id<MainMenuViewDelegate> _delegate;
 }
 
-@property (nonatomic, retain) IBOutlet RotationButtonView *button11;
-@property (nonatomic, retain) IBOutlet ButtonView *button12;
-@property (nonatomic, retain) IBOutlet ButtonView *button13;
-@property (nonatomic, retain) IBOutlet VideoButtonView *button21;
-@property (nonatomic, retain) IBOutlet ClockButtonView *button22;
-@property (nonatomic, retain) IBOutlet CubeButtonView *button23;
-@property (nonatomic, retain) IBOutlet CompassButtonView *button31;
-@property (nonatomic, retain) IBOutlet ButtonView *button32;
-@property (nonatomic, retain) IBOutlet ButtonView *button33;
+@property (nonatomic, retain) IBOutlet D2RotationButtonView *button11;
+@property (nonatomic, retain) IBOutlet D2ButtonView *button12;
+@property (nonatomic, retain) IBOutlet D2ButtonView *button13;
+@property (nonatomic, retain) IBOutlet D2VideoButtonView *button21;
+@property (nonatomic, retain) IBOutlet D2ClockButtonView *button22;
+@property (nonatomic, retain) IBOutlet D2CubeButtonView *button23;
+@property (nonatomic, retain) IBOutlet D2CompassButtonView *button31;
+@property (nonatomic, retain) IBOutlet D2ButtonView *button32;
+@property (nonatomic, retain) IBOutlet D2ButtonView *button33;
 
 @property (nonatomic) UIInterfaceOrientation orientation;
 @property (nonatomic, getter=isMinimized) BOOL minimized;

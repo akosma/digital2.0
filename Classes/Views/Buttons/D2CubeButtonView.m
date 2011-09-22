@@ -1,22 +1,22 @@
 //
-//  CubeButtonView.m
+//  D2CubeButtonView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/8/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "CubeButtonView.h"
+#import "D2CubeButtonView.h"
 #import "EAGLView.h"
 
-@interface CubeButtonView ()
+@interface D2CubeButtonView ()
 
 @property (nonatomic, retain) EAGLView *eaglView;
 
 @end
 
 
-@implementation CubeButtonView
+@implementation D2CubeButtonView
 
 @synthesize eaglView = _eaglView;
 
@@ -43,7 +43,7 @@
 
 - (void)dealloc 
 {
-    self.eaglView = nil;
+    [_eaglView release];
     [super dealloc];
 }
 

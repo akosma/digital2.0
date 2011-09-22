@@ -1,14 +1,14 @@
 //
-//  VideoButtonView.m
+//  D2VideoButtonView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/11/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "VideoButtonView.h"
+#import "D2VideoButtonView.h"
 
-@interface VideoButtonView ()
+@interface D2VideoButtonView ()
 
 @property (nonatomic, retain) UIImageView *movieAnimation;
 @property (nonatomic, retain) NSMutableArray *images;
@@ -17,7 +17,7 @@
 @end
 
 
-@implementation VideoButtonView
+@implementation D2VideoButtonView
 
 @synthesize movieAnimation = _movieAnimation;
 @synthesize images = _images;

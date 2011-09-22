@@ -1,19 +1,19 @@
 //
-//  CompassButtonView.m
+//  D2CompassButtonView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/8/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "CompassButtonView.h"
+#import "D2CompassButtonView.h"
 
 CGFloat degreesToRadians(double radians)
 {
     return M_PI * radians / 180.0;
 }
 
-@interface CompassButtonView ()
+@interface D2CompassButtonView ()
 
 @property (nonatomic, retain) UIImageView *compassNeedleImageView;
 @property (nonatomic, retain) CLLocationManager *locationManager;
@@ -21,7 +21,7 @@ CGFloat degreesToRadians(double radians)
 @end
 
 
-@implementation CompassButtonView
+@implementation D2CompassButtonView
 
 @synthesize compassNeedleImageView = _compassNeedleImageView;
 @synthesize locationManager = _locationManager;
@@ -43,15 +43,14 @@ CGFloat degreesToRadians(double radians)
 
 - (void)dealloc 
 {
-    [self.locationManager stopUpdatingHeading];
-    self.locationManager.delegate = nil;
-    self.locationManager = nil;
-    self.compassNeedleImageView = nil;
+    _locationManager.delegate = nil;
+    [_locationManager stopUpdatingHeading];
+    [_locationManager release];
+    [_compassNeedleImageView release];
     [super dealloc];
 }
 
-#pragma mark -
-#pragma CLLocationManagerDelegate methods
+#pragma mark - CLLocationManagerDelegate methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
 {
