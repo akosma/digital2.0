@@ -1,14 +1,14 @@
 //
-//  WeatherInfoCell.m
+//  D2WeatherInfoCell.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/21/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "WeatherInfoCell.h"
+#import "D2WeatherInfoCell.h"
 
-@implementation WeatherInfoCell
+@implementation D2WeatherInfoCell
 
 @synthesize dateLabel = _dateLabel;
 @synthesize descriptionLabel = _descriptionLabel;
@@ -21,7 +21,7 @@
 {
     if ((self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier])) 
     {
-        [[NSBundle mainBundle] loadNibNamed:@"WeatherInfoCell" 
+        [[NSBundle mainBundle] loadNibNamed:@"D2WeatherInfoCell" 
                                       owner:self 
                                     options:nil];
         
@@ -34,12 +34,12 @@
 
 - (void)dealloc 
 {
-    self.dateLabel = nil;
-    self.descriptionLabel = nil;
-    self.windLabel = nil;
-    self.temperatureLabel = nil;
-    self.iconView = nil;
-    self.containerView = nil;
+    [_dateLabel release];
+    [_descriptionLabel release];
+    [_windLabel release];
+    [_temperatureLabel release];
+    [_iconView release];
+    [_containerView release];
     [super dealloc];
 }
 

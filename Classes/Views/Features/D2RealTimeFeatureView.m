@@ -9,7 +9,7 @@
 #import "D2RealTimeFeatureView.h"
 #import "D2WeatherInfoItem.h"
 #import "D2WeatherInfoManager.h"
-#import "WeatherInfoCell.h"
+#import "D2WeatherInfoCell.h"
 #import "D2BoxView.h"
 #import "D2StockInfoManager.h"
 
@@ -154,10 +154,10 @@
     {
         NSString *CellIdentifier = @"StockCell";
         
-        WeatherInfoCell *cell = (WeatherInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        D2WeatherInfoCell *cell = (D2WeatherInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) 
         {
-            cell = [[[WeatherInfoCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+            cell = [[[D2WeatherInfoCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
         }
         
         NSDictionary *item = [self.stockItems objectAtIndex:indexPath.row];
@@ -172,10 +172,10 @@
     
     NSString *CellIdentifier = @"WeatherCell";
     
-    WeatherInfoCell *cell = (WeatherInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    D2WeatherInfoCell *cell = (D2WeatherInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
     {
-        cell = [[[WeatherInfoCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[D2WeatherInfoCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
     }
     
     D2WeatherInfoItem *item = [self.weatherItems objectAtIndex:indexPath.row];

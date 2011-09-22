@@ -1,5 +1,5 @@
 //
-//  WeatherInfoCell.h
+//  D2WeatherInfoCell.h
 //  Digital 2.0
 //
 //  Created by Adrian on 5/21/10.
@@ -8,16 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WeatherInfoCell : UITableViewCell 
-{
-@private
-    UILabel *_dateLabel;
-    UILabel *_descriptionLabel;
-    UILabel *_windLabel;
-    UILabel *_temperatureLabel;
-    UIImageView *_iconView;
-    UIView *_containerView;
-}
+@interface D2WeatherInfoCell : UITableViewCell 
 
 @property (nonatomic, retain) IBOutlet UILabel *dateLabel;
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
