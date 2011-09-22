@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -1036,11 +1036,16 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "akosma software";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "digital2.0" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1250,6 +1255,7 @@
 				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "digital2.0-Info.plist";
 				PRODUCT_NAME = digital2.0;
 			};
@@ -1264,6 +1270,7 @@
 				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "digital2.0-Info.plist";
 				PRODUCT_NAME = digital2.0;
 				VALIDATE_PRODUCT = YES;
@@ -1280,8 +1287,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = DistributionAdHoc;
@@ -1297,6 +1303,7 @@
 				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "digital2.0-Info.plist";
 				PRODUCT_NAME = digital2.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1314,8 +1321,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = DistributionAppStore;
@@ -1331,6 +1337,7 @@
 				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "digital2.0-Info.plist";
 				PRODUCT_NAME = digital2.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0C5B9DC-5402-4075-B4B4-090CE017F3E0";
@@ -1347,8 +1354,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -1363,8 +1369,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
