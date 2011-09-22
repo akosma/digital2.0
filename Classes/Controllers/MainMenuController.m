@@ -493,9 +493,10 @@
     self.lastTag = -1;
     self.mainMenuView.alpha = 1.0;
 
-    [UIView beginAnimations:nil context:NULL];
-    self.moviePlayer.view.alpha = 0.0;
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.4 
+                     animations:^{
+                         self.moviePlayer.view.alpha = 0.0;
+                     }];
     
     [[D2AppDelegate sharedAppDelegate].locationManager startUpdatingLocation];
     [[D2AppDelegate sharedAppDelegate].locationManager startUpdatingHeading];

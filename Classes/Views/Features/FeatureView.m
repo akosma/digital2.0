@@ -54,9 +54,10 @@
 - (void)maximize
 {
     self.minimized = NO;
-    [UIView beginAnimations:nil context:NULL];
-    self.transform = CGAffineTransformIdentity;
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.4 
+                     animations:^{
+                         self.transform = CGAffineTransformIdentity;
+                     }];
 }
 
 - (void)minimize

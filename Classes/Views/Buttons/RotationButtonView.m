@@ -50,30 +50,31 @@
 
 - (void)changeOrientation
 {
-    [UIView beginAnimations:nil context:NULL];
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    switch (self.orientation) 
-    {
-        case UIInterfaceOrientationPortrait:
-            break;
-            
-        case UIInterfaceOrientationPortraitUpsideDown:
-            transform = CGAffineTransformMakeRotation(M_PI);
-            break;
-            
-        case UIInterfaceOrientationLandscapeLeft:
-            transform = CGAffineTransformMakeRotation(M_PI / 2.0);
-            break;
-            
-        case UIInterfaceOrientationLandscapeRight:
-            transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
-            break;
-            
-        default:
-            break;
-    }
-    self.foregroundImageView.transform = transform;
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.4 
+                     animations:^{
+                         CGAffineTransform transform = CGAffineTransformIdentity;
+                         switch (self.orientation) 
+                         {
+                             case UIInterfaceOrientationPortrait:
+                                 break;
+                                 
+                             case UIInterfaceOrientationPortraitUpsideDown:
+                                 transform = CGAffineTransformMakeRotation(M_PI);
+                                 break;
+                                 
+                             case UIInterfaceOrientationLandscapeLeft:
+                                 transform = CGAffineTransformMakeRotation(M_PI / 2.0);
+                                 break;
+                                 
+                             case UIInterfaceOrientationLandscapeRight:
+                                 transform = CGAffineTransformMakeRotation(- M_PI / 2.0);
+                                 break;
+                                 
+                             default:
+                                 break;
+                         }
+                         self.foregroundImageView.transform = transform;
+                     }];
 }
 
 @end

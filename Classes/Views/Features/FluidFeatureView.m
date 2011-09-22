@@ -70,10 +70,11 @@
 - (void)changeImage
 {
     self.firstImage = !self.firstImage;
-    
-    [UIView beginAnimations:nil context:NULL];
-    self.photoView2.alpha = (self.firstImage) ? 1.0 : 0.0;
-    [UIView commitAnimations];
+
+    [UIView animateWithDuration:0.4 
+                     animations:^{
+                         self.photoView2.alpha = (self.firstImage) ? 1.0 : 0.0;
+                     }];
 
     [self performSelector:@selector(changeImage) 
                withObject:nil

@@ -50,9 +50,10 @@
 
 - (void)fadeLabel
 {
-    [UIView beginAnimations:nil context:NULL];
-    self.label.alpha = 0.0;
-    [UIView commitAnimations];
+    [UIView animateWithDuration:0.4 
+                     animations:^{
+                         self.label.alpha = 0.0;
+                     }];
 }
 
 #pragma mark -

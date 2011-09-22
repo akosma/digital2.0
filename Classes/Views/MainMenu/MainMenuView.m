@@ -186,28 +186,28 @@
     if (newValue != self.minimized)
     {
         _minimized = newValue;
-        NSString *animationName = (self.minimized) ? @"minimize" : @"maximize";
         
-        [UIView beginAnimations:animationName context:NULL];
-        if (self.isMinimized)
-        {
-            self.frame = self.dockView.frame;
-        }
-        else
-        {
-            self.frame = CGRectMake(self.superview.bounds.size.width / 2.0 - self.originalSize.width / 2.0, 
-                                    self.superview.bounds.size.height / 2.0 - self.originalSize.height / 2.0,
-                                    self.originalSize.width, self.originalSize.height);
-            
-            for (NSInteger index = 0; index < [self.buttons count]; ++index)
-            {
-                ButtonView *currentButton = [self.buttons objectAtIndex:index];
-                NSValue *currentRectValue = [self.normalFrames objectAtIndex:index];
-                currentButton.transform = CGAffineTransformIdentity;
-                currentButton.frame = [currentRectValue CGRectValue];
-            }
-        }
-        [UIView commitAnimations];
+        [UIView animateWithDuration:0.4 
+                         animations:^{
+                             if (self.isMinimized)
+                             {
+                                 self.frame = self.dockView.frame;
+                             }
+                             else
+                             {
+                                 self.frame = CGRectMake(self.superview.bounds.size.width / 2.0 - self.originalSize.width / 2.0, 
+                                                         self.superview.bounds.size.height / 2.0 - self.originalSize.height / 2.0,
+                                                         self.originalSize.width, self.originalSize.height);
+                                 
+                                 for (NSInteger index = 0; index < [self.buttons count]; ++index)
+                                 {
+                                     ButtonView *currentButton = [self.buttons objectAtIndex:index];
+                                     NSValue *currentRectValue = [self.normalFrames objectAtIndex:index];
+                                     currentButton.transform = CGAffineTransformIdentity;
+                                     currentButton.frame = [currentRectValue CGRectValue];
+                                 }
+                             }
+                         }];
     }
     [self highlightCurrentButtonInDock];
 }
@@ -219,28 +219,29 @@
 {
     if (self.isMinimized)
     {
-        [UIView beginAnimations:nil context:NULL];
-        for (NSInteger index = 0; index < [self.buttons count]; ++index)
-        {
-            ButtonView *currentButton = [self.buttons objectAtIndex:index];
-            currentButton.transform = CGAffineTransformMakeScale(0.3, 0.3);
-            if (currentButton == self.selectedButton)
-            {
-                currentButton.frame = CGRectMake(index * 60.0, 
-                                                 -10.0, 
-                                                 currentButton.frame.size.width, 
-                                                 currentButton.frame.size.height);
-                
-            }
-            else
-            {
-                currentButton.frame = CGRectMake(index * 60.0, 
-                                                 0.0, 
-                                                 currentButton.frame.size.width, 
-                                                 currentButton.frame.size.height);
-            }
-        }
-        [UIView commitAnimations];
+        [UIView animateWithDuration:0.4 
+                         animations:^{
+                             for (NSInteger index = 0; index < [self.buttons count]; ++index)
+                             {
+                                 ButtonView *currentButton = [self.buttons objectAtIndex:index];
+                                 currentButton.transform = CGAffineTransformMakeScale(0.3, 0.3);
+                                 if (currentButton == self.selectedButton)
+                                 {
+                                     currentButton.frame = CGRectMake(index * 60.0, 
+                                                                      -10.0, 
+                                                                      currentButton.frame.size.width, 
+                                                                      currentButton.frame.size.height);
+                                     
+                                 }
+                                 else
+                                 {
+                                     currentButton.frame = CGRectMake(index * 60.0, 
+                                                                      0.0, 
+                                                                      currentButton.frame.size.width, 
+                                                                      currentButton.frame.size.height);
+                                 }
+                             }
+                         }];
     }
 }
 

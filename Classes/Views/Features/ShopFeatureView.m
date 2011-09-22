@@ -235,28 +235,29 @@
         }
         else
         {
-            [UIView beginAnimations:nil context:NULL];
-            if (self.currentDressImage == self.dressCity)
-            {
-                self.contourCity.hidden = YES;
-                self.dressCity.frame = self.dressCityFrame;
-            }
-            else if (self.currentDressImage == self.dressBeach)
-            {
-                self.contourBeach.hidden = YES;
-                self.dressBeach.frame = self.dressBeachFrame;
-            }
-            else if (self.currentDressImage == self.dressNight)
-            {
-                self.contourNight.hidden = YES;
-                self.dressNight.frame = self.dressNightFrame;
-            }
-            else if (self.currentDressImage == self.dressGolf)
-            {
-                self.contourGolf.hidden = YES;
-                self.dressGolf.frame = self.dressGolfFrame;
-            }
-            [UIView commitAnimations];
+            [UIView animateWithDuration:0.4 
+                             animations:^{
+                                 if (self.currentDressImage == self.dressCity)
+                                 {
+                                     self.contourCity.hidden = YES;
+                                     self.dressCity.frame = self.dressCityFrame;
+                                 }
+                                 else if (self.currentDressImage == self.dressBeach)
+                                 {
+                                     self.contourBeach.hidden = YES;
+                                     self.dressBeach.frame = self.dressBeachFrame;
+                                 }
+                                 else if (self.currentDressImage == self.dressNight)
+                                 {
+                                     self.contourNight.hidden = YES;
+                                     self.dressNight.frame = self.dressNightFrame;
+                                 }
+                                 else if (self.currentDressImage == self.dressGolf)
+                                 {
+                                     self.contourGolf.hidden = YES;
+                                     self.dressGolf.frame = self.dressGolfFrame;
+                                 }
+                             }];
         }
     }
 }
