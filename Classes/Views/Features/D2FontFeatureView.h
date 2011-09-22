@@ -17,7 +17,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *iPhoneLabel;
 @property (nonatomic, retain) IBOutlet UILabel *iPadLabel;
 @property (nonatomic, retain) IBOutlet UILabel *moreLabel;
-@property (nonatomic, retain) IBOutlet UIView *customFontView;
+@property (nonatomic, retain) IBOutlet UILabel *customFontLabelTitle;
+@property (nonatomic, retain) IBOutlet UILabel *customFontLabelName;
 @property (nonatomic, retain) IBOutlet UIView *webPlaceholder;
 @property (nonatomic, retain) IBOutlet UIView *iPhonePlaceholder;
 @property (nonatomic, retain) IBOutlet UIView *iPadPlaceholder;

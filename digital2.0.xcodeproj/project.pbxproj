@@ -161,8 +161,6 @@
 		3AC0CD4111CCEBD0006C8C12 /* iPhoneFonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CD4011CCEBD0006C8C12 /* iPhoneFonts.plist */; };
 		3AC0CD4411CCEBDD006C8C12 /* WebFonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CD4311CCEBDD006C8C12 /* WebFonts.plist */; };
 		3AC0CDAB11CCFB10006C8C12 /* D2FontFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CDAA11CCFB10006C8C12 /* D2FontFeatureView.xib */; };
-		3AC0CE4C11CD120B006C8C12 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC0CE4B11CD120B006C8C12 /* CoreText.framework */; };
-		3AC0CE7211CD13BD006C8C12 /* CustomFontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC0CE7111CD13BD006C8C12 /* CustomFontView.m */; };
 		3AC0CEEF11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CEED11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf */; };
 		3AC0CEF011CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CEEE11CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf */; };
 		3AC0CF1F11CD1EDE006C8C12 /* D2ShopFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF1E11CD1EDE006C8C12 /* D2ShopFeatureView.xib */; };
@@ -206,9 +204,9 @@
 		3A0CEEA51209904500A1154C /* MovieFeatureMovieNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieFeatureMovieNames.plist; sourceTree = "<group>"; };
 		3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PRES_VPS_640x360_1000Kbs - iPhone.m4v"; sourceTree = "<group>"; };
 		3A175D58142B2E820068C412 /* Entitlements.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Entitlements.entitlements; sourceTree = "<group>"; };
-		3A175D5B142B40D80068C412 /* D2BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2BoxView.h; sourceTree = "<group>"; };
+		3A175D5B142B40D80068C412 /* D2BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2BoxView.h; sourceTree = "<group>"; };
 		3A175D5C142B40D80068C412 /* D2BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2BoxView.m; sourceTree = "<group>"; };
-		3A175D5E142B40EE0068C412 /* D2FontView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2FontView.h; sourceTree = "<group>"; };
+		3A175D5E142B40EE0068C412 /* D2FontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2FontView.h; sourceTree = "<group>"; };
 		3A175D5F142B40EE0068C412 /* D2FontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2FontView.m; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* D2MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* D2MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2MakingOfFeatureView.m; sourceTree = "<group>"; };
@@ -280,7 +278,7 @@
 		3A58EDA211A290A900BC976C /* shop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shop.wav; sourceTree = "<group>"; };
 		3A58EDAE11A290E100BC976C /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		3A58EDAF11A290E100BC976C /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
-		3A58EDB211A2913000BC976C /* D2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2SoundManager.h; sourceTree = "<group>"; };
+		3A58EDB211A2913000BC976C /* D2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2SoundManager.h; sourceTree = "<group>"; };
 		3A58EDB311A2913000BC976C /* D2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2SoundManager.m; sourceTree = "<group>"; };
 		3A58EDB811A291F200BC976C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3A58EE2F11A2972C00BC976C /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
@@ -389,8 +387,6 @@
 		3AC0CD4311CCEBDD006C8C12 /* WebFonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebFonts.plist; sourceTree = "<group>"; };
 		3AC0CDAA11CCFB10006C8C12 /* D2FontFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = D2FontFeatureView.xib; sourceTree = "<group>"; };
 		3AC0CE4B11CD120B006C8C12 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		3AC0CE7011CD13BD006C8C12 /* CustomFontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomFontView.h; sourceTree = "<group>"; };
-		3AC0CE7111CD13BD006C8C12 /* CustomFontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomFontView.m; sourceTree = "<group>"; };
 		3AC0CEED11CD1AF8006C8C12 /* YanoneKaffeesatz-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Bold.ttf"; sourceTree = "<group>"; };
 		3AC0CEEE11CD1AF8006C8C12 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
 		3AC0CF1E11CD1EDE006C8C12 /* D2ShopFeatureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = D2ShopFeatureView.xib; sourceTree = "<group>"; };
@@ -449,7 +445,6 @@
 				3A78A87311A692ED00E7B49E /* libz.1.2.3.dylib in Frameworks */,
 				3A78A8BF11A69C9B00E7B49E /* libxml2.dylib in Frameworks */,
 				3AD17FF411CCCC6F00E888A5 /* MapKit.framework in Frameworks */,
-				3AC0CE4C11CD120B006C8C12 /* CoreText.framework in Frameworks */,
 				3A93347F11D7C8810047ED4E /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,8 +659,6 @@
 			children = (
 				3AA6C9DD119630AD00026526 /* EAGLView.h */,
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
-				3AC0CE7011CD13BD006C8C12 /* CustomFontView.h */,
-				3AC0CE7111CD13BD006C8C12 /* CustomFontView.m */,
 				3A58EDB211A2913000BC976C /* D2SoundManager.h */,
 				3A58EDB311A2913000BC976C /* D2SoundManager.m */,
 				3A78A89011A697F000E7B49E /* WeatherInfoManager.h */,
@@ -1234,7 +1227,6 @@
 				3A3AF67311BC629B00BD6421 /* D2ShopFeatureView.m in Sources */,
 				3AD17FEF11CCCBFC00E888A5 /* D2MapFeatureView.m in Sources */,
 				3AC0CCEC11CCE56C006C8C12 /* D2FontFeatureView.m in Sources */,
-				3AC0CE7211CD13BD006C8C12 /* CustomFontView.m in Sources */,
 				3ABD1DB311CE7DE700336F42 /* NSObject+SBJSON.m in Sources */,
 				3ABD1DB411CE7DE700336F42 /* NSString+SBJSON.m in Sources */,
 				3ABD1DB511CE7DE700336F42 /* SBJSON.m in Sources */,
