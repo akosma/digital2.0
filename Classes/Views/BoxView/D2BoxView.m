@@ -56,8 +56,8 @@
 
 - (void)dealloc 
 {
-    self.label = nil;
-    self.scrollView = nil;
+    [_label release];
+    [_scrollView release];
     [super dealloc];
 }
 

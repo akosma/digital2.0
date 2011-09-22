@@ -47,11 +47,11 @@
 
 - (void)dealloc 
 {
-    self.tableView.delegate = nil;
-    self.tableView.dataSource = nil;
-    self.tableView = nil;
-    self.data = nil;
-    self.keys = nil;
+    _tableView.delegate = nil;
+    _tableView.dataSource = nil;
+    [_tableView release];
+    [_data release];
+    [_keys release];
     [super dealloc];
 }
 

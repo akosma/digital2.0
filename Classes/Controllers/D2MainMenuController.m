@@ -8,7 +8,7 @@
 
 #import "D2MainMenuController.h"
 #import "D2MainMenuView.h"
-#import "SoundManager.h"
+#import "D2SoundManager.h"
 #import "D2FeatureView.h"
 #import "D2FluidFeatureView.h"
 #import "D2MovieFeatureView.h"
@@ -27,7 +27,7 @@
 
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) UIPopoverController *popover;
-@property (nonatomic, retain) SoundManager *soundManager;
+@property (nonatomic, retain) D2SoundManager *soundManager;
 @property (nonatomic, retain) D2FeatureView *featureView;
 @property (nonatomic) NSInteger lastTag;
 @property (nonatomic, retain) NSMutableDictionary *viewCache;
@@ -483,7 +483,7 @@
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
     self.mainMenuView.orientation = self.interfaceOrientation;
-    self.soundManager = [SoundManager sharedSoundManager];
+    self.soundManager = [D2SoundManager sharedD2SoundManager];
     self.lastTag = -1;
     self.mainMenuView.alpha = 1.0;
 

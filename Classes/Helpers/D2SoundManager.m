@@ -1,18 +1,18 @@
 //
-//  SoundManager.m
+//  D2SoundManager.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/18/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "SoundManager.h"
+#import "D2SoundManager.h"
 #import "SoundEffect.h"
 #import "SynthesizeSingleton.h"
 
-@implementation SoundManager
+@implementation D2SoundManager
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(SoundManager)
+SYNTHESIZE_SINGLETON_FOR_CLASS(D2SoundManager)
 
 @synthesize sound11 = _sound11;
 @synthesize sound12 = _sound12;
@@ -35,7 +35,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SoundManager)
         NSString *path21 = [bundle pathForResource:@"projector_v2" ofType:@"wav"];
         NSString *path22 = [bundle pathForResource:@"clock2" ofType:@"wav"];
         NSString *path23 = [bundle pathForResource:@"realite augmentee" ofType:@"wav"];
-//        NSString *path31 = nil;
+//      NSString *path31 = nil;
         NSString *path32 = [bundle pathForResource:@"links" ofType:@"wav"];
         NSString *path33 = [bundle pathForResource:@"clap_v2" ofType:@"wav"];
 
@@ -45,7 +45,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SoundManager)
         self.sound21 = [SoundEffect soundEffectWithContentsOfFile:path21];
         self.sound22 = [SoundEffect soundEffectWithContentsOfFile:path22];
         self.sound23 = [SoundEffect soundEffectWithContentsOfFile:path23];
-        self.sound31 = nil;
+        [_sound31 release];
         self.sound32 = [SoundEffect soundEffectWithContentsOfFile:path32];
         self.sound33 = [SoundEffect soundEffectWithContentsOfFile:path33];
     }
@@ -54,15 +54,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SoundManager)
 
 - (void)dealloc
 {
-    self.sound11 = nil;
-    self.sound12 = nil;
-    self.sound13 = nil;
-    self.sound21 = nil;
-    self.sound22 = nil;
-    self.sound23 = nil;
-    self.sound31 = nil;
-    self.sound32 = nil;
-    self.sound33 = nil;
+    [_sound11 release];
+    [_sound12 release];
+    [_sound13 release];
+    [_sound21 release];
+    [_sound22 release];
+    [_sound23 release];
+    [_sound31 release];
+    [_sound32 release];
+    [_sound33 release];
     [super dealloc];
 }
 

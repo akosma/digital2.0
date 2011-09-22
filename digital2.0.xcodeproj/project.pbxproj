@@ -81,7 +81,7 @@
 		3A58EDA911A290A900BC976C /* realite augmentee.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58EDA111A290A900BC976C /* realite augmentee.wav */; };
 		3A58EDAA11A290A900BC976C /* shop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A58EDA211A290A900BC976C /* shop.wav */; };
 		3A58EDB011A290E100BC976C /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58EDAF11A290E100BC976C /* SoundEffect.m */; };
-		3A58EDB411A2913000BC976C /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58EDB311A2913000BC976C /* SoundManager.m */; };
+		3A58EDB411A2913000BC976C /* D2SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A58EDB311A2913000BC976C /* D2SoundManager.m */; };
 		3A58EDB911A291F200BC976C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A58EDB811A291F200BC976C /* AudioToolbox.framework */; };
 		3A725F6811CF90DA008E461A /* mini HD_1800.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A725F6511CF90D9008E461A /* mini HD_1800.mp4 */; };
 		3A725F6911CF90DA008E461A /* mini key_1800.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3A725F6611CF90D9008E461A /* mini key_1800.mp4 */; };
@@ -280,8 +280,8 @@
 		3A58EDA211A290A900BC976C /* shop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shop.wav; sourceTree = "<group>"; };
 		3A58EDAE11A290E100BC976C /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		3A58EDAF11A290E100BC976C /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
-		3A58EDB211A2913000BC976C /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
-		3A58EDB311A2913000BC976C /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		3A58EDB211A2913000BC976C /* D2SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2SoundManager.h; sourceTree = "<group>"; };
+		3A58EDB311A2913000BC976C /* D2SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2SoundManager.m; sourceTree = "<group>"; };
 		3A58EDB811A291F200BC976C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3A58EE2F11A2972C00BC976C /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		3A725F6511CF90D9008E461A /* mini HD_1800.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mini HD_1800.mp4"; sourceTree = "<group>"; };
@@ -666,8 +666,8 @@
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
 				3AC0CE7011CD13BD006C8C12 /* CustomFontView.h */,
 				3AC0CE7111CD13BD006C8C12 /* CustomFontView.m */,
-				3A58EDB211A2913000BC976C /* SoundManager.h */,
-				3A58EDB311A2913000BC976C /* SoundManager.m */,
+				3A58EDB211A2913000BC976C /* D2SoundManager.h */,
+				3A58EDB311A2913000BC976C /* D2SoundManager.m */,
 				3A78A89011A697F000E7B49E /* WeatherInfoManager.h */,
 				3A78A89111A697F000E7B49E /* WeatherInfoManager.m */,
 				3A78A89311A6980400E7B49E /* WeatherInfoManagerDelegate.h */,
@@ -1206,7 +1206,7 @@
 				3A3BA1DD1195813A0021D14B /* D2MainMenuController.m in Sources */,
 				3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */,
 				3A58EDB011A290E100BC976C /* SoundEffect.m in Sources */,
-				3A58EDB411A2913000BC976C /* SoundManager.m in Sources */,
+				3A58EDB411A2913000BC976C /* D2SoundManager.m in Sources */,
 				3AD3946311A5304600654504 /* D2ButtonView.m in Sources */,
 				3AD3946411A5304600654504 /* D2ClockButtonView.m in Sources */,
 				3AD3946511A5304600654504 /* D2CompassButtonView.m in Sources */,
