@@ -8,7 +8,7 @@
 
 #import "D2RealTimeFeatureView.h"
 #import "D2WeatherInfoItem.h"
-#import "WeatherInfoManager.h"
+#import "D2WeatherInfoManager.h"
 #import "WeatherInfoCell.h"
 #import "D2BoxView.h"
 #import "StockInfoManager.h"
@@ -60,7 +60,7 @@
         self.weatherTableView.dataSource = self;
         self.weatherTableView.delegate = self;
         
-        WeatherInfoManager *weatherInfo = [WeatherInfoManager sharedWeatherInfoManager];
+        D2WeatherInfoManager *weatherInfo = [D2WeatherInfoManager sharedD2WeatherInfoManager];
         weatherInfo.delegate = self;
         [weatherInfo retrieveWeatherInformation];
         
@@ -95,7 +95,7 @@
 
 - (void)dealloc 
 {
-    [WeatherInfoManager sharedWeatherInfoManager].delegate = nil;
+    [D2WeatherInfoManager sharedD2WeatherInfoManager].delegate = nil;
     [_weatherItems release];
     [_stockItems release];
     _weatherTableView.delegate = nil;
@@ -120,7 +120,7 @@
 #pragma mark -
 #pragma mark WeatherInfoManagerDelegate methods
 
-- (void)weatherInfoManager:(WeatherInfoManager *)manager didRetrieveWeatherInfo:(NSArray *)weatherItems
+- (void)weatherInfoManager:(D2WeatherInfoManager *)manager didRetrieveWeatherInfo:(NSArray *)weatherItems
 {
     self.weatherItems = weatherItems;
     [self.weatherTableView reloadData];

@@ -7,12 +7,12 @@
 //
 
 #import "D2FeatureView.h"
-#import "WeatherInfoManagerDelegate.h"
+#import "D2WeatherInfoManagerDelegate.h"
 #import "StockInfoManagerDelegate.h"
 
 @class D2BoxView;
 
-@interface D2RealTimeFeatureView : D2FeatureView <WeatherInfoManagerDelegate,
+@interface D2RealTimeFeatureView : D2FeatureView <D2WeatherInfoManagerDelegate,
                                                   StockInfoManagerDelegate,
                                                   UITableViewDelegate,
                                                   UITableViewDataSource>

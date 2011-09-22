@@ -1,22 +1,23 @@
 //
-//  WeatherInfoManager.m
+//  D2WeatherInfoManager.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/21/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "WeatherInfoManager.h"
+#import "D2WeatherInfoManager.h"
 #import "SynthesizeSingleton.h"
 #import "TBXML.h"
 #import "D2WeatherInfoItem.h"
 #import "ASIHTTPRequest.h"
 #import "D2AppDelegate.h"
 
-#define WEATHER_TAG_NAME @"weather"
-#define BASE_URL @"http://www.worldweatheronline.com/feed/weather.ashx?lat=%1.4f&lon=%1.4f&num_of_days=5&key=%@"
+static NSString *WEATHER_TAG_NAME = @"weather";
+static NSString *BASE_URL = @"http://www.worldweatheronline.com/feed/weather.ashx?lat=%1.4f&lon=%1.4f&num_of_days=5&key=%@";
 
-@interface WeatherInfoManager ()
+
+@interface D2WeatherInfoManager ()
 
 @property (nonatomic, copy) NSString *apiKey;
 @property (nonatomic, retain) NSMutableArray *weatherItems;
@@ -27,9 +28,9 @@
 @end
 
 
-@implementation WeatherInfoManager
+@implementation D2WeatherInfoManager
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
+SYNTHESIZE_SINGLETON_FOR_CLASS(D2WeatherInfoManager)
 
 @synthesize apiKey = _apiKey;
 @synthesize delegate = _delegate;

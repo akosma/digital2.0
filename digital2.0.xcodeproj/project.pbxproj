@@ -98,7 +98,7 @@
 		3A78A87711A6930200E7B49E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A87611A6930200E7B49E /* Reachability.m */; };
 		3A78A88211A6936100E7B49E /* D2RealTimeFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A88111A6936100E7B49E /* D2RealTimeFeatureView.m */; };
 		3A78A88B11A6955900E7B49E /* D2WeatherInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A88A11A6955900E7B49E /* D2WeatherInfoItem.m */; };
-		3A78A89211A697F000E7B49E /* WeatherInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A89111A697F000E7B49E /* WeatherInfoManager.m */; };
+		3A78A89211A697F000E7B49E /* D2WeatherInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A89111A697F000E7B49E /* D2WeatherInfoManager.m */; };
 		3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A8B911A69C8F00E7B49E /* NSDataAdditions.m */; };
 		3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A8BB11A69C8F00E7B49E /* TBXML.m */; };
 		3A78A8BF11A69C9B00E7B49E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78A8BE11A69C9B00E7B49E /* libxml2.dylib */; };
@@ -306,9 +306,9 @@
 		3A78A88111A6936100E7B49E /* D2RealTimeFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2RealTimeFeatureView.m; sourceTree = "<group>"; };
 		3A78A88911A6955900E7B49E /* D2WeatherInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2WeatherInfoItem.h; sourceTree = "<group>"; };
 		3A78A88A11A6955900E7B49E /* D2WeatherInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2WeatherInfoItem.m; sourceTree = "<group>"; };
-		3A78A89011A697F000E7B49E /* WeatherInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoManager.h; sourceTree = "<group>"; };
-		3A78A89111A697F000E7B49E /* WeatherInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoManager.m; sourceTree = "<group>"; };
-		3A78A89311A6980400E7B49E /* WeatherInfoManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoManagerDelegate.h; sourceTree = "<group>"; };
+		3A78A89011A697F000E7B49E /* D2WeatherInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2WeatherInfoManager.h; sourceTree = "<group>"; };
+		3A78A89111A697F000E7B49E /* D2WeatherInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2WeatherInfoManager.m; sourceTree = "<group>"; };
+		3A78A89311A6980400E7B49E /* D2WeatherInfoManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2WeatherInfoManagerDelegate.h; sourceTree = "<group>"; };
 		3A78A8B811A69C8F00E7B49E /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3A78A8B911A69C8F00E7B49E /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		3A78A8BA11A69C8F00E7B49E /* TBXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBXML.h; sourceTree = "<group>"; };
@@ -661,9 +661,9 @@
 				3AA6C9DE119630AD00026526 /* EAGLView.m */,
 				3A58EDB211A2913000BC976C /* D2SoundManager.h */,
 				3A58EDB311A2913000BC976C /* D2SoundManager.m */,
-				3A78A89011A697F000E7B49E /* WeatherInfoManager.h */,
-				3A78A89111A697F000E7B49E /* WeatherInfoManager.m */,
-				3A78A89311A6980400E7B49E /* WeatherInfoManagerDelegate.h */,
+				3A78A89011A697F000E7B49E /* D2WeatherInfoManager.h */,
+				3A78A89111A697F000E7B49E /* D2WeatherInfoManager.m */,
+				3A78A89311A6980400E7B49E /* D2WeatherInfoManagerDelegate.h */,
 				3ABD1DBB11CE7DFF00336F42 /* StockInfoManager.h */,
 				3ABD1DBC11CE7DFF00336F42 /* StockInfoManager.m */,
 				3ABD1DBE11CE7E1000336F42 /* StockInfoManagerDelegate.h */,
@@ -1219,7 +1219,7 @@
 				3A78A87711A6930200E7B49E /* Reachability.m in Sources */,
 				3A78A88211A6936100E7B49E /* D2RealTimeFeatureView.m in Sources */,
 				3A78A88B11A6955900E7B49E /* D2WeatherInfoItem.m in Sources */,
-				3A78A89211A697F000E7B49E /* WeatherInfoManager.m in Sources */,
+				3A78A89211A697F000E7B49E /* D2WeatherInfoManager.m in Sources */,
 				3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */,
 				3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */,
 				3A78A9D311A6B4C300E7B49E /* WeatherInfoCell.m in Sources */,
