@@ -35,7 +35,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(D2SoundManager)
         NSString *path21 = [bundle pathForResource:@"projector_v2" ofType:@"wav"];
         NSString *path22 = [bundle pathForResource:@"clock2" ofType:@"wav"];
         NSString *path23 = [bundle pathForResource:@"realite augmentee" ofType:@"wav"];
-//      NSString *path31 = nil;
         NSString *path32 = [bundle pathForResource:@"links" ofType:@"wav"];
         NSString *path33 = [bundle pathForResource:@"clap_v2" ofType:@"wav"];
 
@@ -45,7 +44,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(D2SoundManager)
         self.sound21 = [SoundEffect soundEffectWithContentsOfFile:path21];
         self.sound22 = [SoundEffect soundEffectWithContentsOfFile:path22];
         self.sound23 = [SoundEffect soundEffectWithContentsOfFile:path23];
-        [_sound31 release];
         self.sound32 = [SoundEffect soundEffectWithContentsOfFile:path32];
         self.sound33 = [SoundEffect soundEffectWithContentsOfFile:path33];
     }
@@ -60,7 +58,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(D2SoundManager)
     [_sound21 release];
     [_sound22 release];
     [_sound23 release];
-    [_sound31 release];
     [_sound32 release];
     [_sound33 release];
     [super dealloc];

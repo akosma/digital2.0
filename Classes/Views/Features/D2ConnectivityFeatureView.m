@@ -38,7 +38,7 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
     {
         self.requiresNetwork = YES;
 
-        [[NSBundle mainBundle] loadNibNamed:@"ConnectivityFeatureView"
+        [[NSBundle mainBundle] loadNibNamed:@"D2ConnectivityFeatureView"
                                       owner:self 
                                     options:nil];
         

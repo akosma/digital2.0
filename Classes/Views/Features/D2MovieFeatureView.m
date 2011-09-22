@@ -154,6 +154,9 @@
     [center removeObserver:self
                       name:MPMoviePlayerPlaybackDidFinishNotification 
                     object:self.movieController];
+    [center removeObserver:self
+                      name:MPMoviePlayerLoadStateDidChangeNotification 
+                    object:self.movieController];
 
     [self.movieController fullStop];
     self.movieController = nil;
@@ -172,6 +175,15 @@
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
     [self nextMovie:self];
+}
+
+- (void)movieReady:(NSNotification *)notification
+{
+    if (self.movieController.loadState == 3)
+    {
+        [self insertSubview:self.movieController.view belowSubview:self.titleLabel];
+        [self.movieController play];
+    }
 }
 
 #pragma mark - Private methods
@@ -205,6 +217,9 @@
     [center removeObserver:self
                       name:MPMoviePlayerPlaybackDidFinishNotification 
                     object:self.movieController];
+    [center removeObserver:self
+                      name:MPMoviePlayerLoadStateDidChangeNotification 
+                    object:self.movieController];
 
     CGRect movieFrame = CGRectMake(0.0, 50.0, 1024.0, 500.0);
     if (UIInterfaceOrientationIsPortrait(self.orientation))
@@ -215,18 +230,22 @@
     [self.movieController.view removeFromSuperview];
     [self.movieController stop];
     self.movieController = [[[MPMoviePlayerController alloc] init] autorelease];
-    self.movieController.shouldAutoplay = YES;
-    self.movieController.contentURL = url;
+    self.movieController.shouldAutoplay = NO;
     self.movieController.controlStyle = MPMovieControlModeDefault;
     self.movieController.view.frame = movieFrame;
     self.movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.movieController.view.contentMode = UIViewContentModeScaleAspectFit;
     self.movieController.backgroundView.backgroundColor = [UIColor whiteColor];
-    [self insertSubview:self.movieController.view belowSubview:self.titleLabel];
+    self.movieController.contentURL = url;
     
     [center addObserver:self 
                selector:@selector(moviePlaybackFinished:) 
                    name:MPMoviePlayerPlaybackDidFinishNotification
+                 object:self.movieController];
+
+    [center addObserver:self 
+               selector:@selector(movieReady:) 
+                   name:MPMoviePlayerLoadStateDidChangeNotification
                  object:self.movieController];
 }
 

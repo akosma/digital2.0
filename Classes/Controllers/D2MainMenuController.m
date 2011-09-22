@@ -93,7 +93,8 @@
     
     self.externalScreen = [self scanForExternalScreen];
     self.externalScreenAvailable = (self.externalScreen != nil);
-    
+    self.soundManager = [D2SoundManager sharedD2SoundManager];
+
     [center addObserver:self 
                selector:@selector(externalScreenAvailabilityChanged:) 
                    name:UIScreenDidConnectNotification 
@@ -483,7 +484,6 @@
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
     self.mainMenuView.orientation = self.interfaceOrientation;
-    self.soundManager = [D2SoundManager sharedD2SoundManager];
     self.lastTag = -1;
     self.mainMenuView.alpha = 1.0;
 

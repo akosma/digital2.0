@@ -267,6 +267,14 @@ typedef enum {
 
 - (void)minimize
 {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self
+                      name:MPMoviePlayerPlaybackDidFinishNotification 
+                    object:self.moviePlayer];
+    [center removeObserver:self
+                      name:MPMoviePlayerLoadStateDidChangeNotification 
+                    object:self.moviePlayer];
+
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
     [super minimize];
@@ -379,6 +387,17 @@ typedef enum {
     }
 }
 
+- (void)movieReady:(NSNotification *)notification
+{
+    if (self.moviePlayer.loadState == 3)
+    {
+        self.moviePlayer.view.frame = self.videoView.frame;
+        [self.mainView insertSubview:self.moviePlayer.view 
+                        belowSubview:self.videoView];
+        [self.moviePlayer play];
+    }
+}
+
 #pragma mark - Private methods
 
 - (void)setCurrentDress:(D2ShopFeatureViewCurrentDress)dress
@@ -455,19 +474,25 @@ typedef enum {
     [center removeObserver:self
                       name:MPMoviePlayerPlaybackDidFinishNotification 
                     object:self.moviePlayer];
+    [center removeObserver:self
+                      name:MPMoviePlayerLoadStateDidChangeNotification 
+                    object:self.moviePlayer];
 
     [self.moviePlayer.view removeFromSuperview];
     [self.moviePlayer stop];
     self.moviePlayer = [[[MPMoviePlayerController alloc] init] autorelease];
-    self.moviePlayer.shouldAutoplay = YES;
-    self.moviePlayer.view.frame = self.videoView.frame;
+    self.moviePlayer.shouldAutoplay = NO;
     self.moviePlayer.contentURL = url;
     self.moviePlayer.controlStyle = MPMovieControlModeDefault;
-    [self.mainView insertSubview:self.moviePlayer.view belowSubview:self.videoView];
 
     [center addObserver:self 
                selector:@selector(moviePlaybackFinished:) 
                    name:MPMoviePlayerPlaybackDidFinishNotification
+                 object:self.moviePlayer];
+
+    [center addObserver:self 
+               selector:@selector(movieReady:) 
+                   name:MPMoviePlayerLoadStateDidChangeNotification
                  object:self.moviePlayer];
 }
 

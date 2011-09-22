@@ -81,7 +81,13 @@
 
 - (void)minimize
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self
+                      name:MPMoviePlayerPlaybackDidFinishNotification 
+                    object:self.moviePlayer];
+    [center removeObserver:self
+                      name:MPMoviePlayerLoadStateDidChangeNotification 
+                    object:self.moviePlayer];
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
     [super minimize];
