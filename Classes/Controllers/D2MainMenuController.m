@@ -31,15 +31,10 @@
 @property (nonatomic, retain) D2FeatureView *featureView;
 @property (nonatomic) NSInteger lastTag;
 @property (nonatomic, retain) NSMutableDictionary *viewCache;
-@property (nonatomic) BOOL externalScreenAvailable;
-@property (nonatomic, retain) IBOutlet UIWindow *externalWindow;
-@property (nonatomic, assign) UIScreen *externalScreen;
 @property (nonatomic, retain) D2AboutController *aboutController;
 
 - (void)restoreMenu;
 - (void)shareViaEmail;
-- (UIScreen *)scanForExternalScreen;
-- (void)showCurrentFeatureInExternalScreen;
 - (void)showCurrentFeatureInStandardScreen;
 - (void)minimizeCurrentFeatureView;
 
@@ -60,9 +55,6 @@
 @synthesize lastTag = _lastTag;
 @synthesize aboutController = _aboutController;
 @synthesize viewCache = _viewCache;
-@synthesize externalScreenAvailable = _externalScreenAvailable;
-@synthesize externalWindow = _externalWindow;
-@synthesize externalScreen = _externalScreen;
 
 - (void)dealloc 
 {
@@ -79,8 +71,6 @@
     [_featureReferenceView release];
     [_aboutController release];
     [_viewCache release];
-    [_externalWindow release];
-    [_externalScreen release];
 
     [super dealloc];
 }
@@ -91,8 +81,6 @@
     self.viewCache = [NSMutableDictionary dictionaryWithCapacity:9];
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    self.externalScreen = [self scanForExternalScreen];
-    self.externalScreenAvailable = (self.externalScreen != nil);
     self.soundManager = [D2SoundManager sharedD2SoundManager];
 
     [center addObserver:self 
@@ -179,53 +167,18 @@
 
 - (void)shareViaEmail
 {
-    MFMailComposeViewController *composer = [[MFMailComposeViewController alloc] init];
-    composer.mailComposeDelegate = self;
-    
-    NSString *title = NSLocalizedString(@"MAIN_MENU_CONTROLLER_EMAIL_SUBJECT", @"Subject line in the e-mail to share the application");
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"email" ofType:@"html"];
-    NSString *body = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
-    [composer setSubject:title];
-    [composer setMessageBody:body isHTML:YES];
-    
-    [self presentModalViewController:composer animated:YES];
-    [composer release];
-}
-
-- (UIScreen *)scanForExternalScreen
-{
-    NSArray *deviceScreens = [UIScreen screens];
-    for (UIScreen *screen in deviceScreens)
+    if ([MFMailComposeViewController canSendMail])
     {
-        if (![screen isEqual:[UIScreen mainScreen]])
-        {
-            return screen;
-        }
-    }
-    return nil;
-}
-
-- (void)showCurrentFeatureInExternalScreen
-{
-    if (self.externalScreen == nil)
-    {
-        self.externalScreen = [self scanForExternalScreen];
-    }
-
-    if (self.externalScreen != nil)
-    {
-        if (self.externalWindow == nil)
-        {
-            self.externalWindow = [[[UIWindow alloc] initWithFrame:self.externalScreen.bounds] autorelease];
-        }
-        self.externalWindow.screen = self.externalScreen;
-        self.externalWindow.backgroundColor = self.featureReferenceView.backgroundColor;
-        [self.externalWindow addSubview:self.featureView];
-        [self.externalWindow makeKeyAndVisible];
-        [self.featureView maximize];
-
-        // This *must* be the last instruction!
-        self.featureView.orientation = UIInterfaceOrientationLandscapeRight;
+        MFMailComposeViewController *composer = [[[MFMailComposeViewController alloc] init] autorelease];
+        composer.mailComposeDelegate = self;
+        
+        NSString *title = NSLocalizedString(@"MAIN_MENU_CONTROLLER_EMAIL_SUBJECT", @"Subject line in the e-mail to share the application");
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"email" ofType:@"html"];
+        NSString *body = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        [composer setSubject:title];
+        [composer setMessageBody:body isHTML:YES];
+        
+        [self presentModalViewController:composer animated:YES];
     }
 }
 
@@ -257,21 +210,15 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (!self.externalScreenAvailable)
-    {
-        [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
-        [self.popover dismissPopoverAnimated:YES];
-        [self.featureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
-    }
+    [super willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
+    [self.popover dismissPopoverAnimated:YES];
+    [self.featureView willAnimateRotationToInterfaceOrientation:interfaceOrientation duration:duration];
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    if (!self.externalScreenAvailable)
-    {
-        [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
-        self.mainMenuView.orientation = self.interfaceOrientation;
-    }
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    self.mainMenuView.orientation = self.interfaceOrientation;
 }
 
 - (void)didReceiveMemoryWarning 
@@ -457,14 +404,7 @@
             self.lastTag = tag;
             self.mainMenuView.minimized = YES;
             
-            if (self.externalScreenAvailable)
-            {
-                [self showCurrentFeatureInExternalScreen];
-            }
-            else
-            {
-                [self showCurrentFeatureInStandardScreen];
-            }
+            [self showCurrentFeatureInStandardScreen];
             [sound play];
         }
     }
@@ -494,23 +434,6 @@
     
     [[D2AppDelegate sharedAppDelegate].locationManager startUpdatingLocation];
     [[D2AppDelegate sharedAppDelegate].locationManager startUpdatingHeading];
-}
-
-- (void)externalScreenAvailabilityChanged:(NSNotification *)notification
-{
-    if ([[notification name] isEqualToString:UIScreenDidConnectNotification])
-    {
-        self.externalScreen = [notification object];
-        self.externalScreenAvailable = YES;
-        [self showCurrentFeatureInExternalScreen];
-    }
-    else if ([[notification name] isEqualToString:UIScreenDidDisconnectNotification])
-    {
-        [_externalScreen release];
-        [_externalWindow release];
-        self.externalScreenAvailable = NO;
-        [self showCurrentFeatureInStandardScreen];
-    }
 }
 
 @end
