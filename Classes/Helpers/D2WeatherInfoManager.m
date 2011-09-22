@@ -14,7 +14,7 @@
 #import "D2AppDelegate.h"
 
 static NSString *WEATHER_TAG_NAME = @"weather";
-static NSString *BASE_URL = @"http://www.worldweatheronline.com/feed/weather.ashx?lat=%1.4f&lon=%1.4f&num_of_days=5&key=%@";
+static NSString *BASE_URL = @"http://free.worldweatheronline.com/feed/weather.ashx?lat=%1.4f&lon=%1.4f&num_of_days=5&key=%@";
 
 
 @interface D2WeatherInfoManager ()
