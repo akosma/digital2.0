@@ -594,15 +594,15 @@
 		3A3BA19711957B470021D14B /* NIBs */ = {
 			isa = PBXGroup;
 			children = (
-				3A5665E011CFBA75008D1943 /* D2AboutController.xib */,
-				3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */,
-				3A3BA1D8119581240021D14B /* D2MainMenuController.xib */,
 				3A3BA19811957B580021D14B /* MainWindow.xib */,
+				3A3BA1D8119581240021D14B /* D2MainMenuController.xib */,
+				3A5665E011CFBA75008D1943 /* D2AboutController.xib */,
+				3A56684411CFF890008D1943 /* FeatureView.xib */,
+				3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */,
 				3ABD1D6111CE6EC500336F42 /* RealTimeFeatureView.xib */,
 				3AC0CF1E11CD1EDE006C8C12 /* ShopFeatureView.xib */,
-				3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */,
-				3A56684411CFF890008D1943 /* FeatureView.xib */,
 				3A93344511D7C2FF0047ED4E /* ConnectivityFeatureView.xib */,
+				3A78A9C211A6B14A00E7B49E /* WeatherInfoCell.xib */,
 			);
 			path = NIBs;
 			sourceTree = "<group>";
