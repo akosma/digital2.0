@@ -96,7 +96,7 @@
 		3A78A87311A692ED00E7B49E /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A78A87211A692ED00E7B49E /* libz.1.2.3.dylib */; };
 		3A78A87711A6930200E7B49E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A87611A6930200E7B49E /* Reachability.m */; };
 		3A78A88211A6936100E7B49E /* RealTimeFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A88111A6936100E7B49E /* RealTimeFeatureView.m */; };
-		3A78A88B11A6955900E7B49E /* WeatherInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A88A11A6955900E7B49E /* WeatherInfoItem.m */; };
+		3A78A88B11A6955900E7B49E /* D2WeatherInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A88A11A6955900E7B49E /* D2WeatherInfoItem.m */; };
 		3A78A89211A697F000E7B49E /* WeatherInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A89111A697F000E7B49E /* WeatherInfoManager.m */; };
 		3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A8B911A69C8F00E7B49E /* NSDataAdditions.m */; };
 		3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A78A8BB11A69C8F00E7B49E /* TBXML.m */; };
@@ -304,8 +304,8 @@
 		3A78A87611A6930200E7B49E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3A78A88011A6936100E7B49E /* RealTimeFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealTimeFeatureView.h; sourceTree = "<group>"; };
 		3A78A88111A6936100E7B49E /* RealTimeFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealTimeFeatureView.m; sourceTree = "<group>"; };
-		3A78A88911A6955900E7B49E /* WeatherInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoItem.h; sourceTree = "<group>"; };
-		3A78A88A11A6955900E7B49E /* WeatherInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoItem.m; sourceTree = "<group>"; };
+		3A78A88911A6955900E7B49E /* D2WeatherInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2WeatherInfoItem.h; sourceTree = "<group>"; };
+		3A78A88A11A6955900E7B49E /* D2WeatherInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2WeatherInfoItem.m; sourceTree = "<group>"; };
 		3A78A89011A697F000E7B49E /* WeatherInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoManager.h; sourceTree = "<group>"; };
 		3A78A89111A697F000E7B49E /* WeatherInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherInfoManager.m; sourceTree = "<group>"; };
 		3A78A89311A6980400E7B49E /* WeatherInfoManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherInfoManagerDelegate.h; sourceTree = "<group>"; };
@@ -783,8 +783,8 @@
 		3A78A88811A6954D00E7B49E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3A78A88911A6955900E7B49E /* WeatherInfoItem.h */,
-				3A78A88A11A6955900E7B49E /* WeatherInfoItem.m */,
+				3A78A88911A6955900E7B49E /* D2WeatherInfoItem.h */,
+				3A78A88A11A6955900E7B49E /* D2WeatherInfoItem.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1213,7 +1213,7 @@
 				3A78A86411A692B700E7B49E /* ASINSStringAdditions.m in Sources */,
 				3A78A87711A6930200E7B49E /* Reachability.m in Sources */,
 				3A78A88211A6936100E7B49E /* RealTimeFeatureView.m in Sources */,
-				3A78A88B11A6955900E7B49E /* WeatherInfoItem.m in Sources */,
+				3A78A88B11A6955900E7B49E /* D2WeatherInfoItem.m in Sources */,
 				3A78A89211A697F000E7B49E /* WeatherInfoManager.m in Sources */,
 				3A78A8BC11A69C8F00E7B49E /* NSDataAdditions.m in Sources */,
 				3A78A8BD11A69C8F00E7B49E /* TBXML.m in Sources */,

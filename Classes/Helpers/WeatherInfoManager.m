@@ -9,7 +9,7 @@
 #import "WeatherInfoManager.h"
 #import "SynthesizeSingleton.h"
 #import "TBXML.h"
-#import "WeatherInfoItem.h"
+#import "D2WeatherInfoItem.h"
 #import "ASIHTTPRequest.h"
 #import "D2AppDelegate.h"
 
@@ -109,7 +109,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
             
             while (weatherTag != nil)
             {
-                WeatherInfoItem *item = [WeatherInfoItem itemWithTBXMLElement:weatherTag];
+                D2WeatherInfoItem *item = [D2WeatherInfoItem itemWithTBXMLElement:weatherTag];
                 [self.weatherItems addObject:item];
                 
                 weatherTag = [TBXML nextSiblingNamed:WEATHER_TAG_NAME searchFromElement:weatherTag];

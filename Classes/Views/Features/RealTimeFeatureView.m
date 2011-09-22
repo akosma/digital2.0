@@ -7,7 +7,7 @@
 //
 
 #import "RealTimeFeatureView.h"
-#import "WeatherInfoItem.h"
+#import "D2WeatherInfoItem.h"
 #import "WeatherInfoManager.h"
 #import "WeatherInfoCell.h"
 #import "BoxView.h"
@@ -177,7 +177,7 @@
         cell = [[[WeatherInfoCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
     }
     
-    WeatherInfoItem *item = [self.weatherItems objectAtIndex:indexPath.row];
+    D2WeatherInfoItem *item = [self.weatherItems objectAtIndex:indexPath.row];
     cell.descriptionLabel.text = item.weatherDescription;
     cell.windLabel.text = [NSString stringWithFormat:@"%d kph %@", item.windSpeedKph, item.windDirection];
     cell.temperatureLabel.text = [NSString stringWithFormat:@"%d˚-%d˚", item.minTempC, item.maxTempC];

@@ -1,22 +1,22 @@
 //
-//  WeatherInfoItem.m
+//  D2WeatherInfoItem.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/21/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "WeatherInfoItem.h"
+#import "D2WeatherInfoItem.h"
 
-#define DATE_TAG_NAME @"date"
-#define TEMP_MAX_C_TAG_NAME @"tempMaxC"
-#define TEMP_MIN_C_TAG_NAME @"tempMinC"
-#define WIND_SPEED_KPH_TAG_NAME @"windspeedKmph"
-#define WIND_DIRECTION_TAG_NAME @"winddirection"
-#define WEATHER_CODE_TAG_NAME @"weatherCode"
-#define WEATHER_DESC_TAG_NAME @"weatherDesc"
+static NSString *DATE_TAG_NAME = @"date";
+static NSString *TEMP_MAX_C_TAG_NAME = @"tempMaxC";
+static NSString *TEMP_MIN_C_TAG_NAME = @"tempMinC";
+static NSString *WIND_SPEED_KPH_TAG_NAME = @"windspeedKmph";
+static NSString *WIND_DIRECTION_TAG_NAME = @"winddirection";
+static NSString *WEATHER_CODE_TAG_NAME = @"weatherCode";
+static NSString *WEATHER_DESC_TAG_NAME = @"weatherDesc";
 
-@implementation WeatherInfoItem
+@implementation D2WeatherInfoItem
 
 @synthesize date = _date;
 @synthesize maxTempC = _maxTempC;
@@ -26,9 +26,9 @@
 @synthesize weatherCode = _weatherCode;
 @synthesize weatherDescription = _weatherDescription;
 
-+ (WeatherInfoItem *)itemWithTBXMLElement:(TBXMLElement *)element
++ (D2WeatherInfoItem *)itemWithTBXMLElement:(TBXMLElement *)element
 {
-    WeatherInfoItem *item = [[[WeatherInfoItem alloc] init] autorelease];
+    D2WeatherInfoItem *item = [[[D2WeatherInfoItem alloc] init] autorelease];
 
     TBXMLElement *dateTag = [TBXML childElementNamed:DATE_TAG_NAME parentElement:element];
     TBXMLElement *tempMaxTag = [TBXML childElementNamed:TEMP_MAX_C_TAG_NAME parentElement:element];
@@ -62,9 +62,9 @@
 
 - (void)dealloc
 {
-    self.date = nil;
-    self.windDirection = nil;
-    self.weatherDescription = nil;
+    [_date release];
+    [_windDirection release];
+    [_weatherDescription release];
     [super dealloc];
 }
 
