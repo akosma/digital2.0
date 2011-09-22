@@ -53,6 +53,8 @@
     self.backgroundImageView.image = [UIImage imageNamed:@"button_background.png"];
     self.foregroundImageView = [[[UIImageView alloc] initWithFrame:rect] autorelease];
     self.backgroundColor = [UIColor clearColor];
+    self.exclusiveTouch = YES;
+    self.userInteractionEnabled = YES;
     
     [self addSubview:self.backgroundImageView];
     [self addSubview:self.foregroundImageView];
