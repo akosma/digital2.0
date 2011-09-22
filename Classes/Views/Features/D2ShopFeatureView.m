@@ -24,15 +24,14 @@ typedef enum {
 @property (nonatomic, assign) UIImageView *currentDressImage;
 @property (nonatomic) CGPoint originalDragPoint;
 @property (nonatomic) CGPoint lastRegisteredPoint;
-
 @property (nonatomic) CGRect dressCityFrame;
 @property (nonatomic) CGRect dressBeachFrame;
 @property (nonatomic) CGRect dressNightFrame;
 @property (nonatomic) CGRect dressGolfFrame;
-
 @property (nonatomic) BOOL defileMode;
-
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
+
+- (void)loadMovieFromURL:(NSURL *)url;
 
 @end
 
@@ -60,15 +59,13 @@ typedef enum {
 @synthesize currentDressImage = _currentDressImage;
 @synthesize originalDragPoint = _originalDragPoint;
 @synthesize lastRegisteredPoint = _lastRegisteredPoint;
-
 @synthesize dressCityFrame = _dressCityFrame;
 @synthesize dressBeachFrame = _dressBeachFrame;
 @synthesize dressNightFrame = _dressNightFrame;
 @synthesize dressGolfFrame = _dressGolfFrame;
-
 @synthesize moviePlayer = _moviePlayer;
-
 @synthesize defileMode = _defileMode;
+
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -120,8 +117,6 @@ typedef enum {
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_moviePlayer fullStop];
-    [_moviePlayer release];
     
     [_contourCity release];
     [_dressCity release];
@@ -268,27 +263,19 @@ typedef enum {
     }
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
+
+- (void)minimize
+{
+    [self.moviePlayer fullStop];
+    self.moviePlayer = nil;
+    [super minimize];
+}
 
 - (void)maximize
 {
     [super maximize];
     self.currentDress = D2ShopFeatureViewCurrentDressCity;
-}
-
-- (void)removeFromSuperview
-{
-    self.currentDress = D2ShopFeatureViewCurrentDressNone;
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.moviePlayer fullStop];
-    [_moviePlayer release];
-    
-    // When FeatureViews are minimized, they are animated, which triggers
-    // a replay of the embedded video; in feature views with video, we
-    // remove the video first, then animate the minimization. This way,
-    // you don't get the audio going on without the video...!
-    [super removeFromSuperview];
 }
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
@@ -349,8 +336,7 @@ typedef enum {
     self.moviePlayer.view.frame = videoViewFrame;
 }
 
-#pragma mark -
-#pragma mark NSNotification handlers
+#pragma mark - NSNotification handlers
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
@@ -363,7 +349,7 @@ typedef enum {
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"beach1" ofType:@"mp4"];
                 NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
+                [self loadMovieFromURL:url];
                 break;
             }
                 
@@ -371,7 +357,7 @@ typedef enum {
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"golf1" ofType:@"mp4"];
                 NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
+                [self loadMovieFromURL:url];
                 break;
             }
                 
@@ -379,7 +365,7 @@ typedef enum {
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"night1" ofType:@"mp4"];
                 NSURL *url = [NSURL fileURLWithPath:path];
-                self.moviePlayer.contentURL = url;
+                [self loadMovieFromURL:url];
                 break;
             }
                 
@@ -393,31 +379,7 @@ typedef enum {
     }
 }
 
-#pragma mark -
-#pragma mark Overridden getters
-
-- (MPMoviePlayerController *)moviePlayer
-{
-    if (_moviePlayer == nil)
-    {
-        _moviePlayer = [[MPMoviePlayerController alloc] init];
-        
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerPlaybackDidFinishNotification
-                     object:_moviePlayer];
-        
-        _moviePlayer.shouldAutoplay = YES;
-        _moviePlayer.view.frame = self.videoView.frame;
-        _moviePlayer.backgroundView.backgroundColor = [UIColor whiteColor];
-        [self.mainView insertSubview:_moviePlayer.view belowSubview:self.videoView];
-    }
-    return _moviePlayer;
-}
-
-#pragma mark -
-#pragma mark Private methods
+#pragma mark - Private methods
 
 - (void)setCurrentDress:(D2ShopFeatureViewCurrentDress)dress
 {
@@ -449,7 +411,7 @@ typedef enum {
                     self.defileMode = YES;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"beach2" ofType:@"mp4"];
                     NSURL *url = [NSURL fileURLWithPath:path];
-                    self.moviePlayer.contentURL = url;
+                    [self loadMovieFromURL:url];
                     break;
                 }
                     
@@ -458,7 +420,7 @@ typedef enum {
                     self.defileMode = NO;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"mp4"];
                     NSURL *url = [NSURL fileURLWithPath:path];
-                    self.moviePlayer.contentURL = url;
+                    [self loadMovieFromURL:url];
                     break;
                 }
                     
@@ -467,7 +429,7 @@ typedef enum {
                     self.defileMode = YES;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"golf2" ofType:@"mp4"];
                     NSURL *url = [NSURL fileURLWithPath:path];
-                    self.moviePlayer.contentURL = url;
+                    [self loadMovieFromURL:url];
                     break;
                 }
                     
@@ -476,16 +438,37 @@ typedef enum {
                     self.defileMode = YES;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"night2" ofType:@"mp4"];
                     NSURL *url = [NSURL fileURLWithPath:path];
-                    self.moviePlayer.contentURL = url;
+                    [self loadMovieFromURL:url];
                     break;
                 }
                     
                 default:
                     break;
             }
-            self.moviePlayer.controlStyle = MPMovieControlModeDefault;
         }
     }
+}
+
+- (void)loadMovieFromURL:(NSURL *)url
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self
+                      name:MPMoviePlayerPlaybackDidFinishNotification 
+                    object:self.moviePlayer];
+
+    [self.moviePlayer.view removeFromSuperview];
+    [self.moviePlayer stop];
+    self.moviePlayer = [[[MPMoviePlayerController alloc] init] autorelease];
+    self.moviePlayer.shouldAutoplay = YES;
+    self.moviePlayer.view.frame = self.videoView.frame;
+    self.moviePlayer.contentURL = url;
+    self.moviePlayer.controlStyle = MPMovieControlModeDefault;
+    [self.mainView insertSubview:self.moviePlayer.view belowSubview:self.videoView];
+
+    [center addObserver:self 
+               selector:@selector(moviePlaybackFinished:) 
+                   name:MPMoviePlayerPlaybackDidFinishNotification
+                 object:self.moviePlayer];
 }
 
 @end

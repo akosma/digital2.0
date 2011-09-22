@@ -95,8 +95,6 @@
 
 - (void)dealloc 
 {
-    [D2WeatherInfoManager sharedD2WeatherInfoManager].delegate = nil;
-    [D2StockInfoManager sharedD2StockInfoManager].delegate = nil;
     [_weatherItems release];
     [_stockItems release];
     _weatherTableView.delegate = nil;
@@ -118,8 +116,7 @@
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark WeatherInfoManagerDelegate methods
+#pragma mark - D2WeatherInfoManagerDelegate methods
 
 - (void)weatherInfoManager:(D2WeatherInfoManager *)manager didRetrieveWeatherInfo:(NSArray *)weatherItems
 {
@@ -128,7 +125,7 @@
 }
 
 #pragma mark -
-#pragma mark StockInfoManagerDelegate methods
+#pragma mark D2StockInfoManagerDelegate methods
 
 - (void)stockInfoManager:(D2StockInfoManager *)manager didRetrieveStockInfo:(NSArray *)stockItems
 {
@@ -136,8 +133,7 @@
     [self.stockTableView reloadData];
 }
 
-#pragma mark -
-#pragma mark UITableView delegate and datasource methods
+#pragma mark - UITableView delegate and datasource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -191,8 +187,7 @@
     return cell;
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {
@@ -228,8 +223,14 @@
     [self.boxView updateLayout];
 }
 
-#pragma mark -
-#pragma mark Private methods
+- (void)minimize
+{
+    [D2WeatherInfoManager sharedD2WeatherInfoManager].delegate = nil;
+    [D2StockInfoManager sharedD2StockInfoManager].delegate = nil;
+    [super minimize];
+}
+
+#pragma mark - Private methods
 
 - (UIImage *)iconForWeatherCode:(NSInteger)code
 {

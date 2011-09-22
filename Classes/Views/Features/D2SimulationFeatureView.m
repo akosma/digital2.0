@@ -56,16 +56,10 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 @synthesize box = _box;
 @synthesize animating = _animating;
 
-#pragma mark -
-#pragma mark Static methods
-
 + (Class)layerClass 
 {
     return [CAEAGLLayer class];
 }
-
-#pragma mark -
-#pragma mark Init and dealloc
 
 - (id)initWithFrame:(CGRect)frame 
 {
@@ -132,8 +126,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark Public methods
+#pragma mark - Public methods
 
 - (void)animate
 {
@@ -412,8 +405,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
     }
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
 
 - (void)maximize
 {

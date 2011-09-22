@@ -81,8 +81,7 @@
                afterDelay:5.0];
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {

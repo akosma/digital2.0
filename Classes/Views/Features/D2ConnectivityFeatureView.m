@@ -76,8 +76,7 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark UIGestureRecognizer handlers
+#pragma mark - UIGestureRecognizer handlers
 
 - (void)touched:(UITapGestureRecognizer *)recognizer
 {
@@ -102,8 +101,7 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
     }
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {
@@ -137,8 +135,7 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
     self.descriptionLabel.frame = descriptionLabelFrame;
 }
 
-#pragma mark -
-#pragma mark Private methods
+#pragma mark - Private methods
 
 - (void)loadWebsite:(NSString *)urlString
 {

@@ -21,6 +21,8 @@
 @property (nonatomic, retain) UIButton *rightButton;
 @property (nonatomic, retain) UIButton *leftButton;
 
+- (void)loadMovieFromURL:(NSURL *)url;
+
 @end
 
 
@@ -87,9 +89,8 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_movieController fullStop];
     [_movieController release];
-    
+    [_titles release];
     [_texts release];
     [_movieNames release];
     [_titleLabel release];
@@ -99,8 +100,7 @@
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark IBAction methods
+#pragma mark - IBAction methods
 
 - (IBAction)nextMovie:(id)sender
 {
@@ -114,8 +114,7 @@
     [self showCurrentMovie];
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {
@@ -147,21 +146,18 @@
     self.titleLabel.frame = titleLabelFrame;
     self.textLabel.frame = textLabelFrame;
     self.movieController.view.frame = movieFrame;
-    self.movieController.view.contentMode = UIViewContentModeScaleAspectFit;
 }
 
-- (void)removeFromSuperview
+- (void)minimize
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    self.currentMovieID = 0;
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self
+                      name:MPMoviePlayerPlaybackDidFinishNotification 
+                    object:self.movieController];
+
     [self.movieController fullStop];
-    [_movieController release];
-    
-    // When FeatureViews are minimized, they are animated, which might trigger
-    // a replay of the embedded video; in feature views with video, we
-    // remove the video first, then remove the view from the hierarchy. 
-    // This way, you don't get the audio going on without the video...!
-    [super removeFromSuperview];
+    self.movieController = nil;
+    [super minimize];
 }
 
 - (void)maximize
@@ -171,40 +167,14 @@
     [self showCurrentMovie];
 }
 
-#pragma mark -
-#pragma mark NSNotification handlers
+#pragma mark - NSNotification handlers
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
     [self nextMovie:self];
 }
 
-#pragma mark -
-#pragma mark Overridden getter
-
-- (MPMoviePlayerController *)movieController
-{
-    if (_movieController == nil)
-    {
-        _movieController = [[MPMoviePlayerController alloc] init];
-        _movieController.shouldAutoplay = YES;
-        
-        NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-        [center addObserver:self 
-                   selector:@selector(moviePlaybackFinished:) 
-                       name:MPMoviePlayerPlaybackDidFinishNotification
-                     object:_movieController];
-        
-        _movieController.backgroundView.backgroundColor = [UIColor whiteColor];
-        _movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _movieController.view.contentMode = UIViewContentModeScaleAspectFit;
-        [self insertSubview:_movieController.view belowSubview:self.titleLabel];
-    }
-    return _movieController;
-}
-
-#pragma mark -
-#pragma mark Private methods
+#pragma mark - Private methods
 
 - (void)showCurrentMovie
 {
@@ -214,8 +184,7 @@
     NSString *name = [self.movieNames objectAtIndex:self.currentMovieID];
     NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"mp4"];
     NSURL *url = [NSURL fileURLWithPath:path];
-    self.movieController.contentURL = url;
-    self.movieController.controlStyle = MPMovieControlModeDefault;
+    [self loadMovieFromURL:url];
 
     self.titleLabel.text = [self.titles objectAtIndex:self.currentMovieID];
     self.textLabel.text = [self.texts objectAtIndex:self.currentMovieID];
@@ -228,6 +197,37 @@
                                       self.textLabel.frame.origin.y, 
                                       self.textLabel.frame.size.width, 
                                       size.height);
+}
+
+- (void)loadMovieFromURL:(NSURL *)url
+{
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center removeObserver:self
+                      name:MPMoviePlayerPlaybackDidFinishNotification 
+                    object:self.movieController];
+
+    CGRect movieFrame = CGRectMake(0.0, 50.0, 1024.0, 500.0);
+    if (UIInterfaceOrientationIsPortrait(self.orientation))
+    {
+        movieFrame = CGRectMake(0.0, 50.0, 768.0, 724.0);
+    }
+
+    [self.movieController.view removeFromSuperview];
+    [self.movieController stop];
+    self.movieController = [[[MPMoviePlayerController alloc] init] autorelease];
+    self.movieController.shouldAutoplay = YES;
+    self.movieController.contentURL = url;
+    self.movieController.controlStyle = MPMovieControlModeDefault;
+    self.movieController.view.frame = movieFrame;
+    self.movieController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.movieController.view.contentMode = UIViewContentModeScaleAspectFit;
+    self.movieController.backgroundView.backgroundColor = [UIColor whiteColor];
+    [self insertSubview:self.movieController.view belowSubview:self.titleLabel];
+    
+    [center addObserver:self 
+               selector:@selector(moviePlaybackFinished:) 
+                   name:MPMoviePlayerPlaybackDidFinishNotification
+                 object:self.movieController];
 }
 
 @end

@@ -41,8 +41,6 @@
 
 - (void)dealloc 
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [_moviePlayer fullStop];
     [_moviePlayer release];
     [super dealloc];
 }
@@ -55,8 +53,7 @@
                      }];
 }
 
-#pragma mark -
-#pragma mark Overridden methods
+#pragma mark - Overridden methods
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {
@@ -82,21 +79,15 @@
     self.moviePlayer.controlStyle = MPMovieControlModeDefault;
 }
 
-- (void)removeFromSuperview
+- (void)minimize
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
-
-    // When FeatureViews are minimized, they are animated, which might trigger
-    // a replay of the embedded video; in feature views with video, we
-    // remove the video first, then remove the view from the hierarchy. 
-    // This way, you don't get the audio going on without the video...!
-    [super removeFromSuperview];
+    [super minimize];
 }
 
-#pragma mark -
-#pragma mark Overridden getters
+#pragma mark - Overridden getters
 
 - (MPMoviePlayerController *)moviePlayer
 {
@@ -121,8 +112,7 @@
     return _moviePlayer;
 }
 
-#pragma mark -
-#pragma mark NSNotification handlers
+#pragma mark - NSNotification handlers
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
