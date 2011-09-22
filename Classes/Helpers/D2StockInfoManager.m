@@ -1,12 +1,12 @@
 //
-//  StockInfoManager.m
+//  D2StockInfoManager.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/20/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "StockInfoManager.h"
+#import "D2StockInfoManager.h"
 #import "SynthesizeSingleton.h"
 #import "ASIHTTPRequest.h"
 #import "ASINetworkQueue.h"
@@ -14,7 +14,7 @@
 
 #define BASE_URL @"http://finance.google.com/finance/info?client=ig&q=NASDAQ:%@"
 
-@interface StockInfoManager ()
+@interface D2StockInfoManager ()
 
 @property (nonatomic, retain) NSArray *stockQuotes;
 @property (nonatomic, retain) NSMutableArray *stockItems;
@@ -26,9 +26,9 @@
 @end
 
 
-@implementation StockInfoManager
+@implementation D2StockInfoManager
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(StockInfoManager)
+SYNTHESIZE_SINGLETON_FOR_CLASS(D2StockInfoManager)
 
 @synthesize stockQuotes = _stockQuotes;
 @synthesize stockItems = _stockItems;
@@ -57,10 +57,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(StockInfoManager)
 
 - (void)dealloc
 {
-    self.delegate = nil;
-    self.stockQuotes = nil;
-    self.stockItems = nil;
-    self.networkQueue = nil;
+    [_delegate release];
+    [_stockQuotes release];
+    [_stockItems release];
+    [_networkQueue release];
     [super dealloc];
 }
 

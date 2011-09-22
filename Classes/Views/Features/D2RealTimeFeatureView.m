@@ -11,7 +11,7 @@
 #import "D2WeatherInfoManager.h"
 #import "WeatherInfoCell.h"
 #import "D2BoxView.h"
-#import "StockInfoManager.h"
+#import "D2StockInfoManager.h"
 
 @interface D2RealTimeFeatureView ()
 
@@ -71,7 +71,7 @@
         self.stockTableView.dataSource = self;
         self.stockTableView.delegate = self;
 
-        StockInfoManager *stockInfo = [StockInfoManager sharedStockInfoManager];
+        D2StockInfoManager *stockInfo = [D2StockInfoManager sharedD2StockInfoManager];
         stockInfo.delegate = self;
         [stockInfo retrieveStockInformation];
 
@@ -96,6 +96,7 @@
 - (void)dealloc 
 {
     [D2WeatherInfoManager sharedD2WeatherInfoManager].delegate = nil;
+    [D2StockInfoManager sharedD2StockInfoManager].delegate = nil;
     [_weatherItems release];
     [_stockItems release];
     _weatherTableView.delegate = nil;
@@ -129,7 +130,7 @@
 #pragma mark -
 #pragma mark StockInfoManagerDelegate methods
 
-- (void)stockInfoManager:(StockInfoManager *)manager didRetrieveStockInfo:(NSArray *)stockItems
+- (void)stockInfoManager:(D2StockInfoManager *)manager didRetrieveStockInfo:(NSArray *)stockItems
 {
     self.stockItems = stockItems;
     [self.stockTableView reloadData];

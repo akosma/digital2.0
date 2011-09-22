@@ -151,7 +151,7 @@
 		3ABD1DB611CE7DE700336F42 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1DAE11CE7DE700336F42 /* SBJsonBase.m */; };
 		3ABD1DB711CE7DE700336F42 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1DB011CE7DE700336F42 /* SBJsonParser.m */; };
 		3ABD1DB811CE7DE700336F42 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1DB211CE7DE700336F42 /* SBJsonWriter.m */; };
-		3ABD1DBD11CE7DFF00336F42 /* StockInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1DBC11CE7DFF00336F42 /* StockInfoManager.m */; };
+		3ABD1DBD11CE7DFF00336F42 /* D2StockInfoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABD1DBC11CE7DFF00336F42 /* D2StockInfoManager.m */; };
 		3ABD1E4611CE890100336F42 /* stock_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD1E4311CE890100336F42 /* stock_down.png */; };
 		3ABD1E4711CE890100336F42 /* stock_same.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD1E4411CE890100336F42 /* stock_same.png */; };
 		3ABD1E4811CE890100336F42 /* stock_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD1E4511CE890100336F42 /* stock_up.png */; };
@@ -373,9 +373,9 @@
 		3ABD1DB011CE7DE700336F42 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		3ABD1DB111CE7DE700336F42 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		3ABD1DB211CE7DE700336F42 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		3ABD1DBB11CE7DFF00336F42 /* StockInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockInfoManager.h; sourceTree = "<group>"; };
-		3ABD1DBC11CE7DFF00336F42 /* StockInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockInfoManager.m; sourceTree = "<group>"; };
-		3ABD1DBE11CE7E1000336F42 /* StockInfoManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockInfoManagerDelegate.h; sourceTree = "<group>"; };
+		3ABD1DBB11CE7DFF00336F42 /* D2StockInfoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2StockInfoManager.h; sourceTree = "<group>"; };
+		3ABD1DBC11CE7DFF00336F42 /* D2StockInfoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2StockInfoManager.m; sourceTree = "<group>"; };
+		3ABD1DBE11CE7E1000336F42 /* D2StockInfoManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2StockInfoManagerDelegate.h; sourceTree = "<group>"; };
 		3ABD1E4311CE890100336F42 /* stock_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_down.png; sourceTree = "<group>"; };
 		3ABD1E4411CE890100336F42 /* stock_same.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_same.png; sourceTree = "<group>"; };
 		3ABD1E4511CE890100336F42 /* stock_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_up.png; sourceTree = "<group>"; };
@@ -664,9 +664,9 @@
 				3A78A89011A697F000E7B49E /* D2WeatherInfoManager.h */,
 				3A78A89111A697F000E7B49E /* D2WeatherInfoManager.m */,
 				3A78A89311A6980400E7B49E /* D2WeatherInfoManagerDelegate.h */,
-				3ABD1DBB11CE7DFF00336F42 /* StockInfoManager.h */,
-				3ABD1DBC11CE7DFF00336F42 /* StockInfoManager.m */,
-				3ABD1DBE11CE7E1000336F42 /* StockInfoManagerDelegate.h */,
+				3ABD1DBB11CE7DFF00336F42 /* D2StockInfoManager.h */,
+				3ABD1DBC11CE7DFF00336F42 /* D2StockInfoManager.m */,
+				3ABD1DBE11CE7E1000336F42 /* D2StockInfoManagerDelegate.h */,
 				3A0CED881209724400A1154C /* MPMoviePlayerController+Extensions.h */,
 				3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */,
 			);
@@ -1233,7 +1233,7 @@
 				3ABD1DB611CE7DE700336F42 /* SBJsonBase.m in Sources */,
 				3ABD1DB711CE7DE700336F42 /* SBJsonParser.m in Sources */,
 				3ABD1DB811CE7DE700336F42 /* SBJsonWriter.m in Sources */,
-				3ABD1DBD11CE7DFF00336F42 /* StockInfoManager.m in Sources */,
+				3ABD1DBD11CE7DFF00336F42 /* D2StockInfoManager.m in Sources */,
 				3A5665CD11CFB980008D1943 /* D2AboutController.m in Sources */,
 				3A5667D011CFF0FA008D1943 /* D2SimulationFeatureView.m in Sources */,
 				3A56684311CFF866008D1943 /* D2ConnectivityFeatureView.m in Sources */,

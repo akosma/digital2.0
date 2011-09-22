@@ -50,9 +50,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(D2WeatherInfoManager)
 
 - (void)dealloc
 {
-    self.apiKey = nil;
-    self.delegate = nil;
-    self.weatherItems = nil;
+    [_apiKey release];
+    [_delegate release];
+    [_weatherItems release];
     [super dealloc];
 }
 
