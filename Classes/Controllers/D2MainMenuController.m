@@ -123,27 +123,9 @@
     self.moviePlayer.scalingMode = MPMovieScalingModeAspectFill;
     self.moviePlayer.controlStyle = MPMovieControlModeDefault;
 
-    if (self.externalScreenAvailable)
-    {
-        self.externalWindow = [[[UIWindow alloc] initWithFrame:self.externalScreen.bounds] autorelease];
-        self.externalWindow.screen = self.externalScreen;
-        self.externalWindow.backgroundColor = [UIColor blackColor];
-        self.moviePlayer.view.frame = self.externalWindow.frame;
-        self.moviePlayer.view.center = self.externalWindow.center;
-        [self.externalWindow addSubview:self.moviePlayer.view];
-        [self.externalWindow makeKeyAndVisible];
-        
-        // Let's wait some seconds, waiting for the VGA signal to be ready!
-        [self.moviePlayer performSelector:@selector(setContentURL:) 
-                                  withObject:url 
-                                  afterDelay:6.0];
-    }
-    else
-    {
-        self.moviePlayer.contentURL = url;
-        self.moviePlayer.view.frame = [DemoAppDelegate sharedAppDelegate].window.frame;
-        [self.view addSubview:self.moviePlayer.view];
-    }
+    self.moviePlayer.contentURL = url;
+    self.moviePlayer.view.frame = [D2AppDelegate sharedAppDelegate].window.frame;
+    [self.view addSubview:self.moviePlayer.view];
     self.view.alpha = 0.0;
     
 #endif

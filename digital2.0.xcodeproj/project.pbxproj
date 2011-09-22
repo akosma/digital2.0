@@ -11,6 +11,10 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		3A091A3D142B7746008CF385 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A091A39142B7746008CF385 /* Icon-72.png */; };
+		3A091A3E142B7746008CF385 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A091A3A142B7746008CF385 /* Icon-Small-50.png */; };
+		3A091A3F142B7746008CF385 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A091A3B142B7746008CF385 /* Icon-Small.png */; };
+		3A091A40142B7746008CF385 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 3A091A3C142B7746008CF385 /* iTunesArtwork */; };
 		3A0CED8A1209724400A1154C /* MPMoviePlayerController+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */; };
 		3A0CEE8212098C4300A1154C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEE8112098C4300A1154C /* Localizable.strings */; };
 		3A0CEEA212098F7700A1154C /* MovieFeatureViewTexts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEEA112098F7700A1154C /* MovieFeatureViewTexts.plist */; };
@@ -172,7 +176,6 @@
 		3AC0CF2F11CD2088006C8C12 /* dress_city_casual.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2711CD2088006C8C12 /* dress_city_casual.png */; };
 		3AC0CF3011CD2088006C8C12 /* dress_golf.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2811CD2088006C8C12 /* dress_golf.png */; };
 		3AC0CF3111CD2088006C8C12 /* dress_night.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AC0CF2911CD2088006C8C12 /* dress_night.png */; };
-		3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD17FD111CCCA1A00E888A5 /* Icon.png */; };
 		3AD17FEF11CCCBFC00E888A5 /* D2MapFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD17FEE11CCCBFC00E888A5 /* D2MapFeatureView.m */; };
 		3AD17FF411CCCC6F00E888A5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD17FF311CCCC6F00E888A5 /* MapKit.framework */; };
 		3AD3946311A5304600654504 /* D2ButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945311A5304600654504 /* D2ButtonView.m */; };
@@ -197,6 +200,10 @@
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* digital2.0_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = digital2.0_Prefix.pch; sourceTree = "<group>"; };
+		3A091A39142B7746008CF385 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		3A091A3A142B7746008CF385 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		3A091A3B142B7746008CF385 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		3A091A3C142B7746008CF385 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		3A0CED881209724400A1154C /* MPMoviePlayerController+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MPMoviePlayerController+Extensions.h"; sourceTree = "<group>"; };
 		3A0CED891209724400A1154C /* MPMoviePlayerController+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MPMoviePlayerController+Extensions.m"; sourceTree = "<group>"; };
 		3A0CEE8112098C4300A1154C /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -399,7 +406,6 @@
 		3AC0CF2711CD2088006C8C12 /* dress_city_casual.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_city_casual.png; sourceTree = "<group>"; };
 		3AC0CF2811CD2088006C8C12 /* dress_golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_golf.png; sourceTree = "<group>"; };
 		3AC0CF2911CD2088006C8C12 /* dress_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dress_night.png; sourceTree = "<group>"; };
-		3AD17FD111CCCA1A00E888A5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		3AD17FED11CCCBFC00E888A5 /* D2MapFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2MapFeatureView.h; sourceTree = "<group>"; };
 		3AD17FEE11CCCBFC00E888A5 /* D2MapFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2MapFeatureView.m; sourceTree = "<group>"; };
 		3AD17FF311CCCC6F00E888A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -506,6 +512,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3A091A38142B7746008CF385 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				3A091A39142B7746008CF385 /* Icon-72.png */,
+				3A091A3A142B7746008CF385 /* Icon-Small-50.png */,
+				3A091A3B142B7746008CF385 /* Icon-Small.png */,
+				3A091A3C142B7746008CF385 /* iTunesArtwork */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
 		3A175D5A142B40D10068C412 /* BoxView */ = {
 			isa = PBXGroup;
 			children = (
@@ -588,7 +605,6 @@
 		3A3BA19611957B470021D14B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3AD17FD111CCCA1A00E888A5 /* Icon.png */,
 				3A3BA1E1119581970021D14B /* bar.png */,
 				3A3BA1E2119581970021D14B /* companies.png */,
 				3A3BA1E3119581970021D14B /* Default-Landscape.png */,
@@ -599,6 +615,7 @@
 				3A93344811D7C4380047ED4E /* Connectivity */,
 				3AC0CF2111CD2088006C8C12 /* Dresses */,
 				3AD3949111A537D900654504 /* Features */,
+				3A091A38142B7746008CF385 /* Icons */,
 				3A5665E611CFBB8B008D1943 /* Logos */,
 				3ABD1E4211CE890100336F42 /* StockIcons */,
 				3A78A9B611A6B04300E7B49E /* WeatherIcons */,
@@ -1128,7 +1145,6 @@
 				3A78A9BF11A6B04300E7B49E /* weather_snowy.png in Resources */,
 				3A78A9C011A6B04300E7B49E /* weather_sunny.png in Resources */,
 				3A78A9C311A6B14A00E7B49E /* D2WeatherInfoCell.xib in Resources */,
-				3AD17FD211CCCA1A00E888A5 /* Icon.png in Resources */,
 				3AC0CC9211CCDC08006C8C12 /* location.txt in Resources */,
 				3AC0CD3F11CCEAC8006C8C12 /* iPadFonts.plist in Resources */,
 				3AC0CD4111CCEBD0006C8C12 /* iPhoneFonts.plist in Resources */,
@@ -1188,6 +1204,10 @@
 				3AE5B4E81210546800640CEE /* email.html in Resources */,
 				3A175D59142B2E830068C412 /* Entitlements.entitlements in Resources */,
 				3AD908E7142B72C800E0B152 /* logo_akosma.png in Resources */,
+				3A091A3D142B7746008CF385 /* Icon-72.png in Resources */,
+				3A091A3E142B7746008CF385 /* Icon-Small-50.png in Resources */,
+				3A091A3F142B7746008CF385 /* Icon-Small.png in Resources */,
+				3A091A40142B7746008CF385 /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1254,6 +1274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1273,6 +1294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
