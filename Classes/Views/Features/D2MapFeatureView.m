@@ -56,8 +56,8 @@
 
 - (void)dealloc 
 {
-    self.mapView = nil;
-    self.textView = nil;
+    [_mapView release];
+    [_textView release];
     [super dealloc];
 }
 

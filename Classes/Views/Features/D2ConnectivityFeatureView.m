@@ -64,14 +64,14 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
 
 - (void)dealloc 
 {
-    self.mainView = nil;
-    self.twitterImageView = nil;
-    self.facebookImageView = nil;
-    self.safariImageView = nil;
-    self.mailImageView = nil;
-    self.webView = nil;
-    self.descriptionLabel = nil;
-    self.titleLabel = nil;
+    [_mainView release];
+    [_twitterImageView release];
+    [_facebookImageView release];
+    [_safariImageView release];
+    [_mailImageView release];
+    [_webView release];
+    [_descriptionLabel release];
+    [_titleLabel release];
 
     [super dealloc];
 }

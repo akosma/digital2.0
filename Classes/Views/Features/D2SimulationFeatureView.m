@@ -128,7 +128,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
     }
     
     [context release];  
-    self.box = nil;
+    [_box release];
     [super dealloc];
 }
 
