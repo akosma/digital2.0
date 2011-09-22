@@ -52,6 +52,7 @@ NSString * const FeatureViewShouldMinimizeNotification = @"FeatureViewShouldMini
     [UIView animateWithDuration:0.4 
                      animations:^{
                          self.transform = CGAffineTransformIdentity;
+                         self.alpha = 1.0;
                      }];
 }
 
@@ -59,7 +60,11 @@ NSString * const FeatureViewShouldMinimizeNotification = @"FeatureViewShouldMini
 {
     [[self class] cancelPreviousPerformRequestsWithTarget:self];
     self.minimized = YES;
-    self.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [UIView animateWithDuration:0.4 
+                     animations:^{
+                         self.transform = CGAffineTransformMakeScale(0.01, 0.01);
+                         self.alpha = 0.0;
+                     }];
 }
 
 #pragma mark - Properties

@@ -415,6 +415,10 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 
 - (void)minimize
 {
+    if ([EAGLContext currentContext] == context) 
+    {
+        [EAGLContext setCurrentContext:nil];
+    }
     [self stopAnimation];
     [super minimize];
 }    
