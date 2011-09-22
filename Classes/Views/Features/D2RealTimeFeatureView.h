@@ -10,7 +10,7 @@
 #import "WeatherInfoManagerDelegate.h"
 #import "StockInfoManagerDelegate.h"
 
-@class BoxView;
+@class D2BoxView;
 
 @interface D2RealTimeFeatureView : D2FeatureView <WeatherInfoManagerDelegate,
                                                   StockInfoManagerDelegate,

@@ -18,8 +18,8 @@
 		3A0CEEA61209904500A1154C /* MovieFeatureMovieNames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A0CEEA51209904500A1154C /* MovieFeatureMovieNames.plist */; };
 		3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */; };
 		3A175D59142B2E830068C412 /* Entitlements.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 3A175D58142B2E820068C412 /* Entitlements.entitlements */; };
-		3A175D60142B40EE0068C412 /* BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A175D5C142B40D80068C412 /* BoxView.m */; };
-		3A175D61142B40EE0068C412 /* FontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A175D5F142B40EE0068C412 /* FontView.m */; };
+		3A175D60142B40EE0068C412 /* D2BoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A175D5C142B40D80068C412 /* D2BoxView.m */; };
+		3A175D61142B40EE0068C412 /* D2FontView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A175D5F142B40EE0068C412 /* D2FontView.m */; };
 		3A25C9F811BBFB6C00F08691 /* D2MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* D2MakingOfFeatureView.m */; };
 		3A3AF67311BC629B00BD6421 /* D2ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* D2ShopFeatureView.m */; };
 		3A3BA19411957B3C0021D14B /* D2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* D2AppDelegate.m */; };
@@ -206,10 +206,10 @@
 		3A0CEEA51209904500A1154C /* MovieFeatureMovieNames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MovieFeatureMovieNames.plist; sourceTree = "<group>"; };
 		3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PRES_VPS_640x360_1000Kbs - iPhone.m4v"; sourceTree = "<group>"; };
 		3A175D58142B2E820068C412 /* Entitlements.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Entitlements.entitlements; sourceTree = "<group>"; };
-		3A175D5B142B40D80068C412 /* BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxView.h; sourceTree = "<group>"; };
-		3A175D5C142B40D80068C412 /* BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxView.m; sourceTree = "<group>"; };
-		3A175D5E142B40EE0068C412 /* FontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontView.h; sourceTree = "<group>"; };
-		3A175D5F142B40EE0068C412 /* FontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontView.m; sourceTree = "<group>"; };
+		3A175D5B142B40D80068C412 /* D2BoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2BoxView.h; sourceTree = "<group>"; };
+		3A175D5C142B40D80068C412 /* D2BoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2BoxView.m; sourceTree = "<group>"; };
+		3A175D5E142B40EE0068C412 /* D2FontView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2FontView.h; sourceTree = "<group>"; };
+		3A175D5F142B40EE0068C412 /* D2FontView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2FontView.m; sourceTree = "<group>"; };
 		3A25C9F611BBFB6C00F08691 /* D2MakingOfFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2MakingOfFeatureView.h; sourceTree = "<group>"; };
 		3A25C9F711BBFB6C00F08691 /* D2MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2MakingOfFeatureView.m; sourceTree = "<group>"; };
 		3A3AF67111BC629B00BD6421 /* D2ShopFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ShopFeatureView.h; sourceTree = "<group>"; };
@@ -512,8 +512,8 @@
 		3A175D5A142B40D10068C412 /* BoxView */ = {
 			isa = PBXGroup;
 			children = (
-				3A175D5B142B40D80068C412 /* BoxView.h */,
-				3A175D5C142B40D80068C412 /* BoxView.m */,
+				3A175D5B142B40D80068C412 /* D2BoxView.h */,
+				3A175D5C142B40D80068C412 /* D2BoxView.m */,
 			);
 			path = BoxView;
 			sourceTree = "<group>";
@@ -521,8 +521,8 @@
 		3A175D5D142B40D80068C412 /* FontView */ = {
 			isa = PBXGroup;
 			children = (
-				3A175D5E142B40EE0068C412 /* FontView.h */,
-				3A175D5F142B40EE0068C412 /* FontView.m */,
+				3A175D5E142B40EE0068C412 /* D2FontView.h */,
+				3A175D5F142B40EE0068C412 /* D2FontView.m */,
 			);
 			path = FontView;
 			sourceTree = "<group>";
@@ -1246,8 +1246,8 @@
 				3A5667D011CFF0FA008D1943 /* D2SimulationFeatureView.m in Sources */,
 				3A56684311CFF866008D1943 /* D2ConnectivityFeatureView.m in Sources */,
 				3A0CED8A1209724400A1154C /* MPMoviePlayerController+Extensions.m in Sources */,
-				3A175D60142B40EE0068C412 /* BoxView.m in Sources */,
-				3A175D61142B40EE0068C412 /* FontView.m in Sources */,
+				3A175D60142B40EE0068C412 /* D2BoxView.m in Sources */,
+				3A175D61142B40EE0068C412 /* D2FontView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  BoxView.h
+//  D2BoxView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 6/19/10.
@@ -8,12 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BoxView : UIView 
-{
-@private
-    UILabel *_label;
-    UIScrollView *_scrollView;
-}
+@interface D2BoxView : UIView 
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, retain) UIFont *font;

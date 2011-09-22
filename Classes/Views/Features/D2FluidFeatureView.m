@@ -7,13 +7,13 @@
 //
 
 #import "D2FluidFeatureView.h"
-#import "BoxView.h"
+#import "D2BoxView.h"
 
 @interface D2FluidFeatureView ()
 
 @property (nonatomic, retain) UIImageView *photoView1;
 @property (nonatomic, retain) UIImageView *photoView2;
-@property (nonatomic, retain) BoxView *textView;
+@property (nonatomic, retain) D2BoxView *textView;
 @property (nonatomic) BOOL firstImage;
 
 @end
@@ -47,7 +47,7 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"loremipsum" ofType:@"txt"];
         NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
-        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 200.0, 328.0, 640.0)] autorelease];
+        self.textView = [[[D2BoxView alloc] initWithFrame:CGRectMake(384.0, 200.0, 328.0, 640.0)] autorelease];
         self.textView.text = text;
         self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
         [self addSubview:self.textView];

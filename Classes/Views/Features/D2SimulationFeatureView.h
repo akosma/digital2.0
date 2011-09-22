@@ -11,7 +11,7 @@
 #import <OpenGLES/ES1/glext.h>
 #import "D2FeatureView.h"
 
-@class BoxView;
+@class D2BoxView;
 
 @interface D2SimulationFeatureView : D2FeatureView
 {

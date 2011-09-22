@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import "D2SimulationFeatureView.h"
-#import "BoxView.h"
+#import "D2BoxView.h"
 
 #define DEGREES_TO_RADIANS(__ANGLE) ((__ANGLE) / 180.0 * M_PI)
 
@@ -18,7 +18,7 @@ static NSInteger USE_DEPTH_BUFFER = 1;
 
 @interface D2SimulationFeatureView ()
 
-@property (nonatomic, retain) BoxView *box;
+@property (nonatomic, retain) D2BoxView *box;
 @property (nonatomic) BOOL animating;
 
 - (BOOL)createFramebuffer;
@@ -108,7 +108,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 		[self setupView];
         [self startAnimation];
 
-        self.box = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 450.0, 328.0, 340.0)] autorelease];
+        self.box = [[[D2BoxView alloc] initWithFrame:CGRectMake(384.0, 450.0, 328.0, 340.0)] autorelease];
         self.box.text = NSLocalizedString(@"SIMULATION_FEATURE_VIEW_BOX_TEXT", @"Text for the box in the simulation feature");
         self.box.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
         self.box.backgroundColor = [UIColor colorWithWhite:0.75 alpha:0.75];

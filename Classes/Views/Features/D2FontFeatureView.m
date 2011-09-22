@@ -7,14 +7,14 @@
 //
 
 #import "D2FontFeatureView.h"
-#import "FontView.h"
+#import "D2FontView.h"
 #import "CustomFontView.h"
 
 @interface D2FontFeatureView ()
 
-@property (nonatomic, retain) FontView *webFontView;
-@property (nonatomic, retain) FontView *iPhoneFontView;
-@property (nonatomic, retain) FontView *iPadFontView;
+@property (nonatomic, retain) D2FontView *webFontView;
+@property (nonatomic, retain) D2FontView *iPhoneFontView;
+@property (nonatomic, retain) D2FontView *iPadFontView;
 @property (nonatomic, retain) CustomFontView *customView;
 
 @end
@@ -46,15 +46,15 @@
                                     options:nil];
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"WebFonts" ofType:@"plist"];
-        self.webFontView = [[[FontView alloc] initWithFrame:self.webPlaceholder.frame] autorelease];
+        self.webFontView = [[[D2FontView alloc] initWithFrame:self.webPlaceholder.frame] autorelease];
         self.webFontView.data = [NSDictionary dictionaryWithContentsOfFile:path];
         
         path = [[NSBundle mainBundle] pathForResource:@"iPhoneFonts" ofType:@"plist"];
-        self.iPhoneFontView = [[[FontView alloc] initWithFrame:self.iPhonePlaceholder.frame] autorelease];
+        self.iPhoneFontView = [[[D2FontView alloc] initWithFrame:self.iPhonePlaceholder.frame] autorelease];
         self.iPhoneFontView.data = [NSDictionary dictionaryWithContentsOfFile:path];
         
         path = [[NSBundle mainBundle] pathForResource:@"iPadFonts" ofType:@"plist"];
-        self.iPadFontView = [[[FontView alloc] initWithFrame:self.iPadPlaceholder.frame] autorelease];
+        self.iPadFontView = [[[D2FontView alloc] initWithFrame:self.iPadPlaceholder.frame] autorelease];
         self.iPadFontView.data = [NSDictionary dictionaryWithContentsOfFile:path];
         
         self.customView = [[[CustomFontView alloc] initWithFrame:self.customFontView.frame] autorelease];

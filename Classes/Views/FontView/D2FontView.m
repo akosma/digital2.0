@@ -1,15 +1,14 @@
 //
-//  FontView.m
+//  D2FontView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/19/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "FontView.h"
-#import <QuartzCore/QuartzCore.h>
+#import "D2FontView.h"
 
-@interface FontView ()
+@interface D2FontView ()
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) NSArray *keys;
@@ -17,15 +16,12 @@
 @end
 
 
-@implementation FontView
+@implementation D2FontView
 
 @synthesize tableView = _tableView;
 @synthesize keys = _keys;
-@dynamic fontSize;
-@dynamic data;
-
-#pragma mark -
-#pragma mark Init and dealloc
+@synthesize fontSize = _fontSize;
+@synthesize data = _data;
 
 - (id)initWithFrame:(CGRect)frame 
 {
@@ -59,8 +55,7 @@
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark UITableViewDataSource methods
+#pragma mark - UITableViewDataSource methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -89,8 +84,7 @@
     return cell;
 }
 
-#pragma mark -
-#pragma mark UITableViewDelegate methods
+#pragma mark - UITableViewDelegate methods
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -99,8 +93,7 @@
     return [fontName sizeWithFont:font].height + 5.0;
 }
 
-#pragma mark -
-#pragma mark Dynamic property
+#pragma mark - Overridden properties
 
 - (NSDictionary *)data
 {

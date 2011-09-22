@@ -1,5 +1,5 @@
 //
-//  FontView.h
+//  D2FontView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 6/19/10.
@@ -7,15 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
-@interface FontView : UIView <UITableViewDelegate, UITableViewDataSource>
-{
-@private
-    UITableView *_tableView;
-    NSDictionary *_data;
-    NSArray *_keys;
-    CGFloat _fontSize;
-}
+@interface D2FontView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSDictionary *data;
 @property (nonatomic) CGFloat fontSize;

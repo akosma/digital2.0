@@ -7,13 +7,13 @@
 //
 
 #import "D2MapFeatureView.h"
-#import "BoxView.h"
+#import "D2BoxView.h"
 #import "D2AppDelegate.h"
 
 @interface D2MapFeatureView ()
 
 @property (nonatomic, retain) MKMapView *mapView;
-@property (nonatomic, retain) BoxView *textView;
+@property (nonatomic, retain) D2BoxView *textView;
 
 @end
 
@@ -46,7 +46,7 @@
         NSString *path = [[NSBundle mainBundle] pathForResource:@"location" ofType:@"txt"];
         NSString *text = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
         
-        self.textView = [[[BoxView alloc] initWithFrame:CGRectMake(384.0, 580.0, 328.0, 240.0)] autorelease];
+        self.textView = [[[D2BoxView alloc] initWithFrame:CGRectMake(384.0, 580.0, 328.0, 240.0)] autorelease];
         self.textView.text = text;
         self.textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
         [self addSubview:self.textView];

@@ -10,7 +10,7 @@
 #import "D2WeatherInfoItem.h"
 #import "WeatherInfoManager.h"
 #import "WeatherInfoCell.h"
-#import "BoxView.h"
+#import "D2BoxView.h"
 #import "StockInfoManager.h"
 
 @interface D2RealTimeFeatureView ()
@@ -19,7 +19,7 @@
 @property (nonatomic, retain) UITableView *stockTableView;
 @property (nonatomic, retain) NSArray *weatherItems;
 @property (nonatomic, retain) NSArray *stockItems;
-@property (nonatomic, retain) BoxView *boxView;
+@property (nonatomic, retain) D2BoxView *boxView;
 
 - (UIImage *)iconForWeatherCode:(NSInteger)code;
 - (UIImage *)iconForStock:(NSString *)stock;
@@ -81,7 +81,7 @@
         self.descriptionPlaceholder.backgroundColor = [UIColor clearColor];
         self.weatherInfoPlaceholder.backgroundColor = [UIColor clearColor];
         self.stockInfoPlaceholder.backgroundColor = [UIColor clearColor];
-        self.boxView = [[[BoxView alloc] initWithFrame:self.descriptionPlaceholder.frame] autorelease];
+        self.boxView = [[[D2BoxView alloc] initWithFrame:self.descriptionPlaceholder.frame] autorelease];
         self.boxView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.25];
         self.boxView.text = text;
         

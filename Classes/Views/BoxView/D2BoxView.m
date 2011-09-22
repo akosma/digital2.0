@@ -1,15 +1,15 @@
 //
-//  BoxView.m
+//  D2BoxView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/19/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "BoxView.h"
+#import "D2BoxView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface BoxView ()
+@interface D2BoxView ()
 
 @property (nonatomic, retain) UILabel *label;
 @property (nonatomic, retain) UIScrollView *scrollView;
@@ -18,7 +18,7 @@
 
 
 
-@implementation BoxView
+@implementation D2BoxView
 
 @synthesize label = _label;
 @synthesize scrollView = _scrollView;
