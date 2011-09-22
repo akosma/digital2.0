@@ -67,7 +67,7 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.moviePlayer fullStop];
+    [_moviePlayer fullStop];
     [_moviePlayer release];
     [_mainMenuView release];
     [_vpsInfoButton release];
