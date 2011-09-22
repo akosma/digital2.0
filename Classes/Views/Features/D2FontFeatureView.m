@@ -1,16 +1,16 @@
 //
-//  FontFeatureView.m
+//  D2FontFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/19/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "FontFeatureView.h"
+#import "D2FontFeatureView.h"
 #import "FontView.h"
 #import "CustomFontView.h"
 
-@interface FontFeatureView ()
+@interface D2FontFeatureView ()
 
 @property (nonatomic, retain) FontView *webFontView;
 @property (nonatomic, retain) FontView *iPhoneFontView;
@@ -20,13 +20,12 @@
 @end
 
 
-@implementation FontFeatureView
+@implementation D2FontFeatureView
 
 @synthesize webFontView = _webFontView;
 @synthesize iPhoneFontView = _iPhoneFontView;
 @synthesize iPadFontView = _iPadFontView;
 @synthesize customView = _customView;
-
 @synthesize mainView = _mainView;
 @synthesize titleLabel = _titleLabel;
 @synthesize webLabel = _webLabel;
@@ -42,7 +41,7 @@
 {
     if ((self = [super initWithFrame:frame])) 
     {
-        [[NSBundle mainBundle] loadNibNamed:@"FontFeatureView"
+        [[NSBundle mainBundle] loadNibNamed:@"D2FontFeatureView"
                                       owner:self 
                                     options:nil];
         
@@ -76,21 +75,20 @@
 
 - (void)dealloc 
 {
-    self.webFontView = nil;
-    self.iPhoneFontView = nil;
-    self.iPadFontView = nil;
-    self.customView = nil;
-
-    self.mainView = nil;
-    self.titleLabel = nil;
-    self.webLabel = nil;
-    self.iPhoneLabel = nil;
-    self.iPadLabel = nil;
-    self.moreLabel = nil;
-    self.customFontView = nil;
-    self.webPlaceholder = nil;
-    self.iPhonePlaceholder = nil;
-    self.iPadPlaceholder = nil;
+    [_webFontView release];
+    [_iPhoneFontView release];
+    [_iPadFontView release];
+    [_customView release];
+    [_mainView release];
+    [_titleLabel release];
+    [_webLabel release];
+    [_iPhoneLabel release];
+    [_iPadLabel release];
+    [_moreLabel release];
+    [_customFontView release];
+    [_webPlaceholder release];
+    [_iPhonePlaceholder release];
+    [_iPadPlaceholder release];
 
     [super dealloc];
 }

@@ -1,5 +1,5 @@
 //
-//  FeatureView.h
+//  D2FeatureView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 5/20/10.
@@ -8,16 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define FeatureViewShouldMinimizeNotification @"FeatureViewShouldMinimizeNotification"
+extern NSString * const FeatureViewShouldMinimizeNotification;
 
-@interface FeatureView : UIView 
-{
-@private
-    UIInterfaceOrientation _orientation;
-    BOOL _requiresNetwork;
-    BOOL _minimized;
-    BOOL _shouldBeCached;
-}
+@interface D2FeatureView : UIView 
 
 @property (nonatomic) UIInterfaceOrientation orientation;
 @property (nonatomic) BOOL requiresNetwork;

@@ -1,16 +1,16 @@
 //
-//  MapFeatureView.m
+//  D2MapFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/19/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "MapFeatureView.h"
+#import "D2MapFeatureView.h"
 #import "BoxView.h"
 #import "D2AppDelegate.h"
 
-@interface MapFeatureView ()
+@interface D2MapFeatureView ()
 
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic, retain) BoxView *textView;
@@ -19,7 +19,7 @@
 
 
 
-@implementation MapFeatureView
+@implementation D2MapFeatureView
 
 @synthesize mapView = _mapView;
 @synthesize textView = _textView;

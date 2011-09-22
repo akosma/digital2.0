@@ -9,18 +9,18 @@
 #import "D2MainMenuController.h"
 #import "D2MainMenuView.h"
 #import "SoundManager.h"
-#import "FeatureView.h"
-#import "FluidFeatureView.h"
-#import "MovieFeatureView.h"
-#import "RealTimeFeatureView.h"
-#import "MakingOfFeatureView.h"
-#import "MapFeatureView.h"
-#import "FontFeatureView.h"
-#import "ShopFeatureView.h"
+#import "D2FeatureView.h"
+#import "D2FluidFeatureView.h"
+#import "D2MovieFeatureView.h"
+#import "D2RealTimeFeatureView.h"
+#import "D2MakingOfFeatureView.h"
+#import "D2MapFeatureView.h"
+#import "D2FontFeatureView.h"
+#import "D2ShopFeatureView.h"
 #import "D2AppDelegate.h"
 #import "D2AboutController.h"
-#import "SimulationFeatureView.h"
-#import "ConnectivityFeatureView.h"
+#import "D2SimulationFeatureView.h"
+#import "D2ConnectivityFeatureView.h"
 #import "MPMoviePlayerController+Extensions.h"
 
 @interface D2MainMenuController ()
@@ -28,7 +28,7 @@
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) UIPopoverController *popover;
 @property (nonatomic, retain) SoundManager *soundManager;
-@property (nonatomic, retain) FeatureView *featureView;
+@property (nonatomic, retain) D2FeatureView *featureView;
 @property (nonatomic) NSInteger lastTag;
 @property (nonatomic, retain) NSMutableDictionary *viewCache;
 @property (nonatomic) BOOL externalScreenAvailable;
@@ -165,7 +165,6 @@
 - (void)minimizeCurrentFeatureView
 {
     [self.featureView minimize];
-    [_featureView release];
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
 }
 
@@ -335,7 +334,7 @@
     else
     {
         NSNumber *key = [NSNumber numberWithInt:tag];
-        FeatureView *nextFeatureView = [self.viewCache objectForKey:key];
+        D2FeatureView *nextFeatureView = [self.viewCache objectForKey:key];
         SoundEffect *sound = nil;
         switch (tag) 
         {
@@ -344,7 +343,7 @@
                 sound = self.soundManager.sound11;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2FluidFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -354,7 +353,7 @@
                 sound = self.soundManager.sound12;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2FontFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -364,7 +363,7 @@
                 sound = self.soundManager.sound13;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2ShopFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -374,7 +373,7 @@
                 sound = self.soundManager.sound21;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2MovieFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -384,7 +383,7 @@
                 sound = self.soundManager.sound22;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2RealTimeFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -394,7 +393,7 @@
                 sound = self.soundManager.sound23;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2SimulationFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -404,7 +403,7 @@
                 sound = self.soundManager.sound31;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2MapFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -414,7 +413,7 @@
                 sound = self.soundManager.sound32;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2ConnectivityFeatureView featureViewWithOrientation:self.interfaceOrientation];
                 }
                 break;
             }
@@ -424,7 +423,7 @@
                 sound = self.soundManager.sound33;
                 if (nextFeatureView == nil)
                 {
-                    nextFeatureView = [MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
+                    nextFeatureView = [D2MakingOfFeatureView featureViewWithOrientation:self.interfaceOrientation];
                     self.featureReferenceView.backgroundColor = [UIColor blackColor];
                 }
                 break;

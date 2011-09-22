@@ -1,15 +1,15 @@
 //
-//  FluidFeatureView.m
+//  D2FluidFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/20/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "FluidFeatureView.h"
+#import "D2FluidFeatureView.h"
 #import "BoxView.h"
 
-@interface FluidFeatureView ()
+@interface D2FluidFeatureView ()
 
 @property (nonatomic, retain) UIImageView *photoView1;
 @property (nonatomic, retain) UIImageView *photoView2;
@@ -19,7 +19,7 @@
 @end
 
 
-@implementation FluidFeatureView
+@implementation D2FluidFeatureView
 
 @synthesize photoView1 = _photoView1;
 @synthesize photoView2 = _photoView2;
@@ -61,9 +61,9 @@
 
 - (void)dealloc 
 {
-    self.photoView1 = nil;
-    self.photoView2 = nil;
-    self.textView = nil;
+    [_photoView1 release];
+    [_photoView2 release];
+    [_textView release];
     [super dealloc];
 }
 

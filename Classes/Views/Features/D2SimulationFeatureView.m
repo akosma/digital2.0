@@ -1,5 +1,5 @@
 //
-//  EAGLView.m
+//  D2SimulationFeatureView.m
 //  Lorenz
 //
 //  Created by Adrian Kosmaczewski on 03/11/09.
@@ -8,14 +8,15 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGLDrawable.h>
-#import "SimulationFeatureView.h"
+#import "D2SimulationFeatureView.h"
 #import "BoxView.h"
 
-#define ROTATION_ANGLE_STEP 5.0
-#define USE_DEPTH_BUFFER 1
 #define DEGREES_TO_RADIANS(__ANGLE) ((__ANGLE) / 180.0 * M_PI)
 
-@interface SimulationFeatureView ()
+static CGFloat ROTATION_ANGLE_STEP = 5.0;
+static NSInteger USE_DEPTH_BUFFER = 1;
+
+@interface D2SimulationFeatureView ()
 
 @property (nonatomic, retain) BoxView *box;
 @property (nonatomic) BOOL animating;
@@ -23,6 +24,11 @@
 - (BOOL)createFramebuffer;
 - (void)destroyFramebuffer;
 - (void)animate;
+- (void)startAnimation;
+- (void)stopAnimation;
+- (void)drawView;
+- (void)setupView;
+- (void)checkGLError:(BOOL)visibleCheck;
 
 @end
 
@@ -45,7 +51,7 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
     return distance;
 }
 
-@implementation SimulationFeatureView
+@implementation D2SimulationFeatureView
 
 @synthesize box = _box;
 @synthesize animating = _animating;
@@ -417,8 +423,8 @@ static CGFloat distanceBetweenPoints(CGPoint firstPoint, CGPoint secondPoint)
 
 - (void)minimize
 {
-    [super minimize];
     [self stopAnimation];
+    [super minimize];
 }    
 
 @end

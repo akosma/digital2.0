@@ -1,19 +1,19 @@
 //
-//  RealTimeFeatureView.m
+//  D2RealTimeFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/21/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "RealTimeFeatureView.h"
+#import "D2RealTimeFeatureView.h"
 #import "D2WeatherInfoItem.h"
 #import "WeatherInfoManager.h"
 #import "WeatherInfoCell.h"
 #import "BoxView.h"
 #import "StockInfoManager.h"
 
-@interface RealTimeFeatureView ()
+@interface D2RealTimeFeatureView ()
 
 @property (nonatomic, retain) UITableView *weatherTableView;
 @property (nonatomic, retain) UITableView *stockTableView;
@@ -27,7 +27,7 @@
 @end
 
 
-@implementation RealTimeFeatureView
+@implementation D2RealTimeFeatureView
 
 @synthesize weatherTableView = _weatherTableView;
 @synthesize weatherItems = _weatherItems;
@@ -49,7 +49,7 @@
     {
         self.requiresNetwork = YES;
 
-        [[NSBundle mainBundle] loadNibNamed:@"RealTimeFeatureView" 
+        [[NSBundle mainBundle] loadNibNamed:@"D2RealTimeFeatureView" 
                                       owner:self 
                                     options:nil];
         
@@ -96,24 +96,24 @@
 - (void)dealloc 
 {
     [WeatherInfoManager sharedWeatherInfoManager].delegate = nil;
-    self.weatherItems = nil;
-    self.stockItems = nil;
-    self.weatherTableView.delegate = nil;
-    self.weatherTableView.dataSource = nil;
-    self.weatherTableView = nil;
-    self.stockTableView.delegate = nil;
-    self.stockTableView.dataSource = nil;
-    self.stockTableView = nil;
-    self.mainView = nil;
+    [_weatherItems release];
+    [_stockItems release];
+    _weatherTableView.delegate = nil;
+    _weatherTableView.dataSource = nil;
+    [_weatherTableView release];
+    _stockTableView.delegate = nil;
+    _stockTableView.dataSource = nil;
+    [_stockTableView release];
+    [_mainView release];
 
-    self.titleLabel = nil;
-    self.descriptionPlaceholder = nil;
-    self.weatherInfoPlaceholder = nil;
-    self.stockInfoPlaceholder = nil;
-    self.stockTitleLabel = nil;
-    self.meteoTitleLabel = nil;
+    [_titleLabel release];
+    [_descriptionPlaceholder release];
+    [_weatherInfoPlaceholder release];
+    [_stockInfoPlaceholder release];
+    [_stockTitleLabel release];
+    [_meteoTitleLabel release];
     
-    self.boxView = nil;
+    [_boxView release];
     [super dealloc];
 }
 

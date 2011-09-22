@@ -1,15 +1,15 @@
 //
-//  MakingOfFeatureView.m
+//  D2MakingOfFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/6/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "MakingOfFeatureView.h"
+#import "D2MakingOfFeatureView.h"
 #import "MPMoviePlayerController+Extensions.h"
 
-@interface MakingOfFeatureView ()
+@interface D2MakingOfFeatureView ()
 
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) UILabel *label;
@@ -17,7 +17,7 @@
 @end
 
 
-@implementation MakingOfFeatureView
+@implementation D2MakingOfFeatureView
 
 @synthesize moviePlayer = _moviePlayer;
 @synthesize label = _label;
@@ -42,9 +42,8 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
-    [self.moviePlayer fullStop];
-    self.moviePlayer = nil;
+    [_moviePlayer fullStop];
+    [_moviePlayer release];
     [super dealloc];
 }
 
@@ -86,7 +85,6 @@
 - (void)removeFromSuperview
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [MakingOfFeatureView cancelPreviousPerformRequestsWithTarget:self];
     [self.moviePlayer fullStop];
     self.moviePlayer = nil;
 

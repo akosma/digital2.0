@@ -1,5 +1,5 @@
 //
-//  ConnectivityFeatureView.h
+//  D2ConnectivityFeatureView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 6/21/10.
@@ -7,22 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FeatureView.h"
+#import "D2FeatureView.h"
 
-#define ConnectivityFeatureViewOpenShareByEmailNotification @"ConnectivityFeatureViewOpenShareByEmailNotification"
+extern NSString * const ConnectivityFeatureViewOpenShareByEmailNotification;
 
-@interface ConnectivityFeatureView : FeatureView
-{
-@private
-    UIView *_mainView;
-    UIImageView *_twitterImageView;
-    UIImageView *_facebookImageView;
-    UIImageView *_safariImageView;
-    UIImageView *_mailImageView;
-    UIWebView *_webView;
-    UILabel *_descriptionLabel;
-    UILabel *_titleLabel;
-}
+@interface D2ConnectivityFeatureView : D2FeatureView
 
 @property (nonatomic, retain) IBOutlet UIView *mainView;
 @property (nonatomic, retain) IBOutlet UIImageView *twitterImageView;

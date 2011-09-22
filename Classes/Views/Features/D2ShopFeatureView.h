@@ -1,5 +1,5 @@
 //
-//  ShopFeatureView.h
+//  D2ShopFeatureView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 6/6/10.
@@ -8,52 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
-#import "FeatureView.h"
+#import "D2FeatureView.h"
 
-typedef enum {
-    CurrentDressNone = 0,
-    CurrentDressCity = 1,
-    CurrentDressBeach = 2,
-    CurrentDressNight = 3,
-    CurrentDressGolf = 4
-} CurrentDress;
 
-@interface ShopFeatureView : FeatureView
-{
-@private
-    UIImageView *_contourCity;
-    UIImageView *_dressCity;
-    UIImageView *_contourBeach;
-    UIImageView *_dressBeach;
-    UIImageView *_contourNight;
-    UIImageView *_dressNight;
-    UIImageView *_contourGolf;
-    UIImageView *_dressGolf;
-    
-    UILabel *_titleLabel;
-    UILabel *_descriptionLabel;
-    UILabel *_cityPriceLabel;
-    UILabel *_plagePriceLabel;
-    UILabel *_nightPriceLabel;
-    UILabel *_golfPriceLabel;
-    
-    UIView *_videoView;
-    UIView *_mainView;
-    
-    CurrentDress _currentDress;
-    UIImageView *_currentDressImage;
-    CGPoint _originalDragPoint;
-    CGPoint _lastRegisteredPoint;
-    
-    CGRect _dressCityFrame;
-    CGRect _dressBeachFrame;
-    CGRect _dressNightFrame;
-    CGRect _dressGolfFrame;
-
-    MPMoviePlayerController *_moviePlayer;
-    
-    BOOL _defileMode;
-}
+@interface D2ShopFeatureView : D2FeatureView
 
 @property (nonatomic, retain) IBOutlet UIImageView *contourCity;
 @property (nonatomic, retain) IBOutlet UIImageView *dressCity;

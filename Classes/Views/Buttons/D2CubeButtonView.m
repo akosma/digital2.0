@@ -23,9 +23,9 @@
 - (void)subclassSetup
 {
     self.clipsToBounds = YES;
-    self.eaglView = [[[EAGLView alloc] initWithFrame:CGRectMake(0.0, 0.0, 175.0, 175.0)] autorelease];
-    [self initializeTimer];
-    [self addSubview:self.eaglView];
+//    self.eaglView = [[[EAGLView alloc] initWithFrame:CGRectMake(0.0, 0.0, 175.0, 175.0)] autorelease];
+//    [self initializeTimer];
+//    [self addSubview:self.eaglView];
 }
 
 - (void)animate

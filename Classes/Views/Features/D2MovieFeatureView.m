@@ -1,15 +1,15 @@
 //
-//  MovieFeatureView.m
+//  D2MovieFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/20/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "MovieFeatureView.h"
+#import "D2MovieFeatureView.h"
 #import "MPMoviePlayerController+Extensions.h"
 
-@interface MovieFeatureView ()
+@interface D2MovieFeatureView ()
 
 @property (nonatomic, retain) MPMoviePlayerController *movieController;
 @property (nonatomic) NSInteger currentMovieID;
@@ -24,7 +24,7 @@
 @end
 
 
-@implementation MovieFeatureView
+@implementation D2MovieFeatureView
 
 @synthesize movieController = _movieController;
 @synthesize currentMovieID = _currentMovieID;
@@ -87,15 +87,15 @@
 - (void)dealloc 
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.movieController fullStop];
-    self.movieController = nil;
+    [_movieController fullStop];
+    [_movieController release];
     
-    self.texts = nil;
-    self.movieNames = nil;
-    self.titleLabel = nil;
-    self.textLabel = nil;
-    self.rightButton = nil;
-    self.leftButton = nil;
+    [_texts release];
+    [_movieNames release];
+    [_titleLabel release];
+    [_textLabel release];
+    [_rightButton release];
+    [_leftButton release];
     [super dealloc];
 }
 
@@ -155,7 +155,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.currentMovieID = 0;
     [self.movieController fullStop];
-    self.movieController = nil;
+    [_movieController release];
     
     // When FeatureViews are minimized, they are animated, which might trigger
     // a replay of the embedded video; in feature views with video, we

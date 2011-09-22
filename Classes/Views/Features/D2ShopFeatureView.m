@@ -1,17 +1,26 @@
 //
-//  ShopFeatureView.m
+//  D2ShopFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/6/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "ShopFeatureView.h"
+#import "D2ShopFeatureView.h"
 #import "MPMoviePlayerController+Extensions.h"
 
-@interface ShopFeatureView ()
+typedef enum {
+    D2ShopFeatureViewCurrentDressNone = 0,
+    D2ShopFeatureViewCurrentDressCity = 1,
+    D2ShopFeatureViewCurrentDressBeach = 2,
+    D2ShopFeatureViewCurrentDressNight = 3,
+    D2ShopFeatureViewCurrentDressGolf = 4
+} D2ShopFeatureViewCurrentDress;
 
-@property (nonatomic) CurrentDress currentDress;
+
+@interface D2ShopFeatureView ()
+
+@property (nonatomic) D2ShopFeatureViewCurrentDress currentDress;
 @property (nonatomic, assign) UIImageView *currentDressImage;
 @property (nonatomic) CGPoint originalDragPoint;
 @property (nonatomic) CGPoint lastRegisteredPoint;
@@ -29,7 +38,7 @@
 
 
 
-@implementation ShopFeatureView
+@implementation D2ShopFeatureView
 
 @synthesize contourCity = _contourCity;
 @synthesize dressCity = _dressCity;
@@ -65,7 +74,7 @@
 {
     if (self = [super initWithFrame:frame])
     {
-        [[NSBundle mainBundle] loadNibNamed:@"ShopFeatureView" 
+        [[NSBundle mainBundle] loadNibNamed:@"D2ShopFeatureView" 
                                       owner:self
                                     options:nil];
 
@@ -111,30 +120,27 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self.moviePlayer fullStop];
-    self.moviePlayer = nil;
+    [_moviePlayer fullStop];
+    [_moviePlayer release];
     
-    self.contourCity = nil;
-    self.dressCity = nil;
-    self.contourBeach = nil;
-    self.dressBeach = nil;
-    self.contourNight = nil;
-    self.dressNight = nil;
-    self.contourGolf = nil;
-    self.dressGolf = nil;
-    self.titleLabel = nil;
-    self.descriptionLabel = nil;
-    self.cityPriceLabel = nil;
-    self.plagePriceLabel = nil;
-    self.nightPriceLabel = nil;
-    self.golfPriceLabel = nil;
-    self.videoView = nil;
-    self.mainView = nil;
-    self.currentDressImage = nil;
-    
-    [self.moviePlayer stop];
-    self.moviePlayer = nil;
-    
+    [_contourCity release];
+    [_dressCity release];
+    [_contourBeach release];
+    [_dressBeach release];
+    [_contourNight release];
+    [_dressNight release];
+    [_contourGolf release];
+    [_dressGolf release];
+    [_titleLabel release];
+    [_descriptionLabel release];
+    [_cityPriceLabel release];
+    [_plagePriceLabel release];
+    [_nightPriceLabel release];
+    [_golfPriceLabel release];
+    [_videoView release];
+    [_mainView release];
+    [_currentDressImage release];
+
     [super dealloc];
 }
                                               
@@ -148,19 +154,19 @@
         self.currentDressImage = (UIImageView *)recognizer.view;
         if (self.currentDressImage == self.dressCity)
         {
-            self.currentDress = CurrentDressCity;
+            self.currentDress = D2ShopFeatureViewCurrentDressCity;
         }
         else if (self.currentDressImage == self.dressBeach)
         {
-            self.currentDress = CurrentDressBeach;
+            self.currentDress = D2ShopFeatureViewCurrentDressBeach;
         }
         else if (self.currentDressImage == self.dressNight)
         {
-            self.currentDress = CurrentDressNight;
+            self.currentDress = D2ShopFeatureViewCurrentDressNight;
         }
         else if (self.currentDressImage == self.dressGolf)
         {
-            self.currentDress = CurrentDressGolf;
+            self.currentDress = D2ShopFeatureViewCurrentDressGolf;
         }
     }
 }
@@ -218,19 +224,19 @@
         {
             if (self.currentDressImage == self.dressCity)
             {
-                self.currentDress = CurrentDressCity;
+                self.currentDress = D2ShopFeatureViewCurrentDressCity;
             }
             else if (self.currentDressImage == self.dressBeach)
             {
-                self.currentDress = CurrentDressBeach;
+                self.currentDress = D2ShopFeatureViewCurrentDressBeach;
             }
             else if (self.currentDressImage == self.dressNight)
             {
-                self.currentDress = CurrentDressNight;
+                self.currentDress = D2ShopFeatureViewCurrentDressNight;
             }
             else if (self.currentDressImage == self.dressGolf)
             {
-                self.currentDress = CurrentDressGolf;
+                self.currentDress = D2ShopFeatureViewCurrentDressGolf;
             }
         }
         else
@@ -268,15 +274,15 @@
 - (void)maximize
 {
     [super maximize];
-    self.currentDress = CurrentDressCity;
+    self.currentDress = D2ShopFeatureViewCurrentDressCity;
 }
 
 - (void)removeFromSuperview
 {
-    self.currentDress = CurrentDressNone;
+    self.currentDress = D2ShopFeatureViewCurrentDressNone;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.moviePlayer fullStop];
-    self.moviePlayer = nil;
+    [_moviePlayer release];
     
     // When FeatureViews are minimized, they are animated, which triggers
     // a replay of the embedded video; in feature views with video, we
@@ -353,7 +359,7 @@
         self.defileMode = NO;
         switch (self.currentDress) 
         {
-            case CurrentDressBeach:
+            case D2ShopFeatureViewCurrentDressBeach:
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"beach1" ofType:@"mp4"];
                 NSURL *url = [NSURL fileURLWithPath:path];
@@ -361,7 +367,7 @@
                 break;
             }
                 
-            case CurrentDressGolf:
+            case D2ShopFeatureViewCurrentDressGolf:
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"golf1" ofType:@"mp4"];
                 NSURL *url = [NSURL fileURLWithPath:path];
@@ -369,7 +375,7 @@
                 break;
             }
                 
-            case CurrentDressNight:
+            case D2ShopFeatureViewCurrentDressNight:
             {
                 NSString *path = [[NSBundle mainBundle] pathForResource:@"night1" ofType:@"mp4"];
                 NSURL *url = [NSURL fileURLWithPath:path];
@@ -413,18 +419,18 @@
 #pragma mark -
 #pragma mark Private methods
 
-- (void)setCurrentDress:(CurrentDress)dress
+- (void)setCurrentDress:(D2ShopFeatureViewCurrentDress)dress
 {
     if (dress != self.currentDress)
     {
         _currentDress = dress;
 
-        if (self.currentDress != CurrentDressNone)
+        if (self.currentDress != D2ShopFeatureViewCurrentDressNone)
         {
-            self.contourCity.hidden = (self.currentDress != CurrentDressCity);
-            self.contourBeach.hidden = (self.currentDress != CurrentDressBeach);
-            self.contourNight.hidden = (self.currentDress != CurrentDressNight);
-            self.contourGolf.hidden = (self.currentDress != CurrentDressGolf);
+            self.contourCity.hidden = (self.currentDress != D2ShopFeatureViewCurrentDressCity);
+            self.contourBeach.hidden = (self.currentDress != D2ShopFeatureViewCurrentDressBeach);
+            self.contourNight.hidden = (self.currentDress != D2ShopFeatureViewCurrentDressNight);
+            self.contourGolf.hidden = (self.currentDress != D2ShopFeatureViewCurrentDressGolf);
 
             self.dressCity.hidden = !self.contourCity.hidden;
             self.dressBeach.hidden = !self.contourBeach.hidden;
@@ -438,7 +444,7 @@
 
             switch (self.currentDress) 
             {
-                case CurrentDressBeach:
+                case D2ShopFeatureViewCurrentDressBeach:
                 {
                     self.defileMode = YES;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"beach2" ofType:@"mp4"];
@@ -447,7 +453,7 @@
                     break;
                 }
                     
-                case CurrentDressCity:
+                case D2ShopFeatureViewCurrentDressCity:
                 {
                     self.defileMode = NO;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"city" ofType:@"mp4"];
@@ -456,7 +462,7 @@
                     break;
                 }
                     
-                case CurrentDressGolf:
+                case D2ShopFeatureViewCurrentDressGolf:
                 {
                     self.defileMode = YES;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"golf2" ofType:@"mp4"];
@@ -465,7 +471,7 @@
                     break;
                 }
                     
-                case CurrentDressNight:
+                case D2ShopFeatureViewCurrentDressNight:
                 {
                     self.defileMode = YES;
                     NSString *path = [[NSBundle mainBundle] pathForResource:@"night2" ofType:@"mp4"];

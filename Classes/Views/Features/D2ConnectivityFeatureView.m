@@ -1,14 +1,18 @@
 //
-//  ConnectivityFeatureView.m
+//  D2ConnectivityFeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/21/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "ConnectivityFeatureView.h"
+#import "D2ConnectivityFeatureView.h"
 
-@interface ConnectivityFeatureView ()
+
+NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"ConnectivityFeatureViewOpenShareByEmailNotification";
+
+
+@interface D2ConnectivityFeatureView ()
 
 - (void)loadWebsite:(NSString *)urlString;
 - (void)shareViaEmail;
@@ -17,7 +21,7 @@
 
 
 
-@implementation ConnectivityFeatureView
+@implementation D2ConnectivityFeatureView
 
 @synthesize mainView = _mainView;
 @synthesize twitterImageView = _twitterImageView;

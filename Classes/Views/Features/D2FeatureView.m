@@ -1,21 +1,22 @@
 //
-//  FeatureView.m
+//  D2FeatureView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/20/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "FeatureView.h"
+#import "D2FeatureView.h"
 
-#define MINIMIZE_ANIMATION_ID @"MINIMIZE_ANIMATION_ID"
+NSString * const FeatureViewShouldMinimizeNotification = @"FeatureViewShouldMinimizeNotification";
 
-@implementation FeatureView
+
+@implementation D2FeatureView
 
 @synthesize requiresNetwork = _requiresNetwork;
 @synthesize minimized = _minimized;
 @synthesize shouldBeCached = _shouldBeCached;
-@dynamic orientation;
+@synthesize orientation = _orientation;
 
 + (id)featureViewWithOrientation:(UIInterfaceOrientation)orientation
 {
@@ -38,13 +39,7 @@
     return self;
 }
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
-
-#pragma mark -
-#pragma mark Public methods
+#pragma mark - Public methods
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
 {
@@ -62,13 +57,12 @@
 
 - (void)minimize
 {
+    [[self class] cancelPreviousPerformRequestsWithTarget:self];
     self.minimized = YES;
     self.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    [self removeFromSuperview];
 }
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (UIInterfaceOrientation)orientation
 {
@@ -77,7 +71,7 @@
 
 - (void)setOrientation:(UIInterfaceOrientation)newOrientation
 {
-    if (newOrientation != self.orientation)
+    if (newOrientation != _orientation)
     {
         _orientation = newOrientation;
         if (UIInterfaceOrientationIsPortrait(newOrientation))
