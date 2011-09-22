@@ -1,12 +1,12 @@
 //
-//  MainMenuController.m
+//  D2MainMenuController.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/8/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "MainMenuController.h"
+#import "D2MainMenuController.h"
 #import "MainMenuView.h"
 #import "SoundManager.h"
 #import "FeatureView.h"
@@ -23,7 +23,7 @@
 #import "ConnectivityFeatureView.h"
 #import "MPMoviePlayerController+Extensions.h"
 
-@interface MainMenuController ()
+@interface D2MainMenuController ()
 
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) UIPopoverController *popover;
@@ -34,6 +34,7 @@
 @property (nonatomic) BOOL externalScreenAvailable;
 @property (nonatomic, retain) IBOutlet UIWindow *externalWindow;
 @property (nonatomic, assign) UIScreen *externalScreen;
+@property (nonatomic, retain) AboutController *aboutController;
 
 - (void)restoreMenu;
 - (void)shareViaEmail;
@@ -45,7 +46,7 @@
 @end
 
 
-@implementation MainMenuController
+@implementation D2MainMenuController
 
 @synthesize moviePlayer = _moviePlayer;
 @synthesize mainMenuView = _mainMenuView;
@@ -67,19 +68,19 @@
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.moviePlayer fullStop];
-    self.moviePlayer = nil;
-    self.mainMenuView = nil;
-    self.vpsInfoButton = nil;
-    self.moserInfoButton = nil;
-    self.akosmaInfoButton = nil;
-    self.popover = nil;
-    self.soundManager = nil;
-    self.featureView = nil;
-    self.featureReferenceView = nil;
-    self.aboutController = nil;
-    self.viewCache = nil;
-    self.externalWindow = nil;
-    self.externalScreen = nil;
+    [_moviePlayer release];
+    [_mainMenuView release];
+    [_vpsInfoButton release];
+    [_moserInfoButton release];
+    [_akosmaInfoButton release];
+    [_popover release];
+    [_soundManager release];
+    [_featureView release];
+    [_featureReferenceView release];
+    [_aboutController release];
+    [_viewCache release];
+    [_externalWindow release];
+    [_externalScreen release];
 
     [super dealloc];
 }
@@ -159,13 +160,12 @@
 #endif
 }
 
-#pragma mark -
-#pragma mark Private methods
+#pragma mark - Private methods
 
 - (void)minimizeCurrentFeatureView
 {
     [self.featureView minimize];
-    self.featureView = nil;
+    [_featureView release];
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
 }
 
@@ -239,8 +239,7 @@
     self.featureView.orientation = self.interfaceOrientation;
 }
 
-#pragma mark -
-#pragma mark MFMailComposeViewControllerDelegate methods
+#pragma mark - MFMailComposeViewControllerDelegate methods
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller 
           didFinishWithResult:(MFMailComposeResult)result 
@@ -249,8 +248,7 @@
     [controller dismissModalViewControllerAnimated:YES];
 }
 
-#pragma mark -
-#pragma mark UIViewController methods
+#pragma mark - UIViewController methods
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation 
 {
@@ -282,8 +280,7 @@
     [self.viewCache removeAllObjects];
 }
 
-#pragma mark -
-#pragma mark IBAction methods
+#pragma mark - IBAction methods
 
 - (IBAction)showInfo:(id)sender
 {
@@ -324,8 +321,7 @@
     [self restoreMenu];
 }
 
-#pragma mark -
-#pragma mark MainMenuViewDelegate methods
+#pragma mark - MainMenuViewDelegate methods
 
 - (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
@@ -474,8 +470,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark NSNotification handlers
+#pragma mark - NSNotification handlers
 
 - (void)movieReady:(NSNotification *)notification
 {
@@ -512,8 +507,8 @@
     }
     else if ([[notification name] isEqualToString:UIScreenDidDisconnectNotification])
     {
-        self.externalScreen = nil;
-        self.externalWindow = nil;
+        [_externalScreen release];
+        [_externalWindow release];
         self.externalScreenAvailable = NO;
         [self showCurrentFeatureInStandardScreen];
     }

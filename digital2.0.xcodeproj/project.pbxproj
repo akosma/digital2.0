@@ -31,8 +31,8 @@
 		3A3BA1AF11957C3D0021D14B /* button_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1A511957C3D0021D14B /* button_32.png */; };
 		3A3BA1B011957C3D0021D14B /* button_33.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1A611957C3D0021D14B /* button_33.png */; };
 		3A3BA1B111957C3D0021D14B /* button_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1A711957C3D0021D14B /* button_background.png */; };
-		3A3BA1D9119581240021D14B /* MainMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1D8119581240021D14B /* MainMenuController.xib */; };
-		3A3BA1DD1195813A0021D14B /* MainMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA1DC1195813A0021D14B /* MainMenuController.m */; };
+		3A3BA1D9119581240021D14B /* D2MainMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1D8119581240021D14B /* D2MainMenuController.xib */; };
+		3A3BA1DD1195813A0021D14B /* D2MainMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA1DC1195813A0021D14B /* D2MainMenuController.m */; };
 		3A3BA1E7119581970021D14B /* bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1E1119581970021D14B /* bar.png */; };
 		3A3BA1E8119581970021D14B /* companies.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1E2119581970021D14B /* companies.png */; };
 		3A3BA1E9119581970021D14B /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA1E3119581970021D14B /* Default-Landscape.png */; };
@@ -223,9 +223,9 @@
 		3A3BA1A511957C3D0021D14B /* button_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_32.png; sourceTree = "<group>"; };
 		3A3BA1A611957C3D0021D14B /* button_33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_33.png; sourceTree = "<group>"; };
 		3A3BA1A711957C3D0021D14B /* button_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_background.png; sourceTree = "<group>"; };
-		3A3BA1D8119581240021D14B /* MainMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenuController.xib; sourceTree = "<group>"; };
-		3A3BA1DB1195813A0021D14B /* MainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuController.h; sourceTree = "<group>"; };
-		3A3BA1DC1195813A0021D14B /* MainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuController.m; sourceTree = "<group>"; };
+		3A3BA1D8119581240021D14B /* D2MainMenuController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = D2MainMenuController.xib; sourceTree = "<group>"; };
+		3A3BA1DB1195813A0021D14B /* D2MainMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2MainMenuController.h; sourceTree = "<group>"; };
+		3A3BA1DC1195813A0021D14B /* D2MainMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2MainMenuController.m; sourceTree = "<group>"; };
 		3A3BA1E1119581970021D14B /* bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar.png; sourceTree = "<group>"; };
 		3A3BA1E2119581970021D14B /* companies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = companies.png; sourceTree = "<group>"; };
 		3A3BA1E3119581970021D14B /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
@@ -536,8 +536,8 @@
 		3A3BA19211957B3C0021D14B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3A3BA1DB1195813A0021D14B /* MainMenuController.h */,
-				3A3BA1DC1195813A0021D14B /* MainMenuController.m */,
+				3A3BA1DB1195813A0021D14B /* D2MainMenuController.h */,
+				3A3BA1DC1195813A0021D14B /* D2MainMenuController.m */,
 				3A5665CA11CFB980008D1943 /* AboutController.h */,
 				3A5665CB11CFB980008D1943 /* AboutController.m */,
 			);
@@ -597,7 +597,7 @@
 			children = (
 				3A5665E011CFBA75008D1943 /* AboutController.xib */,
 				3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */,
-				3A3BA1D8119581240021D14B /* MainMenuController.xib */,
+				3A3BA1D8119581240021D14B /* D2MainMenuController.xib */,
 				3A3BA19811957B580021D14B /* MainWindow.xib */,
 				3ABD1D6111CE6EC500336F42 /* RealTimeFeatureView.xib */,
 				3AC0CF1E11CD1EDE006C8C12 /* ShopFeatureView.xib */,
@@ -1071,7 +1071,7 @@
 				3A3BA1AF11957C3D0021D14B /* button_32.png in Resources */,
 				3A3BA1B011957C3D0021D14B /* button_33.png in Resources */,
 				3A3BA1B111957C3D0021D14B /* button_background.png in Resources */,
-				3A3BA1D9119581240021D14B /* MainMenuController.xib in Resources */,
+				3A3BA1D9119581240021D14B /* D2MainMenuController.xib in Resources */,
 				3A3BA1E7119581970021D14B /* bar.png in Resources */,
 				3A3BA1E8119581970021D14B /* companies.png in Resources */,
 				3A3BA1E9119581970021D14B /* Default-Landscape.png in Resources */,
@@ -1193,7 +1193,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				3A3BA19411957B3C0021D14B /* D2AppDelegate.m in Sources */,
-				3A3BA1DD1195813A0021D14B /* MainMenuController.m in Sources */,
+				3A3BA1DD1195813A0021D14B /* D2MainMenuController.m in Sources */,
 				3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */,
 				3A58EDB011A290E100BC976C /* SoundEffect.m in Sources */,
 				3A58EDB411A2913000BC976C /* SoundManager.m in Sources */,
@@ -1281,78 +1281,6 @@
 			};
 			name = Release;
 		};
-		3A3BA23C1195843A0021D14B /* DistributionAdHoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = armv7;
-				"ARCHS[sdk=iphonesimulator*]" = i386;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = DistributionAdHoc;
-		};
-		3A3BA23D1195843A0021D14B /* DistributionAdHoc */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = Resources/Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = "digital2.0-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = digital2.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = DistributionAdHoc;
-		};
-		3AE39B9F11D8CEE2005C1FE1 /* DistributionAppStore */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				"ARCHS[sdk=iphoneos*]" = armv7;
-				"ARCHS[sdk=iphonesimulator*]" = i386;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 2;
-			};
-			name = DistributionAppStore;
-		};
-		3AE39BA011D8CEE2005C1FE1 /* DistributionAppStore */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = Resources/Entitlements.plist;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adrian Kosmaczewski";
-				COPY_PHASE_STRIP = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = digital2.0_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "CONFIGURATION_$(CONFIGURATION)";
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = "digital2.0-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PRODUCT_NAME = digital2.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0C5B9DC-5402-4075-B4B4-090CE017F3E0";
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = DistributionAppStore;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1390,8 +1318,6 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
-				3A3BA23D1195843A0021D14B /* DistributionAdHoc */,
-				3AE39BA011D8CEE2005C1FE1 /* DistributionAppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1401,8 +1327,6 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-				3A3BA23C1195843A0021D14B /* DistributionAdHoc */,
-				3AE39B9F11D8CEE2005C1FE1 /* DistributionAppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

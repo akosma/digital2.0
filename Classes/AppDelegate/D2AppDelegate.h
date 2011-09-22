@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@class MainMenuController;
+@class D2MainMenuController;
 
 @interface D2AppDelegate : NSObject <UIApplicationDelegate> 
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet MainMenuController *mainMenuController;
+@property (nonatomic, retain) IBOutlet D2MainMenuController *mainMenuController;
 @property (nonatomic) BOOL connectionAvailable;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 

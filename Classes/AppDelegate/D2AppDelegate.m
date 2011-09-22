@@ -7,7 +7,7 @@
 //
 
 #import "D2AppDelegate.h"
-#import "MainMenuController.h"
+#import "D2MainMenuController.h"
 #import "Reachability.h"
 
 
