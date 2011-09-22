@@ -7,7 +7,7 @@
 //
 
 #import "D2MainMenuController.h"
-#import "MainMenuView.h"
+#import "D2MainMenuView.h"
 #import "SoundManager.h"
 #import "FeatureView.h"
 #import "FluidFeatureView.h"
@@ -323,7 +323,7 @@
 
 #pragma mark - MainMenuViewDelegate methods
 
-- (void)mainMenu:(MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
+- (void)mainMenu:(D2MainMenuView *)menu didSelectButtonWithTag:(NSInteger)tag
 {
     self.featureReferenceView.backgroundColor = [UIColor whiteColor];
     if (self.lastTag == tag)

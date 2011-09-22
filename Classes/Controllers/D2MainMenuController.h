@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <MessageUI/MessageUI.h>
-#import "MainMenuViewDelegate.h"
+#import "D2MainMenuViewDelegate.h"
 
-@class MainMenuView;
+@class D2MainMenuView;
 
-@interface D2MainMenuController : UIViewController <MainMenuViewDelegate, 
+@interface D2MainMenuController : UIViewController <D2MainMenuViewDelegate, 
                                                     MFMailComposeViewControllerDelegate>
 
-@property (nonatomic, retain) IBOutlet MainMenuView *mainMenuView;
+@property (nonatomic, retain) IBOutlet D2MainMenuView *mainMenuView;
 @property (nonatomic, retain) IBOutlet UIButton *akosmaInfoButton;
 @property (nonatomic, retain) IBOutlet UIButton *moserInfoButton;
 @property (nonatomic, retain) IBOutlet UIButton *vpsInfoButton;

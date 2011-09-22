@@ -1,5 +1,5 @@
 //
-//  MainMenuView.h
+//  D2MainMenuView.h
 //  Digital 2.0
 //
 //  Created by Adrian on 5/10/10.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "D2ButtonViewDelegate.h"
-#import "MainMenuViewDelegate.h"
+#import "D2MainMenuViewDelegate.h"
 
 @class D2ButtonView;
 @class D2CompassButtonView;
@@ -17,32 +17,7 @@
 @class D2RotationButtonView;
 @class D2VideoButtonView;
 
-@interface MainMenuView : UIView <D2ButtonViewDelegate>
-{
-@private
-    D2RotationButtonView *_button11;
-    D2ButtonView *_button12;
-    D2ButtonView *_button13;
-    D2VideoButtonView *_button21;
-    D2ClockButtonView *_button22;
-    D2CubeButtonView *_button23;
-    D2CompassButtonView *_button31;
-    D2ButtonView *_button32;
-    D2ButtonView *_button33;
-    
-    D2ButtonView *_selectedButton;
-
-    NSArray *_buttons;
-    NSArray *_normalFrames;
-    UIInterfaceOrientation _orientation;
-    CGSize _originalSize;
-    
-    UIView *_dockView;
-    
-    BOOL _minimized;
-    
-    id<MainMenuViewDelegate> _delegate;
-}
+@interface D2MainMenuView : UIView <D2ButtonViewDelegate>
 
 @property (nonatomic, retain) IBOutlet D2RotationButtonView *button11;
 @property (nonatomic, retain) IBOutlet D2ButtonView *button12;
@@ -57,6 +32,6 @@
 @property (nonatomic) UIInterfaceOrientation orientation;
 @property (nonatomic, getter=isMinimized) BOOL minimized;
 @property (nonatomic, retain) IBOutlet UIView *dockView;
-@property (nonatomic, assign) IBOutlet id<MainMenuViewDelegate> delegate;
+@property (nonatomic, assign) IBOutlet id<D2MainMenuViewDelegate> delegate;
 
 @end

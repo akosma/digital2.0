@@ -184,7 +184,7 @@
 		3AD3946611A5304600654504 /* D2CubeButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945A11A5304600654504 /* D2CubeButtonView.m */; };
 		3AD3946711A5304600654504 /* D2RotationButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945C11A5304600654504 /* D2RotationButtonView.m */; };
 		3AD3946811A5304600654504 /* D2VideoButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3945E11A5304600654504 /* D2VideoButtonView.m */; };
-		3AD3946911A5304600654504 /* MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946111A5304600654504 /* MainMenuView.m */; };
+		3AD3946911A5304600654504 /* D2MainMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946111A5304600654504 /* D2MainMenuView.m */; };
 		3AD3946F11A5313900654504 /* FeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3946E11A5313900654504 /* FeatureView.m */; };
 		3AD3949311A537E100654504 /* agnes_london_53.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3AD3949211A537E100654504 /* agnes_london_53.jpg */; };
 		3AD3949611A5380900654504 /* FluidFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AD3949511A5380900654504 /* FluidFeatureView.m */; };
@@ -408,7 +408,7 @@
 		3AD17FED11CCCBFC00E888A5 /* MapFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapFeatureView.h; sourceTree = "<group>"; };
 		3AD17FEE11CCCBFC00E888A5 /* MapFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapFeatureView.m; sourceTree = "<group>"; };
 		3AD17FF311CCCC6F00E888A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		3AD3945211A5304600654504 /* D2ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2ButtonView.h; sourceTree = "<group>"; };
+		3AD3945211A5304600654504 /* D2ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ButtonView.h; sourceTree = "<group>"; };
 		3AD3945311A5304600654504 /* D2ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2ButtonView.m; sourceTree = "<group>"; };
 		3AD3945411A5304600654504 /* D2ButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ButtonViewDelegate.h; sourceTree = "<group>"; };
 		3AD3945511A5304600654504 /* D2ClockButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ClockButtonView.h; sourceTree = "<group>"; };
@@ -421,9 +421,9 @@
 		3AD3945C11A5304600654504 /* D2RotationButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2RotationButtonView.m; sourceTree = "<group>"; };
 		3AD3945D11A5304600654504 /* D2VideoButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2VideoButtonView.h; sourceTree = "<group>"; };
 		3AD3945E11A5304600654504 /* D2VideoButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2VideoButtonView.m; sourceTree = "<group>"; };
-		3AD3946011A5304600654504 /* MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuView.h; sourceTree = "<group>"; };
-		3AD3946111A5304600654504 /* MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuView.m; sourceTree = "<group>"; };
-		3AD3946211A5304600654504 /* MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewDelegate.h; sourceTree = "<group>"; };
+		3AD3946011A5304600654504 /* D2MainMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2MainMenuView.h; sourceTree = "<group>"; };
+		3AD3946111A5304600654504 /* D2MainMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2MainMenuView.m; sourceTree = "<group>"; };
+		3AD3946211A5304600654504 /* D2MainMenuViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2MainMenuViewDelegate.h; sourceTree = "<group>"; };
 		3AD3946D11A5313900654504 /* FeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeatureView.h; sourceTree = "<group>"; };
 		3AD3946E11A5313900654504 /* FeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeatureView.m; sourceTree = "<group>"; };
 		3AD3949211A537E100654504 /* agnes_london_53.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = agnes_london_53.jpg; sourceTree = "<group>"; };
@@ -954,9 +954,9 @@
 		3AD3945F11A5304600654504 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
-				3AD3946011A5304600654504 /* MainMenuView.h */,
-				3AD3946111A5304600654504 /* MainMenuView.m */,
-				3AD3946211A5304600654504 /* MainMenuViewDelegate.h */,
+				3AD3946011A5304600654504 /* D2MainMenuView.h */,
+				3AD3946111A5304600654504 /* D2MainMenuView.m */,
+				3AD3946211A5304600654504 /* D2MainMenuViewDelegate.h */,
 			);
 			path = MainMenu;
 			sourceTree = "<group>";
@@ -1203,7 +1203,7 @@
 				3AD3946611A5304600654504 /* D2CubeButtonView.m in Sources */,
 				3AD3946711A5304600654504 /* D2RotationButtonView.m in Sources */,
 				3AD3946811A5304600654504 /* D2VideoButtonView.m in Sources */,
-				3AD3946911A5304600654504 /* MainMenuView.m in Sources */,
+				3AD3946911A5304600654504 /* D2MainMenuView.m in Sources */,
 				3AD3946F11A5313900654504 /* FeatureView.m in Sources */,
 				3AD3949611A5380900654504 /* FluidFeatureView.m in Sources */,
 				3A9E7A2E11A5D5E100C32968 /* MovieFeatureView.m in Sources */,

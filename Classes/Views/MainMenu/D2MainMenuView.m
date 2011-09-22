@@ -1,12 +1,12 @@
 //
-//  MainMenuView.m
+//  D2MainMenuView.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/10/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "MainMenuView.h"
+#import "D2MainMenuView.h"
 #import "D2ButtonView.h"
 #import "D2CompassButtonView.h"
 #import "D2ClockButtonView.h"
@@ -15,7 +15,7 @@
 #import "D2VideoButtonView.h"
 #import "EAGLView.h"
 
-@interface MainMenuView ()
+@interface D2MainMenuView ()
 
 @property (nonatomic, retain) NSArray *buttons;
 @property (nonatomic, retain) NSArray *normalFrames;
@@ -27,7 +27,7 @@
 @end
 
 
-@implementation MainMenuView
+@implementation D2MainMenuView
 
 @synthesize buttons = _buttons;
 @synthesize normalFrames = _normalFrames;
@@ -44,31 +44,29 @@
 @synthesize dockView = _dockView;
 @synthesize selectedButton = _selectedButton;
 @synthesize delegate = _delegate;
-
-@dynamic minimized;
-@dynamic orientation;
+@synthesize minimized = _minimized;
+@synthesize orientation = _orientation;
 
 - (void)dealloc 
 {
-    self.delegate = nil;
-    self.selectedButton = nil;
-    self.normalFrames = nil;
-    self.buttons = nil;
-    self.button11 = nil;
-    self.button12 = nil;
-    self.button13 = nil;
-    self.button21 = nil;
-    self.button22 = nil;
-    self.button23 = nil;
-    self.button31 = nil;
-    self.button32 = nil;
-    self.button33 = nil;
-    self.dockView = nil;
+    [_delegate release];
+    [_selectedButton release];
+    [_normalFrames release];
+    [_buttons release];
+    [_button11 release];
+    [_button12 release];
+    [_button13 release];
+    [_button21 release];
+    [_button22 release];
+    [_button23 release];
+    [_button31 release];
+    [_button32 release];
+    [_button33 release];
+    [_dockView release];
     [super dealloc];
 }
 
-#pragma mark -
-#pragma mark UIView methods
+#pragma mark - UIView methods
 
 - (void)awakeFromNib
 {
@@ -97,8 +95,7 @@
     [self addGestureRecognizer:panRecognizer];
 }
 
-#pragma mark -
-#pragma mark Public methods
+#pragma mark - Public methods
 
 - (void)panRecognized:(UIPanGestureRecognizer *)recognizer
 {
@@ -145,8 +142,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark ButtonViewDelegate methods
+#pragma mark - ButtonViewDelegate methods
 
 - (void)didTouchButtonView:(D2ButtonView *)button
 {
@@ -157,8 +153,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark Properties
+#pragma mark - Properties
 
 - (UIInterfaceOrientation)orientation
 {
@@ -212,8 +207,7 @@
     [self highlightCurrentButtonInDock];
 }
 
-#pragma mark -
-#pragma mark Private methods
+#pragma mark - Private methods
 
 - (void)highlightCurrentButtonInDock
 {
