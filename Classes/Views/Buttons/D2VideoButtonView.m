@@ -50,9 +50,9 @@
 
 - (void)dealloc 
 {
-    self.staticImage = nil;
-    self.movieAnimation = nil;
-    self.images = nil;
+    [_staticImage release];
+    [_movieAnimation release];
+    [_images release];
     [super dealloc];
 }
 

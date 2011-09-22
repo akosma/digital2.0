@@ -23,11 +23,6 @@
 {
 }
 
-- (void)dealloc 
-{
-    [super dealloc];
-}
-
 #pragma mark - Properties
 
 - (UIInterfaceOrientation)orientation
