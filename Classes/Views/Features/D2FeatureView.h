@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-extern NSString * const FeatureViewShouldMinimizeNotification;
+extern NSString * const D2FeatureViewShouldMinimizeNotification;
 
 @interface D2FeatureView : UIView 
 

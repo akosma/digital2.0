@@ -122,7 +122,7 @@
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:FeatureViewShouldMinimizeNotification 
+    [[NSNotificationCenter defaultCenter] postNotificationName:D2FeatureViewShouldMinimizeNotification 
                                                         object:self];
 }
 

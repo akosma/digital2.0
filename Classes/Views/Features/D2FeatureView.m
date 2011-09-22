@@ -8,7 +8,7 @@
 
 #import "D2FeatureView.h"
 
-NSString * const FeatureViewShouldMinimizeNotification = @"FeatureViewShouldMinimizeNotification";
+NSString * const D2FeatureViewShouldMinimizeNotification = @"D2FeatureViewShouldMinimizeNotification";
 
 
 @implementation D2FeatureView

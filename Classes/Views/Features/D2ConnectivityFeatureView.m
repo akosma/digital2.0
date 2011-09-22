@@ -9,7 +9,7 @@
 #import "D2ConnectivityFeatureView.h"
 
 
-NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"ConnectivityFeatureViewOpenShareByEmailNotification";
+NSString * const D2ConnectivityFeatureViewOpenShareByEmailNotification = @"D2ConnectivityFeatureViewOpenShareByEmailNotification";
 
 
 @interface D2ConnectivityFeatureView ()
@@ -31,6 +31,7 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
 @synthesize webView = _webView;
 @synthesize descriptionLabel = _descriptionLabel;
 @synthesize titleLabel = _titleLabel;
+@synthesize spinningWheel = _spinningWheel;
 
 - (id)initWithFrame:(CGRect)frame 
 {
@@ -133,6 +134,31 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
     self.mailImageView.frame = mailImageViewFrame;
     self.webView.frame = webViewFrame;
     self.descriptionLabel.frame = descriptionLabelFrame;
+    
+    self.spinningWheel.center = self.webView.center;
+}
+
+#pragma mark - UIWebViewDelegate methods
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    if (navigationType == UIWebViewNavigationTypeLinkClicked)
+    {
+        NSURL *url = [request URL];
+        [[UIApplication sharedApplication] openURL:url];
+        return NO;
+    }
+    return YES;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [self.spinningWheel startAnimating];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [self.spinningWheel stopAnimating];
 }
 
 #pragma mark - Private methods
@@ -146,7 +172,7 @@ NSString * const ConnectivityFeatureViewOpenShareByEmailNotification = @"Connect
 
 - (void)shareViaEmail
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:ConnectivityFeatureViewOpenShareByEmailNotification 
+    [[NSNotificationCenter defaultCenter] postNotificationName:D2ConnectivityFeatureViewOpenShareByEmailNotification 
                                                         object:self];
 }
 

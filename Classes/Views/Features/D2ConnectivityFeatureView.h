@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "D2FeatureView.h"
 
-extern NSString * const ConnectivityFeatureViewOpenShareByEmailNotification;
+extern NSString * const D2ConnectivityFeatureViewOpenShareByEmailNotification;
 
-@interface D2ConnectivityFeatureView : D2FeatureView
+@interface D2ConnectivityFeatureView : D2FeatureView <UIWebViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UIView *mainView;
 @property (nonatomic, retain) IBOutlet UIImageView *twitterImageView;
@@ -21,5 +21,6 @@ extern NSString * const ConnectivityFeatureViewOpenShareByEmailNotification;
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
 @property (nonatomic, retain) IBOutlet UILabel *descriptionLabel;
 @property (nonatomic, retain) IBOutlet UILabel *titleLabel;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *spinningWheel;
 
 @end

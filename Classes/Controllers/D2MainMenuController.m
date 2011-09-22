@@ -95,12 +95,12 @@
     
     [center addObserver:self 
                selector:@selector(shareViaEmail) 
-                   name:ConnectivityFeatureViewOpenShareByEmailNotification 
+                   name:D2ConnectivityFeatureViewOpenShareByEmailNotification 
                  object:nil];
     
     [center addObserver:self 
                selector:@selector(restoreMenu)
-                   name:FeatureViewShouldMinimizeNotification 
+                   name:D2FeatureViewShouldMinimizeNotification 
                  object:nil];
     
 #ifndef CONFIGURATION_Debug
