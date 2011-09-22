@@ -249,7 +249,7 @@
 		3A43D9461195A81E005C9F65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3A43D94A1195A82D005C9F65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A49384C119A068E0091ABDB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		3A5665CA11CFB980008D1943 /* D2AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2AboutController.h; sourceTree = "<group>"; };
+		3A5665CA11CFB980008D1943 /* D2AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2AboutController.h; sourceTree = "<group>"; };
 		3A5665CB11CFB980008D1943 /* D2AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2AboutController.m; sourceTree = "<group>"; };
 		3A5665E011CFBA75008D1943 /* D2AboutController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = D2AboutController.xib; sourceTree = "<group>"; };
 		3A5665E711CFBB8B008D1943 /* logo_moser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_moser.png; sourceTree = "<group>"; };
@@ -410,7 +410,6 @@
 		3AD17FF311CCCC6F00E888A5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3AD3945211A5304600654504 /* D2ButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ButtonView.h; sourceTree = "<group>"; };
 		3AD3945311A5304600654504 /* D2ButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2ButtonView.m; sourceTree = "<group>"; };
-		3AD3945411A5304600654504 /* D2ButtonViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ButtonViewDelegate.h; sourceTree = "<group>"; };
 		3AD3945511A5304600654504 /* D2ClockButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2ClockButtonView.h; sourceTree = "<group>"; };
 		3AD3945611A5304600654504 /* D2ClockButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2ClockButtonView.m; sourceTree = "<group>"; };
 		3AD3945711A5304600654504 /* D2CompassButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2CompassButtonView.h; sourceTree = "<group>"; };
@@ -936,7 +935,6 @@
 			children = (
 				3AD3945211A5304600654504 /* D2ButtonView.h */,
 				3AD3945311A5304600654504 /* D2ButtonView.m */,
-				3AD3945411A5304600654504 /* D2ButtonViewDelegate.h */,
 				3AD3945511A5304600654504 /* D2ClockButtonView.h */,
 				3AD3945611A5304600654504 /* D2ClockButtonView.m */,
 				3AD3945711A5304600654504 /* D2CompassButtonView.h */,

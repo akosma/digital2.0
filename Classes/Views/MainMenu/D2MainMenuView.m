@@ -49,7 +49,7 @@
 
 - (void)dealloc 
 {
-    [_delegate release];
+    _delegate = nil;
     [_selectedButton release];
     [_normalFrames release];
     [_buttons release];
@@ -97,6 +97,15 @@
 
 #pragma mark - Public methods
 
+- (IBAction)buttonViewTouched:(id)sender
+{
+    self.selectedButton = sender;
+    if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
+    {
+        [self.delegate mainMenu:self didSelectButtonWithTag:self.selectedButton.tag];
+    }
+}
+
 - (void)panRecognized:(UIPanGestureRecognizer *)recognizer
 {
     if (self.isMinimized)
@@ -139,17 +148,6 @@
             default:
                 break;
         }
-    }
-}
-
-#pragma mark - ButtonViewDelegate methods
-
-- (void)didTouchButtonView:(D2ButtonView *)button
-{
-    self.selectedButton = button;
-    if ([self.delegate respondsToSelector:@selector(mainMenu:didSelectButtonWithTag:)])
-    {
-        [self.delegate mainMenu:self didSelectButtonWithTag:button.tag];
     }
 }
 

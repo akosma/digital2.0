@@ -14,7 +14,6 @@
 @property (nonatomic, retain) CADisplayLink *displayLink;
 
 - (void)setup;
-- (void)buttonTouched:(UITapGestureRecognizer *)recognizer;
 
 @end
 
@@ -24,7 +23,6 @@
 @synthesize displayLink = _displayLink;
 @synthesize backgroundImageView = _backgroundImageView;
 @synthesize foregroundImageView = _foregroundImageView;
-@synthesize delegate = _delegate;
 @synthesize nextSecondAnimation = _nextSecondAnimation;
 @synthesize imageName = _imageName;
 
@@ -56,10 +54,6 @@
     self.foregroundImageView = [[[UIImageView alloc] initWithFrame:rect] autorelease];
     self.backgroundColor = [UIColor clearColor];
     
-    UITapGestureRecognizer *recognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self 
-                                                                                  action:@selector(buttonTouched:)] autorelease];
-    [self addGestureRecognizer:recognizer];
-
     [self addSubview:self.backgroundImageView];
     [self addSubview:self.foregroundImageView];
     [self subclassSetup];
@@ -71,7 +65,6 @@
     [_backgroundImageView release];
     [_foregroundImageView release];
     [_imageName release];
-    [_delegate release];
     [super dealloc];
 }
 
@@ -112,17 +105,6 @@
         _imageName = [newImageName copy];
         
         self.foregroundImageView.image = [UIImage imageNamed:self.imageName];
-    }
-}
-
-#pragma mark - Gesture recognizer handler
-
-- (void)buttonTouched:(UITapGestureRecognizer *)recognizer
-{
-    if (recognizer.state == UIGestureRecognizerStateEnded && 
-        [self.delegate respondsToSelector:@selector(didTouchButtonView:)])
-    {
-        [self.delegate didTouchButtonView:self];
     }
 }
 

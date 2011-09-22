@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "D2ButtonViewDelegate.h"
 
-@interface D2ButtonView : UIView 
+@interface D2ButtonView : UIControl 
 
 @property (nonatomic, copy) NSString *imageName;
-@property (nonatomic, assign) IBOutlet id<D2ButtonViewDelegate> delegate;
 @property (nonatomic, retain) UIImageView *foregroundImageView;
 @property (nonatomic) NSInteger nextSecondAnimation;
 

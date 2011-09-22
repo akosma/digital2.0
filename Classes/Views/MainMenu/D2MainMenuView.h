@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "D2ButtonViewDelegate.h"
 #import "D2MainMenuViewDelegate.h"
 
 @class D2ButtonView;
@@ -17,7 +16,7 @@
 @class D2RotationButtonView;
 @class D2VideoButtonView;
 
-@interface D2MainMenuView : UIView <D2ButtonViewDelegate>
+@interface D2MainMenuView : UIView
 
 @property (nonatomic, retain) IBOutlet D2RotationButtonView *button11;
 @property (nonatomic, retain) IBOutlet D2ButtonView *button12;
@@ -33,5 +32,7 @@
 @property (nonatomic, getter=isMinimized) BOOL minimized;
 @property (nonatomic, retain) IBOutlet UIView *dockView;
 @property (nonatomic, assign) IBOutlet id<D2MainMenuViewDelegate> delegate;
+
+- (IBAction)buttonViewTouched:(id)sender;
 
 @end
