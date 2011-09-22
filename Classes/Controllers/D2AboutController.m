@@ -1,16 +1,17 @@
 //
-//  AboutController.m
+//  D2AboutController.m
 //  Digital 2.0
 //
 //  Created by Adrian on 6/21/10.
 //  Copyright 2010 akosma software. All rights reserved.
 //
 
-#import "AboutController.h"
+#import "D2AboutController.h"
 
-#define NUM_PHOTOS 8
+static NSInteger NUM_PHOTOS = 8;
 
-@interface AboutController ()
+
+@interface D2AboutController ()
 
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic) NSInteger moserImageIndex;
@@ -20,9 +21,9 @@
 
 
 
-@implementation AboutController
+@implementation D2AboutController
 
-@dynamic item;
+@synthesize item = _item;
 @synthesize moserView = _moserView;
 @synthesize vpsView = _vpsView;
 @synthesize akosmaView = _akosmaView;
@@ -32,25 +33,25 @@
 @synthesize moserImageIndex = _moserImageIndex;
 @synthesize moviePlayer = _moviePlayer;
 
-+ (AboutController *)controller
++ (D2AboutController *)controller
 {
     return [[[[self class] alloc] init] autorelease];
 }
 
 - (void)dealloc 
 {
-    self.moserView = nil;
-    self.vpsView = nil;
-    self.akosmaView = nil;
-    self.vpsVideoView = nil;
-    self.moserSampleView = nil;
-    [self.timer invalidate];
-    self.timer = nil;
-    if (self.moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
+    [_moserView release];
+    [_vpsView release];
+    [_akosmaView release];
+    [_vpsVideoView release];
+    [_moserSampleView release];
+    [_timer invalidate];
+    [_timer release];
+    if (_moviePlayer.playbackState == MPMoviePlaybackStatePlaying)
     {
-        [self.moviePlayer stop];
+        [_moviePlayer stop];
     }
-    self.moviePlayer = nil;
+    [_moviePlayer release];
     [super dealloc];
 }
 
@@ -60,7 +61,7 @@
     [self.view addSubview:self.moserView];
     [self.view addSubview:self.akosmaView];
     [self.view addSubview:self.vpsView];
-    self.item = AboutControllerItemNone;
+    self.item = D2AboutControllerItemNone;
     
     self.moserSampleView.contentSize = CGSizeMake(205.0 * NUM_PHOTOS, 120.0);
     self.moserSampleView.pagingEnabled = YES;
@@ -86,7 +87,7 @@
     
     switch (self.item) 
     {
-        case AboutControllerItemVPS:
+        case D2AboutControllerItemVPS:
         {
             [[NSNotificationCenter defaultCenter] removeObserver:self];
             self.moviePlayer.currentPlaybackTime = self.moviePlayer.duration;
@@ -95,12 +96,12 @@
             break;
         }
             
-        case AboutControllerItemAkosma:
+        case D2AboutControllerItemAkosma:
         {
             break;
         }
             
-        case AboutControllerItemMoser:
+        case D2AboutControllerItemMoser:
         {
             [self.timer invalidate];
             self.timer = nil;
@@ -112,8 +113,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark NSTimer methods
+#pragma mark - NSTimer methods
 
 - (void)changeImage:(NSTimer *)theTimer
 {
@@ -122,34 +122,32 @@
     [self.moserSampleView scrollRectToVisible:rect animated:YES];
 }
 
-#pragma mark -
-#pragma mark UIScrollViewDelegate methods
+#pragma mark - UIScrollViewDelegate methods
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-    if (self.item == AboutControllerItemMoser)
+    if (self.item == D2AboutControllerItemMoser)
     {
         [self.timer invalidate];
         self.timer = nil;
     }
 }
 
-#pragma mark -
-#pragma mark IBAction methods
+#pragma mark - IBAction methods
 
 - (IBAction)openWebsite:(id)sender
 {
     switch (self.item) 
     {
-        case AboutControllerItemVPS:
+        case D2AboutControllerItemVPS:
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.vpsprod.com/"]];
             break;
 
-        case AboutControllerItemAkosma:
+        case D2AboutControllerItemAkosma:
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://akosma.com/"]];
             break;
             
-        case AboutControllerItemMoser:
+        case D2AboutControllerItemMoser:
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.moserdesign.ch/"]];
             break;
 
@@ -158,23 +156,22 @@
     }
 }
 
-#pragma mark -
-#pragma mark Dynamic property
+#pragma mark - Overridden property
 
-- (AboutControllerItem)item
+- (D2AboutControllerItem)item
 {
     return _item;
 }
 
-- (void)setItem:(AboutControllerItem)newItem
+- (void)setItem:(D2AboutControllerItem)newItem
 {
     if (self.item != newItem)
     {
         _item = newItem;
         
-        switch (self.item) 
+        switch (_item) 
         {
-            case AboutControllerItemVPS:
+            case D2AboutControllerItemVPS:
             {
                 [self.view bringSubviewToFront:self.vpsView];
                 [self.timer invalidate];
@@ -200,7 +197,7 @@
                 break;
             }
                 
-            case AboutControllerItemAkosma:
+            case D2AboutControllerItemAkosma:
             {
                 [self.view bringSubviewToFront:self.akosmaView];
                 [self.moviePlayer stop];
@@ -209,7 +206,7 @@
                 break;
             }
                 
-            case AboutControllerItemMoser:
+            case D2AboutControllerItemMoser:
             {
                 [self.view bringSubviewToFront:self.moserView];
                 [self.moviePlayer stop];
@@ -230,8 +227,7 @@
     }
 }
 
-#pragma mark -
-#pragma mark NSNotification handlers
+#pragma mark - NSNotification handlers
 
 - (void)moviePlaybackFinished:(NSNotification *)notification
 {

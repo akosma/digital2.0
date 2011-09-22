@@ -18,7 +18,7 @@
 #import "FontFeatureView.h"
 #import "ShopFeatureView.h"
 #import "D2AppDelegate.h"
-#import "AboutController.h"
+#import "D2AboutController.h"
 #import "SimulationFeatureView.h"
 #import "ConnectivityFeatureView.h"
 #import "MPMoviePlayerController+Extensions.h"
@@ -34,7 +34,7 @@
 @property (nonatomic) BOOL externalScreenAvailable;
 @property (nonatomic, retain) IBOutlet UIWindow *externalWindow;
 @property (nonatomic, assign) UIScreen *externalScreen;
-@property (nonatomic, retain) AboutController *aboutController;
+@property (nonatomic, retain) D2AboutController *aboutController;
 
 - (void)restoreMenu;
 - (void)shareViaEmail;
@@ -286,7 +286,7 @@
 {
     if (self.aboutController == nil)
     {
-        self.aboutController = [AboutController controller];
+        self.aboutController = [D2AboutController controller];
     }
 
     if (self.popover == nil)
@@ -299,15 +299,15 @@
 
     if (sender == self.akosmaInfoButton)
     {
-        self.aboutController.item = AboutControllerItemAkosma;
+        self.aboutController.item = D2AboutControllerItemAkosma;
     }
     else if (sender == self.moserInfoButton)
     {
-        self.aboutController.item = AboutControllerItemMoser;
+        self.aboutController.item = D2AboutControllerItemMoser;
     }
     else if (sender == self.vpsInfoButton)
     {
-        self.aboutController.item = AboutControllerItemVPS;
+        self.aboutController.item = D2AboutControllerItemVPS;
     }
     
     [self.popover presentPopoverFromRect:[sender frame] 

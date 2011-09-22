@@ -56,8 +56,8 @@
 		3A43D9471195A81E005C9F65 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D9461195A81E005C9F65 /* OpenGLES.framework */; };
 		3A43D94B1195A82D005C9F65 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A43D94A1195A82D005C9F65 /* QuartzCore.framework */; };
 		3A49384D119A068E0091ABDB /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A49384C119A068E0091ABDB /* MediaPlayer.framework */; };
-		3A5665CD11CFB980008D1943 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5665CB11CFB980008D1943 /* AboutController.m */; };
-		3A5665E211CFBA75008D1943 /* AboutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5665E011CFBA75008D1943 /* AboutController.xib */; };
+		3A5665CD11CFB980008D1943 /* D2AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5665CB11CFB980008D1943 /* D2AboutController.m */; };
+		3A5665E211CFBA75008D1943 /* D2AboutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5665E011CFBA75008D1943 /* D2AboutController.xib */; };
 		3A5665E811CFBB8B008D1943 /* logo_moser.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5665E711CFBB8B008D1943 /* logo_moser.png */; };
 		3A56664811CFC8EE008D1943 /* photo_akosma.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56664711CFC8EE008D1943 /* photo_akosma.jpg */; };
 		3A56665A11CFCB2C008D1943 /* photo_moser_001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A56665211CFCB2C008D1943 /* photo_moser_001.jpg */; };
@@ -249,9 +249,9 @@
 		3A43D9461195A81E005C9F65 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		3A43D94A1195A82D005C9F65 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3A49384C119A068E0091ABDB /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		3A5665CA11CFB980008D1943 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
-		3A5665CB11CFB980008D1943 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
-		3A5665E011CFBA75008D1943 /* AboutController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutController.xib; sourceTree = "<group>"; };
+		3A5665CA11CFB980008D1943 /* D2AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = D2AboutController.h; sourceTree = "<group>"; };
+		3A5665CB11CFB980008D1943 /* D2AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2AboutController.m; sourceTree = "<group>"; };
+		3A5665E011CFBA75008D1943 /* D2AboutController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = D2AboutController.xib; sourceTree = "<group>"; };
 		3A5665E711CFBB8B008D1943 /* logo_moser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_moser.png; sourceTree = "<group>"; };
 		3A56664711CFC8EE008D1943 /* photo_akosma.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_akosma.jpg; sourceTree = "<group>"; };
 		3A56665211CFCB2C008D1943 /* photo_moser_001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo_moser_001.jpg; sourceTree = "<group>"; };
@@ -538,8 +538,8 @@
 			children = (
 				3A3BA1DB1195813A0021D14B /* D2MainMenuController.h */,
 				3A3BA1DC1195813A0021D14B /* D2MainMenuController.m */,
-				3A5665CA11CFB980008D1943 /* AboutController.h */,
-				3A5665CB11CFB980008D1943 /* AboutController.m */,
+				3A5665CA11CFB980008D1943 /* D2AboutController.h */,
+				3A5665CB11CFB980008D1943 /* D2AboutController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -595,7 +595,7 @@
 		3A3BA19711957B470021D14B /* NIBs */ = {
 			isa = PBXGroup;
 			children = (
-				3A5665E011CFBA75008D1943 /* AboutController.xib */,
+				3A5665E011CFBA75008D1943 /* D2AboutController.xib */,
 				3AC0CDAA11CCFB10006C8C12 /* FontFeatureView.xib */,
 				3A3BA1D8119581240021D14B /* D2MainMenuController.xib */,
 				3A3BA19811957B580021D14B /* MainWindow.xib */,
@@ -1157,7 +1157,7 @@
 				3A725F6811CF90DA008E461A /* mini HD_1800.mp4 in Resources */,
 				3A725F6911CF90DA008E461A /* mini key_1800.mp4 in Resources */,
 				3A725F6A11CF90DA008E461A /* minisquare_1800.mp4 in Resources */,
-				3A5665E211CFBA75008D1943 /* AboutController.xib in Resources */,
+				3A5665E211CFBA75008D1943 /* D2AboutController.xib in Resources */,
 				3A5665E811CFBB8B008D1943 /* logo_moser.png in Resources */,
 				3A56664811CFC8EE008D1943 /* photo_akosma.jpg in Resources */,
 				3A56665A11CFCB2C008D1943 /* photo_moser_001.jpg in Resources */,
@@ -1234,7 +1234,7 @@
 				3ABD1DB711CE7DE700336F42 /* SBJsonParser.m in Sources */,
 				3ABD1DB811CE7DE700336F42 /* SBJsonWriter.m in Sources */,
 				3ABD1DBD11CE7DFF00336F42 /* StockInfoManager.m in Sources */,
-				3A5665CD11CFB980008D1943 /* AboutController.m in Sources */,
+				3A5665CD11CFB980008D1943 /* D2AboutController.m in Sources */,
 				3A5667D011CFF0FA008D1943 /* SimulationFeatureView.m in Sources */,
 				3A56684311CFF866008D1943 /* ConnectivityFeatureView.m in Sources */,
 				3A0CED8A1209724400A1154C /* MPMoviePlayerController+Extensions.m in Sources */,
