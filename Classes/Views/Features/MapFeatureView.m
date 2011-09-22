@@ -8,7 +8,7 @@
 
 #import "MapFeatureView.h"
 #import "BoxView.h"
-#import "DemoAppDelegate.h"
+#import "D2AppDelegate.h"
 
 @interface MapFeatureView ()
 
@@ -37,7 +37,7 @@
         self.mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:self.mapView];
 
-        CLLocationCoordinate2D coordinate = [DemoAppDelegate sharedAppDelegate].locationManager.location.coordinate;
+        CLLocationCoordinate2D coordinate = [D2AppDelegate sharedAppDelegate].locationManager.location.coordinate;
         CLLocationCoordinate2D center = {coordinate.latitude -= 0.0001, coordinate.longitude += 0.0001};
         MKCoordinateSpan span = MKCoordinateSpanMake(0.00105, 0.00105);
         MKCoordinateRegion region = MKCoordinateRegionMake(center, span);

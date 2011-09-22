@@ -32,16 +32,12 @@ CGFloat degreesToRadians(double radians)
     self.compassNeedleImageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"button_31_needle.png"]] autorelease];
     [self addSubview:self.compassNeedleImageView];
 
-    self.locationManager = [[[CLLocationManager alloc] init] autorelease];
-    if (self.locationManager.headingAvailable)
+    if ([CLLocationManager headingAvailable])
     {
+        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
         self.locationManager.delegate = self;
         self.locationManager.headingFilter = kCLHeadingFilterNone;
         [self.locationManager startUpdatingHeading];
-    }
-    else 
-    {
-        self.locationManager = nil;
     }
 }
 

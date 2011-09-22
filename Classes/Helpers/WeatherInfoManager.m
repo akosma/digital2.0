@@ -11,7 +11,7 @@
 #import "TBXML.h"
 #import "WeatherInfoItem.h"
 #import "ASIHTTPRequest.h"
-#import "DemoAppDelegate.h"
+#import "D2AppDelegate.h"
 
 #define WEATHER_TAG_NAME @"weather"
 #define BASE_URL @"http://www.worldweatheronline.com/feed/weather.ashx?lat=%1.4f&lon=%1.4f&num_of_days=5&key=%@"
@@ -62,7 +62,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(WeatherInfoManager)
 {
     if (self.weatherItems == nil)
     {
-        CLLocationManager *manager = [DemoAppDelegate sharedAppDelegate].locationManager;
+        CLLocationManager *manager = [D2AppDelegate sharedAppDelegate].locationManager;
         CLLocation *location = manager.location;
         CLLocationDegrees latitude = location.coordinate.latitude;
         CLLocationDegrees longitude = location.coordinate.longitude;

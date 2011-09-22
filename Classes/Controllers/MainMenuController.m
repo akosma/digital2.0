@@ -17,7 +17,7 @@
 #import "MapFeatureView.h"
 #import "FontFeatureView.h"
 #import "ShopFeatureView.h"
-#import "DemoAppDelegate.h"
+#import "D2AppDelegate.h"
 #import "AboutController.h"
 #import "SimulationFeatureView.h"
 #import "ConnectivityFeatureView.h"
@@ -443,7 +443,7 @@
             [self.viewCache setObject:nextFeatureView forKey:key];
         }
 
-        if (nextFeatureView.requiresNetwork && ![DemoAppDelegate sharedAppDelegate].connectionAvailable)
+        if (nextFeatureView.requiresNetwork && ![D2AppDelegate sharedAppDelegate].connectionAvailable)
         {
             NSString *message = NSLocalizedString(@"MAIN_MENU_CONTROLLER_REQUIRES_NETWORK", @"Message shown for features requiring a network connection");
             UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:nil
@@ -497,8 +497,8 @@
     self.moviePlayer.view.alpha = 0.0;
     [UIView commitAnimations];
     
-    [[DemoAppDelegate sharedAppDelegate].locationManager startUpdatingLocation];
-    [[DemoAppDelegate sharedAppDelegate].locationManager startUpdatingHeading];
+    [[D2AppDelegate sharedAppDelegate].locationManager startUpdatingLocation];
+    [[D2AppDelegate sharedAppDelegate].locationManager startUpdatingHeading];
 }
 
 - (void)externalScreenAvailabilityChanged:(NSNotification *)notification

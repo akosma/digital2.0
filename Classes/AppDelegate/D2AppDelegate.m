@@ -1,15 +1,25 @@
 //
-//  DemoAppDelegate.m
+//  D2AppDelegate.m
 //  Digital 2.0
 //
 //  Created by Adrian on 5/8/10.
 //  Copyright akosma software 2010. All rights reserved.
 //
 
-#import "DemoAppDelegate.h"
+#import "D2AppDelegate.h"
 #import "MainMenuController.h"
+#import "Reachability.h"
 
-@implementation DemoAppDelegate
+
+@interface D2AppDelegate ()
+
+@property (nonatomic, retain) Reachability *reachability;
+@property (nonatomic) NetworkStatus networkStatus;
+
+@end
+
+
+@implementation D2AppDelegate
 
 @synthesize window = _window;
 @synthesize mainMenuController = _mainMenuController;
@@ -18,10 +28,21 @@
 @synthesize connectionAvailable = _connectionAvailable;
 @synthesize networkStatus = _networkStatus;
 
-+ (DemoAppDelegate *)sharedAppDelegate
++ (D2AppDelegate *)sharedAppDelegate
 {
-    return (DemoAppDelegate *)[UIApplication sharedApplication].delegate;
+    return (D2AppDelegate *)[UIApplication sharedApplication].delegate;
 }
+
+- (void)dealloc
+{
+    [_window release];
+    [_mainMenuController release];
+    [_locationManager release];
+    [_reachability release];
+    [super dealloc];
+}
+
+#pragma mark - UIApplicationDelegate methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
@@ -33,17 +54,13 @@
                                                object:self.reachability];
     [self.reachability startNotifer];
     
-    self.locationManager = [[[CLLocationManager alloc] init] autorelease];
-    if (self.locationManager.locationServicesEnabled)
+    if ([CLLocationManager locationServicesEnabled])
     {
+        self.locationManager = [[[CLLocationManager alloc] init] autorelease];
         self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
         self.locationManager.distanceFilter = 500.0;
     }
-    else 
-    {
-        self.locationManager = nil;
-    }
-    
+
     [self.window addSubview:self.mainMenuController.view];
     [self.window makeKeyAndVisible];
     return YES;
@@ -56,16 +73,7 @@
     [self.locationManager stopUpdatingLocation];
 }
 
-- (void)dealloc 
-{
-    self.locationManager = nil;
-    self.mainMenuController = nil;
-    self.window = nil;
-    [super dealloc];
-}
-
-#pragma mark -
-#pragma mark NSNotification methods
+#pragma mark - NSNotification methods
 
 - (void)reachabilityChanged:(NSNotification *)notification
 {

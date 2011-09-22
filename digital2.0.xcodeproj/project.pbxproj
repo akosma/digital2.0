@@ -19,7 +19,7 @@
 		3A0FCFEF11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 3A0FCFEE11D88E32003A7C4F /* PRES_VPS_640x360_1000Kbs - iPhone.m4v */; };
 		3A25C9F811BBFB6C00F08691 /* MakingOfFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */; };
 		3A3AF67311BC629B00BD6421 /* ShopFeatureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */; };
-		3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */; };
+		3A3BA19411957B3C0021D14B /* D2AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3BA19111957B3C0021D14B /* D2AppDelegate.m */; };
 		3A3BA19911957B580021D14B /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19811957B580021D14B /* MainWindow.xib */; };
 		3A3BA1A811957C3D0021D14B /* button_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19E11957C3D0021D14B /* button_11.png */; };
 		3A3BA1A911957C3D0021D14B /* button_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A3BA19F11957C3D0021D14B /* button_12.png */; };
@@ -210,8 +210,8 @@
 		3A25C9F711BBFB6C00F08691 /* MakingOfFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakingOfFeatureView.m; sourceTree = "<group>"; };
 		3A3AF67111BC629B00BD6421 /* ShopFeatureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopFeatureView.h; sourceTree = "<group>"; };
 		3A3AF67211BC629B00BD6421 /* ShopFeatureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopFeatureView.m; sourceTree = "<group>"; };
-		3A3BA19011957B3C0021D14B /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoAppDelegate.h; sourceTree = "<group>"; };
-		3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoAppDelegate.m; sourceTree = "<group>"; };
+		3A3BA19011957B3C0021D14B /* D2AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = D2AppDelegate.h; sourceTree = "<group>"; };
+		3A3BA19111957B3C0021D14B /* D2AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = D2AppDelegate.m; sourceTree = "<group>"; };
 		3A3BA19811957B580021D14B /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		3A3BA19E11957C3D0021D14B /* button_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_11.png; sourceTree = "<group>"; };
 		3A3BA19F11957C3D0021D14B /* button_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_12.png; sourceTree = "<group>"; };
@@ -527,8 +527,8 @@
 		3A3BA18F11957B3C0021D14B /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				3A3BA19011957B3C0021D14B /* DemoAppDelegate.h */,
-				3A3BA19111957B3C0021D14B /* DemoAppDelegate.m */,
+				3A3BA19011957B3C0021D14B /* D2AppDelegate.h */,
+				3A3BA19111957B3C0021D14B /* D2AppDelegate.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -1192,7 +1192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
-				3A3BA19411957B3C0021D14B /* DemoAppDelegate.m in Sources */,
+				3A3BA19411957B3C0021D14B /* D2AppDelegate.m in Sources */,
 				3A3BA1DD1195813A0021D14B /* MainMenuController.m in Sources */,
 				3AA6C9DF119630AD00026526 /* EAGLView.m in Sources */,
 				3A58EDB011A290E100BC976C /* SoundEffect.m in Sources */,
@@ -1259,6 +1259,7 @@
 				INFOPLIST_FILE = "digital2.0-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = digital2.0;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -1275,6 +1276,7 @@
 				INFOPLIST_FILE = "digital2.0-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = digital2.0;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1310,6 +1312,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = digital2.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = DistributionAdHoc;
@@ -1345,6 +1348,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = digital2.0;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F0C5B9DC-5402-4075-B4B4-090CE017F3E0";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = DistributionAppStore;
